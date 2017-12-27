@@ -56,21 +56,25 @@ export class NewsListComponent implements OnInit {
  }
 
  updateNew(){
-   this.news.imageURL = (<HTMLInputElement>document.getElementById('url')).value;
-   this.news.createdAt = (<HTMLInputElement>document.getElementById('date')).value;
+
+
+
+   this.news.imageURL = this.item.imageURL;
+   this.news.createdAt = this.item.createdAt;
    this.news.uploadFor = (<HTMLInputElement>document.getElementById('name')).value;
    this.news.creatorPhotoURL = (<HTMLInputElement>document.getElementById('photoURL')).value;
-
+   //si sube una nueva foto
+   let newPhoto = (<HTMLInputElement>document.getElementById('url'));
 
    let currentNew = new News();
    currentNew.key = this.item.key;
-   currentNew.imageURL = this.news.imageURL;
    currentNew.textBody = this.news.textBody;
    currentNew.title = this.news.title;
    currentNew.createdAt = this.news.createdAt;
    currentNew.uploadFor = this.news.uploadFor;
-   currentNew.creatorPhotoURL = this.news.creatorPhotoURL;
-
+   let photoURL = ( newPhoto != null) ? newPhoto.value : this.news.imageURL;
+    currentNew.imageURL = photoURL;
+   currentNew.creatorPhotoURL = this.item.creatorPhotoURL;
    this.newSvc.updateNews(currentNew);
  }
 }
