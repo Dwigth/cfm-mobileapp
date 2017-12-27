@@ -24,9 +24,15 @@
   <textarea rows='5' data-min-rows='3' placeholder='Cuerpo de aviso' required [(ngModel)]="announcement.body" name = "body"></textarea>
 </ion-item>
 
+<ion-item>
+    <ion-label>Aviso Destacado</ion-label>
+    <ion-toggle name="destacado" [(ngModel)]="destacado"></ion-toggle>
+  </ion-item>
+
 <ion-item >
   <button type="submit" ion-button color="danger" (click)="CreateAnnouncement()" block>Registrar</button>
 </ion-item>
+
 </form>
 
 <ng-template #edit>
