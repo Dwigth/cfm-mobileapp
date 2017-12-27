@@ -1,0 +1,8 @@
+{
+  "name": "CFM-MobileApp",
+  "app_id": "39789e77",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

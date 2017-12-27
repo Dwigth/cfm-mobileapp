@@ -1,0 +1,12 @@
+<h3>File Uploads</h3>
+
+<div *ngFor="let upload of uploads | async">
+  <strong>{{upload.name}}</strong>
+<button (click)='deleteUpload()' class="button is-danger is-small">Delete</button><br>
+</div>
+
+<loading-spinner *ngIf="showSpinner"></loading-spinner>
+
+<hr>
+
+<upload-form></upload-form>

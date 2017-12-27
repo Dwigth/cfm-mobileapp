@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Prospectos
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancelar</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item>
+<button type="button" large block ion-button > Crear prospecto </button>
+</ion-item>
+
+<ion-searchbar (ionInput)="getItems($event)" ></ion-searchbar>
+<ion-list>
+<ion-item-group >
+<ion-item-divider style="text-align:center;" color="light">Prospectos</ion-item-divider>
+<ion-item-sliding *ngFor="let item of prospects"  >
+  <ion-item >
+      <p>{{item}}</p>
+  </ion-item>
+
+<ion-item-options  side="right">
+    <button ion-button color="secondary">
+      <ion-icon name="open"></ion-icon>
+      Editar
+    </button>
+    <button ion-button  color="danger">
+      <ion-icon name="trash"></ion-icon>
+      Eliminar
+    </button>
+  </ion-item-options>
+
+</ion-item-sliding>
+</ion-item-group>
+</ion-list>
+<!--
+<form *ngIf="isEditing == false; else edit">
+<ion-item>
+  <ion-label floating>Título</ion-label>
+  <ion-input type="text" required [(ngModel)]="announcement.title" name="title" #titu></ion-input>
+</ion-item>
+
+<ion-item>
+  <textarea rows='5' data-min-rows='3' placeholder='Cuerpo de aviso' required [(ngModel)]="announcement.body" name = "body"></textarea>
+</ion-item>
+
+<ion-item >
+  <button type="submit" ion-button color="danger" (click)="CreateAnnouncement()" block>Registrar</button>
+</ion-item>
+</form>
+
+<ng-template #edit>
+  <form>
+  <ion-item>
+    <ion-label floating>Título</ion-label>
+    <ion-input type="text" required [(ngModel)]="item.title" name="title" #titu></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <textarea rows='5' data-min-rows='3' placeholder='Cuerpo de aviso' required [(ngModel)]="item.body" name = "body"></textarea>
+  </ion-item>
+  <ion-item>
+<button type="submit" ion-button color="secondary" (click)="editAnnouncement()" block>Editar</button>
+</ion-item>
+</form>
+</ng-template>
+-->
+
+
+</ion-content>

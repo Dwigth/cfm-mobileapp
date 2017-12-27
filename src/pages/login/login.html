@@ -1,0 +1,29 @@
+
+<ion-content padding id="form">
+  <div *ngIf="this.afAuth.authState  | async; let user; else showLogin">
+      <p>Usted ya ha iniciado sesión con: {{user.email}}</p>
+      <ion-item>
+        <button type="button" name="button"ion-button block (click)="authServ.logout()">Cerrar sesión</button>
+      </ion-item>
+  </div>
+
+  <ng-template #showLogin>
+  <form (ngSubmit)="submitForm()">
+  <ion-list>
+
+  <ion-item>
+    <ion-label floating >Correo</ion-label>
+    <ion-input type="text" [(ngModel)]="user.email" name="email" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>
+  </ion-item>
+
+  <button type="submit" ion-button outline block >Entrar</button>
+</ion-list>
+<button type="button" ion-button outline block (click)="Open()" >Registrarte</button>
+</form>
+</ng-template>
+</ion-content>

@@ -1,0 +1,34 @@
+
+<div *ngIf="currentUpload">
+  <progress class="progress is-success" min=1 max=100 value="{{ currentUpload?.progress }}"></progress>
+  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+  <input type="hidden" id="url" value="{{currentUpload.url}}">
+  <input type="hidden" id="date" value="{{currentUpload.createdAt}}">
+</div>
+
+
+<div class="box">
+  <h3>Cargar una imagen</h3>
+
+  <label>
+    <input type="file" class="button" (change)="detectFiles($event)">
+  </label>
+
+  <hr>
+<!--
+  <h3>Multiple File Upload</h3>
+
+  <label>
+    <input type="file" class="button" (change)="detectFiles($event)" multiple>
+  </label>
+  <button class="button is-primary"
+    [disabled]="!selectedFiles"
+    (click)="uploadMulti()">
+    Upload Multiple
+  </button>-->
+</div>
+<button ion-button block color="danger"
+  [disabled]="!selectedFiles"
+  (click)="uploadSingle()">
+  Cargar imagen
+</button>

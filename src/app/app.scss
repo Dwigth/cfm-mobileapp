@@ -1,0 +1,70 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+/*$dark: #222;
+$red : red;
+$blue: blue;
+.dark {
+  background-color:$dark !important;
+  color: #ffffff;
+  .item {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    //border-top: 1px solid;
+    //border-bottom: 2px solid;
+    //border-color:  darken( $blue, 10% );
+    padding: 10px;
+    color: #F0F1F1;
+    max-height: none;
+
+    &:last-child {
+      border-bottom: 1px solid #333333;
+    }
+    &.current{ background-color:darken( $dark, 10% )   !important;
+       border-top: 1px solid #464646 !important;
+       border-bottom: 2px solid #333333 !important;
+      p,h3{opacity: .7;}
+            }
+  }
+  h2,
+  h3,
+  p,
+  a{
+    color: #F0F1F1;
+  }
+}
+.dark-head {
+  text-decoration: none;
+}
+*/
+.logo{
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  display:  block;
+}
+ion-header{
+margin-bottom: 5%;
+background-color: rgba(0,0,0,0.5);
+}
+ion-navbar{
+  height: 50px;
+}
+.navimg{
+  width: 50%;
+  margin: auto;
+  display: block;
+}

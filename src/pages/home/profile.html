@@ -1,0 +1,166 @@
+
+<ion-content>
+  <div id="container">
+  </div>
+  <ion-list *ngFor="let item of users | async">
+
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="{{item.imageURL}}">
+        </ion-avatar>
+        <h2>Nombre: {{item.name + ' ' + item.lastName | uppercase}} </h2>
+        <p>Posición: <ion-note id="pos">{{item.accessLevel}}</ion-note></p>
+      </ion-item>
+        <ion-list no-border>
+          <ion-list-header>
+            Información
+          </ion-list-header>
+          <ion-item>
+            <ion-icon name='mail' item-start></ion-icon>
+            E-mail
+            <ion-note item-end>
+            {{item.email}}
+            </ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-toggle [(ngModel)]="phone" name="phone" checked="false"></ion-toggle>
+            <ion-label>
+              Telefono
+            </ion-label>
+            <ion-icon name='call' item-start></ion-icon>
+          </ion-item>
+          <div *ngIf="phone != true; else phoneNumber">
+
+          </div>
+          <ng-template #phoneNumber>
+            <ion-item>
+              <ion-icon name='call' item-start></ion-icon>
+              <ion-input value="{{item.phone}}" readonly></ion-input>
+
+            </ion-item>
+            <ion-item>
+              <ion-icon name='call' item-start></ion-icon>
+              <ion-input id="phone" type="text" [(ngModel)]="userUpdate.phone" name="phone" placeholder="Agregar: "></ion-input>
+            </ion-item>
+          </ng-template>
+
+          <ion-item>
+            <ion-icon name='alert' item-start></ion-icon>
+            Estatus
+            <ion-note id="pos" item-end>
+            {{item.status}}
+            </ion-note>
+          </ion-item>
+
+<!-- -->
+          <ion-item>
+            <ion-label>
+              Último grado de estudios
+            </ion-label>
+            <ion-toggle [(ngModel)]="grade" name="grade" checked="false"></ion-toggle>
+            <ion-icon name='school' item-start></ion-icon>
+          </ion-item>
+
+          <div *ngIf="grade != true; else lastGrade">
+
+          </div>
+          <ng-template #lastGrade>
+            <ion-item>
+              <ion-icon name='school' item-start></ion-icon>
+              <ion-input  value="{{item.grade}}" readonly> </ion-input>
+
+            </ion-item>
+            <ion-item>
+              <ion-icon name='school' item-start></ion-icon>
+              <ion-input id="grade" type="text" [(ngModel)]="userUpdate.grade" name="grade" placeholder="Actualizar: "></ion-input>
+            </ion-item>
+
+          </ng-template>
+<!-- -->
+<!-- -->
+          <ion-item>
+            <ion-label>
+              Edad
+            </ion-label>
+            <ion-toggle [(ngModel)]="age" name="age" checked="false"></ion-toggle>
+            <ion-icon name='body' item-start></ion-icon>
+          </ion-item>
+
+          <div *ngIf="age != true; else ageU">
+
+          </div>
+          <ng-template #ageU>
+            <ion-item>
+              <ion-icon name='body' item-start></ion-icon>
+              <ion-input  value="{{item.age}}" readonly> </ion-input>
+
+            </ion-item>
+            <ion-item>
+              <ion-icon name='body' item-start></ion-icon>
+              <ion-input id="age"type="text" [(ngModel)]="userUpdate.age" name="age" placeholder="Actualizar: "></ion-input>
+            </ion-item>
+
+          </ng-template>
+<!-- -->
+<!-- -->
+          <ion-item>
+            <ion-label>
+              Ocupación
+            </ion-label>
+            <ion-toggle [(ngModel)]="ocupation" checked="false"></ion-toggle>
+            <ion-icon name='folder' item-start></ion-icon>
+          </ion-item>
+
+          <div *ngIf="ocupation != true; else ocupationU">
+
+          </div>
+          <ng-template #ocupationU>
+            <ion-item>
+                <ion-icon name='folder' item-start></ion-icon>
+                <ion-input  value="{{item.ocupation}}" readonly> </ion-input>
+
+            </ion-item>
+            <ion-item>
+              <ion-icon name='folder' item-start></ion-icon>
+              <ion-input id="ocupation" type="text" [(ngModel)]="userUpdate.ocupation" name="ocupation" placeholder="Actualizar: "></ion-input>
+            </ion-item>
+
+          </ng-template>
+<!-- -->
+
+          <ion-item>
+            <ion-icon name='create' item-start></ion-icon>
+
+      <ion-label>¿Cómo se enteró de la escuela?</ion-label>
+            <ion-select [(ngModel)]="userUpdate.advertising" name="advertising" item-end>
+              <ion-option value="redes">Redes sociales</ion-option>
+              <ion-option value="conocido">Conocido</ion-option>
+              <ion-option value="cartel">Cartel</ion-option>
+            </ion-select>
+
+
+          </ion-item>
+          <input type="hidden"name="key" id="key" value="{{item.key}}">
+          <input type="hidden"name="actPhone" id="actPhone" value="{{item.phone}}">
+            <input type="hidden"name="actGrade" id="actGrade" value="{{item.grade}}">
+            <input type="hidden"name="actAge" id="actAge" value="{{item.age}}">
+            <input type="hidden"name="actOcupation" id="actOcupation" value="{{item.ocupation}}">
+        </ion-list>
+
+        <ion-item>
+          <label>Cargar foto de perfil</label>
+        <upload-form></upload-form>
+        </ion-item>
+
+        <button type="button" ion-button block (click)="UpdateInfo()" > Actualizar información</button>
+  </ion-list>
+  <!--<ion-list *ngFor="let item of admin | async;">
+    <p *ngIf="item.accessLevel == 'admin'; else op">
+    Administrador op
+    {{item.name}}
+  </p>
+
+  <ng-template #op>kk</ng-template>
+</ion-list>-->
+</ion-content>

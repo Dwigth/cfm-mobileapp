@@ -1,0 +1,20 @@
+export class User{
+    name:string;
+    lastName:string;
+    age:number;
+    user:string;
+    status:string;
+    email:string;
+    password:string;
+    accessLevel:string;
+    ocupation:string;
+    phone:number;
+    course:string;
+    observation:string;
+    grade:string;
+    advertising:string;
+    tutor:string;
+    relationship:string;
+    tutorAge:number;
+    tutorEmail:string;
+}

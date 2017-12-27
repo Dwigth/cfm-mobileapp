@@ -1,0 +1,29 @@
+
+<ion-content>
+  <div id="container">
+
+  </div>
+
+  <div *ngFor="let item of user | async">
+
+    <ion-item *ngIf="item.accessLevel == 'user';">
+      <p>Ingresa a la academia para poder visualizar esta sección.</p>
+    </ion-item>
+
+    <ion-item *ngIf="item.accessLevel == 'admin'; else student">
+      <app-news></app-news>
+      <announcement-button></announcement-button>
+      <prospect-button></prospect-button>
+      <button  ion-button large block> Administrar usuarios </button>
+    </ion-item>
+
+
+
+    <ng-template #student *ngIf="item.accessLevel == 'student'">
+      <button  ion-button color="secondary"  outline block> Calificaciones </button>
+    </ng-template>
+
+  </div>
+
+
+</ion-content>

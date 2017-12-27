@@ -1,0 +1,28 @@
+  <ion-content padding>
+    <div id="container">
+    </div>
+<div  class="head">
+  <h1 >NOTICIAS</h1>
+</div>
+
+<div  *ngFor="let item of items | async | reverse">
+  <img  src="{{item.imageURL}}"/>
+  <ion-item>
+    <h2>
+      {{item.title}}
+    </h2>
+    <p style="text-align:justify" text-wrap>
+      {{item.textBody}}
+    </p>
+    <ion-row>
+       <ion-col>
+         <button ion-button icon-left color="dark" clear small>
+           <ion-icon name="md-calendar"></ion-icon>
+           <div>{{item.createdAt}}</div>
+         </button>
+       </ion-col>
+     </ion-row>
+    <button (click)="OpenModal(item.key)" ion-button color="green" small> Ver más</button>
+  </ion-item>
+</div>
+</ion-content>
