@@ -8,7 +8,7 @@ export class Upload {
   name:string;
   url:string;
   progress:number;
-  createdAt:string = date.format("dddd, MMMM Do YYYY, h:mm:ss a").toString();
+  createdAt:string = date.format("dddd, MMMM Do YYYY").toString();
   uploadFor:string;
   constructor(file:File){
     this.file = file;

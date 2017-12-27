@@ -6,13 +6,13 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
+
 @Component({
   selector: 'app-profile',
   templateUrl: 'profile.html',
 })
 export class ProfileComponent implements OnInit {
   users: Observable<any[]>;
-
   constructor(
     public autServ:AuthService,
     public db: AngularFireDatabase,
@@ -64,13 +64,13 @@ export class ProfileComponent implements OnInit {
     let grade = (this.userUpdate.grade == '') ? actGrade : this.userUpdate.grade;
     let age = (this.userUpdate.age == '') ? actAge : this.userUpdate.age;
     let ocupation = (this.userUpdate.ocupation == '') ? actOcupation : this.userUpdate.ocupation;
-    let imageURL = (<HTMLInputElement>document.getElementById('url')).value
-
+    let imageURL = (<HTMLInputElement>document.getElementById('url'));
+    let currentImage = (<HTMLInputElement>document.getElementById('urlcurrent')).value;
     this.userUpdate.phone = phone;
     this.userUpdate.grade = grade;
     this.userUpdate.age = age;
     this.userUpdate.ocupation = ocupation;
-    this.userUpdate.imageURL = imageURL;
+    this.userUpdate.imageURL = (imageURL != null) ? imageURL.value : currentImage ;
 
 
   item.update({
@@ -83,5 +83,7 @@ export class ProfileComponent implements OnInit {
   });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 }

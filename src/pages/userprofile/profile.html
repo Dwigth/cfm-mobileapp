@@ -6,7 +6,8 @@
 
       <ion-item>
         <ion-avatar item-start>
-          <img src="{{item.imageURL}}">
+          <img  src="{{item.imageURL}}">
+          <input type="hidden" id="urlcurrent" value="{{item.imageURL}}">
         </ion-avatar>
         <h2>Nombre: {{item.name + ' ' + item.lastName | uppercase}} </h2>
 
