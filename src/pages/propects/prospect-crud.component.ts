@@ -31,11 +31,21 @@ export class ProspectCrudComponent implements OnInit {
   }
 
   currentProspect = {
-
+    name:'',
+    lastname:'',
+    lastname2:'',
+    age:'',
+    state:'',
+    attended:'',
+    phone:'',
+    status:'',
+    course:'',
+    source:'',
+    coment:'',
+    price:'',
   }
 
   createNewProspect(){
-    console.log(this.currentProspect.attended)
     let prospect = new Prospect();
 
     prospect.nombre = this.currentProspect.name;
