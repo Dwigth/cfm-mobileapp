@@ -1,20 +1,47 @@
   <ion-content padding >
     <div id="container">
     </div>
+
+
+    <ion-item-group>
+      <ion-item-divider  color="light">DESTACADOS</ion-item-divider>
+      <ion-item *ngFor="let it of destacado | async" >
+        <div *ngIf="it.destacado != false">
+          <ion-item color="dark">
+            <ion-icon name="warning" color="yellow"></ion-icon>
+            {{it.title}}
+            </ion-item>
+          <p></p>
+          <ion-item>
+          <p style="text-align:justify" text-wrap>{{it.body}}</p>
+        </ion-item>
+          <ion-item>
+          <ion-icon name="calendar" item-start></ion-icon>
+          <ion-badge item-end color="danger">{{it.createdAt}}</ion-badge>
+        </ion-item>
+        </div>
+      </ion-item>
+    </ion-item-group>
+
       <ion-item-group>
         <ion-item-divider  color="light">Hoy</ion-item-divider>
         <ion-item *ngFor="let item of message | async" >
-
+    <div *ngIf="item.destacado == false">
           <ion-item color="dark">
             <ion-icon name="warning" color="yellow"></ion-icon>
             {{item.title}}
           </ion-item>
+          <br>
+          <ion-item>
           <p style="text-align:justify" text-wrap>{{item.body}}</p>
+          </ion-item>
           <ion-item>
           <ion-icon name="calendar" item-start></ion-icon>
           <ion-badge item-end color="danger">{{item.createdAt}}</ion-badge>
         </ion-item>
+    </div>
         </ion-item>
       </ion-item-group>
+
 
 </ion-content>

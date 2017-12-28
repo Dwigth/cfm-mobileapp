@@ -24,9 +24,10 @@
   <textarea rows='5' data-min-rows='3' placeholder='Cuerpo de aviso' required [(ngModel)]="announcement.body" name = "body"></textarea>
 </ion-item>
 
-<ion-item>
+
+  <ion-item>
     <ion-label>Aviso Destacado</ion-label>
-    <ion-toggle name="destacado" [(ngModel)]="destacado"></ion-toggle>
+    <ion-toggle [(ngModel)]="announcement.destacado" name="destacado" checked="false"></ion-toggle>
   </ion-item>
 
 <ion-item >
@@ -44,6 +45,11 @@
 
   <ion-item>
     <textarea rows='5' data-min-rows='3' placeholder='Cuerpo de aviso' required [(ngModel)]="item.body" name = "body"></textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Aviso Destacado</ion-label>
+    <ion-toggle [(ngModel)]="item.destacado" name="destacado" checked="false"></ion-toggle>
   </ion-item>
   <ion-item>
 <button type="submit" ion-button color="secondary" (click)="editAnnouncement()" block>Editar</button>

@@ -34,11 +34,16 @@ item:Announcement;
   announcement = {
     title:'',
     body:'',
+    destacado:false
   }
+
+
   CreateAnnouncement(){
      let annoucement = new Announcement();
      annoucement.title = this.announcement.title;
      annoucement.body = this.announcement.body;
+     annoucement.destacado = this.announcement.destacado;
+     console.log(this.announcement.destacado)
      this.annserv.createAnnouncements(annoucement);
   }
 
