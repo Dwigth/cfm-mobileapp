@@ -31,14 +31,15 @@ return this.announcements =  itemRef;
 }
 
 getNotify(){
-  let itemRef = this.refLis().valueChanges(['child_added']);
-  return itemRef;
+  let itemRef = this.refLis().valueChanges();
+  return this.announcements =  itemRef;;
 }
 
 public  editAnnouncement(Announcement:Announcement):void{
 this.refObj( Announcement.key).update({
   title:Announcement.title,
   body:Announcement.body,
+  destacado:Announcement.destacado,
   createdAt:Announcement.createdAt,
   day:Announcement.day
 }). then(val => {
@@ -62,6 +63,7 @@ public createAnnouncements(Announcement:Announcement):void{
   this.refLis().push({
     title:Announcement.title,
     body:Announcement.body,
+    destacado:Announcement.destacado,
     createdAt:Announcement.createdAt,
     day:Announcement.day
   }).then(value =>{
