@@ -3,7 +3,7 @@ import { NavController, NavParams, ViewController } from "ionic-angular";
 import { ProspectService } from "./prospect.service";
 import { Observable } from "rxjs/Observable";
 import { Prospect } from "./prospect";
-
+import { ProspectCrudComponent } from './prospect-crud.component'
 
 @Component({
   templateUrl: 'prospect.component.html'
@@ -30,16 +30,16 @@ getItems(ev:any){
   this.prospects = this.prosSrv.get();
   let item = ev.target.value;
   if (item && item.trim() != '') {
-    //return this.list = this.prosSrv.searchByName(item);
+    return this.list = this.prosSrv.searchByName(item);
   }
 }
 
-createProspect(){
-
+openCreatorProspectForm(){
+this.nav.push(ProspectCrudComponent,{isEditing:false});
 }
 
 editProspect(item:Prospect){
-
+this.nav.push(ProspectCrudComponent,{isEditing:true,item:item});
 }
 
 deleteProspect(item:Prospect){

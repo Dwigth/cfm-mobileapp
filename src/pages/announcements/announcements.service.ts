@@ -5,7 +5,7 @@ import * as firebase from 'firebase';
 import * as moment from 'moment';
 import { Announcement } from './announcement';
 
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs/Observable';
 import { AlertController } from "ionic-angular";
 
 @Injectable()
@@ -25,7 +25,7 @@ private refObj(itemkey){
 }
 
 public getAnnouncementsByDate(){
-  this.day = moment().format("DDD");
+this.day = moment().format("DDD");
 let itemRef = this.db.list("/announcements",val => val.orderByChild("day").equalTo(this.day)).valueChanges();
 return this.announcements =  itemRef;
 }

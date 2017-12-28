@@ -1,5 +1,4 @@
 export class Prospect{
-  id:string;
   nombre:string;
   apellidoPaterno:string;
   apellioMaterno:string;
@@ -13,5 +12,5 @@ export class Prospect{
   comentario:string;
   fuente:string;
   precio:string;
-  checkbox:string;
+  //checkbox:string;
 }

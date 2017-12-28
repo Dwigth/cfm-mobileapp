@@ -6,7 +6,7 @@
 
   <div *ngFor="let item of user | async">
 
-    <ion-item *ngIf="item.accessLevel == 'user';">
+    <ion-item *ngIf="item.accessLevel == 'user' ;">
       <p>Ingresa a la academia para poder visualizar esta sección.</p>
     </ion-item>
 
@@ -17,6 +17,15 @@
       <button  ion-button large block> Administrar usuarios </button>
     </ion-item>
 
+    <ion-item *ngIf="item.accessLevel == 'coordi'; else student">
+      <app-news></app-news>
+      <announcement-button></announcement-button>
+      <prospect-button></prospect-button>
+    </ion-item>
+
+    <ion-item *ngIf="item.accessLevel == 'master'; else student">
+      <p>Pronto habrá una sección para maestro.</p>
+    </ion-item>
 
 
     <ng-template #student *ngIf="item.accessLevel == 'student'">

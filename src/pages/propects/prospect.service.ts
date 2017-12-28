@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/observable';
 import { Prospect } from "./prospect";
 import { Subject } from "rxjs/Subject";
 import { Http, RequestOptions } from '@angular/http';
-
+import * as moment from 'moment';
 @Injectable()
 
 export class ProspectService {
@@ -17,8 +17,12 @@ export class ProspectService {
   items$: Observable<AngularFireAction<firebase.database.DataSnapshot>[]>
   name$:BehaviorSubject<string|null>;
   prospects = [];
+  users:Observable<any[]>;
 
-  constructor(public db:AngularFireDatabase,public http:Http ) {
+  constructor(public db:AngularFireDatabase,public http:Http,public afAuth:AngularFireAuth ) {
+
+    moment.locale('es');
+
 
 }
 
@@ -29,9 +33,13 @@ export class ProspectService {
     return this.db.object('prospects/'+itemkey);
   }
 
+  getCoordis(){
+    return this.users = this.db.list('users', value => value.orderByChild('accessLevel').equalTo("coordi")).valueChanges();
+  }
+
   createProspect(prospect:Prospect){
+    let date = moment();
     this.refLis().push({
-    id:prospect.id,
     nombre:prospect.nombre,
     apellidoPaterno:prospect.apellidoPaterno,
     apellioMaterno:prospect.apellioMaterno,
@@ -41,11 +49,11 @@ export class ProspectService {
     estatus:prospect.estatus,
     atendio:prospect.atendio,
     curso:prospect.curso,
-    fecha:prospect.fecha,
+    fecha: date.format("MMMM D YYYY").toString(),
     comentario:prospect.comentario,
     fuente:prospect.fuente,
     precio:prospect.precio,
-    checkbox:prospect.checkbox
+    //checkbox:prospect.checkbox
   }).then(val => {
     this.refObj(val.key).update({
       key:val.key
@@ -73,6 +81,7 @@ editProspect(){
 }
 
 deleteProspect(item:Prospect){
+
 }
 
 getItems(ev:any){

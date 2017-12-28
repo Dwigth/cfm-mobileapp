@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnouncementService } from './announcements.service'
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -9,12 +9,13 @@ import { Observable } from 'rxjs/observable';
 export class AnnouncementComponent implements OnInit {
   message:Observable<any[]>;
 constructor(public msgService: AnnouncementService) {
-  
+
   this.message =  this.msgService.getAnnouncementsByDate();
 
 }
 
 ngOnInit() {
+  
 }
 
 }

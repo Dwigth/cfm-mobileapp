@@ -33480,6 +33480,21 @@ textarea {
   margin-top: 10%;
 }
 
+textarea {
+  display: block;
+  -webkit-box-sizing: padding-box;
+  box-sizing: padding-box;
+  overflow: hidden;
+  padding: 5px;
+  width: 95%;
+  font-size: 14px;
+  margin: 50px auto;
+  border-radius: 6px;
+  -webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  border: 0;
+}
+
 #container {
   margin-top: 20%;
 }
