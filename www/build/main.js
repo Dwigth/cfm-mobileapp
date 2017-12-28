@@ -109,10 +109,9 @@ var AnnouncementService = (function () {
     };
     AnnouncementService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]])
     ], AnnouncementService);
     return AnnouncementService;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=announcements.service.js.map
@@ -127,9 +126,9 @@ var AnnouncementService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return UpdateNewsModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__news__ = __webpack_require__(439);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__news__ = __webpack_require__(440);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__news_service__ = __webpack_require__(157);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -194,7 +193,7 @@ var NewsListComponent = (function () {
     };
     NewsListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-news-list',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/components/news/news-list.component.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Noticia\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n<form>\n<ion-item *ngFor="let users of user | async">\n<input type="hidden" id="name" value="{{users.name  +  users.lastName}}">\n<input type="hidden" id="photoURL" value="{{users.imageURL}}">\n</ion-item>\n\n<ion-item>\n  <ion-label floating>Titulo</ion-label>\n  <ion-input type="text" required [(ngModel)]="news.title"  name="title"></ion-input>\n</ion-item>\n\n<ion-item>\n  <textarea rows=\'5\' data-min-rows=\'3\' [(ngModel)]="news.textBody" name="textBody" placeholder=\'Cuerpo de noticia\' required></textarea>\n</ion-item>\n\n<ion-item>\n  <upload-form></upload-form>\n</ion-item>\n\n<ion-item>\n  <button type="submit" ion-button color="danger" (click)="updateNew()" block>Actualizar</button>\n</ion-item>\n\n</form>\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/components/news/news-list.component.html"*/,
+            selector: 'app-news-list',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\components\news\news-list.component.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>\n\n      Noticia\n\n    </ion-title>\n\n    <ion-buttons start>\n\n      <button ion-button (click)="dismiss()">\n\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n<form>\n\n<ion-item *ngFor="let users of user | async">\n\n<input type="hidden" id="name" value="{{users.name  +  users.lastName}}">\n\n<input type="hidden" id="photoURL" value="{{users.imageURL}}">\n\n</ion-item>\n\n\n\n<ion-item>\n\n  <ion-label floating>Titulo</ion-label>\n\n  <ion-input type="text" required [(ngModel)]="news.title"  name="title"></ion-input>\n\n</ion-item>\n\n\n\n<ion-item>\n\n  <textarea rows=\'5\' data-min-rows=\'3\' [(ngModel)]="news.textBody" name="textBody" placeholder=\'Cuerpo de noticia\' required></textarea>\n\n</ion-item>\n\n\n\n<ion-item>\n\n  <upload-form></upload-form>\n\n</ion-item>\n\n\n\n<ion-item>\n\n  <button type="submit" ion-button color="danger" (click)="updateNew()" block>Actualizar</button>\n\n</ion-item>\n\n\n\n</form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\components\news\news-list.component.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -374,7 +373,7 @@ var NewsService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(624);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(625);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -488,7 +487,7 @@ var UploadService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__announcements_service__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__announcement__ = __webpack_require__(654);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__announcement__ = __webpack_require__(655);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -537,12 +536,15 @@ var AnnouncementCrudComponent = (function () {
     };
     AnnouncementCrudComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'announcement-crud',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/announcements/announcement-crud.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Avisos\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancelar</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n<form *ngIf="isEditing == false; else edit">\n<ion-item>\n  <ion-label floating>Título</ion-label>\n  <ion-input type="text" required [(ngModel)]="announcement.title" name="title" #titu></ion-input>\n</ion-item>\n\n<ion-item>\n  <textarea rows=\'5\' data-min-rows=\'3\' placeholder=\'Cuerpo de aviso\' required [(ngModel)]="announcement.body" name = "body"></textarea>\n</ion-item>\n\n\n  <ion-item>\n    <ion-label>Aviso Destacado</ion-label>\n    <ion-toggle [(ngModel)]="announcement.destacado" name="destacado" checked="false"></ion-toggle>\n  </ion-item>\n\n<ion-item >\n  <button type="submit" ion-button color="danger" (click)="CreateAnnouncement()" block>Registrar</button>\n</ion-item>\n\n</form>\n\n<ng-template #edit>\n  <form>\n  <ion-item>\n    <ion-label floating>Título</ion-label>\n    <ion-input type="text" required [(ngModel)]="item.title" name="title" #titu></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <textarea rows=\'5\' data-min-rows=\'3\' placeholder=\'Cuerpo de aviso\' required [(ngModel)]="item.body" name = "body"></textarea>\n  </ion-item>\n\n  <ion-item>\n    <ion-label>Aviso Destacado</ion-label>\n    <ion-toggle [(ngModel)]="item.destacado" name="destacado" checked="false"></ion-toggle>\n  </ion-item>\n  <ion-item>\n<button type="submit" ion-button color="secondary" (click)="editAnnouncement()" block>Editar</button>\n</ion-item>\n</form>\n</ng-template>\n\n\n\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/announcements/announcement-crud.html"*/,
+            selector: 'announcement-crud',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\announcements\announcement-crud.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>\n\n      Avisos\n\n    </ion-title>\n\n    <ion-buttons start>\n\n      <button ion-button (click)="dismiss()">\n\n        <span ion-text color="primary" showWhen="ios">Cancelar</span>\n\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n<form *ngIf="isEditing == false; else edit">\n\n<ion-item>\n\n  <ion-label floating>Título</ion-label>\n\n  <ion-input type="text" required [(ngModel)]="announcement.title" name="title" #titu></ion-input>\n\n</ion-item>\n\n\n\n<ion-item>\n\n  <textarea rows=\'5\' data-min-rows=\'3\' placeholder=\'Cuerpo de aviso\' required [(ngModel)]="announcement.body" name = "body"></textarea>\n\n</ion-item>\n\n\n\n\n\n  <ion-item>\n\n    <ion-label>Aviso Destacado</ion-label>\n\n    <ion-toggle [(ngModel)]="announcement.destacado" name="destacado" checked="false"></ion-toggle>\n\n  </ion-item>\n\n\n\n<ion-item >\n\n  <button type="submit" ion-button color="danger" (click)="CreateAnnouncement()" block>Registrar</button>\n\n</ion-item>\n\n\n\n</form>\n\n\n\n<ng-template #edit>\n\n  <form>\n\n  <ion-item>\n\n    <ion-label floating>Título</ion-label>\n\n    <ion-input type="text" required [(ngModel)]="item.title" name="title" #titu></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item>\n\n    <textarea rows=\'5\' data-min-rows=\'3\' placeholder=\'Cuerpo de aviso\' required [(ngModel)]="item.body" name = "body"></textarea>\n\n  </ion-item>\n\n\n\n  <ion-item>\n\n    <ion-label>Aviso Destacado</ion-label>\n\n    <ion-toggle [(ngModel)]="item.destacado" name="destacado" checked="false"></ion-toggle>\n\n  </ion-item>\n\n  <ion-item>\n\n<button type="submit" ion-button color="secondary" (click)="editAnnouncement()" block>Editar</button>\n\n</ion-item>\n\n</form>\n\n</ng-template>\n\n\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\announcements\announcement-crud.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__announcements_service__["a" /* AnnouncementService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__announcements_service__["a" /* AnnouncementService */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_3__announcements_service__["a" /* AnnouncementService */]])
     ], AnnouncementCrudComponent);
     return AnnouncementCrudComponent;
-    var _a, _b, _c, _d, _e;
 }());
 
 var AnnouncementButton = (function () {
@@ -559,10 +561,10 @@ var AnnouncementButton = (function () {
             selector: 'announcement-button',
             template: "\n<button type=\"button\" ion-button large block color=\"primary\" outline (click)=\"OpenModal ()\">Administrar avisos</button>\n  "
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
     ], AnnouncementButton);
     return AnnouncementButton;
-    var _a, _b;
 }());
 
 var AnnouncementModalCRUD = (function () {
@@ -592,10 +594,15 @@ var AnnouncementModalCRUD = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             template: "\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Noticia\n      </ion-title>\n      <ion-buttons start>\n        <button ion-button (click)=\"dismiss()\">\n          <span ion-text color=\"primary\" showWhen=\"ios\">Cancel</span>\n          <ion-icon name=\"md-close\" showWhen=\"android, windows\"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content>\n\n\n  <ion-item-group>\n\n    <ion-item-divider color=\"light\">Crear avisos</ion-item-divider>\n    <button ion-button large block color=\"secondary\" (click)=\"CreateNewAnnouncementPage()\" >Aviso nuevo</button>\n\n  </ion-item-group>\n\n  <ion-item-group>\n  <ion-list>\n      <ion-item-divider color=\"light\">Avisos</ion-item-divider>\n    <ion-item-sliding *ngFor=\"let item of announcements | async\">\n        <ion-item >\n        <h2>{{item.title}}</h2>\n        <p text-wrap>{{item.body}}</p>\n\n        <ion-item>\n        <ion-icon name=\"calendar\" item-start></ion-icon>\n        FECHA:\n        <ion-badge item-end>{{item.createdAt}}</ion-badge>\n        </ion-item>\n        </ion-item>\n\n      <ion-item-options side=\"right\">\n        <button ion-button (click)=\"editItem(item)\" color=\"secondary\">\n          <ion-icon name=\"open\"></ion-icon>\n          Editar\n        </button>\n        <button ion-button (click)=\"this.announSvc.deleteAnnouncement(item)\" color=\"danger\">\n          <ion-icon name=\"trash\"></ion-icon>\n          Eliminar\n        </button>\n      </ion-item-options>\n    </ion-item-sliding>\n\n  </ion-list>\n    </ion-item-group>\n\n  </ion-content>\n"
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__announcements_service__["a" /* AnnouncementService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__announcements_service__["a" /* AnnouncementService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */],
+            __WEBPACK_IMPORTED_MODULE_3__announcements_service__["a" /* AnnouncementService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */]])
     ], AnnouncementModalCRUD);
     return AnnouncementModalCRUD;
-    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=announcement-crud.js.map
@@ -609,8 +616,8 @@ var AnnouncementModalCRUD = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProspectService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__(656);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__(657);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(262);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
@@ -711,10 +718,9 @@ var ProspectService = (function () {
     };
     ProspectService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], ProspectService);
     return ProspectService;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=prospect.service.js.map
@@ -761,7 +767,7 @@ webpackEmptyAsyncContext.id = 220;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return dashboardPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -785,7 +791,7 @@ var dashboardPage = (function () {
     dashboardPage.prototype.ngOnInit = function () { };
     dashboardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-dashboard',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/components/dashboard/dashboard.html"*/'\n<ion-content>\n  <div id="container">\n\n  </div>\n\n  <div *ngFor="let item of user | async">\n\n    <ion-item *ngIf="item.accessLevel == \'user\' ;">\n      <p>Ingresa a la academia para poder visualizar esta sección.</p>\n    </ion-item>\n\n    <ion-item *ngIf="item.accessLevel == \'admin\'; else student">\n      <app-news></app-news>\n      <announcement-button></announcement-button>\n      <prospect-button></prospect-button>\n      <button  ion-button large block> Administrar usuarios </button>\n    </ion-item>\n\n    <ion-item *ngIf="item.accessLevel == \'coordi\'; else student">\n      <app-news></app-news>\n      <announcement-button></announcement-button>\n      <prospect-button></prospect-button>\n    </ion-item>\n\n    <ion-item *ngIf="item.accessLevel == \'master\'; else student">\n      <p>Pronto habrá una sección para maestro.</p>\n    </ion-item>\n\n\n    <ng-template #student *ngIf="item.accessLevel == \'student\'">\n      <button  ion-button color="secondary"  outline block> Calificaciones </button>\n    </ng-template>\n\n  </div>\n\n\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/components/dashboard/dashboard.html"*/,
+            selector: 'app-dashboard',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\components\dashboard\dashboard.html"*/'\n\n<ion-content>\n\n  <div id="container">\n\n\n\n  </div>\n\n\n\n  <div *ngFor="let item of user | async">\n\n\n\n    <ion-item *ngIf="item.accessLevel == \'user\' ;">\n\n      <p>Ingresa a la academia para poder visualizar esta sección.</p>\n\n    </ion-item>\n\n\n\n    <ion-item *ngIf="item.accessLevel == \'admin\'; else student">\n\n      <app-news></app-news>\n\n      <announcement-button></announcement-button>\n\n      <prospect-button></prospect-button>\n\n      <button  ion-button large block> Administrar usuarios </button>\n\n    </ion-item>\n\n\n\n    <ion-item *ngIf="item.accessLevel == \'coordi\'; else student">\n\n      <app-news></app-news>\n\n      <announcement-button></announcement-button>\n\n      <prospect-button></prospect-button>\n\n    </ion-item>\n\n\n\n    <ion-item *ngIf="item.accessLevel == \'master\'; else student">\n\n      <p>Pronto habrá una sección para maestro.</p>\n\n    </ion-item>\n\n\n\n\n\n    <ng-template #student *ngIf="item.accessLevel == \'student\'">\n\n      <button  ion-button color="secondary"  outline block> Calificaciones </button>\n\n    </ng-template>\n\n\n\n  </div>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\components\dashboard\dashboard.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */],
             __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]])
@@ -805,7 +811,7 @@ var dashboardPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_auth_service__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -886,7 +892,7 @@ var ProfileComponent = (function () {
     };
     ProfileComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-profile',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/userprofile/profile.html"*/'\n<ion-content>\n  <div id="container">\n  </div>\n  <ion-list *ngFor="let item of users | async">\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img  src="{{item.imageURL}}">\n          <input type="hidden" id="urlcurrent" value="{{item.imageURL}}">\n        </ion-avatar>\n        <h2>Nombre: {{item.name + \' \' + item.lastName | uppercase}} </h2>\n\n        <p>Posición: <ion-note id="pos">{{item.accessLevel}}</ion-note> </p>\n      </ion-item>\n        <ion-list no-border>\n\n          <ion-list-header>\n            Información\n          </ion-list-header>\n\n          <ion-item>\n            <ion-icon name=\'mail\' item-start></ion-icon>\n            E-mail\n            <ion-note item-end>\n            {{item.email}}\n            </ion-note>\n          </ion-item>\n\n          <ion-item>\n            <ion-toggle [(ngModel)]="phone" name="phone" checked="false"></ion-toggle>\n            <ion-label>\n              Telefono\n            </ion-label>\n            <ion-icon name=\'call\' item-start></ion-icon>\n          </ion-item>\n          <div *ngIf="phone != true; else phoneNumber">\n\n          </div>\n          <ng-template #phoneNumber>\n            <ion-item>\n              <ion-icon name=\'call\' item-start></ion-icon>\n              <ion-input value="{{item.phone}}" readonly></ion-input>\n\n            </ion-item>\n            <ion-item>\n              <ion-icon name=\'call\' item-start></ion-icon>\n              <ion-input id="phone" type="text" [(ngModel)]="userUpdate.phone" name="phone" placeholder="Agregar: "></ion-input>\n            </ion-item>\n          </ng-template>\n\n          <ion-item>\n            <ion-icon name=\'alert\' item-start></ion-icon>\n            Estatus\n            <ion-note id="pos" item-end>\n            {{item.status}}\n            </ion-note>\n          </ion-item>\n\n<!-- -->\n          <ion-item>\n            <ion-label>\n              Último grado de estudios\n            </ion-label>\n            <ion-toggle [(ngModel)]="grade" name="grade" checked="false"></ion-toggle>\n            <ion-icon name=\'school\' item-start></ion-icon>\n          </ion-item>\n\n          <div *ngIf="grade != true; else lastGrade">\n\n          </div>\n          <ng-template #lastGrade>\n            <ion-item>\n              <ion-icon name=\'school\' item-start></ion-icon>\n              <ion-input  value="{{item.grade}}" readonly> </ion-input>\n\n            </ion-item>\n            <ion-item>\n              <ion-icon name=\'school\' item-start></ion-icon>\n              <ion-input id="grade" type="text" [(ngModel)]="userUpdate.grade" name="grade" placeholder="Actualizar: "></ion-input>\n            </ion-item>\n\n          </ng-template>\n<!-- -->\n<!-- -->\n          <ion-item>\n            <ion-label>\n              Edad\n            </ion-label>\n            <ion-toggle [(ngModel)]="age" name="age" checked="false"></ion-toggle>\n            <ion-icon name=\'body\' item-start></ion-icon>\n          </ion-item>\n\n          <div *ngIf="age != true; else ageU">\n\n          </div>\n          <ng-template #ageU>\n            <ion-item>\n              <ion-icon name=\'body\' item-start></ion-icon>\n              <ion-input  value="{{item.age}}" readonly> </ion-input>\n\n            </ion-item>\n            <ion-item>\n              <ion-icon name=\'body\' item-start></ion-icon>\n              <ion-input id="age"type="text" [(ngModel)]="userUpdate.age" name="age" placeholder="Actualizar: "></ion-input>\n            </ion-item>\n\n          </ng-template>\n<!-- -->\n<!-- -->\n          <ion-item>\n            <ion-label>\n              Ocupación\n            </ion-label>\n            <ion-toggle [(ngModel)]="ocupation" checked="false"></ion-toggle>\n            <ion-icon name=\'folder\' item-start></ion-icon>\n          </ion-item>\n\n          <div *ngIf="ocupation != true; else ocupationU">\n\n          </div>\n          <ng-template #ocupationU>\n            <ion-item>\n                <ion-icon name=\'folder\' item-start></ion-icon>\n                <ion-input  value="{{item.ocupation}}" readonly> </ion-input>\n\n            </ion-item>\n            <ion-item>\n              <ion-icon name=\'folder\' item-start></ion-icon>\n              <ion-input id="ocupation" type="text" [(ngModel)]="userUpdate.ocupation" name="ocupation" placeholder="Actualizar: "></ion-input>\n            </ion-item>\n\n          </ng-template>\n<!-- -->\n\n          <ion-item>\n            <ion-icon name=\'create\' item-start></ion-icon>\n\n      <ion-label>¿Cómo se enteró de la escuela?</ion-label>\n            <ion-select [(ngModel)]="userUpdate.advertising" name="advertising" item-end>\n              <ion-option value="redes">Redes sociales</ion-option>\n              <ion-option value="conocido">Conocido</ion-option>\n              <ion-option value="cartel">Cartel</ion-option>\n            </ion-select>\n\n\n          </ion-item>\n          <input type="hidden"name="key" id="key" value="{{item.key}}">\n          <input type="hidden"name="actPhone" id="actPhone" value="{{item.phone}}">\n            <input type="hidden"name="actGrade" id="actGrade" value="{{item.grade}}">\n            <input type="hidden"name="actAge" id="actAge" value="{{item.age}}">\n            <input type="hidden"name="actOcupation" id="actOcupation" value="{{item.ocupation}}">\n        </ion-list>\n\n        <ion-item>\n          <label>Cargar foto de perfil</label>\n        <upload-form></upload-form>\n        </ion-item>\n\n        <button type="button" ion-button block (click)="UpdateInfo()" > Actualizar información</button>\n  </ion-list>\n  <!--<ion-list *ngFor="let item of admin | async;">\n    <p *ngIf="item.accessLevel == \'admin\'; else op">\n    Administrador op\n    {{item.name}}\n  </p>\n\n  <ng-template #op>kk</ng-template>\n</ion-list>-->\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/userprofile/profile.html"*/,
+            selector: 'app-profile',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\userprofile\profile.html"*/'\n\n<ion-content>\n\n  <div id="container">\n\n  </div>\n\n  <ion-list *ngFor="let item of users | async">\n\n\n\n      <ion-item>\n\n        <ion-avatar item-start>\n\n          <img  src="{{item.imageURL}}">\n\n          <input type="hidden" id="urlcurrent" value="{{item.imageURL}}">\n\n        </ion-avatar>\n\n        <h2>Nombre: {{item.name + \' \' + item.lastName | uppercase}} </h2>\n\n\n\n        <p>Posición: <ion-note id="pos">{{item.accessLevel}}</ion-note> </p>\n\n      </ion-item>\n\n        <ion-list no-border>\n\n\n\n          <ion-list-header>\n\n            Información\n\n          </ion-list-header>\n\n\n\n          <ion-item>\n\n            <ion-icon name=\'mail\' item-start></ion-icon>\n\n            E-mail\n\n            <ion-note item-end>\n\n            {{item.email}}\n\n            </ion-note>\n\n          </ion-item>\n\n\n\n          <ion-item>\n\n            <ion-toggle [(ngModel)]="phone" name="phone" checked="false"></ion-toggle>\n\n            <ion-label>\n\n              Telefono\n\n            </ion-label>\n\n            <ion-icon name=\'call\' item-start></ion-icon>\n\n          </ion-item>\n\n          <div *ngIf="phone != true; else phoneNumber">\n\n\n\n          </div>\n\n          <ng-template #phoneNumber>\n\n            <ion-item>\n\n              <ion-icon name=\'call\' item-start></ion-icon>\n\n              <ion-input value="{{item.phone}}" readonly></ion-input>\n\n\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-icon name=\'call\' item-start></ion-icon>\n\n              <ion-input id="phone" type="text" [(ngModel)]="userUpdate.phone" name="phone" placeholder="Agregar: "></ion-input>\n\n            </ion-item>\n\n          </ng-template>\n\n\n\n          <ion-item>\n\n            <ion-icon name=\'alert\' item-start></ion-icon>\n\n            Estatus\n\n            <ion-note id="pos" item-end>\n\n            {{item.status}}\n\n            </ion-note>\n\n          </ion-item>\n\n\n\n<!-- -->\n\n          <ion-item>\n\n            <ion-label>\n\n              Último grado de estudios\n\n            </ion-label>\n\n            <ion-toggle [(ngModel)]="grade" name="grade" checked="false"></ion-toggle>\n\n            <ion-icon name=\'school\' item-start></ion-icon>\n\n          </ion-item>\n\n\n\n          <div *ngIf="grade != true; else lastGrade">\n\n\n\n          </div>\n\n          <ng-template #lastGrade>\n\n            <ion-item>\n\n              <ion-icon name=\'school\' item-start></ion-icon>\n\n              <ion-input  value="{{item.grade}}" readonly> </ion-input>\n\n\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-icon name=\'school\' item-start></ion-icon>\n\n              <ion-input id="grade" type="text" [(ngModel)]="userUpdate.grade" name="grade" placeholder="Actualizar: "></ion-input>\n\n            </ion-item>\n\n\n\n          </ng-template>\n\n<!-- -->\n\n<!-- -->\n\n          <ion-item>\n\n            <ion-label>\n\n              Edad\n\n            </ion-label>\n\n            <ion-toggle [(ngModel)]="age" name="age" checked="false"></ion-toggle>\n\n            <ion-icon name=\'body\' item-start></ion-icon>\n\n          </ion-item>\n\n\n\n          <div *ngIf="age != true; else ageU">\n\n\n\n          </div>\n\n          <ng-template #ageU>\n\n            <ion-item>\n\n              <ion-icon name=\'body\' item-start></ion-icon>\n\n              <ion-input  value="{{item.age}}" readonly> </ion-input>\n\n\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-icon name=\'body\' item-start></ion-icon>\n\n              <ion-input id="age"type="text" [(ngModel)]="userUpdate.age" name="age" placeholder="Actualizar: "></ion-input>\n\n            </ion-item>\n\n\n\n          </ng-template>\n\n<!-- -->\n\n<!-- -->\n\n          <ion-item>\n\n            <ion-label>\n\n              Ocupación\n\n            </ion-label>\n\n            <ion-toggle [(ngModel)]="ocupation" checked="false"></ion-toggle>\n\n            <ion-icon name=\'folder\' item-start></ion-icon>\n\n          </ion-item>\n\n\n\n          <div *ngIf="ocupation != true; else ocupationU">\n\n\n\n          </div>\n\n          <ng-template #ocupationU>\n\n            <ion-item>\n\n                <ion-icon name=\'folder\' item-start></ion-icon>\n\n                <ion-input  value="{{item.ocupation}}" readonly> </ion-input>\n\n\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-icon name=\'folder\' item-start></ion-icon>\n\n              <ion-input id="ocupation" type="text" [(ngModel)]="userUpdate.ocupation" name="ocupation" placeholder="Actualizar: "></ion-input>\n\n            </ion-item>\n\n\n\n          </ng-template>\n\n<!-- -->\n\n\n\n          <ion-item>\n\n            <ion-icon name=\'create\' item-start></ion-icon>\n\n\n\n      <ion-label>¿Cómo se enteró de la escuela?</ion-label>\n\n            <ion-select [(ngModel)]="userUpdate.advertising" name="advertising" item-end>\n\n              <ion-option value="redes">Redes sociales</ion-option>\n\n              <ion-option value="conocido">Conocido</ion-option>\n\n              <ion-option value="cartel">Cartel</ion-option>\n\n            </ion-select>\n\n\n\n\n\n          </ion-item>\n\n          <input type="hidden"name="key" id="key" value="{{item.key}}">\n\n          <input type="hidden"name="actPhone" id="actPhone" value="{{item.phone}}">\n\n            <input type="hidden"name="actGrade" id="actGrade" value="{{item.grade}}">\n\n            <input type="hidden"name="actAge" id="actAge" value="{{item.age}}">\n\n            <input type="hidden"name="actOcupation" id="actOcupation" value="{{item.ocupation}}">\n\n        </ion-list>\n\n\n\n        <ion-item>\n\n          <label>Cargar foto de perfil</label>\n\n        <upload-form></upload-form>\n\n        </ion-item>\n\n\n\n        <button type="button" ion-button block (click)="UpdateInfo()" > Actualizar información</button>\n\n  </ion-list>\n\n  <!--<ion-list *ngFor="let item of admin | async;">\n\n    <p *ngIf="item.accessLevel == \'admin\'; else op">\n\n    Administrador op\n\n    {{item.name}}\n\n  </p>\n\n\n\n  <ng-template #op>kk</ng-template>\n\n</ion-list>-->\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\userprofile\profile.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__app_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */],
@@ -927,12 +933,11 @@ var AnnouncementComponent = (function () {
     AnnouncementComponent.prototype.ngOnInit = function () {
     };
     AnnouncementComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/announcements/announcements.html"*/'  <ion-content padding >\n    <div id="container">\n    </div>\n\n\n    <ion-item-group>\n      <ion-item-divider  color="light">DESTACADOS</ion-item-divider>\n      <ion-item *ngFor="let it of destacado | async" >\n        <div *ngIf="it.destacado != false">\n          <ion-item color="dark">\n            <ion-icon name="warning" color="yellow"></ion-icon>\n            {{it.title}}\n            </ion-item>\n          <p></p>\n          <ion-item>\n          <p style="text-align:justify" text-wrap>{{it.body}}</p>\n        </ion-item>\n          <ion-item>\n          <ion-icon name="calendar" item-start></ion-icon>\n          <ion-badge item-end color="danger">{{it.createdAt}}</ion-badge>\n        </ion-item>\n        </div>\n      </ion-item>\n    </ion-item-group>\n\n      <ion-item-group>\n        <ion-item-divider  color="light">Hoy</ion-item-divider>\n        <ion-item *ngFor="let item of message | async" >\n    <div *ngIf="item.destacado == false">\n          <ion-item color="dark">\n            <ion-icon name="warning" color="yellow"></ion-icon>\n            {{item.title}}\n          </ion-item>\n          <br>\n          <ion-item>\n          <p style="text-align:justify" text-wrap>{{item.body}}</p>\n          </ion-item>\n          <ion-item>\n          <ion-icon name="calendar" item-start></ion-icon>\n          <ion-badge item-end color="danger">{{item.createdAt}}</ion-badge>\n        </ion-item>\n    </div>\n        </ion-item>\n      </ion-item-group>\n\n\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/announcements/announcements.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\announcements\announcements.html"*/'  <ion-content padding >\n\n    <div id="container">\n\n    </div>\n\n\n\n\n\n    <ion-item-group>\n\n      <ion-item-divider  color="light">DESTACADOS</ion-item-divider>\n\n      <ion-item *ngFor="let it of destacado | async" >\n\n        <div *ngIf="it.destacado != false">\n\n          <ion-item color="dark">\n\n            <ion-icon name="warning" color="yellow"></ion-icon>\n\n            {{it.title}}\n\n            </ion-item>\n\n          <p></p>\n\n          <ion-item>\n\n          <p style="text-align:justify" text-wrap>{{it.body}}</p>\n\n        </ion-item>\n\n          <ion-item>\n\n          <ion-icon name="calendar" item-start></ion-icon>\n\n          <ion-badge item-end color="danger">{{it.createdAt}}</ion-badge>\n\n        </ion-item>\n\n        </div>\n\n      </ion-item>\n\n    </ion-item-group>\n\n\n\n      <ion-item-group>\n\n        <ion-item-divider  color="light">Hoy</ion-item-divider>\n\n        <ion-item *ngFor="let item of message | async" >\n\n    <div *ngIf="item.destacado == false">\n\n          <ion-item color="dark">\n\n            <ion-icon name="warning" color="yellow"></ion-icon>\n\n            {{item.title}}\n\n          </ion-item>\n\n          <br>\n\n          <ion-item>\n\n          <p style="text-align:justify" text-wrap>{{item.body}}</p>\n\n          </ion-item>\n\n          <ion-item>\n\n          <ion-icon name="calendar" item-start></ion-icon>\n\n          <ion-badge item-end color="danger">{{item.createdAt}}</ion-badge>\n\n        </ion-item>\n\n    </div>\n\n        </ion-item>\n\n      </ion-item-group>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\announcements\announcements.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__announcements_service__["a" /* AnnouncementService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__announcements_service__["a" /* AnnouncementService */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__announcements_service__["a" /* AnnouncementService */]])
     ], AnnouncementComponent);
     return AnnouncementComponent;
-    var _a;
 }());
 
 //# sourceMappingURL=announcements.js.map
@@ -963,7 +968,7 @@ var AboutUsComponent = (function () {
     AboutUsComponent.prototype.ngOnInit = function () { };
     AboutUsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'aboutus',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/aboutus/aboutus.html"*/'<ion-content>\n  <ion-card>\n    <ion-slides id="sliderabout">\n      <ion-slide>\n        <img class="imgabout" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/uploads%2Fabout.png?alt=media&token=16ea3d70-b133-4c81-a9d0-e80d5ca8f9a8" alt="">\n      </ion-slide>\n      <ion-slide>\n        <img class="imgabout" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/uploads%2Fabout1.jpg?alt=media&token=ebd0d5ce-4f23-4d73-bad9-ed6c9a7521f7" alt="">\n      </ion-slide>\n      <ion-slide>\n        <img class="imgabout" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/uploads%2Fabout3.jpg?alt=media&token=16bd308d-72c6-4463-a8d2-3e1202bb2760" alt="">\n      </ion-slide>\n      <ion-slide>\n        <img class="imgabout" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/uploads%2Fabout4.jpg?alt=media&token=3b72c181-ebce-4f8e-91b5-adddc0f16f3d" alt="">\n      </ion-slide>\n    </ion-slides>\n    <ion-card-header>\n      {{title}}\n    </ion-card-header>\n    <ion-card-content style="text-align:justify" text-wrap>\n      {{info}}\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/aboutus/aboutus.html"*/,
+            selector: 'aboutus',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\aboutus\aboutus.html"*/'<ion-content>\n\n  <ion-card>\n\n    <ion-slides id="sliderabout">\n\n      <ion-slide>\n\n        <img class="imgabout" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/uploads%2Fabout.png?alt=media&token=16ea3d70-b133-4c81-a9d0-e80d5ca8f9a8" alt="">\n\n      </ion-slide>\n\n      <ion-slide>\n\n        <img class="imgabout" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/uploads%2Fabout1.jpg?alt=media&token=ebd0d5ce-4f23-4d73-bad9-ed6c9a7521f7" alt="">\n\n      </ion-slide>\n\n      <ion-slide>\n\n        <img class="imgabout" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/uploads%2Fabout3.jpg?alt=media&token=16bd308d-72c6-4463-a8d2-3e1202bb2760" alt="">\n\n      </ion-slide>\n\n      <ion-slide>\n\n        <img class="imgabout" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/uploads%2Fabout4.jpg?alt=media&token=3b72c181-ebce-4f8e-91b5-adddc0f16f3d" alt="">\n\n      </ion-slide>\n\n    </ion-slides>\n\n    <ion-card-header>\n\n      {{title}}\n\n    </ion-card-header>\n\n    <ion-card-content style="text-align:justify" text-wrap>\n\n      {{info}}\n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\aboutus\aboutus.html"*/,
         }),
         __metadata("design:paramtypes", [])
     ], AboutUsComponent);
@@ -1009,7 +1014,7 @@ var CoursesComponent = (function () {
     };
     CoursesComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'courses',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/courses/courses.html"*/'<ion-content class="card-background-page">\n\n  <ion-card>\n    <img (click)="info(1)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FBajo.jpeg?alt=media&token=441babe6-e811-48b0-8202-f4d1b24234ef"/>\n    <div class="card-title">Bajo</div>\n    <div class="card-subtitle">Adultos y niños</div>\n  </ion-card>\n\n  <ion-card>\n    <img (click)="info(2)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FBateria.jpeg?alt=media&token=23bca4a9-db4e-4c81-a76c-d64648749deb"/>\n    <div class="card-title">Bateria</div>\n    <div class="card-subtitle">Adultos y niños</div>\n  </ion-card>\n\n  <ion-card>\n    <img (click)="info(3)"  src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FCanto.jpeg?alt=media&token=1abb58ea-482c-4c4c-a5e5-b434d00eb4a0"/>\n    <div class="card-title">Canto</div>\n    <div class="card-subtitle">Adultos y niños</div>\n  </ion-card>\n\n  <ion-card>\n    <img (click)="info(4)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FDibujo.jpeg?alt=media&token=20d789a6-4198-410c-a66a-834016b41b1e"/>\n    <div class="card-title">Dibujo</div>\n    <div class="card-subtitle">Adultos y niños</div>\n  </ion-card>\n  <ion-card>\n    <img (click)="info(5)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FGuitarra.jpeg?alt=media&token=4280c386-864b-4bd3-9d6c-d82f73aee3da"/>\n    <div class="card-title">Guitarra eléctrica/acústica</div>\n    <div class="card-subtitle">Adultos y niños</div>\n  </ion-card>\n  <ion-card>\n    <img (click)="info(6)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FPiano.jpeg?alt=media&token=40ccc3a3-6f7f-4a31-ae2a-87c8e688141a"/>\n    <div class="card-title">Piano</div>\n    <div class="card-subtitle">Adultos y niños</div>\n  </ion-card>\n  <ion-card>\n    <img (click)="info(7)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FSaxofon.jpeg?alt=media&token=39897f08-fbf3-4dae-90c8-4b655ce25916"/>\n    <div class="card-title">Saxofon</div>\n    <div class="card-subtitle">Adultos y jovenes</div>\n  </ion-card>\n  <ion-card>\n    <img (click)="info(8)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FUkelele.jpeg?alt=media&token=a225e5f0-f54b-468b-8577-4b5ed360b54d"/>\n    <div class="card-title">Ukelele</div>\n    <div class="card-subtitle">Adultos y niños</div>\n  </ion-card>\n  <ion-card>\n    <img (click)="info(9)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FViolin.jpeg?alt=media&token=0fdb42db-efc4-4e4f-8a8f-8d31c2b893dd"/>\n    <div class="card-title">Violín</div>\n    <div class="card-subtitle">Adultos y niños</div>\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/courses/courses.html"*/,
+            selector: 'courses',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\courses\courses.html"*/'<ion-content class="card-background-page">\n\n\n\n  <ion-card>\n\n    <img (click)="info(1)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FBajo.jpeg?alt=media&token=441babe6-e811-48b0-8202-f4d1b24234ef"/>\n\n    <div class="card-title">Bajo</div>\n\n    <div class="card-subtitle">Adultos y niños</div>\n\n  </ion-card>\n\n\n\n  <ion-card>\n\n    <img (click)="info(2)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FBateria.jpeg?alt=media&token=23bca4a9-db4e-4c81-a76c-d64648749deb"/>\n\n    <div class="card-title">Bateria</div>\n\n    <div class="card-subtitle">Adultos y niños</div>\n\n  </ion-card>\n\n\n\n  <ion-card>\n\n    <img (click)="info(3)"  src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FCanto.jpeg?alt=media&token=1abb58ea-482c-4c4c-a5e5-b434d00eb4a0"/>\n\n    <div class="card-title">Canto</div>\n\n    <div class="card-subtitle">Adultos y niños</div>\n\n  </ion-card>\n\n\n\n  <ion-card>\n\n    <img (click)="info(4)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FDibujo.jpeg?alt=media&token=20d789a6-4198-410c-a66a-834016b41b1e"/>\n\n    <div class="card-title">Dibujo</div>\n\n    <div class="card-subtitle">Adultos y niños</div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <img (click)="info(5)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FGuitarra.jpeg?alt=media&token=4280c386-864b-4bd3-9d6c-d82f73aee3da"/>\n\n    <div class="card-title">Guitarra eléctrica/acústica</div>\n\n    <div class="card-subtitle">Adultos y niños</div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <img (click)="info(6)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FPiano.jpeg?alt=media&token=40ccc3a3-6f7f-4a31-ae2a-87c8e688141a"/>\n\n    <div class="card-title">Piano</div>\n\n    <div class="card-subtitle">Adultos y niños</div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <img (click)="info(7)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FSaxofon.jpeg?alt=media&token=39897f08-fbf3-4dae-90c8-4b655ce25916"/>\n\n    <div class="card-title">Saxofon</div>\n\n    <div class="card-subtitle">Adultos y jovenes</div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <img (click)="info(8)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FUkelele.jpeg?alt=media&token=a225e5f0-f54b-468b-8577-4b5ed360b54d"/>\n\n    <div class="card-title">Ukelele</div>\n\n    <div class="card-subtitle">Adultos y niños</div>\n\n  </ion-card>\n\n  <ion-card>\n\n    <img (click)="info(9)" src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2FViolin.jpeg?alt=media&token=0fdb42db-efc4-4e4f-8a8f-8d31c2b893dd"/>\n\n    <div class="card-title">Violín</div>\n\n    <div class="card-subtitle">Adultos y niños</div>\n\n  </ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\courses\courses.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], CoursesComponent);
@@ -1020,7 +1025,40 @@ var CoursesComponent = (function () {
 
 /***/ }),
 
-/***/ 439:
+/***/ 438:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DirectoryComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DirectoryComponent = (function () {
+    function DirectoryComponent() {
+    }
+    DirectoryComponent.prototype.ngOnInit = function () { };
+    DirectoryComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-directory',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\directory\directory.component.html"*/'<ion-content id="paddinBottom" padding>\n\n  <div padding>\n\n  <ion-segment [(ngModel)]="pet">\n\n    <ion-segment-button value="kittens">\n\n      Contacto\n\n    </ion-segment-button>\n\n    <ion-segment-button value="puppies">\n\n      Social Media\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n</div>\n\n\n\n<div [ngSwitch]="pet">\n\n  <ion-list *ngSwitchCase="\'puppies\'">\n\n    <ion-item>\n\n      <ion-thumbnail item-start>\n\n        <img src="img/thumbnail-puppy-1.jpg">\n\n      </ion-thumbnail>\n\n      <h2>Redes Sociales:</h2>\n\n    </ion-item>\n\n    ...\n\n  </ion-list>\n\n\n\n  <ion-list *ngSwitchCase="\'kittens\'">\n\n    <ion-item>\n\n      <ion-thumbnail item-start>\n\n        <img src="img/thumbnail-kitten-1.jpg">\n\n      </ion-thumbnail>\n\n      <h2>Datos de Contacto:</h2>\n\n    </ion-item>\n\n    ...\n\n  </ion-list>\n\n</div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\directory\directory.component.html"*/,
+        }),
+        __metadata("design:paramtypes", [])
+    ], DirectoryComponent);
+    return DirectoryComponent;
+}());
+
+//# sourceMappingURL=directory.component.js.map
+
+/***/ }),
+
+/***/ 440:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1035,7 +1073,7 @@ var News = (function () {
 
 /***/ }),
 
-/***/ 440:
+/***/ 441:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1043,9 +1081,9 @@ var News = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return NewsFormPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__news__ = __webpack_require__(439);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__news__ = __webpack_require__(440);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_push_service__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__news_service__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__news_list_component__ = __webpack_require__(156);
@@ -1085,7 +1123,7 @@ var NewsComponent = (function () {
     NewsComponent.prototype.ngOnInit = function () { };
     NewsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-news',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/components/news/news.component.html"*/'<button type="button" ion-button large block color="primary" (click)="OpenModal()" outline name="" value="">Crear noticia</button>\n<button type="button" ion-button large block color="primary" (click)="Op()" outline>Listar noticias creadas</button>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/components/news/news.component.html"*/,
+            selector: 'app-news',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\components\news\news.component.html"*/'<button type="button" ion-button large block color="primary" (click)="OpenModal()" outline name="" value="">Crear noticia</button>\n\n<button type="button" ion-button large block color="primary" (click)="Op()" outline>Listar noticias creadas</button>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\components\news\news.component.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_6__news_service__["a" /* NewsService */],
@@ -1151,7 +1189,7 @@ var NewsFormPage = (function () {
 
 /***/ }),
 
-/***/ 450:
+/***/ 451:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1173,7 +1211,7 @@ var Upload = (function () {
 
 /***/ }),
 
-/***/ 451:
+/***/ 452:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1181,7 +1219,7 @@ var Upload = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_service__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prospect_crud_component__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prospect_crud_component__ = __webpack_require__(453);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1227,19 +1265,21 @@ var ProspectModalComponent = (function () {
         this.viewCtrl.dismiss();
     };
     ProspectModalComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/propects/prospect.component.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Prospectos\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancelar</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n<ion-item>\n<button type="button" large block ion-button (click)="openCreatorProspectForm()"> Crear prospecto </button>\n</ion-item>\n<!--d-->\n<!--sss-->\n\n<ion-searchbar (ionInput)="getItems($event)" ></ion-searchbar>\n<ion-list>\n<ion-item-group >\n<ion-item-divider style="text-align:center;" color="light">Prospectos</ion-item-divider>\n<ion-item-sliding *ngFor="let item of prospects">\n  <ion-item >\n      <p>{{item}}</p>\n  </ion-item>\n\n<ion-item-options  side="right">\n    <button (click)="editProspect(item)" ion-button color="secondary">\n      <ion-icon name="open"></ion-icon>\n      Editar\n    </button>\n    <button ion-button  color="danger">\n      <ion-icon name="trash"></ion-icon>\n      Eliminar\n    </button>\n  </ion-item-options>\n\n</ion-item-sliding>\n</ion-item-group>\n</ion-list>\n<!--\n<form *ngIf="isEditing == false; else edit">\n<ion-item>\n  <ion-label floating>Título</ion-label>\n  <ion-input type="text" required [(ngModel)]="announcement.title" name="title" #titu></ion-input>\n</ion-item>\n\n<ion-item>\n  <textarea rows=\'5\' data-min-rows=\'3\' placeholder=\'Cuerpo de aviso\' required [(ngModel)]="announcement.body" name = "body"></textarea>\n</ion-item>\n\n<ion-item >\n  <button type="submit" ion-button color="danger" (click)="CreateAnnouncement()" block>Registrar</button>\n</ion-item>\n</form>\n\n<ng-template #edit>\n  <form>\n  <ion-item>\n    <ion-label floating>Título</ion-label>\n    <ion-input type="text" required [(ngModel)]="item.title" name="title" #titu></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <textarea rows=\'5\' data-min-rows=\'3\' placeholder=\'Cuerpo de aviso\' required [(ngModel)]="item.body" name = "body"></textarea>\n  </ion-item>\n  <ion-item>\n<button type="submit" ion-button color="secondary" (click)="editAnnouncement()" block>Editar</button>\n</ion-item>\n</form>\n</ng-template>\n-->\n\n\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/propects/prospect.component.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\propects\prospect.component.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>\n\n      Prospectos\n\n    </ion-title>\n\n    <ion-buttons start>\n\n      <button ion-button (click)="dismiss()">\n\n        <span ion-text color="primary" showWhen="ios">Cancelar</span>\n\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n<ion-item>\n\n<button type="button" large block ion-button (click)="openCreatorProspectForm()"> Crear prospecto </button>\n\n</ion-item>\n\n<!--d-->\n\n<!--sss-->\n\n\n\n<ion-searchbar (ionInput)="getItems($event)" ></ion-searchbar>\n\n<ion-list>\n\n<ion-item-group >\n\n<ion-item-divider style="text-align:center;" color="light">Prospectos</ion-item-divider>\n\n<ion-item-sliding *ngFor="let item of prospects">\n\n  <ion-item >\n\n      <p>{{item}}</p>\n\n  </ion-item>\n\n\n\n<ion-item-options  side="right">\n\n    <button (click)="editProspect(item)" ion-button color="secondary">\n\n      <ion-icon name="open"></ion-icon>\n\n      Editar\n\n    </button>\n\n    <button ion-button  color="danger">\n\n      <ion-icon name="trash"></ion-icon>\n\n      Eliminar\n\n    </button>\n\n  </ion-item-options>\n\n\n\n</ion-item-sliding>\n\n</ion-item-group>\n\n</ion-list>\n\n<!--\n\n<form *ngIf="isEditing == false; else edit">\n\n<ion-item>\n\n  <ion-label floating>Título</ion-label>\n\n  <ion-input type="text" required [(ngModel)]="announcement.title" name="title" #titu></ion-input>\n\n</ion-item>\n\n\n\n<ion-item>\n\n  <textarea rows=\'5\' data-min-rows=\'3\' placeholder=\'Cuerpo de aviso\' required [(ngModel)]="announcement.body" name = "body"></textarea>\n\n</ion-item>\n\n\n\n<ion-item >\n\n  <button type="submit" ion-button color="danger" (click)="CreateAnnouncement()" block>Registrar</button>\n\n</ion-item>\n\n</form>\n\n\n\n<ng-template #edit>\n\n  <form>\n\n  <ion-item>\n\n    <ion-label floating>Título</ion-label>\n\n    <ion-input type="text" required [(ngModel)]="item.title" name="title" #titu></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item>\n\n    <textarea rows=\'5\' data-min-rows=\'3\' placeholder=\'Cuerpo de aviso\' required [(ngModel)]="item.body" name = "body"></textarea>\n\n  </ion-item>\n\n  <ion-item>\n\n<button type="submit" ion-button color="secondary" (click)="editAnnouncement()" block>Editar</button>\n\n</ion-item>\n\n</form>\n\n</ng-template>\n\n-->\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\propects\prospect.component.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__prospect_service__["a" /* ProspectService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__prospect_service__["a" /* ProspectService */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_2__prospect_service__["a" /* ProspectService */]])
     ], ProspectModalComponent);
     return ProspectModalComponent;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=prospect.component.js.map
 
 /***/ }),
 
-/***/ 452:
+/***/ 453:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1247,7 +1287,7 @@ var ProspectModalComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_service__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prospect__ = __webpack_require__(657);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prospect__ = __webpack_require__(658);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1268,7 +1308,20 @@ var ProspectCrudComponent = (function () {
         this.viewCtrl = viewCtrl;
         this.prosSrv = prosSrv;
         this.cursos = ["Bajo", "Bateria", "Canto", "Dibujo", "Guitarra Electrica/Acustica", "Piano", "Saxofon", "Ukulele", "Violin"];
-        this.currentProspect = {};
+        this.currentProspect = {
+            name: '',
+            lastname: '',
+            lastname2: '',
+            age: '',
+            state: '',
+            attended: '',
+            phone: '',
+            status: '',
+            course: '',
+            source: '',
+            coment: '',
+            price: '',
+        };
         console.log(this.params.get("item"));
         this.coordi = this.prosSrv.getCoordis();
     }
@@ -1278,7 +1331,6 @@ var ProspectCrudComponent = (function () {
         this.viewCtrl.dismiss();
     };
     ProspectCrudComponent.prototype.createNewProspect = function () {
-        console.log(this.currentProspect.attended);
         var prospect = new __WEBPACK_IMPORTED_MODULE_3__prospect__["a" /* Prospect */]();
         prospect.nombre = this.currentProspect.name;
         prospect.apellidoPaterno = this.currentProspect.lastname;
@@ -1297,25 +1349,27 @@ var ProspectCrudComponent = (function () {
         this.viewCtrl.dismiss();
     };
     ProspectCrudComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/propects/prospect-crud.component.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Prospectos\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancelar</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n  <ion-list>\n\n    <ion-item>\n      <ion-label floating>Nombre</ion-label>\n      <ion-input [(ngModel)]="currentProspect.name" name="name" type="text"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Apellido paterno</ion-label>\n      <ion-input [(ngModel)]="currentProspect.lastname" name="lastname" type="text"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Apellido Materno</ion-label>\n      <ion-input [(ngModel)]="currentProspect.lastname2" name="lastname2" type="text"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Edad</ion-label>\n      <ion-input [(ngModel)]="currentProspect.age" name="age" type="text"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Estado</ion-label>\n      <ion-select [(ngModel)]="currentProspect.state" name="state">\n        <ion-option value="si">Si</ion-option>\n        <ion-option value="nn">No</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Telefono</ion-label>\n      <ion-input [(ngModel)]="currentProspect.phone" name="phone" type="text"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Estatus</ion-label>\n      <ion-select [(ngModel)]="currentProspect.status" name="status">\n        <ion-option value="debil">Débil</ion-option>\n        <ion-option value="interesado">Interesado</ion-option>\n        <ion-option value="inscrito">Inscrito</ion-option>\n        <ion-option value="muerto">Muerto</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Atendió</ion-label>\n      <ion-select [(ngModel)]="currentProspect.attended" name="attended">\n        <ion-option *ngFor="let item of coordi | async" value="{{item.name}}">{{item.name}}</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Cursos</ion-label>\n      <ion-select [(ngModel)]="currentProspect.course" name="course">\n        <ion-option *ngFor="let item of cursos;" value="{{item}}">{{item}}</ion-option>\n      </ion-select>\n    </ion-item>\n\n\n    <ion-item>\n      <textarea rows=\'5\' [(ngModel)]="currentProspect.coment" name="coment" data-min-rows=\'3\' name="coment" placeholder=\'Comentario...\' required></textarea>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Fuente</ion-label>\n      <ion-select [(ngModel)]="currentProspect.source" name="source">\n        <ion-option value="inboxfb">INBOX FB</ion-option>\n        <ion-option value="whatsapp">WHATSAPP</ion-option>\n        <ion-option value="comentariofb">COMENTARIO</ion-option>\n        <ion-option value="database">BASE DE DATOS</ion-option>\n      </ion-select>\n    </ion-item>\n\n\n    <ion-item>\n        <ion-icon name="logo-usd" item-start></ion-icon>\n          Precio\n        <ion-input [(ngModel)]="currentProspect.price" name="price" type="text"></ion-input>\n      </ion-item>\n\n\n      <button type="button" ion-button block (click)="createNewProspect()" > Crear prospecto </button>\n\n  </ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/propects/prospect-crud.component.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\propects\prospect-crud.component.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>\n\n      Prospectos\n\n    </ion-title>\n\n    <ion-buttons start>\n\n      <button ion-button (click)="dismiss()">\n\n        <span ion-text color="primary" showWhen="ios">Cancelar</span>\n\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n<ion-content>\n\n\n\n  <ion-list>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Nombre</ion-label>\n\n      <ion-input [(ngModel)]="currentProspect.name" name="name" type="text"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Apellido paterno</ion-label>\n\n      <ion-input [(ngModel)]="currentProspect.lastname" name="lastname" type="text"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Apellido Materno</ion-label>\n\n      <ion-input [(ngModel)]="currentProspect.lastname2" name="lastname2" type="text"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Edad</ion-label>\n\n      <ion-input [(ngModel)]="currentProspect.age" name="age" type="text"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Estado</ion-label>\n\n      <ion-select [(ngModel)]="currentProspect.state" name="state">\n\n        <ion-option value="si">Si</ion-option>\n\n        <ion-option value="nn">No</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Telefono</ion-label>\n\n      <ion-input [(ngModel)]="currentProspect.phone" name="phone" type="text"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Estatus</ion-label>\n\n      <ion-select [(ngModel)]="currentProspect.status" name="status">\n\n        <ion-option value="debil">Débil</ion-option>\n\n        <ion-option value="interesado">Interesado</ion-option>\n\n        <ion-option value="inscrito">Inscrito</ion-option>\n\n        <ion-option value="muerto">Muerto</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Atendió</ion-label>\n\n      <ion-select [(ngModel)]="currentProspect.attended" name="attended">\n\n        <ion-option *ngFor="let item of coordi | async" value="{{item.name}}">{{item.name}}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Cursos</ion-label>\n\n      <ion-select [(ngModel)]="currentProspect.course" name="course">\n\n        <ion-option *ngFor="let item of cursos;" value="{{item}}">{{item}}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n\n\n    <ion-item>\n\n      <textarea rows=\'5\' [(ngModel)]="currentProspect.coment" name="coment" data-min-rows=\'3\' name="coment" placeholder=\'Comentario...\' required></textarea>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Fuente</ion-label>\n\n      <ion-select [(ngModel)]="currentProspect.source" name="source">\n\n        <ion-option value="inboxfb">INBOX FB</ion-option>\n\n        <ion-option value="whatsapp">WHATSAPP</ion-option>\n\n        <ion-option value="comentariofb">COMENTARIO</ion-option>\n\n        <ion-option value="database">BASE DE DATOS</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n\n\n    <ion-item>\n\n        <ion-icon name="logo-usd" item-start></ion-icon>\n\n          Precio\n\n        <ion-input [(ngModel)]="currentProspect.price" name="price" type="text"></ion-input>\n\n      </ion-item>\n\n\n\n\n\n      <button type="button" ion-button block (click)="createNewProspect()" > Crear prospecto </button>\n\n\n\n  </ion-list>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\propects\prospect-crud.component.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__prospect_service__["a" /* ProspectService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__prospect_service__["a" /* ProspectService */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_2__prospect_service__["a" /* ProspectService */]])
     ], ProspectCrudComponent);
     return ProspectCrudComponent;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=prospect-crud.component.js.map
 
 /***/ }),
 
-/***/ 453:
+/***/ 454:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(454);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(455);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(473);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1323,7 +1377,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 472:
+/***/ 473:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1332,31 +1386,31 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(513);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(514);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__ = __webpack_require__(517);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(526);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(527);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_list_list__ = __webpack_require__(619);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_list_list__ = __webpack_require__(620);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_components_navbar_navbar__ = __webpack_require__(620);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_components_navbar_navbar__ = __webpack_require__(621);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_components_dashboard_dashboard__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_components_options_options__ = __webpack_require__(621);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_components_options_options__ = __webpack_require__(622);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__ = __webpack_require__(264);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__ = __webpack_require__(265);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_components_news_news_list_component__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_components_news_news_component__ = __webpack_require__(440);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_components_pageHandler_pageHandler_component__ = __webpack_require__(622);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_components_news_news_component__ = __webpack_require__(441);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_components_pageHandler_pageHandler_component__ = __webpack_require__(623);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_userprofile_profile__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_components_uploads_shared_upload_list_upload_list_component__ = __webpack_require__(623);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_components_uploads_shared_upload_form_upload_form_component__ = __webpack_require__(649);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_components_uploads_shared_upload_list_upload_list_component__ = __webpack_require__(624);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_components_uploads_shared_upload_form_upload_form_component__ = __webpack_require__(650);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_components_uploads_shared_upload_service__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_components_news_news_service__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_components_sort_reverse__ = __webpack_require__(650);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_components_modal_modal__ = __webpack_require__(651);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_components_news_news_list_service__ = __webpack_require__(652);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_fcm__ = __webpack_require__(653);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_components_sort_reverse__ = __webpack_require__(651);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_components_modal_modal__ = __webpack_require__(652);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_components_news_news_list_service__ = __webpack_require__(653);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_fcm__ = __webpack_require__(654);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_push__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_local_notifications__ = __webpack_require__(142);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__push_service__ = __webpack_require__(81);
@@ -1364,16 +1418,17 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_announcements_announcement_crud__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_aboutus_aboutus__ = __webpack_require__(436);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_courses_courses__ = __webpack_require__(437);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__ionic_native_onesignal__ = __webpack_require__(438);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_angularfire2__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_angularfire2_database__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_angularfire2_auth__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__auth_service__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_announcements_announcements_service__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_propects_prospect_button__ = __webpack_require__(655);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_propects_prospect_component__ = __webpack_require__(451);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_propects_prospect_service__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_propects_prospect_crud_component__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__ionic_native_onesignal__ = __webpack_require__(439);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_directory_directory_component__ = __webpack_require__(438);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_angularfire2__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_angularfire2_database__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_angularfire2_auth__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__auth_service__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_announcements_announcements_service__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_propects_prospect_button__ = __webpack_require__(656);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_propects_prospect_component__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_propects_prospect_service__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_propects_prospect_crud_component__ = __webpack_require__(453);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1422,6 +1477,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+//COMPONENT - CARLOS
 
 //services
 
@@ -1472,9 +1529,10 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_34__pages_courses_courses__["a" /* CoursesComponent */],
                 __WEBPACK_IMPORTED_MODULE_32__pages_announcements_announcement_crud__["a" /* AnnouncementButton */],
                 __WEBPACK_IMPORTED_MODULE_32__pages_announcements_announcement_crud__["c" /* AnnouncementModalCRUD */],
-                __WEBPACK_IMPORTED_MODULE_41__pages_propects_prospect_button__["a" /* ProspectButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_42__pages_propects_prospect_component__["a" /* ProspectModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_44__pages_propects_prospect_crud_component__["a" /* ProspectCrudComponent */]
+                __WEBPACK_IMPORTED_MODULE_42__pages_propects_prospect_button__["a" /* ProspectButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_43__pages_propects_prospect_component__["a" /* ProspectModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__pages_propects_prospect_crud_component__["a" /* ProspectCrudComponent */],
+                __WEBPACK_IMPORTED_MODULE_36__pages_directory_directory_component__["a" /* DirectoryComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -1483,9 +1541,9 @@ var AppModule = (function () {
                 }),
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_36_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
-                __WEBPACK_IMPORTED_MODULE_37_angularfire2_database__["b" /* AngularFireDatabaseModule */],
-                __WEBPACK_IMPORTED_MODULE_38_angularfire2_auth__["b" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_37_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
+                __WEBPACK_IMPORTED_MODULE_38_angularfire2_database__["b" /* AngularFireDatabaseModule */],
+                __WEBPACK_IMPORTED_MODULE_39_angularfire2_auth__["b" /* AngularFireAuthModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
@@ -1515,16 +1573,17 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_33__pages_aboutus_aboutus__["a" /* AboutUsComponent */],
                 __WEBPACK_IMPORTED_MODULE_32__pages_announcements_announcement_crud__["a" /* AnnouncementButton */],
                 __WEBPACK_IMPORTED_MODULE_32__pages_announcements_announcement_crud__["c" /* AnnouncementModalCRUD */],
-                __WEBPACK_IMPORTED_MODULE_41__pages_propects_prospect_button__["a" /* ProspectButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_42__pages_propects_prospect_component__["a" /* ProspectModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_44__pages_propects_prospect_crud_component__["a" /* ProspectCrudComponent */]
+                __WEBPACK_IMPORTED_MODULE_42__pages_propects_prospect_button__["a" /* ProspectButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_43__pages_propects_prospect_component__["a" /* ProspectModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__pages_propects_prospect_crud_component__["a" /* ProspectCrudComponent */],
+                __WEBPACK_IMPORTED_MODULE_36__pages_directory_directory_component__["a" /* DirectoryComponent */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__["a" /* SplashScreen */],
-                __WEBPACK_IMPORTED_MODULE_39__auth_service__["a" /* AuthService */],
-                __WEBPACK_IMPORTED_MODULE_37_angularfire2_database__["a" /* AngularFireDatabase */],
-                __WEBPACK_IMPORTED_MODULE_40__pages_announcements_announcements_service__["a" /* AnnouncementService */],
+                __WEBPACK_IMPORTED_MODULE_40__auth_service__["a" /* AuthService */],
+                __WEBPACK_IMPORTED_MODULE_38_angularfire2_database__["a" /* AngularFireDatabase */],
+                __WEBPACK_IMPORTED_MODULE_41__pages_announcements_announcements_service__["a" /* AnnouncementService */],
                 __WEBPACK_IMPORTED_MODULE_22__pages_components_uploads_shared_upload_service__["a" /* UploadService */],
                 __WEBPACK_IMPORTED_MODULE_23__pages_components_news_news_service__["a" /* NewsService */],
                 __WEBPACK_IMPORTED_MODULE_26__pages_components_news_news_list_service__["a" /* NewsListService */],
@@ -1535,7 +1594,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_30__push_service__["a" /* PushService */],
                 __WEBPACK_IMPORTED_MODULE_29__ionic_native_local_notifications__["a" /* LocalNotifications */],
                 __WEBPACK_IMPORTED_MODULE_35__ionic_native_onesignal__["a" /* OneSignal */],
-                __WEBPACK_IMPORTED_MODULE_43__pages_propects_prospect_service__["a" /* ProspectService */],
+                __WEBPACK_IMPORTED_MODULE_44__pages_propects_prospect_service__["a" /* ProspectService */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
             ]
         })
@@ -1547,7 +1606,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 526:
+/***/ 527:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1565,12 +1624,13 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__push_service__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_aboutus_aboutus__ = __webpack_require__(436);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_courses_courses__ = __webpack_require__(437);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_onesignal__ = __webpack_require__(438);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angularfire2_auth__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angularfire2_database__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_firebase_app__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_firebase_app__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__app_auth_service__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_directory_directory_component__ = __webpack_require__(438);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_onesignal__ = __webpack_require__(439);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angularfire2_auth__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2_database__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_firebase_app__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_firebase_app__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_auth_service__ = __webpack_require__(67);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1593,6 +1653,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+//COMPONENTS -CARLOS
+
 //
 
 
@@ -1614,7 +1676,7 @@ var MyApp = (function () {
         this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */];
         this.initializeApp();
         var user = afAuth.auth.currentUser;
-        __WEBPACK_IMPORTED_MODULE_16_firebase_app__["auth"]().onAuthStateChanged(function (user) {
+        __WEBPACK_IMPORTED_MODULE_17_firebase_app__["auth"]().onAuthStateChanged(function (user) {
             if (user) {
                 console.log("Usuario:" + user.email);
                 // User is signed in.
@@ -1628,6 +1690,7 @@ var MyApp = (function () {
             { title: 'Quienes somos', component: __WEBPACK_IMPORTED_MODULE_11__pages_aboutus_aboutus__["a" /* AboutUsComponent */], icon: 'contacts' },
             { title: 'Cursos', component: __WEBPACK_IMPORTED_MODULE_12__pages_courses_courses__["a" /* CoursesComponent */], icon: 'md-albums' },
             { title: 'Avisos', component: __WEBPACK_IMPORTED_MODULE_9__pages_announcements_announcements__["a" /* AnnouncementComponent */], icon: 'bulb' },
+            { title: 'Directorio', component: __WEBPACK_IMPORTED_MODULE_13__pages_directory_directory_component__["a" /* DirectoryComponent */], icon: 'bookmarks' },
             { title: 'Acceder/Salir', component: __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginComponent */], icon: 'log-in' }
         ];
         this.adminPages = [
@@ -1637,7 +1700,8 @@ var MyApp = (function () {
             { title: 'Avisos', component: __WEBPACK_IMPORTED_MODULE_9__pages_announcements_announcements__["a" /* AnnouncementComponent */], icon: 'bulb' },
             { title: 'Quienes somos', component: __WEBPACK_IMPORTED_MODULE_11__pages_aboutus_aboutus__["a" /* AboutUsComponent */], icon: 'contacts' },
             { title: 'Cursos', component: __WEBPACK_IMPORTED_MODULE_12__pages_courses_courses__["a" /* CoursesComponent */], icon: 'md-albums' },
-            { title: 'Acceder/salir', component: __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginComponent */], icon: 'log-in' }
+            { title: 'Directorio', component: __WEBPACK_IMPORTED_MODULE_13__pages_directory_directory_component__["a" /* DirectoryComponent */], icon: 'bookmarks' },
+            { title: 'Acceder/Salir', component: __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* LoginComponent */], icon: 'log-in' }
         ];
         // used for an example of ngFor and navigation
     }
@@ -1696,18 +1760,18 @@ var MyApp = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/app/app.html"*/'\n<ion-header>\n  <ion-navbar color="dark">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-menu  [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>\n      </ion-title>\n      <img class="logo" src="assets/imgs/CFM3.png" alt="">\n      <div *ngIf="afAuth.authState | async; let user;">\n        Hola {{ user.email }}!\n      </div>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content class="dark">\n    <div id="menu">\n    <div *ngIf="afAuth.authState | async; let user; else showUserPages" >\n      <ion-list >\n        <button menuClose ion-item *ngFor="let p of adminPages" (click)="openPage(p)">\n          <ion-icon  name="{{p.icon}}"></ion-icon>\n          {{p.title}}\n        </button>\n      </ion-list>\n    </div>\n\n    <ng-template #showUserPages>\n      <ion-list>\n        <button menuClose ion-item *ngFor="let p of userpages" (click)="openPage(p)">\n          <ion-icon  name="{{p.icon}}"></ion-icon>\n          {{p.title}}\n        </button>\n      </ion-list>\n    </ng-template>\n\n      </div>\n  </ion-content>\n\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav   [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\cfm-mobileapp\src\app\app.html"*/'\n\n<ion-header>\n\n  <ion-navbar color="dark">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-menu  [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>\n\n      </ion-title>\n\n      <img class="logo" src="assets/imgs/CFM3.png" alt="">\n\n      <div *ngIf="afAuth.authState | async; let user;">\n\n        Hola {{ user.email }}!\n\n      </div>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content class="dark">\n\n    <div id="menu">\n\n    <div *ngIf="afAuth.authState | async; let user; else showUserPages" >\n\n      <ion-list >\n\n        <button menuClose ion-item *ngFor="let p of adminPages" (click)="openPage(p)">\n\n          <ion-icon  name="{{p.icon}}"></ion-icon>\n\n          {{p.title}}\n\n        </button>\n\n      </ion-list>\n\n    </div>\n\n\n\n    <ng-template #showUserPages>\n\n      <ion-list>\n\n        <button menuClose ion-item *ngFor="let p of userpages" (click)="openPage(p)">\n\n          <ion-icon  name="{{p.icon}}"></ion-icon>\n\n          {{p.title}}\n\n        </button>\n\n      </ion-list>\n\n    </ng-template>\n\n\n\n      </div>\n\n  </ion-content>\n\n\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav   [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_14_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_17__app_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_15_angularfire2_database__["a" /* AngularFireDatabase */],
+            __WEBPACK_IMPORTED_MODULE_15_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_18__app_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_16_angularfire2_database__["a" /* AngularFireDatabase */],
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_push__["a" /* Push */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_10__push_service__["a" /* PushService */],
-            __WEBPACK_IMPORTED_MODULE_13__ionic_native_onesignal__["a" /* OneSignal */]])
+            __WEBPACK_IMPORTED_MODULE_14__ionic_native_onesignal__["a" /* OneSignal */]])
     ], MyApp);
     return MyApp;
 }());
@@ -1716,7 +1780,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 612:
+/***/ 613:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1731,7 +1795,7 @@ var User = (function () {
 
 /***/ }),
 
-/***/ 618:
+/***/ 619:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -1988,11 +2052,11 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 618;
+webpackContext.id = 619;
 
 /***/ }),
 
-/***/ 619:
+/***/ 620:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2037,7 +2101,7 @@ var ListPage = (function () {
     };
     ListPage = ListPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/list/list.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>List</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-start></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-end>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/list/list.html"*/
+            selector: 'page-list',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\list\list.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>List</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n\n      <ion-icon [name]="item.icon" item-start></ion-icon>\n\n      {{item.title}}\n\n      <div class="item-note" item-end>\n\n        {{item.note}}\n\n      </div>\n\n    </button>\n\n  </ion-list>\n\n  <div *ngIf="selectedItem" padding>\n\n    You navigated here from <b>{{selectedItem.title}}</b>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\list\list.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], ListPage);
@@ -2049,14 +2113,14 @@ var ListPage = (function () {
 
 /***/ }),
 
-/***/ 620:
+/***/ 621:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavbarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_auth_service__ = __webpack_require__(67);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2082,7 +2146,7 @@ var NavbarComponent = (function () {
     }
     NavbarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-navbar',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/components/navbar/navbar.html"*/''/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/components/navbar/navbar.html"*/
+            selector: 'app-navbar',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\components\navbar\navbar.html"*/''/*ion-inline-end:"C:\cfm-mobileapp\src\pages\components\navbar\navbar.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__app_auth_service__["a" /* AuthService */]])
     ], NavbarComponent);
@@ -2093,7 +2157,7 @@ var NavbarComponent = (function () {
 
 /***/ }),
 
-/***/ 621:
+/***/ 622:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2115,7 +2179,7 @@ var optionsPage = (function () {
     optionsPage.prototype.ngOnInit = function () { };
     optionsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-options',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/components/options/options.html"*/'<ion-content>\n  <div id="container">\n\n  </div>\n  <p>Estamos en desarrollo</p>\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/components/options/options.html"*/,
+            selector: 'app-options',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\components\options\options.html"*/'<ion-content>\n\n  <div id="container">\n\n\n\n  </div>\n\n  <p>Estamos en desarrollo</p>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\components\options\options.html"*/,
         }),
         __metadata("design:paramtypes", [])
     ], optionsPage);
@@ -2126,7 +2190,7 @@ var optionsPage = (function () {
 
 /***/ }),
 
-/***/ 622:
+/***/ 623:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2134,7 +2198,7 @@ var optionsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__login_login__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2160,7 +2224,7 @@ var PageHandlerComponent = (function () {
     }
     PageHandlerComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-pageHandler',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/components/pageHandler/pageHandler.component.html"*/'<ion-content>\n  <ion-list>\n    <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n      <ion-icon  name="{{p.icon}}"></ion-icon>\n      {{p.title}}\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/components/pageHandler/pageHandler.component.html"*/,
+            selector: 'app-pageHandler',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\components\pageHandler\pageHandler.component.html"*/'<ion-content>\n\n  <ion-list>\n\n    <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n      <ion-icon  name="{{p.icon}}"></ion-icon>\n\n      {{p.title}}\n\n    </button>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\components\pageHandler\pageHandler.component.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], PageHandlerComponent);
@@ -2171,14 +2235,14 @@ var PageHandlerComponent = (function () {
 
 /***/ }),
 
-/***/ 623:
+/***/ 624:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__upload_service__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__upload__ = __webpack_require__(450);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__upload__ = __webpack_require__(451);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2210,7 +2274,7 @@ var UploadListComponent = (function () {
     ], UploadListComponent.prototype, "upload", void 0);
     UploadListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'upload-list',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/components/uploads/shared/upload-list/upload-list.component.html"*/'<h3>File Uploads</h3>\n\n<div *ngFor="let upload of uploads | async">\n  <strong>{{upload.name}}</strong>\n<button (click)=\'deleteUpload()\' class="button is-danger is-small">Delete</button><br>\n</div>\n\n<loading-spinner *ngIf="showSpinner"></loading-spinner>\n\n<hr>\n\n<upload-form></upload-form>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/components/uploads/shared/upload-list/upload-list.component.html"*/
+            selector: 'upload-list',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\components\uploads\shared\upload-list\upload-list.component.html"*/'<h3>File Uploads</h3>\n\n\n\n<div *ngFor="let upload of uploads | async">\n\n  <strong>{{upload.name}}</strong>\n\n<button (click)=\'deleteUpload()\' class="button is-danger is-small">Delete</button><br>\n\n</div>\n\n\n\n<loading-spinner *ngIf="showSpinner"></loading-spinner>\n\n\n\n<hr>\n\n\n\n<upload-form></upload-form>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\components\uploads\shared\upload-list\upload-list.component.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__upload_service__["a" /* UploadService */]])
     ], UploadListComponent);
@@ -2221,14 +2285,14 @@ var UploadListComponent = (function () {
 
 /***/ }),
 
-/***/ 649:
+/***/ 650:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadFormComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__upload_service__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__upload__ = __webpack_require__(450);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__upload__ = __webpack_require__(451);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2272,7 +2336,7 @@ var UploadFormComponent = (function () {
     };
     UploadFormComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'upload-form',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/components/uploads/shared/upload-form/upload-form.component.html"*/'\n<div *ngIf="currentUpload">\n  <progress class="progress is-success" min=1 max=100 value="{{ currentUpload?.progress }}"></progress>\n  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete\n  <input type="hidden" id="url" value="{{currentUpload.url}}">\n  <input type="hidden" id="date" value="{{currentUpload.createdAt}}">\n</div>\n\n\n<div class="box">\n  <h3>Cargar una imagen</h3>\n\n  <label>\n    <input type="file" class="button" (change)="detectFiles($event)">\n  </label>\n\n  <hr>\n<!--\n  <h3>Multiple File Upload</h3>\n\n  <label>\n    <input type="file" class="button" (change)="detectFiles($event)" multiple>\n  </label>\n  <button class="button is-primary"\n    [disabled]="!selectedFiles"\n    (click)="uploadMulti()">\n    Upload Multiple\n  </button>-->\n</div>\n<button ion-button block color="light"\n  [disabled]="!selectedFiles"\n  (click)="uploadSingle()">\n  Cargar imagen\n</button>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/components/uploads/shared/upload-form/upload-form.component.html"*/
+            selector: 'upload-form',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\components\uploads\shared\upload-form\upload-form.component.html"*/'\n\n<div *ngIf="currentUpload">\n\n  <progress class="progress is-success" min=1 max=100 value="{{ currentUpload?.progress }}"></progress>\n\n  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete\n\n  <input type="hidden" id="url" value="{{currentUpload.url}}">\n\n  <input type="hidden" id="date" value="{{currentUpload.createdAt}}">\n\n</div>\n\n\n\n\n\n<div class="box">\n\n  <h3>Cargar una imagen</h3>\n\n\n\n  <label>\n\n    <input type="file" class="button" (change)="detectFiles($event)">\n\n  </label>\n\n\n\n  <hr>\n\n<!--\n\n  <h3>Multiple File Upload</h3>\n\n\n\n  <label>\n\n    <input type="file" class="button" (change)="detectFiles($event)" multiple>\n\n  </label>\n\n  <button class="button is-primary"\n\n    [disabled]="!selectedFiles"\n\n    (click)="uploadMulti()">\n\n    Upload Multiple\n\n  </button>-->\n\n</div>\n\n<button ion-button block color="light"\n\n  [disabled]="!selectedFiles"\n\n  (click)="uploadSingle()">\n\n  Cargar imagen\n\n</button>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\components\uploads\shared\upload-form\upload-form.component.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__upload_service__["a" /* UploadService */]])
     ], UploadFormComponent);
@@ -2283,7 +2347,7 @@ var UploadFormComponent = (function () {
 
 /***/ }),
 
-/***/ 650:
+/***/ 651:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2317,7 +2381,7 @@ var ReversePipe = (function () {
 
 /***/ }),
 
-/***/ 651:
+/***/ 652:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2340,7 +2404,7 @@ var ModalComponent = (function () {
     };
     ModalComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-modal',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/components/modal/modal.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Noticia\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n<form >\n<ion-item *ngFor="let users of user | async">\n<input type="hidden" id="name" value="{{users.name  +  users.lastName}}">\n<input type="hidden" id="photoURL" value="{{users.imageURL}}">\n</ion-item>\n<ion-item>\n  <ion-label floating>Titulo</ion-label>\n  <ion-input type="text" required [(ngModel)]="news.title" name="title"></ion-input>\n</ion-item>\n\n<ion-item>\n  <textarea rows=\'5\' data-min-rows=\'3\' [(ngModel)]="news.textBody" name="textBody" placeholder=\'Cuerpo de noticia\' required></textarea>\n</ion-item>\n\n<ion-item>\n  <upload-form></upload-form>\n</ion-item>\n\n<ion-item>\n  <button type="submit" ion-button color="danger" block>Registrar</button>\n</ion-item>\n</form>\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/components/modal/modal.html"*/,
+            selector: 'app-modal',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\components\modal\modal.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>\n\n      Noticia\n\n    </ion-title>\n\n    <ion-buttons start>\n\n      <button ion-button (click)="dismiss()">\n\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n<ion-content>\n\n<form >\n\n<ion-item *ngFor="let users of user | async">\n\n<input type="hidden" id="name" value="{{users.name  +  users.lastName}}">\n\n<input type="hidden" id="photoURL" value="{{users.imageURL}}">\n\n</ion-item>\n\n<ion-item>\n\n  <ion-label floating>Titulo</ion-label>\n\n  <ion-input type="text" required [(ngModel)]="news.title" name="title"></ion-input>\n\n</ion-item>\n\n\n\n<ion-item>\n\n  <textarea rows=\'5\' data-min-rows=\'3\' [(ngModel)]="news.textBody" name="textBody" placeholder=\'Cuerpo de noticia\' required></textarea>\n\n</ion-item>\n\n\n\n<ion-item>\n\n  <upload-form></upload-form>\n\n</ion-item>\n\n\n\n<ion-item>\n\n  <button type="submit" ion-button color="danger" block>Registrar</button>\n\n</ion-item>\n\n</form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\components\modal\modal.html"*/,
         }),
         __metadata("design:paramtypes", [])
     ], ModalComponent);
@@ -2351,7 +2415,7 @@ var ModalComponent = (function () {
 
 /***/ }),
 
-/***/ 652:
+/***/ 653:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2384,7 +2448,7 @@ var NewsListService = (function () {
 
 /***/ }),
 
-/***/ 654:
+/***/ 655:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2406,14 +2470,14 @@ var Announcement = (function () {
 
 /***/ }),
 
-/***/ 655:
+/***/ 656:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProspectButtonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_component__ = __webpack_require__(451);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_component__ = __webpack_require__(452);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2450,7 +2514,7 @@ var ProspectButtonComponent = (function () {
 
 /***/ }),
 
-/***/ 657:
+/***/ 658:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2472,7 +2536,7 @@ var Prospect = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2583,7 +2647,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/home/home.html"*/'  <ion-content padding>\n    <div id="container">\n    </div>\n<div  class="head">\n  <h1 >NOTICIAS</h1>\n</div>\n\n<div  *ngFor="let item of items | async | reverse">\n  <img  src="{{item.imageURL}}"/>\n  <ion-item>\n    <h2>\n      {{item.title}}\n    </h2>\n    <p style="text-align:justify" text-wrap>\n      {{item.textBody}}\n    </p>\n    <ion-row>\n       <ion-col>\n         <button ion-button icon-left color="dark" clear small>\n           <ion-icon name="md-calendar"></ion-icon>\n           <div>{{item.createdAt}}</div>\n         </button>\n       </ion-col>\n     </ion-row>\n    <button (click)="OpenModal(item.key)" ion-button color="green" small> Ver más</button>\n  </ion-item>\n</div>\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\home\home.html"*/'  <ion-content padding>\n\n    <div id="container">\n\n    </div>\n\n<div  class="head">\n\n  <h1 >NOTICIAS</h1>\n\n</div>\n\n\n\n<div  *ngFor="let item of items | async | reverse">\n\n  <img  src="{{item.imageURL}}"/>\n\n  <ion-item>\n\n    <h2>\n\n      {{item.title}}\n\n    </h2>\n\n    <p style="text-align:justify" text-wrap>\n\n      {{item.textBody}}\n\n    </p>\n\n    <ion-row>\n\n       <ion-col>\n\n         <button ion-button icon-left color="dark" clear small>\n\n           <ion-icon name="md-calendar"></ion-icon>\n\n           <div>{{item.createdAt}}</div>\n\n         </button>\n\n       </ion-col>\n\n     </ion-row>\n\n    <button (click)="OpenModal(item.key)" ion-button color="green" small> Ver más</button>\n\n  </ion-item>\n\n</div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -2680,9 +2744,9 @@ var PushService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ModalRegister; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_components_users_user__ = __webpack_require__(612);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_components_users_user__ = __webpack_require__(613);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_auth_service__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2732,7 +2796,7 @@ var LoginComponent = (function () {
     };
     LoginComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-login',template:/*ion-inline-start:"/home/dwigth/cfm-mobileapp/src/pages/login/login.html"*/'\n<ion-content padding id="form">\n  <div *ngIf="this.afAuth.authState  | async; let user; else showLogin">\n      <p>Usted ya ha iniciado sesión con: {{user.email}}</p>\n      <ion-item>\n        <button type="button" name="button"ion-button block (click)="authServ.logout()">Cerrar sesión</button>\n      </ion-item>\n  </div>\n\n  <ng-template #showLogin>\n  <form (ngSubmit)="submitForm()">\n  <ion-list>\n\n  <ion-item>\n    <ion-label floating >Correo</ion-label>\n    <ion-input type="text" [(ngModel)]="user.email" name="email" required></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label floating>Contraseña</ion-label>\n    <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>\n  </ion-item>\n\n  <button type="submit" ion-button outline block >Entrar</button>\n</ion-list>\n<button type="button" ion-button outline block (click)="Open()" >Registrarte</button>\n</form>\n</ng-template>\n</ion-content>\n'/*ion-inline-end:"/home/dwigth/cfm-mobileapp/src/pages/login/login.html"*/,
+            selector: 'app-login',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\login\login.html"*/'\n\n<ion-content padding id="form">\n\n  <div *ngIf="this.afAuth.authState  | async; let user; else showLogin">\n\n      <p>Usted ya ha iniciado sesión con: {{user.email}}</p>\n\n      <ion-item>\n\n        <button type="button" name="button"ion-button block (click)="authServ.logout()">Cerrar sesión</button>\n\n      </ion-item>\n\n  </div>\n\n\n\n  <ng-template #showLogin>\n\n  <form (ngSubmit)="submitForm()">\n\n  <ion-list>\n\n\n\n  <ion-item>\n\n    <ion-label floating >Correo</ion-label>\n\n    <ion-input type="text" [(ngModel)]="user.email" name="email" required></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item>\n\n    <ion-label floating>Contraseña</ion-label>\n\n    <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>\n\n  </ion-item>\n\n\n\n  <button type="submit" ion-button outline block >Entrar</button>\n\n</ion-list>\n\n<button type="button" ion-button outline block (click)="Open()" >Registrarte</button>\n\n</form>\n\n</ng-template>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -2818,5 +2882,5 @@ var ModalRegister = (function () {
 
 /***/ })
 
-},[453]);
+},[454]);
 //# sourceMappingURL=main.js.map

@@ -33410,6 +33410,10 @@ ion-navbar {
   display: block;
 }
 
+#paddinBottom {
+  margin-top: 10%;
+}
+
 #container {
   margin-top: 20%;
 }

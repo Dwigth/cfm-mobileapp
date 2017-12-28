@@ -42,7 +42,8 @@ import { CoursesComponent } from '../pages/courses/courses';
 import { OneSignal } from '@ionic-native/onesignal';
 import { AnnouncementButton } from '../pages/announcements/announcement-crud';
 import { AnnouncementModalCRUD } from '../pages/announcements/announcement-crud';
-
+//COMPONENT - CARLOS
+import { DirectoryComponent } from '../pages/directory/directory.component';
 
 
 //services
@@ -96,7 +97,8 @@ export const firebaseConfig = {
     AnnouncementModalCRUD,
     ProspectButtonComponent,
     ProspectModalComponent,
-    ProspectCrudComponent
+    ProspectCrudComponent,
+    DirectoryComponent
   ],
   imports: [
     BrowserModule,
@@ -137,7 +139,8 @@ export const firebaseConfig = {
     AnnouncementModalCRUD,
     ProspectButtonComponent,
     ProspectModalComponent,
-    ProspectCrudComponent
+    ProspectCrudComponent,
+    DirectoryComponent
   ],
   providers: [
     StatusBar,

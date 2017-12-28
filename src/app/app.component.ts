@@ -16,6 +16,8 @@ import { AnnouncementComponent } from '../pages/announcements/announcements';
 import { PushService } from './push.service';
 import { AboutUsComponent } from '../pages/aboutus/aboutus';
 import { CoursesComponent } from '../pages/courses/courses';
+//COMPONENTS -CARLOS
+import { DirectoryComponent } from '../pages/directory/directory.component';
 //
 import { OneSignal } from '@ionic-native/onesignal';
 import { Observable } from 'rxjs/Observable';
@@ -67,7 +69,9 @@ export class MyApp {
         { title: 'Quienes somos', component: AboutUsComponent, icon: 'contacts' },
         { title: 'Cursos', component: CoursesComponent, icon: 'md-albums' },
         { title: 'Avisos', component: AnnouncementComponent, icon: 'bulb' },
+        { title: 'Directorio', component: DirectoryComponent, icon: 'bookmarks' },
         { title: 'Acceder/Salir', component: LoginComponent, icon: 'log-in' }
+
       ];
 
       this.adminPages = [
@@ -77,7 +81,9 @@ export class MyApp {
         { title: 'Avisos', component: AnnouncementComponent, icon: 'bulb' },
         { title: 'Quienes somos', component: AboutUsComponent, icon: 'contacts' },
         { title: 'Cursos', component: CoursesComponent, icon: 'md-albums' },
-        { title: 'Acceder/salir', component: LoginComponent, icon: 'log-in' }      ];
+        { title: 'Directorio', component: DirectoryComponent, icon: 'bookmarks' },
+        { title: 'Acceder/Salir', component: LoginComponent, icon: 'log-in' }
+      ];
 
     // used for an example of ngFor and navigation
   }
