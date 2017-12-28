@@ -1,6 +1,6 @@
 <ion-content id="paddinBottom" padding>
   <div padding>
-  <ion-segment [(ngModel)]="pet">
+  <ion-segment [(ngModel)]="contacto">
     <ion-segment-button value="kittens">
       Contacto
     </ion-segment-button>
@@ -10,7 +10,7 @@
   </ion-segment>
 </div>
 
-<div [ngSwitch]="pet">
+<div [ngSwitch]="contacto">
   <ion-list *ngSwitchCase="'puppies'">
     <ion-item>
       <ion-thumbnail item-start>
