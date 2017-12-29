@@ -1,16 +1,19 @@
 export class Prospect{
-  nombre:string;
-  apellidoPaterno:string;
-  apellioMaterno:string;
-  edad:string;
-  estado:string;
-  telefono:string;
-  estatus:string;
-  atendio:string;
-  curso:string;
-  fecha:string;
-  comentario:string;
-  fuente:string;
-  precio:string;
+  name:string;
+  lastname:string;
+  lastname2:string;
+  age:string;
+  state:string;
+  phone:string;
+  status:string;
+  attended:string;
+  course:string;
+  date:string;
+  coment:string;
+  source:string;
+  price:string;
+  day:number;
+  
+
   //checkbox:string;
 }

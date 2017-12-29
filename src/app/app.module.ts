@@ -45,6 +45,7 @@ import { AnnouncementModalCRUD } from '../pages/announcements/announcement-crud'
 
 
 
+
 //services
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';

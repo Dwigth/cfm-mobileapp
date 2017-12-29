@@ -13,7 +13,8 @@
 </ion-header>
 <ion-content>
 
-  <ion-list>
+<!--Si no va a editar-->
+  <ion-list *ngIf="isEditing == false; else editing">
 
     <ion-item>
       <ion-label floating>Nombre</ion-label>
@@ -98,6 +99,94 @@
       <button type="button" ion-button block (click)="createNewProspect()" > Crear prospecto </button>
 
   </ion-list>
+
+<ng-template #editing>
+
+      <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input [(ngModel)]="item.name" name="name" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Apellido paterno</ion-label>
+        <ion-input [(ngModel)]="item.lastname" name="lastname" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Apellido Materno</ion-label>
+        <ion-input [(ngModel)]="item.lastname2" name="lastname2" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Edad</ion-label>
+        <ion-input [(ngModel)]="item.age" name="age" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Estado</ion-label>
+        <ion-select [(ngModel)]="item.state" name="state">
+          <ion-option value="si">Si</ion-option>
+          <ion-option value="nn">No</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Telefono</ion-label>
+        <ion-input [(ngModel)]="item.phone" name="phone" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Estatus</ion-label>
+        <ion-select [(ngModel)]="item.status" name="status">
+          <ion-option value="debil">Débil</ion-option>
+          <ion-option value="interesado">Interesado</ion-option>
+          <ion-option value="inscrito">Inscrito</ion-option>
+          <ion-option value="muerto">Muerto</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Atendió</ion-label>
+        <ion-select [(ngModel)]="item.attended" name="attended">
+          <ion-option *ngFor="let item of coordi | async" value="{{item.name}}">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Cursos</ion-label>
+        <ion-select [(ngModel)]="item.course" name="course">
+          <ion-option *ngFor="let item of cursos;" value="{{item}}">{{item}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item>
+        <textarea rows='5' [(ngModel)]="item.coment" name="coment" data-min-rows='3' name="coment" placeholder='Comentario...' required></textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fuente</ion-label>
+        <ion-select [(ngModel)]="item.source" name="source">
+          <ion-option value="inboxfb">INBOX FB</ion-option>
+          <ion-option value="whatsapp">WHATSAPP</ion-option>
+          <ion-option value="comentariofb">COMENTARIO</ion-option>
+          <ion-option value="database">BASE DE DATOS</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item>
+          <ion-icon name="logo-usd" item-start></ion-icon>
+            Precio
+          <ion-input [(ngModel)]="item.price" name="price" type="text"></ion-input>
+        </ion-item>
+
+
+        <button type="button" ion-button block (click)="editCurrentProspect(item)" > Editar prospecto </button>
+
+</ng-template>
+
+  <!--Si va a editar-->
 
 
 </ion-content>

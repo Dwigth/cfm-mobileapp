@@ -5,7 +5,7 @@ let date = moment();
 export class Announcement{
     title:string;
     body:string;
-    destacado:string;
+    destacado:boolean;
     createdAt:string = date.format("dddd, MMMM Do YYYY").toString();
     day = date.format("DDD");
     key:string;
