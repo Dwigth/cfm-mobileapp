@@ -20,12 +20,45 @@
 <!--sss-->
 
 <ion-searchbar (ionInput)="getItems($event)" ></ion-searchbar>
+
+<ion-item>
+  <ion-label>Busqueda avanzada</ion-label>
+  <ion-toggle color="secondary" [(ngModel)]="advSrch" checked="false"></ion-toggle>
+</ion-item>
+
+<div *ngIf="advSrch">
+  <ion-item>
+    <ion-label>Buscar por:</ion-label>
+    <ion-select [(ngModel)]="properties.property">
+      <ion-option value="attended">Atendió</ion-option>
+      <ion-option value="age">Edad </ion-option>
+      <ion-option value="state">Estado </ion-option>
+      <ion-option value="status">Estatus </ion-option>
+      <ion-option value="course">Curso</ion-option>
+      <ion-option value="source">Fuente</ion-option>
+      <ion-option value="lastname">Apellido paterno</ion-option>
+      <ion-option value="lastname2">Apellido materno</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Cuando sea:</ion-label>
+    <ion-input [(ngModel)]="properties.textProperty" placeholder="De acuardo a..."> </ion-input>
+  </ion-item>
+
+<ion-item>
+  <button type="button" (click)="searchProspectByProperty()" ion-button block>Buscar</button>
+</ion-item>
+
+</div>
+
+<!--Resultados de busqueda-->
 <ion-list>
 <ion-item-group >
-<ion-item-divider style="text-align:center;" color="light">Prospectos</ion-item-divider>
-<ion-item-sliding *ngFor="let item of prospects">
+<ion-item-divider style="text-align:center;" color="light">Prospectos del día</ion-item-divider>
+<ion-item-sliding *ngFor="let item of list  | async">
   <ion-item >
-      <p>{{item}}</p>
+      <p>{{item.name + " " + item.lastname +" " +item.phone}}</p>
   </ion-item>
 
 <ion-item-options  side="right">
@@ -33,7 +66,7 @@
       <ion-icon name="open"></ion-icon>
       Editar
     </button>
-    <button ion-button  color="danger">
+    <button (click)="deleteProspect(item)" ion-button  color="danger">
       <ion-icon name="trash"></ion-icon>
       Eliminar
     </button>

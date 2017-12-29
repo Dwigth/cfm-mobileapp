@@ -10,8 +10,12 @@ import { ProspectCrudComponent } from './prospect-crud.component'
 })
 export class ProspectModalComponent implements OnInit {
 list:Observable<any[]>;
-prospects = [];
 //
+advSrch:boolean;
+properties = {
+property:'',
+textProperty:''
+}
 
 
   constructor(
@@ -20,14 +24,13 @@ prospects = [];
     public viewCtrl:ViewController,
     public prosSrv:ProspectService) {
 
-    //this.list = this.prosSrv.getProspect();
+    this.list = this.prosSrv.get();
   }
 
   ngOnInit() {}
 
 getItems(ev:any){
-  this.prosSrv.getProspectbyHttp().subscribe(data => this.prospects = data);
-  this.prospects = this.prosSrv.get();
+  this.list = this.prosSrv.get();
   let item = ev.target.value;
   if (item && item.trim() != '') {
     return this.list = this.prosSrv.searchByName(item);
@@ -43,7 +46,14 @@ this.nav.push(ProspectCrudComponent,{isEditing:true,item:item});
 }
 
 deleteProspect(item:Prospect){
+this.prosSrv.deleteProspect(item);
+}
 
+searchProspectByProperty(){
+  console.log(this.properties)
+  this.list = this.prosSrv.searchProspectByProperty(this.properties.textProperty,this.properties.property);
+  this.advSrch = false;
+  console.log(this.advSrch)
 }
 
   dismiss(){

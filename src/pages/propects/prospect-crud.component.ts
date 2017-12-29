@@ -10,6 +10,7 @@ import { Prospect } from './prospect';
 export class ProspectCrudComponent implements OnInit {
 
   item: Prospect;
+  isEditing:boolean = false;
   cursos = ["Bajo", "Bateria", "Canto", "Dibujo", "Guitarra Electrica/Acustica", "Piano", "Saxofon", "Ukulele", "Violin"];
   coordi;
 
@@ -19,6 +20,9 @@ export class ProspectCrudComponent implements OnInit {
     public viewCtrl: ViewController,
     public prosSrv: ProspectService) {
       console.log( this.params.get("item"));
+      console.log(this.params.get('isEditing'))
+      this.item = this.params.get('item');
+      this.isEditing = this.params.get('isEditing');
       this.coordi = this.prosSrv.getCoordis();
     }
 
@@ -45,24 +49,28 @@ export class ProspectCrudComponent implements OnInit {
     price:'',
   }
 
-  createNewProspect(){
+  createNewProspect():void{
     let prospect = new Prospect();
-
-    prospect.nombre = this.currentProspect.name;
-    prospect.apellidoPaterno = this.currentProspect.lastname;
-    prospect.apellioMaterno = this.currentProspect.lastname2;
-    prospect.edad = this.currentProspect.age;
-    prospect.estado = this.currentProspect.state;
-    prospect.atendio = this.currentProspect.attended;
-    prospect.telefono = this.currentProspect.phone;
-    prospect.estatus = this.currentProspect.status;
-    prospect.curso = this.currentProspect.course;
-    prospect.fuente = this.currentProspect.source;
-    prospect.comentario = this.currentProspect.coment;
-    prospect.precio = this.currentProspect.price;
+    prospect.name = this.currentProspect.name;
+    prospect.lastname = this.currentProspect.lastname;
+    prospect.lastname2 = this.currentProspect.lastname2;
+    prospect.age = this.currentProspect.age;
+    prospect.state = this.currentProspect.state;
+    prospect.attended = this.currentProspect.attended;
+    prospect.phone = this.currentProspect.phone;
+    prospect.status = this.currentProspect.status;
+    prospect.course = this.currentProspect.course;
+    prospect.source = this.currentProspect.source;
+    prospect.coment = this.currentProspect.coment;
+    prospect.price = this.currentProspect.price;
 
     console.log(this.currentProspect)
     this.prosSrv.createProspect(prospect);
+    this.viewCtrl.dismiss();
+  }
+
+  editCurrentProspect(item:Prospect):void{
+    this.prosSrv.editProspect(item);
     this.viewCtrl.dismiss();
   }
 
