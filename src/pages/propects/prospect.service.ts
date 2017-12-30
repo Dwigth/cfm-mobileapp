@@ -70,7 +70,6 @@ export class ProspectService {
     let result: Observable<any[]>;
     return result = this.db.list("prospects", val => val.orderByChild(property).equalTo(n).limitToFirst(50) ).valueChanges();
   }
-<<<<<<< HEAD
 
   searchByName(name: string) {
     console.log(name)
@@ -123,55 +122,6 @@ export class ProspectService {
   }
 
   getByHttp(){
-
-=======
-
-  searchByName(name: string) {
-    console.log(name)
-    return this.db.list("prospects", val =>
-      val.orderByChild("name").equalTo(name)
-    ).valueChanges();
-  }
-
-  editProspect(item) {
-    this.refObj(item.key).update({
-      name: item.name,
-      lastname: item.lastname,
-      lastname2: item.lastname2,
-      age: item.age,
-      state: item.state,
-      phone: item.phone,
-      status: item.status,
-      attended: item.attended,
-      course: item.course,
-      coment: item.coment,
-      source: item.source,
-      price: item.price
-    });
-  }
-
-  deleteProspect(item) {
-    this.refObj(item.key).remove();
-  }
-
-  getItems(ev: any) {
-    //this.list = this.prosSrv.getProspect();
-    this.name$ = new BehaviorSubject(null);
-    let item = ev.target.value;
-    if (item && item.trim() != '') {
-      this.name$.next(item);
-      this.items$ = this.name$.switchMap(name =>
-        this.db.list('prospects', ref =>
-          name ? ref.orderByChild('nombre').equalTo(name) : ref
-        ).snapshotChanges()
-      );
-      //return this.list = this.prosSrv.searchByName(item);
-    }
-  }
-
-  get() {
-    console.log(this.currentDay)
-    return this.db.list('prospects', val => val.orderByChild('day').equalTo(this.currentDay)). valueChanges();
->>>>>>> master
+    
   }
 }

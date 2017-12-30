@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Push, PushObject, PushOptions} from '@ionic-native/push';
+import { Push} from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { AlertController } from 'ionic-angular';
 

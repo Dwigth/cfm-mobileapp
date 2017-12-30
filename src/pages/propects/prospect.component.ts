@@ -13,10 +13,7 @@ export class ProspectModalComponent implements OnInit {
 list:Observable<any[]>;
 //
 advSrch:boolean;
-<<<<<<< HEAD
 statistic:boolean;
-=======
->>>>>>> master
 properties = {
 property:'',
 textProperty:''
@@ -54,14 +51,11 @@ this.nav.push(ProspectCrudComponent,{isEditing:true,item:item});
 deleteProspect(item:Prospect){
 this.prosSrv.deleteProspect(item);
 }
-<<<<<<< HEAD
 
 assigProperty(ev:any){
   console.log(ev.target.value)
   //this.properties.property = ev;
 }
-=======
->>>>>>> master
 
 searchProspectByProperty(){
   console.log(this.properties)
