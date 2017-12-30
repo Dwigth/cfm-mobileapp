@@ -2,74 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="411bd228-0228-4cd4-bd7e-344188c66060" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/ionicons.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/ionicons.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/ionicons.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/ionicons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/noto-sans-bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/noto-sans-bold.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/noto-sans-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/noto-sans-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/noto-sans.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto-bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto-bold.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto-bold.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto-light.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto-light.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto-light.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto-medium.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto-medium.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto-medium.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/assets/fonts/roboto.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/build/main.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/build/main.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/build/vendor.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/ionicons.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/ionicons.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/ionicons.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/ionicons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/noto-sans-bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/noto-sans-bold.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/noto-sans-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/noto-sans-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/noto-sans.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto-bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto-bold.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto-bold.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto-light.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto-light.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto-light.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto-medium.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto-medium.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto-medium.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/fonts/roboto.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/build/main.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/build/main.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/build/vendor.js.map" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/build/main.css" afterPath="$PROJECT_DIR$/platforms/android/assets/www/build/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/build/main.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/build/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/build/polyfills.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/build/polyfills.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/build/sw-toolbox.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/build/sw-toolbox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/build/vendor.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/build/vendor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/index.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/push.service.ts" afterPath="$PROJECT_DIR$/src/app/push.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/home/home.ts" afterPath="$PROJECT_DIR$/src/pages/home/home.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/login/login.ts" afterPath="$PROJECT_DIR$/src/pages/login/login.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/propects/prospect-crud.component.ts" afterPath="$PROJECT_DIR$/src/pages/propects/prospect-crud.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/propects/prospect.component.html" afterPath="$PROJECT_DIR$/src/pages/propects/prospect.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/propects/prospect.component.ts" afterPath="$PROJECT_DIR$/src/pages/propects/prospect.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/propects/prospect.service.ts" afterPath="$PROJECT_DIR$/src/pages/propects/prospect.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/build/main.css" afterPath="$PROJECT_DIR$/www/build/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/build/main.js" afterPath="$PROJECT_DIR$/www/build/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/build/vendor.js" afterPath="$PROJECT_DIR$/www/build/vendor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
