@@ -19,8 +19,11 @@ export class ProspectCrudComponent implements OnInit {
     public params: NavParams,
     public viewCtrl: ViewController,
     public prosSrv: ProspectService) {
+<<<<<<< HEAD
+=======
       console.log( this.params.get("item"));
       console.log(this.params.get('isEditing'))
+>>>>>>> master
       this.item = this.params.get('item');
       this.isEditing = this.params.get('isEditing');
       this.coordi = this.prosSrv.getCoordis();

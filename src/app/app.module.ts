@@ -51,6 +51,7 @@ import { ProfesoresComponent } from '../pages/aboutus/modals/profesoresmodal.com
 import { ManualComponent } from '../pages/aboutus/modals/manual.component';
 
 
+
 //services
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
