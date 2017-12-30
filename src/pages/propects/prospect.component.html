@@ -24,6 +24,7 @@
 <ion-searchbar (ionInput)="getItems($event)" ></ion-searchbar>
 
 <ion-item>
+<<<<<<< HEAD
   <ion-label>Estadística del día</ion-label>
   <ion-toggle (click)="DeployChart();" color="primary" [(ngModel)]="statistic" checked="false"></ion-toggle>
 </ion-item>
@@ -36,15 +37,24 @@
 </div>
 
 <ion-item>
+=======
+>>>>>>> master
   <ion-label>Busqueda avanzada</ion-label>
   <ion-toggle color="secondary" [(ngModel)]="advSrch" checked="false"></ion-toggle>
 </ion-item>
 
+<<<<<<< HEAD
 
 <div *ngIf="advSrch">
   <ion-item>
     <ion-label>Buscar por:</ion-label>
     <ion-select  [(ngModel)]="properties.property">
+=======
+<div *ngIf="advSrch">
+  <ion-item>
+    <ion-label>Buscar por:</ion-label>
+    <ion-select [(ngModel)]="properties.property">
+>>>>>>> master
       <ion-option value="attended">Atendió</ion-option>
       <ion-option value="age">Edad </ion-option>
       <ion-option value="state">Estado </ion-option>
@@ -56,9 +66,15 @@
     </ion-select>
   </ion-item>
 
+<<<<<<< HEAD
   <ion-item >
     <ion-label>Cuando sea:</ion-label>
     <ion-input [(ngModel)]="properties.textProperty" placeholder="De acuerdo a..."> </ion-input>
+=======
+  <ion-item>
+    <ion-label>Cuando sea:</ion-label>
+    <ion-input [(ngModel)]="properties.textProperty" placeholder="De acuardo a..."> </ion-input>
+>>>>>>> master
   </ion-item>
 
 <ion-item>
@@ -71,9 +87,15 @@
 <ion-list>
 <ion-item-group >
 <ion-item-divider style="text-align:center;" color="light">Prospectos del día</ion-item-divider>
+<<<<<<< HEAD
 <ion-item-sliding *ngFor="let item of list | async; index as i;" [attr.data-index]="i">
   <ion-item >
       <p>{{ i+1 + ". "+ item.name + " " + item.lastname +" " +item.phone}}</p>
+=======
+<ion-item-sliding *ngFor="let item of list  | async">
+  <ion-item >
+      <p>{{item.name + " " + item.lastname +" " +item.phone}}</p>
+>>>>>>> master
   </ion-item>
 
 <ion-item-options  side="right">
