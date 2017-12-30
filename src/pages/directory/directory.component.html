@@ -1,34 +1,99 @@
-<ion-content id="paddinBottom" padding>
-  <div padding>
-  <ion-segment [(ngModel)]="contacto">
-    <ion-segment-button value="kittens">
-      Contacto
-    </ion-segment-button>
-    <ion-segment-button value="puppies">
-      Social Media
-    </ion-segment-button>
-  </ion-segment>
-</div>
+<ion-content id="paddinBottom">
+<ion-card id="directorio">
+  <img src="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/uploads%2Fredessociales.png?alt=media&token=2d3705f7-b3e9-4271-a85e-73d9773113db"/>
+  <ion-card-header>
+    <div>
+    <ion-segment [(ngModel)]="menu">
+      <ion-segment-button value="contacto">
+        Contacto
+      </ion-segment-button>
+      <ion-segment-button value="sociales">
+        Social Media
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  </ion-card-header>
+  <ion-card-content>
+    <div [ngSwitch]="menu">
+      <ion-list *ngSwitchCase="'sociales'">
+        <ion-item>
+          <h1>Siguenos en nuestras <br> <small>Redes sociales:</small></h1>
+          <br>
+          <a href="https://www.facebook.com/CFM.EscueladeMusica/">
+            <ion-item>
+            <ion-icon name="logo-facebook" item-start></ion-icon>
+              Facebook
+              <ion-badge item-end>+23,000</ion-badge><br><small right>Seguidores</small>
+          </ion-item>
+          </a>
+          <a href="https://twitter.com/CFMvillahermosa">
+            <ion-item>
+              <ion-icon name="logo-twitter" item-start></ion-icon>
+                Twitter
+                <ion-badge item-end>+100</ion-badge><br><small right>Seguidores</small>
+            </ion-item>
+          </a>
 
-<div [ngSwitch]="contacto">
-  <ion-list *ngSwitchCase="'puppies'">
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="img/thumbnail-puppy-1.jpg">
-      </ion-thumbnail>
-      <h2>Redes Sociales:</h2>
-    </ion-item>
-    ...
-  </ion-list>
+            <a href="https://www.instagram.com/cfm.escuelademusica/">
+              <ion-item>
+                <ion-icon name="logo-instagram" item-start></ion-icon>
+                  Instagram
+                  <ion-badge item-end>+400</ion-badge><br><small right>Seguidores</small>
+              </ion-item>
+            </a>
 
-  <ion-list *ngSwitchCase="'kittens'">
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="img/thumbnail-kitten-1.jpg">
-      </ion-thumbnail>
-      <h2>Datos de Contacto:</h2>
-    </ion-item>
-    ...
-  </ion-list>
-</div>
+            <a href="https://www.youtube.com/channel/UChTSs5IFNN5a0W5m8oTkP9w">
+              <ion-item>
+                <ion-icon name="logo-youtube" item-start></ion-icon>
+                  Youtube
+                  <ion-badge item-end>+50</ion-badge><br><small right>Seguidores</small>
+              </ion-item>
+            </a>
+          </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'contacto'">
+        <ion-item>
+          <h1>Datos de Contacto:</h1>
+        </ion-item>
+      <a href="https://api.whatsapp.com/send?phone=529934431765">
+        <ion-item>
+          <ion-icon name="logo-whatsapp" item-start></ion-icon>
+            99 34 43 17 65
+            <ion-badge item-end>Enviar Mensaje</ion-badge><small><br>Extensión +52</small>
+        </ion-item>
+      </a>
+      <a href=”tel:3154810”>
+      <ion-item>
+        <ion-icon name="call" item-start></ion-icon>
+          3 15 48 10
+          <ion-badge item-end>¡Llamanos!</ion-badge><small><br>Extensión +993</small>
+      </ion-item>
+      </a>
+      <a href="mailto:centrodeformacionmusicalmx@gmail.com">
+        <ion-item>
+        <ion-icon name="mail" item-start></ion-icon>
+            Correo Corporativo: <br> <small>centrodeformacionmusicalmx@gmail.com</small>
+
+        </ion-item>
+      </a>
+      <a href="http://centrodeformacionmusical.mx/">
+        <ion-item>
+        <ion-icon name="laptop" item-start></ion-icon>
+            <button ion-button full round>Abrir Sitio Web</button>
+            <small class="center">centrodeformacionmusical.mx</small>
+        </ion-item>
+      </a>
+      <a href="https://goo.gl/maps/uYG7gWY9gaM2">
+        <ion-item>
+        <ion-icon name="navigate" item-start></ion-icon>
+            <button ion-button full round>Abrir en Google Maps</button>
+            <small class="center">Av. Heroico Colegio Militar N.125</small>
+            <small class="center">Colonia Atasta</small>
+        </ion-item>
+      </a>
+      </ion-list>
+    </div>
+  </ion-card-content>
+</ion-card>
 </ion-content>
