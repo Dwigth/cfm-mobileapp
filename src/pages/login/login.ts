@@ -22,9 +22,7 @@ export class LoginComponent implements OnInit {
     public params: NavParams,
     public modalCtrl: ModalController,
     public afAuth: AngularFireAuth,
-    public authServ: AuthService ) {
-      var user = this.afAuth.auth.currentUser;
-     }
+    public authServ: AuthService ) {  }
 
     Open (){
       let modal = this.modalCtrl.create(ModalRegister);
