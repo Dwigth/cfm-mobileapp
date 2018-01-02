@@ -33431,6 +33431,10 @@ a:link {
   display: block;
 }
 
+.justify {
+  text-align: justify;
+}
+
 #container {
   margin-top: 20%;
 }
