@@ -9,6 +9,6 @@ export class DirectoryComponent implements OnInit {
   constructor() {
     this.menu = 'contacto';
   }
-
+  
   ngOnInit() {}
 }
