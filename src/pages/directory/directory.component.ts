@@ -5,9 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'directory.component.html',
 })
 export class DirectoryComponent implements OnInit {
-  menu
+  menu;
   constructor() {
-  this.menu='contacto' }
+    this.menu = 'contacto';
+  }
 
   ngOnInit() {}
 }
