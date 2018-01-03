@@ -10,7 +10,6 @@ import { PushService } from '../../../app/push.service'
 //
 import { NewsService } from './news.service';
 import { UpdateNewsModal } from './news-list.component';
-import { UploadFormComponent } from '../uploads/shared/upload-form/upload-form.component'
 import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-news',

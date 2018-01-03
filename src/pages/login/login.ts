@@ -9,7 +9,7 @@ import { AuthService } from "../../app/auth.service";
 //
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
-import * as firebase from 'firebase/app';
+//import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-login',
@@ -100,9 +100,7 @@ export class ModalRegister {
     public alertCtrl: AlertController,
     public authServ: AuthService,
     public db: AngularFireDatabase,
-    public afAuth: AngularFireAuth){
-      let user = this.afAuth.auth.currentUser;
-  }
+    public afAuth: AngularFireAuth){ }
 
   dismiss() {
     this.viewCtrl.dismiss();
@@ -123,7 +121,6 @@ export class ModalRegister {
     user.password = this.user.password;
     this.authServ.signup(user.email,user.password);
     const itemRef = this.db.list('users');
-    const promise =
     itemRef.push({
         name:user.name,
         lastName:user.lastName,

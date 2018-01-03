@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { NewsListComponent} from './news-list.component';
-
 @Injectable()
 export class NewsListService {
 

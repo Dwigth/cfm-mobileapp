@@ -5,7 +5,7 @@
   <h1 >NOTICIAS</h1>
 </div>
 
-<div  *ngFor="let item of items | async | reverse">
+<div  *ngFor="let item of items | async ">
   <img  src="{{item.imageURL}}"/>
   <ion-item>
     <h2>

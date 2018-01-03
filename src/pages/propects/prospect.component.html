@@ -23,17 +23,16 @@
 <!--sss-->
 <ion-searchbar (ionInput)="getItems($event)" ></ion-searchbar>
 
-<ion-item>
-  <ion-label>Estadística del día</ion-label>
-  <ion-toggle (click)="DeployChart();" color="primary" [(ngModel)]="statistic" checked="false"></ion-toggle>
-</ion-item>
-
-
-<div *ngIf="statistic">
+<ion-item >
+  <ion-label  >Estadística del día</ion-label>
   <div class="chart-container" style="position: relative; height:40vh; width:80vw">
       <canvas id="chart"></canvas>
   </div>
-</div>
+</ion-item>
+
+
+
+
 
 <ion-item>
   <ion-label>Busqueda avanzada</ion-label>

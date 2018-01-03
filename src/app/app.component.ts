@@ -5,12 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Push, PushObject, PushOptions} from '@ionic-native/push';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginComponent } from '../pages/login/login';
-import { NavbarComponent } from '../pages/components/navbar/navbar';
-import { optionsPage } from '../pages/components/options/options';
+//import { optionsPage } from '../pages/components/options/options';
 import { dashboardPage } from '../pages/components/dashboard/dashboard';
-import { NewsListComponent } from '../pages/components/news/news-list.component';
 import { ProfileComponent } from '../pages/userprofile/profile';
 import { AnnouncementComponent } from '../pages/announcements/announcements';
 import { PushService } from './push.service';
@@ -19,7 +16,7 @@ import { CoursesComponent } from '../pages/courses/courses';
 //COMPONENTS -CARLOS
 import { DirectoryComponent } from '../pages/directory/directory.component';
 //
-import { OneSignal } from '@ionic-native/onesignal';
+//import { OneSignal } from '@ionic-native/onesignal';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -48,12 +45,10 @@ export class MyApp {
     public db: AngularFireDatabase,
     public push: Push,
     public alertCtrl:AlertController,
-    public pushServ:PushService,
-    private oneSignal: OneSignal) {
+    public pushServ:PushService
+  ) {
 
     this.initializeApp();
-
-    let user =  afAuth.auth.currentUser;
 
     firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -96,13 +91,16 @@ export class MyApp {
       this.splashScreen.hide();
       this.pushsetup();
 
+
       var notificationOpenedCallback = function(jsonData) {
             console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
           };
+
           window["plugins"].OneSignal
             .startInit('850f884b-f4e1-4ae0-a056-490643c0f762', '986806210217')
             .handleNotificationOpened(notificationOpenedCallback)
             .endInit();
+
     });
   }
 

@@ -7,7 +7,7 @@ import { News } from './news';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { NewsService } from './news.service';
-import { UploadFormComponent } from '../uploads/shared/upload-form/upload-form.component'
+//import { UploadFormComponent } from '../uploads/shared/upload-form/upload-form.component'
 import { Observable } from 'rxjs/Observable';
 
 

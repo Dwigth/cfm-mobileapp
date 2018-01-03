@@ -5,7 +5,7 @@ import { PushService } from '../../app/push.service'
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-
+import "rxjs/add/operator/map";
 
 @Component({
   selector: 'page-home',
@@ -14,13 +14,15 @@ import { Observable } from 'rxjs/Observable';
 
 export class HomePage {
     items: Observable<any[]>;
+    currentDay:number;
   constructor(
     public navCtrl: NavController,
     public params: NavParams,
     public afDB: AngularFireDatabase,
     public modalCtrl: ModalController,
     public push:PushService) {
-      this.items = afDB.list('news').valueChanges();
+
+    this.items = afDB.list('news',val =>  val.limitToLast(5)).valueChanges(["child_added"]);
   }
 
 

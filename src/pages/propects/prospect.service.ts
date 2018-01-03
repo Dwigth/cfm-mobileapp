@@ -6,8 +6,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { AngularFireAction } from "angularfire2/database";
 import { Observable } from 'rxjs/Observable';
 import { Prospect } from "./prospect";
-import { Subject } from "rxjs/Subject";
-import { Http, RequestOptions, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import * as moment from 'moment';
 @Injectable()
 
@@ -72,7 +71,7 @@ export class ProspectService {
   }
 
   searchByName(name: string) {
-    console.log(name)
+    //console.log(name)
     return this.db.list("prospects", val =>
       val.orderByChild("name")//.equalTo(name)
       .startAt(name.trim())
@@ -117,11 +116,11 @@ export class ProspectService {
   }
 
   get() {
-    console.log(this.currentDay)
+    //console.log(this.currentDay)
     return this.db.list('prospects', val => val.orderByChild('day').equalTo(this.currentDay)). valueChanges();
   }
 
   getByHttp(){
-    
+
   }
 }

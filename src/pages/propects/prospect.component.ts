@@ -4,7 +4,7 @@ import { ProspectService } from "./prospect.service";
 import { Observable } from "rxjs/Observable";
 import { Prospect } from "./prospect";
 import { ProspectCrudComponent } from './prospect-crud.component'
-import { Chart } from 'chart.js'
+//import { Chart } from 'chart.js'
 
 @Component({
   templateUrl: 'prospect.component.html'
@@ -30,7 +30,10 @@ coordis = [];
     this.list = this.prosSrv.get();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
+
 
 getItems(ev:any){
   this.list = this.prosSrv.get();
@@ -68,7 +71,7 @@ searchProspectByProperty(){
     this.viewCtrl.dismiss();
   }
 
-  DeployChart(){
+/*  DeployChart(){
     let currentCanvas = document.getElementById('chart');
     let chart = new Chart(currentCanvas,  {
     type: 'bar',
@@ -106,6 +109,6 @@ searchProspectByProperty(){
         }
     }
 });
-  }
+}*/
 
 }

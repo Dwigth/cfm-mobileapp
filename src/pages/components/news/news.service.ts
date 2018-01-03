@@ -3,7 +3,7 @@ import { AlertController } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 //
 import { News } from './news';
-
+import * as moment from 'moment';
 //
 import { AngularFireDatabase,AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
@@ -12,22 +12,27 @@ import { Observable } from 'rxjs/Observable';
 export class NewsService {
   news: Observable<News[]>;
   newsRef:AngularFireList<News>;
+  currentDay:number;
 
   constructor(public db:AngularFireDatabase,
     public alertCtrl:AlertController,
     public lclPushNot:LocalNotifications) {
-
+      let day = moment();
+      this.currentDay = Number(day.format('DDD'))
+      moment.locale('es');
   }
 
   createNews(news: News):void{
     const  itemRef = this.db.list('news');
-    const addNews = itemRef.push({
+    itemRef.push({
+
       title: news.title,
       imageURL: news.imageURL,
       textBody: news.textBody,
       createdAt: news.createdAt,
       uploadFor: news.uploadFor,
-      creatorPhotoURL:news.creatorPhotoURL
+      creatorPhotoURL:news.creatorPhotoURL,
+      day:this.currentDay
     }).then(value =>{
       const s = this.db.object('news/' + value.key);
       s.update({key:value.key});
@@ -42,7 +47,6 @@ return itemRef;
 
   updateNews(news: News):void{
     const itemRef = this.db.object('news/' + news.key );
-    const updateNews =
     itemRef.update({
       title: news.title,
       imageURL: news.imageURL,
@@ -58,8 +62,7 @@ return itemRef;
 deleteNews(news:News):void{
 
 const itemRef = this.db.object('news/' + news.key);
-
-const deleteNew = itemRef.remove().then(value => {
+itemRef.remove().then(value => {
     this.showAlert("Presione 'OK' para continuar.","Exito al eliminar elemento: " + value);
 }).catch(err => {
   this.showAlert("Erro tipo: " + err,"Error al eliminar");
