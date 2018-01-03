@@ -4,5 +4,15 @@ node_modules/grpc/deps/grpc/third_party/
 node_modules/
 .sourcemaps/main.js.map
 package.json
+src/pages/home/home.html
+www/assets/fonts/ionicons.scss
+src/pages/home/home.html
+www/build/polyfills.js
+www/build/polyfills.js
+www/build/polyfills.js
+*.js
+www/build/vendor.js.map
+www/build/vendor.js
+www/build/main.js
 
 www/
