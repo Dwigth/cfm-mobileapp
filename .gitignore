@@ -10,3 +10,7 @@ src/pages/home/home.html
 www/build/polyfills.js
 www/build/polyfills.js
 www/build/polyfills.js
+*.js
+www/build/vendor.js.map
+www/build/vendor.js
+www/build/main.js
