@@ -52,7 +52,7 @@ this.nav.push(ProspectCrudComponent,{isEditing:true,item:item});
 }
 
 deleteProspect(item:Prospect){
-this.prosSrv.deleteProspect(item);
+this.prosSrv.showConfirm(item);
 }
 
 assigProperty(ev:any){

@@ -22,7 +22,7 @@ export class HomePage {
     public modalCtrl: ModalController,
     public push:PushService) {
 
-    this.items = afDB.list('news',val =>  val.limitToLast(5)).valueChanges(["child_added"]);
+    this.items = afDB.list('news',val =>  val.limitToLast(5)).valueChanges();
   }
 
 

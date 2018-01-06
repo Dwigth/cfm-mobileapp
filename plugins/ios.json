@@ -1,0 +1,52 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-advanced-http": {
+      "PACKAGE_NAME": "com.cfm.app"
+    },
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.cfm.app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.cfm.app"
+    },
+    "cordova-plugin-fcm": {
+      "PACKAGE_NAME": "com.cfm.app"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.cfm.app"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "com.cfm.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.cfm.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.cfm.app"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.cfm.app"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.cfm.app"
+    },
+    "phonegap-plugin-push": {
+      "PACKAGE_NAME": "com.cfm.app"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.cfm.app"
+    },
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "com.cfm.app"
+    }
+  }
+}

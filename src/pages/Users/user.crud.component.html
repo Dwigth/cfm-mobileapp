@@ -1,0 +1,55 @@
+<ion-header>
+        <ion-toolbar>
+          <ion-title>
+            Usuario : {{item.name}}
+          </ion-title>
+          <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+              <span ion-text color="primary" showWhen="ios">Cancelar</span>
+              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+<ion-content>
+<ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input [(ngModel)]="item.name" name="name" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Apellido paterno</ion-label>
+        <ion-input [(ngModel)]="item.lastName" name="lastname" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Apellido Materno</ion-label>
+        <ion-input [(ngModel)]="item.lastName2" name="lastname2" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Edad</ion-label>
+        <ion-input [(ngModel)]="item.age" name="age" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Telefono</ion-label>
+        <ion-input [(ngModel)]="item.phone" name="phone" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Estatus</ion-label>
+        <ion-select [(ngModel)]="item.accessLevel" name="accessLevel">
+          <ion-option value="admin">Administrador</ion-option>
+          <ion-option value="coordi">Coordinador</ion-option>          
+          <ion-option value="teacher">Maestro</ion-option>
+          <ion-option value="student">Estudiante</ion-option>
+          <ion-option value="user">Usuario</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+
+        <button type="button" ion-button block (click)="editCurrentUser(item)" > Editar prospecto </button>
+</ion-content>

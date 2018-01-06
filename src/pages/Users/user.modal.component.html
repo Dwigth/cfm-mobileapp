@@ -1,0 +1,91 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Usuarios
+      </ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">Cancelar</span>
+          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  <ion-item>
+  <!--<button type="button" large block ion-button (click)="openCreatorProspectForm()"> Crear usuario </button>-->
+  </ion-item>
+  <!--d-->
+  
+  
+  
+  <!--sss-->
+  <ion-searchbar (ionInput)="getItems($event)" ></ion-searchbar>
+  
+ <!-- <ion-item >
+    <ion-label  >Estadística del día</ion-label>
+    <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+        <canvas id="chart"></canvas>
+    </div>
+  </ion-item>
+-->
+  
+  <ion-item>
+    <ion-label>Busqueda avanzada</ion-label>
+    <ion-toggle color="secondary" [(ngModel)]="advSrch" checked="false"></ion-toggle>
+  </ion-item>
+  
+  
+  <div *ngIf="advSrch">
+    <ion-item>
+      <ion-label>Buscar por:</ion-label>
+      <ion-select  [(ngModel)]="properties.property">
+        <ion-option value="accessLevel">Nivel de acceso</ion-option>
+        <ion-option value="course">Curso </ion-option>
+        <ion-option value="email">E-mail</ion-option>
+        <ion-option value="age">Edad </ion-option>
+        <ion-option value="phone">Telefono</ion-option>
+        <ion-option value="tutor">Tutor</ion-option>
+        <ion-option value="lastName">Apellido paterno</ion-option>
+        <ion-option value="lastName2">Apellido materno</ion-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item >
+      <ion-label>Cuando sea:</ion-label>
+      <ion-input [(ngModel)]="properties.textProperty" placeholder="De acuerdo a..."> </ion-input>
+    </ion-item>
+  
+  <ion-item>
+    <button type="button" (click)="searchProspectByProperty()" ion-button block>Buscar</button>
+  </ion-item>
+  
+  </div>
+  
+  <!--Resultados de busqueda-->
+  <ion-list>
+  <ion-item-group >
+  <ion-item-divider style="text-align:center;" color="light">Usuarios</ion-item-divider>
+  <ion-item-sliding *ngFor="let item of list | async; index as i;" [attr.data-index]="i">
+    <ion-item >
+        <p>{{ i+1 + ". "+ item.name + " " + item.lastName +" " +item.lastName2}}</p>
+    </ion-item>
+  
+  <ion-item-options  side="right">
+      <button (click)="editProspect(item)" ion-button color="secondary">
+        <ion-icon name="open"></ion-icon>
+        Ver
+      </button>
+      <button (click)="deleteProspect(item)" ion-button  color="danger">
+        <ion-icon name="trash"></ion-icon>
+        Eliminar
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+  </ion-item-group>
+  </ion-list>
+  
+  
+  </ion-content>
+  

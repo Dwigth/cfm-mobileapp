@@ -5,6 +5,7 @@ import * as firebase from 'firebase';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { AngularFireAction } from "angularfire2/database";
 import { Observable } from 'rxjs/Observable';
+import { AlertController } from 'ionic-angular';
 import { Prospect } from "./prospect";
 import { Http } from '@angular/http';
 import * as moment from 'moment';
@@ -19,7 +20,11 @@ export class ProspectService {
   users: Observable<any[]>;
   currentDay:number;
 
-  constructor(public db: AngularFireDatabase, public http: Http, public afAuth: AngularFireAuth) {
+  constructor(
+    public db: AngularFireDatabase,
+    public http: Http, 
+    public afAuth: AngularFireAuth,
+    public alertCtrl:AlertController) {
     let day = moment();
     this.currentDay = Number(day.format('DDD'))
     moment.locale('es');
@@ -122,5 +127,26 @@ export class ProspectService {
 
   getByHttp(){
 
+  }
+  showConfirm(item) {
+    let confirm = this.alertCtrl.create({
+      title: 'Borrar prospecto',
+      message: '¿En realidad quiere borrar este prospecto?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Si',
+          handler: () => {
+            this.deleteProspect(item);
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 }

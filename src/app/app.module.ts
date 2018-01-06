@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HTTP } from '@ionic-native/http';
-//components
+//components - Dwigth
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -29,19 +29,25 @@ import { UploadService } from '../pages/components/uploads/shared/upload.service
 import { NewsService } from "../pages/components/news/news.service";
 import { ReversePipe } from "../pages/components/sort_reverse";
 import { ModalComponent } from "../pages/components/modal/modal";
-import { UpdateNewsModal } from "../pages/components/news/news-list.component"
-import { NewsListService} from "../pages/components/news/news-list.service"
-import { FCM } from '@ionic-native/fcm';
-import { Push} from '@ionic-native/push';
-import { LocalNotifications } from '@ionic-native/local-notifications';
-import { PushService } from './push.service'
-import { AnnouncementComponent } from '../pages/announcements/announcements'
+import { UpdateNewsModal } from "../pages/components/news/news-list.component";
+import { NewsListService} from "../pages/components/news/news-list.service";
+import { AnnouncementComponent } from '../pages/announcements/announcements';
 import { AnnouncementCrudComponent } from '../pages/announcements/announcement-crud';
 import { AboutUsComponent } from '../pages/aboutus/aboutus';
 import { CoursesComponent } from '../pages/courses/courses';
-import { OneSignal } from '@ionic-native/onesignal';
 import { AnnouncementButton } from '../pages/announcements/announcement-crud';
 import { AnnouncementModalCRUD } from '../pages/announcements/announcement-crud';
+import { AuthService } from './auth.service';
+import { AnnouncementService } from '../pages/announcements/announcements.service';
+import { ProspectButtonComponent } from "../pages/propects/prospect-button";
+import { ProspectModalComponent } from "../pages/propects/prospect.component";
+import { ProspectService } from "../pages/propects/prospect.service";
+import { ProspectCrudComponent } from "../pages/propects/prospect-crud.component";
+import { UserButton } from "../pages/Users/user.button";
+import { UserCrud } from "../pages/Users/user.crud.component";
+import { UserModal } from "../pages/Users/user.modal.component";
+import { UserService } from "../pages/Users/user.service";
+import { StudentsComponent } from "../pages/students/students.component"
 //COMPONENT - CARLOS
 import { DirectoryComponent } from '../pages/directory/directory.component';
 import { MisionComponent } from '../pages/aboutus/modals/mision.component';
@@ -56,12 +62,12 @@ import { ManualComponent } from '../pages/aboutus/modals/manual.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AuthService } from './auth.service';
-import { AnnouncementService } from '../pages/announcements/announcements.service';
-import { ProspectButtonComponent } from "../pages/propects/prospect-button";
-import { ProspectModalComponent } from "../pages/propects/prospect.component";
-import { ProspectService } from "../pages/propects/prospect.service";
-import { ProspectCrudComponent } from "../pages/propects/prospect-crud.component";
+import { FCM } from '@ionic-native/fcm';
+import { Push} from '@ionic-native/push';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { PushService } from './push.service';
+import { OneSignal } from '@ionic-native/onesignal';
+
 
 
 export const firebaseConfig = {
@@ -109,7 +115,11 @@ export const firebaseConfig = {
     HistoriaComponent,
     ReglamentoComponent,
     ProfesoresComponent,
-    ManualComponent
+    ManualComponent,
+    UserButton,
+    UserCrud,
+    UserModal,
+    StudentsComponent
   ],
   imports: [
     BrowserModule,
@@ -156,7 +166,11 @@ export const firebaseConfig = {
     HistoriaComponent,
     ReglamentoComponent,
     ProfesoresComponent,
-    ManualComponent
+    ManualComponent,
+    UserButton,
+    UserCrud,
+    UserModal,
+    StudentsComponent
   ],
   providers: [
     StatusBar,
@@ -175,6 +189,7 @@ export const firebaseConfig = {
     LocalNotifications,
     OneSignal,
     ProspectService,
+    UserService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

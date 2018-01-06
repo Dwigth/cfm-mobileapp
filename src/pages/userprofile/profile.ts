@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
     public alertCtrl: AlertController) {
     let user = afAuth.auth.currentUser;
     let name, email, photoUrl, uid, emailVerified;
-
+    
     if (user != null) {
       name = user.displayName;
       email = user.email;

@@ -10,27 +10,30 @@
       <p>Ingresa a la academia para poder visualizar esta sección.</p>
     </ion-item>
 
-    <ion-item *ngIf="item.accessLevel == 'admin'; else student">
+    <ion-item *ngIf="item.accessLevel == 'admin';">
       <app-news></app-news>
       <announcement-button></announcement-button>
       <prospect-button></prospect-button>
-      <button  ion-button large block> Administrar usuarios </button>
+      <user-button></user-button>
     </ion-item>
 
-    <ion-item *ngIf="item.accessLevel == 'coordi'; else student">
+
+    <ion-item *ngIf="item.accessLevel == 'coordi';">
       <app-news></app-news>
       <announcement-button></announcement-button>
       <prospect-button></prospect-button>
+      <user-button></user-button>
+
     </ion-item>
 
-    <ion-item *ngIf="item.accessLevel == 'master'; else student">
+    <ion-item *ngIf="item.accessLevel == 'teacher';">
       <p>Pronto habrá una sección para maestro.</p>
+    </ion-item>       
+
+
+    <ion-item *ngIf="item.accessLevel == 'student';">
+     <students-module></students-module>
     </ion-item>
-
-
-    <ng-template #student *ngIf="item.accessLevel == 'student'">
-      <button  ion-button color="secondary"  outline block> Calificaciones </button>
-    </ng-template>
 
   </div>
 

@@ -1,6 +1,7 @@
 export class User{
     name:string;
     lastName:string;
+    lastName2:string;
     age:number;
     user:string;
     status:string;

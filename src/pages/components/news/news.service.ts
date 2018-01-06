@@ -32,7 +32,7 @@ export class NewsService {
       createdAt: news.createdAt,
       uploadFor: news.uploadFor,
       creatorPhotoURL:news.creatorPhotoURL,
-      day:this.currentDay
+      day:Number(this.currentDay)
     }).then(value =>{
       const s = this.db.object('news/' + value.key);
       s.update({key:value.key});

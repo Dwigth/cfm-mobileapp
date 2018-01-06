@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 
 //
@@ -42,7 +43,6 @@ export class LoginComponent implements OnInit {
     user.email = this.user.email;
     user.password = this.user.password;
   this.authServ.login(user.email,user.password);
-console.log(this.user)
   }
 
 }
@@ -62,30 +62,39 @@ console.log(this.user)
   </ion-toolbar>
 </ion-header>
 <ion-content>
-<ion-list>
-<form (ngSubmit)="logForm()">
+<ion-list no-lines>
+
+<p *ngIf="submitAttempt" style="color: #ea6153;">Por favor rellene todo los campos correctamente.</p>
+
+<form  [formGroup]="registerForm">
+
 <ion-item>
   <ion-label floating>Nombre</ion-label>
-  <ion-input type="text" required [(ngModel)]="user.name" name="name"></ion-input>
+  <ion-input type="text"  formControlName="name"  ></ion-input>
 </ion-item>
 <ion-item>
-  <ion-label floating>Apellido</ion-label>
-  <ion-input type="text" required [(ngModel)]="user.lastName" name="lastName"></ion-input>
+  <ion-label floating>Apellido paterno</ion-label>
+  <ion-input type="text"  formControlName="lastName" ></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label floating>Apellido materno</ion-label>
+  <ion-input type="text"  formControlName="lastName2" ></ion-input>
 </ion-item>
 <ion-item>
   <ion-label floating>Correo</ion-label>
-  <ion-input type="email" required [(ngModel)]="user.email" name="email"></ion-input>
+  <ion-input type="email"  formControlName="email" ></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label floating>Contraseña</ion-label>
-  <ion-input type="password" required [(ngModel)]="user.password" name="password"></ion-input>
+  <ion-input type="password"  formControlName="password" ></ion-input>
 </ion-item>
 
 <ion-item>
-  <button type="submit" ion-button block>Registrar</button>
+  <button type="button" (click)="logForm()" ion-button block>Registrar</button>
 </ion-item>
 </form>
+
 </ion-list>
 </ion-content>
 `
@@ -93,6 +102,9 @@ console.log(this.user)
 export class ModalRegister {
   //new;
 
+  registerForm:FormGroup;
+  submitAttempt:boolean;
+  
   constructor(
     public platform: Platform,
     public params: NavParams,
@@ -100,30 +112,38 @@ export class ModalRegister {
     public alertCtrl: AlertController,
     public authServ: AuthService,
     public db: AngularFireDatabase,
-    public afAuth: AngularFireAuth){ }
+    public afAuth: AngularFireAuth,
+    public formBuilder: FormBuilder){ 
+      this.registerForm = formBuilder.group({
+        name: ['',Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
+        lastName:['',Validators.compose([Validators.required])],
+        lastName2:['',Validators.compose([Validators.required])],
+        email: ['',Validators.required],
+        password: ['',Validators.required],
+      })
+
+    }
 
   dismiss() {
     this.viewCtrl.dismiss();
-  }
-
-  user = {
-    name: '',
-    lastName:'',
-    email: '',
-    password: '',
   };
-  //user:User;
   logForm(){
+    //la variable está en el template del modal   
+    this.submitAttempt = true;
+    
+    if(this.registerForm.valid){
     let user = new User();
-    user.name = this.user.name;
-    user.lastName = this.user.lastName;
-    user.email = this.user.email;
-    user.password = this.user.password;
+    user.name = this.registerForm.value.name.trim();
+    user.lastName = this.registerForm.value.lastName.trim();
+    user.lastName2 = this.registerForm.value.lastName2.trim();
+    user.email = this.registerForm.value.email.trim();
+    user.password = this.registerForm.value.password.trim();
     this.authServ.signup(user.email,user.password);
     const itemRef = this.db.list('users');
     itemRef.push({
         name:user.name,
         lastName:user.lastName,
+        lastName2:user.lastName2,
         age:'N/A',
         email:user.email,
         password:user.password,
@@ -141,12 +161,14 @@ export class ModalRegister {
         tutorEmail:'N/A',
         imageURL:'https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2Findice.png?alt=media&token=8080adfa-8bb4-4d4c-8a2b-ddac12c08a2a'
     }).then(value =>{
-      console.log(value.key);
-      const s = this.db.object('users/' + value.key);
-      s.update({key:value.key});
+      const updateQuery = this.db.object('users/' + value.key);
+      updateQuery.update({
+        key:value.key
+      });
     });
-
+    this.viewCtrl.dismiss();
   }
+}
 
 
 }
