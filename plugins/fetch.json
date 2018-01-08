@@ -26,7 +26,7 @@
   "cordova-plugin-splashscreen": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-splashscreen@^4.0.3"
+      "id": "cordova-plugin-splashscreen@^4.1.0"
     },
     "is_top_level": true,
     "variables": {}
@@ -53,10 +53,7 @@
       "id": "phonegap-plugin-push@^2.1.2"
     },
     "is_top_level": true,
-    "variables": {
-      "FCM_VERSION": "11.0.1",
-      "SENDER_ID": "986806210217"
-    }
+    "variables": {}
   },
   "cordova-plugin-fcm": {
     "source": {
@@ -101,7 +98,7 @@
   "onesignal-cordova-plugin": {
     "source": {
       "type": "registry",
-      "id": "onesignal-cordova-plugin@^2.2.4"
+      "id": "onesignal-cordova-plugin@^2.2.5"
     },
     "is_top_level": true,
     "variables": {}

@@ -4,6 +4,7 @@ import { ProspectService } from "./prospect.service";
 import { Prospect } from './prospect';
 
 @Component({
+  selector:"prospect-crud",
   templateUrl: 'prospect-crud.component.html',
 })
 

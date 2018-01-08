@@ -9,18 +9,21 @@
   </div>
 
   <ng-template #showLogin>
-  <form (ngSubmit)="submitForm()">
+  <form [formGroup]="loginForm">
   <ion-list>
-
+<ion-row>
+    <ion-col col-12>
   <ion-item>
-    <ion-input type="email" placeholder="Correo" [(ngModel)]="user.email" name="email" required></ion-input>
+    <input autocorrect="on"  type="email" placeholder="Correo"formControlName="email" >
   </ion-item>
-
+  </ion-col>
+  <ion-col col-12>
   <ion-item>
-    <ion-input type="password" placeholder="Contraseña" [(ngModel)]="user.password" name="password" required></ion-input>
+    <input autocorrect="on"  type="password" placeholder="Contraseña" formControlName="password" >
   </ion-item>
-
-  <button type="submit" ion-button outline block >Entrar</button>
+</ion-col>
+</ion-row>
+  <button type="button" ion-button outline block (click)="submitForm()" >Entrar</button>
 </ion-list>
 <button type="button" ion-button outline block (click)="Open()" >Registrarte</button>
 </form>

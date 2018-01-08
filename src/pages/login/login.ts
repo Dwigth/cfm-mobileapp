@@ -17,13 +17,21 @@ import { AngularFireDatabase } from 'angularfire2/database';
   templateUrl: 'login.html',
 })
 export class LoginComponent implements OnInit {
+  loginForm:FormGroup;
 
   constructor(
     public navCtrl: NavController,
     public params: NavParams,
     public modalCtrl: ModalController,
     public afAuth: AngularFireAuth,
-    public authServ: AuthService ) {  }
+    public authServ: AuthService,
+    public formBuilder: FormBuilder) { 
+
+      this.loginForm = formBuilder.group({
+        email: ['',Validators.required],
+        password: ['',Validators.required],
+      })
+    }
 
     Open (){
       let modal = this.modalCtrl.create(ModalRegister);
@@ -32,17 +40,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  user = {
-    email: '',
-    password: '',
-  };
 
   //user:User;
   submitForm(){
     let user = new User();
-    user.email = this.user.email;
-    user.password = this.user.password;
-  this.authServ.login(user.email,user.password);
+    user.email = this.loginForm.value.email;
+    user.password = this.loginForm.value.password;
+    //this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password);
+    this.authServ.login(user.email,user.password);
   }
 
 }
@@ -67,28 +72,41 @@ export class LoginComponent implements OnInit {
 <p *ngIf="submitAttempt" style="color: #ea6153;">Por favor rellene todo los campos correctamente.</p>
 
 <form  [formGroup]="registerForm">
+<ion-row>
+
+<ion-col col-12>
 
 <ion-item>
-  <ion-label floating>Nombre</ion-label>
-  <ion-input type="text"  formControlName="name"  ></ion-input>
-</ion-item>
-<ion-item>
-  <ion-label floating>Apellido paterno</ion-label>
-  <ion-input type="text"  formControlName="lastName" ></ion-input>
-</ion-item>
-<ion-item>
-  <ion-label floating>Apellido materno</ion-label>
-  <ion-input type="text"  formControlName="lastName2" ></ion-input>
-</ion-item>
-<ion-item>
-  <ion-label floating>Correo</ion-label>
-  <ion-input type="email"  formControlName="email" ></ion-input>
+  <input autocorrect="on" placeholder="Nombre" type="text"  formControlName="name"  >
 </ion-item>
 
+</ion-col>
+
+<ion-col col-12>
 <ion-item>
-  <ion-label floating>Contraseña</ion-label>
-  <ion-input type="password"  formControlName="password" ></ion-input>
+  <input autocorrect="on" placeholder="Apellido paterno" type="text"  formControlName="lastName" >
 </ion-item>
+</ion-col>
+
+<ion-col col-12>
+<ion-item>
+  <input autocorrect="on" placeholder="Apellido materno" type="text"  formControlName="lastName2" >
+</ion-item>
+</ion-col>
+
+<ion-col col-12>
+<ion-item>
+  <input autocorrect="on" placeholder="e-mail" type="email"  formControlName="email" >
+</ion-item>
+</ion-col>
+
+<ion-col col-12>
+<ion-item>
+  <input autocorrect="on" placeholder="Contraseña" type="password"  formControlName="password" >
+</ion-item>
+</ion-col>
+
+</ion-row>
 
 <ion-item>
   <button type="button" (click)="logForm()" ion-button block>Registrar</button>

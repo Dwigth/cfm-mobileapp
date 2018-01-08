@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>205598390265-1bjrbv5g4aph739e32lm9q07k86fcai0.apps.googleusercontent.com</string>
+	<string>205598390265-8ui7jq0d0e3km5idpnvtqufhg251d381.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.205598390265-1bjrbv5g4aph739e32lm9q07k86fcai0</string>
+	<string>com.googleusercontent.apps.205598390265-8ui7jq0d0e3km5idpnvtqufhg251d381</string>
 	<key>API_KEY</key>
 	<string>AIzaSyClwvZS7oVzwr25lp6GqIv0iok4UsIvXj8</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>io.ionic.starter</string>
+	<string>com.cfm.ap</string>
 	<key>PROJECT_ID</key>
 	<string>pcfm-5eeb9</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:205598390265:ios:764d2cb7da3280eb</string>
+	<string>1:205598390265:ios:03acc0645c48d854</string>
 	<key>DATABASE_URL</key>
 	<string>https://pcfm-5eeb9.firebaseio.com</string>
 </dict>

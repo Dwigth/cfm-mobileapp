@@ -57,8 +57,7 @@ Op():void{
 <input type="hidden" id="photoURL" value="{{users.imageURL}}">
 </ion-item>
 <ion-item>
-  <ion-label floating>Titulo</ion-label>
-  <ion-input type="text" required [(ngModel)]="news.title" name="title"></ion-input>
+  <input placeholder="Titulo" type="text" required [(ngModel)]="news.title" name="title">
 </ion-item>
 
 <ion-item>

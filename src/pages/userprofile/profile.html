@@ -9,7 +9,7 @@
           <img  src="{{item.imageURL}}">
           <input type="hidden" id="urlcurrent" value="{{item.imageURL}}">
         </ion-avatar>
-        <h2>Nombre: {{item.name + ' ' + item.lastName | uppercase}} </h2>
+        <h2>Nombre: {{item.name + ' ' + item.lastName + ' '+ item.lastName2 | uppercase}} </h2>
 
         <p>Posición: <ion-note id="pos">{{item.accessLevel}}</ion-note> </p>
       </ion-item>
@@ -40,12 +40,12 @@
           <ng-template #phoneNumber>
             <ion-item>
               <ion-icon name='call' item-start></ion-icon>
-              <ion-input value="{{item.phone}}" readonly></ion-input>
+              <input value="{{item.phone}}" readonly>
 
             </ion-item>
             <ion-item>
               <ion-icon name='call' item-start></ion-icon>
-              <ion-input id="phone" type="text" [(ngModel)]="userUpdate.phone" name="phone" placeholder="Agregar: "></ion-input>
+              <input id="phone" type="text" [(ngModel)]="userUpdate.phone" name="phone" placeholder="Agregar: ">
             </ion-item>
           </ng-template>
 
@@ -72,12 +72,12 @@
           <ng-template #lastGrade>
             <ion-item>
               <ion-icon name='school' item-start></ion-icon>
-              <ion-input  value="{{item.grade}}" readonly> </ion-input>
+              <input  value="{{item.grade}}" readonly> 
 
             </ion-item>
             <ion-item>
               <ion-icon name='school' item-start></ion-icon>
-              <ion-input id="grade" type="text" [(ngModel)]="userUpdate.grade" name="grade" placeholder="Actualizar: "></ion-input>
+              <input id="grade" type="text" [(ngModel)]="userUpdate.grade" name="grade" placeholder="Actualizar: ">
             </ion-item>
 
           </ng-template>
@@ -97,12 +97,11 @@
           <ng-template #ageU>
             <ion-item>
               <ion-icon name='body' item-start></ion-icon>
-              <ion-input  value="{{item.age}}" readonly> </ion-input>
-
+              <input  value="{{item.age}}" readonly>
             </ion-item>
             <ion-item>
               <ion-icon name='body' item-start></ion-icon>
-              <ion-input id="age"type="text" [(ngModel)]="userUpdate.age" name="age" placeholder="Actualizar: "></ion-input>
+              <input id="age"type="text" [(ngModel)]="userUpdate.age" name="age" placeholder="Actualizar: ">
             </ion-item>
 
           </ng-template>
@@ -122,12 +121,12 @@
           <ng-template #ocupationU>
             <ion-item>
                 <ion-icon name='folder' item-start></ion-icon>
-                <ion-input  value="{{item.ocupation}}" readonly> </ion-input>
+                <input  value="{{item.ocupation}}" readonly> 
 
             </ion-item>
             <ion-item>
               <ion-icon name='folder' item-start></ion-icon>
-              <ion-input id="ocupation" type="text" [(ngModel)]="userUpdate.ocupation" name="ocupation" placeholder="Actualizar: "></ion-input>
+              <input id="ocupation" type="text" [(ngModel)]="userUpdate.ocupation" name="ocupation" placeholder="Actualizar: ">
             </ion-item>
 
           </ng-template>

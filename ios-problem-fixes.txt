@@ -1,0 +1,4 @@
+PODS_ROOT ---- ${SRCROOT}/Pods
+
+PODS_PODFILE_DIR_PATH ---- ${SRCROOT}
+//rutas de PODFILE 

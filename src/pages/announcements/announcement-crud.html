@@ -16,8 +16,7 @@
 
 <form *ngIf="isEditing == false; else edit">
 <ion-item>
-  <ion-label floating>Título</ion-label>
-  <ion-input type="text" required [(ngModel)]="announcement.title" name="title" #titu></ion-input>
+  <input type="text" placeholder="Titulo" required [(ngModel)]="announcement.title" name="title" #titu>
 </ion-item>
 
 <ion-item>
@@ -39,8 +38,7 @@
 <ng-template #edit>
   <form>
   <ion-item>
-    <ion-label floating>Título</ion-label>
-    <ion-input type="text" required [(ngModel)]="item.title" name="title" #titu></ion-input>
+    <input type="text" required [(ngModel)]="item.title" name="title" #titu>
   </ion-item>
 
   <ion-item>

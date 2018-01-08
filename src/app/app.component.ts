@@ -16,7 +16,7 @@ import { CoursesComponent } from '../pages/courses/courses';
 //COMPONENTS -CARLOS
 import { DirectoryComponent } from '../pages/directory/directory.component';
 //
-//import { OneSignal } from '@ionic-native/onesignal';
+import { OneSignal } from '@ionic-native/onesignal';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';

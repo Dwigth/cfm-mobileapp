@@ -17,23 +17,19 @@
   <ion-list *ngIf="isEditing == false; else editing">
 
     <ion-item>
-      <ion-label floating>Nombre</ion-label>
-      <ion-input [(ngModel)]="currentProspect.name" name="name" type="text"></ion-input>
+      <input placeholder="Nombre" [(ngModel)]="currentProspect.name" name="name" type="text">
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Apellido paterno</ion-label>
-      <ion-input [(ngModel)]="currentProspect.lastname" name="lastname" type="text"></ion-input>
+      <input placeholder="Apellido paterno" [(ngModel)]="currentProspect.lastname" name="lastname" type="text">
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Apellido Materno</ion-label>
-      <ion-input [(ngModel)]="currentProspect.lastname2" name="lastname2" type="text"></ion-input>
+      <input placeholder="Apellido Materno"  [(ngModel)]="currentProspect.lastname2" name="lastname2" type="text">
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Edad</ion-label>
-      <ion-input [(ngModel)]="currentProspect.age" name="age" type="text"></ion-input>
+      <input placeholder="Edad" [(ngModel)]="currentProspect.age" name="age" type="text">
     </ion-item>
 
     <ion-item>
@@ -45,8 +41,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Telefono</ion-label>
-      <ion-input [(ngModel)]="currentProspect.phone" name="phone" type="text"></ion-input>
+      <input placeholder="Telefono" [(ngModel)]="currentProspect.phone" name="phone" type="text">
     </ion-item>
 
     <ion-item>
@@ -92,7 +87,7 @@
     <ion-item>
         <ion-icon name="logo-usd" item-start></ion-icon>
           Precio
-        <ion-input [(ngModel)]="currentProspect.price" name="price" type="text"></ion-input>
+        <input [(ngModel)]="currentProspect.price" name="price" type="text">
       </ion-item>
 
 
@@ -103,23 +98,19 @@
 <ng-template #editing>
 
       <ion-item>
-        <ion-label floating>Nombre</ion-label>
-        <ion-input [(ngModel)]="item.name" name="name" type="text"></ion-input>
+        <input  placeholder="Nombre" [(ngModel)]="item.name" name="name" type="text">
       </ion-item>
 
       <ion-item>
-        <ion-label floating>Apellido paterno</ion-label>
-        <ion-input [(ngModel)]="item.lastname" name="lastname" type="text"></ion-input>
+        <input placeholder="Apellido paterno"  [(ngModel)]="item.lastname" name="lastname" type="text">
       </ion-item>
 
       <ion-item>
-        <ion-label floating>Apellido Materno</ion-label>
-        <ion-input [(ngModel)]="item.lastname2" name="lastname2" type="text"></ion-input>
+        <input  placeholder="Apellido materno" [(ngModel)]="item.lastname2" name="lastname2" type="text">
       </ion-item>
 
       <ion-item>
-        <ion-label floating>Edad</ion-label>
-        <ion-input [(ngModel)]="item.age" name="age" type="text"></ion-input>
+        <input placeholder="Edad" [(ngModel)]="item.age" name="age" type="text">
       </ion-item>
 
       <ion-item>
@@ -131,8 +122,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label floating>Telefono</ion-label>
-        <ion-input [(ngModel)]="item.phone" name="phone" type="text"></ion-input>
+        <input placeholder="Telefono" [(ngModel)]="item.phone" name="phone" type="text">
       </ion-item>
 
       <ion-item>
@@ -178,7 +168,7 @@
       <ion-item>
           <ion-icon name="logo-usd" item-start></ion-icon>
             Precio
-          <ion-input [(ngModel)]="item.price" name="price" type="text"></ion-input>
+          <input [(ngModel)]="item.price" name="price" type="text">
         </ion-item>
 
 
