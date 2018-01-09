@@ -92,8 +92,8 @@ export class NewsListComponent implements OnInit {
       </ion-thumbnail>
       <h2>{{item.title}}</h2>
       <p>{{item.createdAt}}</p>
-      <button ion-button (click)="openNavDetailsPage(item)" clear item-end>Editar</button>
-      <button ion-button (click)="this.newSvc.deleteNews(item)" clear item-end>Eliminar</button>
+      <button type="button" ion-button (click)="openNavDetailsPage(item)" clear item-end>Editar</button>
+      <button typue="button" ion-button (click)="this.newSvc.deleteNews(item)" clear item-end>Eliminar</button>
     </ion-item>
   </ion-list>
   </ion-content>

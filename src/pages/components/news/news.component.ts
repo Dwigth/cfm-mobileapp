@@ -69,7 +69,7 @@ Op():void{
 </ion-item>
 
 <ion-item>
-  <button type="submit" ion-button color="danger" block (click)="uploadNew()">Registrar</button>
+  <button type="button" ion-button color="danger" block (click)="uploadNew()">Registrar</button>
 </ion-item>
 </form>
 </ion-content>
