@@ -6,7 +6,7 @@
 
   <div *ngFor="let item of user | async">
 
-    <ion-item *ngIf="item.accessLevel == 'user' ;">
+    <ion-item *ngIf="item.accessLevel == 'user' ;" text-wrap>
       <p>Ingresa a la academia para poder visualizar esta sección.</p>
     </ion-item>
 
@@ -26,7 +26,7 @@
 
     </ion-item>
 
-    <ion-item *ngIf="item.accessLevel == 'teacher';">
+    <ion-item *ngIf="item.accessLevel == 'teacher';" text-wrap>
       <p>Pronto habrá una sección para maestro.</p>
     </ion-item>       
 
