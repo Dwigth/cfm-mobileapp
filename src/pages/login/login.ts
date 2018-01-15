@@ -96,7 +96,7 @@ export class LoginComponent implements OnInit {
 
 <ion-col col-12>
 <ion-item>
-  <input autocorrect="on" placeholder="e-mail" type="email"  formControlName="email" >
+  <input autocorrect="on" placeholder="e-mail" type="text"  formControlName="email" >
 </ion-item>
 </ion-col>
 
@@ -156,35 +156,40 @@ export class ModalRegister {
     user.lastName2 = this.registerForm.value.lastName2.trim();
     user.email = this.registerForm.value.email.trim();
     user.password = this.registerForm.value.password.trim();
-    this.authServ.signup(user.email,user.password);
-    const itemRef = this.db.list('users');
-    itemRef.push({
-        name:user.name,
-        lastName:user.lastName,
-        lastName2:user.lastName2,
-        age:'N/A',
-        email:user.email,
-        password:user.password,
-        accessLevel:'user',
-        advertising: 'N/A',
-        status:'active',
-        ocupation: 'N/A',
-        phone:'N/A',
-        course:'N/A',
-        observation:'N/A',
-        grade:'N/A',
-        tutor:'N/A',
-        relationship:'N/A',
-        tutorAge:'N/A',
-        tutorEmail:'N/A',
-        imageURL:'https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2Findice.png?alt=media&token=8080adfa-8bb4-4d4c-8a2b-ddac12c08a2a'
-    }).then(value =>{
-      const updateQuery = this.db.object('users/' + value.key);
-      updateQuery.update({
-        key:value.key
+    //this.authServ.signup(user.email,user.password);
+    this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.password).then(val =>{
+      const itemRef = this.db.list('users');
+      itemRef.push({
+          name:user.name,
+          lastName:user.lastName,
+          lastName2:user.lastName2,
+          age:'N/A',
+          email:user.email,
+          password:user.password,
+          accessLevel:'user',
+          advertising: 'N/A',
+          isStudent:false,
+          status:'active',
+          ocupation: 'N/A',
+          phone:'N/A',
+          course:'N/A',
+          observation:'N/A',
+          grade:'N/A',
+          tutor:'N/A',
+          relationship:'N/A',
+          tutorAge:'N/A',
+          tutorEmail:'N/A',
+          uid: this.afAuth.auth.currentUser.uid,
+          imageURL:'https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2Findice.png?alt=media&token=8080adfa-8bb4-4d4c-8a2b-ddac12c08a2a'
+      }).then(value =>{
+        const updateQuery = this.db.object('users/' + value.key);
+        updateQuery.update({
+          key:value.key
+        });
       });
-    });
-    this.viewCtrl.dismiss();
+      this.viewCtrl.dismiss();
+    })
+    
   }
 }
 

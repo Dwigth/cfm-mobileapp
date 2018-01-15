@@ -11,12 +11,11 @@
     </ion-item>
 </ion-card>
 -->
-<button type="button" ion-button block icon-left color="orange">
-    <ion-icon name="bookmark"></ion-icon>
-  Clase
-</button>
+<div *ngFor="let item of ButtonComponents">
 
-<button type="button" ion-button block icon-left color="danger">
-    <ion-icon name="book"></ion-icon>
-  Calificaciones
-</button>
+    <button (click)="SetNav(item)" type="button" ion-button block icon-left color="{{item.color}}">
+        <ion-icon name="{{item.icon}}"></ion-icon>
+    {{item.title}}
+    </button>
+    
+</div>

@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HTTP } from '@ionic-native/http';
-//components - Dwigth
 
+//components - Dwigth
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ModalContentPage } from '../pages/home/home';
@@ -47,7 +47,18 @@ import { UserButton } from "../pages/Users/user.button";
 import { UserCrud } from "../pages/Users/user.crud.component";
 import { UserModal } from "../pages/Users/user.modal.component";
 import { UserService } from "../pages/Users/user.service";
-import { StudentsComponent } from "../pages/students/students.component"
+import { StudentsComponent } from "../pages/students/students.component";
+import { StudentService } from "../pages/students/students.services";
+import { QualificationComponent } from '../pages/students/qualification.component';
+import { ClassesComponent } from '../pages/students/classes.component';
+import { CourseDetailComponent } from '../pages/students/CourseDetail.component';
+import { GroupAdminComponent } from '../pages/teachers/groupAdmin.component';
+import { TeachersComponent } from '../pages/teachers/teachers.component';
+import { GroupDetailsComponent } from '../pages/teachers/groupsDetails.component';
+import { GroupFormComponent } from '../pages/teachers/groupForm.component';
+import { LessonFormComponent } from '../pages/teachers/lessonForm.component';
+import { TeacherService } from '../pages/teachers/teachers.services';
+import { MemberComponent } from '../pages/teachers/members.component';
 //COMPONENT - CARLOS
 import { DirectoryComponent } from '../pages/directory/directory.component';
 import { MisionComponent } from '../pages/aboutus/modals/mision.component';
@@ -119,7 +130,16 @@ export const firebaseConfig = {
     UserButton,
     UserCrud,
     UserModal,
-    StudentsComponent
+    StudentsComponent,
+    QualificationComponent,
+    ClassesComponent,
+    CourseDetailComponent,
+    GroupAdminComponent,
+    TeachersComponent,
+    GroupDetailsComponent,
+    GroupFormComponent,
+    LessonFormComponent,
+    MemberComponent,
   ],
   imports: [
     BrowserModule,
@@ -170,7 +190,16 @@ export const firebaseConfig = {
     UserButton,
     UserCrud,
     UserModal,
-    StudentsComponent
+    StudentsComponent,
+    QualificationComponent,
+    ClassesComponent,
+    CourseDetailComponent,
+    GroupAdminComponent,
+    TeachersComponent,
+    GroupDetailsComponent,
+    GroupFormComponent,
+    LessonFormComponent,
+    MemberComponent,
   ],
   providers: [
     StatusBar,
@@ -190,6 +219,8 @@ export const firebaseConfig = {
     OneSignal,
     ProspectService,
     UserService,
+    StudentService,
+    TeacherService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

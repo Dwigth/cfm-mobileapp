@@ -2,7 +2,7 @@
 <ion-content padding id="form">
   <div *ngIf="this.afAuth.authState  | async; let user; else showLogin">
 
-      <ion-badge color="secondary"><p>Usted ya ha iniciado sesión con: {{user.email}}</p></ion-badge>
+      <ion-badge text-wrap color="secondary"><p>Usted ya ha iniciado sesión con: {{user.email}}</p></ion-badge>
       <ion-item>
         <button type="button" name="button"ion-button block (click)="authServ.logout()">Cerrar sesión</button>
       </ion-item>
@@ -14,7 +14,7 @@
 <ion-row>
     <ion-col col-12>
   <ion-item>
-    <input autocorrect="on"  type="email" placeholder="Correo"formControlName="email" >
+    <input autocorrect="on"  type="text" placeholder="Correo"formControlName="email" >
   </ion-item>
   </ion-col>
   <ion-col col-12>

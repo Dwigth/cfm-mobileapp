@@ -1,0 +1,8 @@
+<div *ngFor="let item of ButtonComponents">
+        
+                <button (click)="SetNav(item)" type="button" ion-button block icon-left color="{{item.color}}">
+                    <ion-icon name="{{item.icon}}"></ion-icon>
+                {{item.title}}
+                </button>
+                
+            </div>

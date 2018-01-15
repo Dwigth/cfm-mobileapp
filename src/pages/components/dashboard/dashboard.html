@@ -23,11 +23,10 @@
       <announcement-button></announcement-button>
       <prospect-button></prospect-button>
       <user-button></user-button>
-
     </ion-item>
 
     <ion-item *ngIf="item.accessLevel == 'teacher';" text-wrap>
-      <p>Pronto habrá una sección para maestro.</p>
+      <teachers-module></teachers-module>
     </ion-item>       
 
 

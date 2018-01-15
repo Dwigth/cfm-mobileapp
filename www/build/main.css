@@ -36521,7 +36521,7 @@ a:link {
   text-align: justify;
 }
 
-input {
+input[type="button"] {
   display: block;
   font-size: 14px;
   width: 100%;
@@ -36582,7 +36582,19 @@ input[type="submit"]:hover {
   transition: all 0.40s ease-out;
 }
 
-input {
+input[type="button"] {
+  display: block;
+  font-size: 14px;
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px 8px 10px 8px;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
+  border: 1px solid #666;
+}
+
+input[type="text"] {
   display: block;
   font-size: 14px;
   width: 100%;
@@ -36666,7 +36678,7 @@ textarea {
   border: 0;
 }
 
-input {
+input[type="button"] {
   display: block;
   font-size: 14px;
   width: 100%;
@@ -36779,7 +36791,31 @@ ion-badge {
   text-align: center;
 }
 
-input {
+input[type="button"] {
+  display: block;
+  font-size: 14px;
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px 8px 10px 8px;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
+  border: 1px solid #666;
+}
+
+input[type="text"] {
+  display: block;
+  font-size: 14px;
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px 8px 10px 8px;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
+  border: 1px solid #666;
+}
+
+input[type="password"] {
   display: block;
   font-size: 14px;
   width: 100%;
@@ -36855,7 +36891,7 @@ textarea {
   border: 0;
 }
 
-input {
+input[type="button"] {
   display: block;
   font-size: 14px;
   width: 100%;
@@ -36916,15 +36952,37 @@ input[type="submit"]:hover {
   transition: all 0.40s ease-out;
 }
 
+qualification-name .container {
+  margin-top: 17%;
+}
+
+qualification-name .header .col {
+  background-color: lightgrey;
+}
+
+qualification-name .col {
+  border: solid 1px grey;
+  border-bottom-style: none;
+  border-right-style: none;
+}
+
+qualification-name .col:last-child {
+  border-right: solid 1px grey;
+}
+
+qualification-name .row:last-child .col {
+  border-bottom: solid 1px grey;
+}
+
 #container {
   margin-top: 20%;
 }
 
 #pos {
-  color: green;
+  color: whitesmoke;
 }
 
-input {
+input[type="button"] {
   display: block;
   font-size: 14px;
   width: 100%;

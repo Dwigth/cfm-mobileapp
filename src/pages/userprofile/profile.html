@@ -9,9 +9,9 @@
           <img  src="{{item.imageURL}}">
           <input type="hidden" id="urlcurrent" value="{{item.imageURL}}">
         </ion-avatar>
-        <h2>Nombre: {{item.name + ' ' + item.lastName + ' '+ item.lastName2 | uppercase}} </h2>
-
-        <p>Posición: <ion-note id="pos">{{item.accessLevel}}</ion-note> </p>
+        <h2 text-wrap > {{item.name + ' ' + item.lastName + ' '+ item.lastName2 | uppercase}} </h2>
+        
+        <p>Posición: <ion-badge color="orange"><ion-note id="pos">{{item.accessLevel}}</ion-note></ion-badge> </p> 
       </ion-item>
         <ion-list no-border>
 
@@ -52,9 +52,9 @@
           <ion-item>
             <ion-icon name='alert' item-start></ion-icon>
             Estatus
-            <ion-note id="pos" item-end>
+            <ion-badge item-end color="green"> <ion-note id="pos" item-end>
             {{item.status}}
-            </ion-note>
+            </ion-note></ion-badge>
           </ion-item>
 
 <!-- -->
@@ -143,6 +143,7 @@
             </ion-select>
 
 
+
           </ion-item>
           <input type="hidden"name="key" id="key" value="{{item.key}}">
           <input type="hidden"name="actPhone" id="actPhone" value="{{item.phone}}">
@@ -151,10 +152,23 @@
             <input type="hidden"name="actOcupation" id="actOcupation" value="{{item.ocupation}}">
         </ion-list>
 
+       
+        <ion-list *ngIf="item.isStudent == false && item.accessLevel == 'user'">
+            <ion-item>
+                <input type="text" placeholder="Introduzca código de acceso" > 
+              <button ion-button outline item-end icon-left>
+                <ion-icon name="md-send"></ion-icon>
+                Enviar
+              </button>
+            </ion-item>
+          </ion-list>
+
         <ion-item>
           <label>Cargar foto de perfil</label>
         <upload-form></upload-form>
         </ion-item>
+
+       
 
         <button type="button" ion-button block (click)="UpdateInfo()" > Actualizar información</button>
   </ion-list>
