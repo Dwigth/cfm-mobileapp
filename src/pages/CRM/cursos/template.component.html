@@ -1,0 +1,147 @@
+ame<ion-header>
+  <ion-toolbar>
+    <ion-title>
+    Crear Nuevo Curso
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancelar</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<!-- FORMULARIO PARA CREAR-->
+<div *ngIf="id == 'nuevo';">
+  <h5 class="center">INGRESE LOS DATOS DEL CURSO:</h5>
+  <hr>
+<form (ngSubmit)="crud.guardar(forma)" #forma="ngForm">
+<ion-list>
+
+  <ion-item>
+    <ion-label>Nombre del Curso</ion-label>
+    <ion-select name="name"
+                [(ngModel)]="curso.name">
+      <ion-option value="guitarra">GUITARRA</ion-option>
+      <ion-option value="ukulele">UKULELE</ion-option>
+      <ion-option value="bajo electrico">BAJO ELECTRICO</ion-option>
+      <ion-option value="violin">VIOLIN</ion-option>
+      <ion-option value="saxofon">SAXOFON</ion-option>
+      <ion-option value="piano">PIANO</ion-option>
+      <ion-option value="bateria">BATERIA</ion-option>
+      <ion-option value="canto">CANTO</ion-option>
+      <ion-option value="dibujo y pintura">DIBUJO Y PINTURA</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <input placeholder="Cupos Disponibles" type="text" name="spaces" [(ngModel)]="curso.spaces">
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tipo</ion-label>
+    <ion-select name="type"
+                [(ngModel)]="curso.type">>
+      <ion-option value="adultos">ADULTOS</ion-option>
+      <ion-option value="adolescentes">ADOLESCENTES</ion-option>
+      <ion-option value="niños">NIÑOS</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>Horario</ion-label>
+    <ion-select name="schedule"
+                [(ngModel)]="curso.schedule">>
+      <ion-option value="l y m 4:00pm a 5:30pm">L Y M 4:00PM a 5:30PM</ion-option>
+      <ion-option value="l y m 5:30pm a 7:00pm">L Y M 5:30PM a 7:00PM</ion-option>
+      <ion-option value="l y m 7:00pm a 8:30pm">L Y M 7:00PM a 8:30PM</ion-option>
+      <ion-option value="l y m 8:30pm a 10:00pm">L Y M 8:30PM a 10:00PM</ion-option>
+      <ion-option value="m y j 4:00pm a 5:30pm">M Y J 4:00PM a 5:30PM</ion-option>
+      <ion-option value="m y j 5:30pm a 7:00pm">M Y J 5:30PM a 7:00PM</ion-option>
+      <ion-option value="m y j 7:00pm a 8:30pm">M Y J 7:00PM a 8:30PM</ion-option>
+      <ion-option value="m y j 8:30pm a 10:00pm">M Y J 8:30PM a 10:00PM</ion-option>
+      <ion-option value="viernes 5:00pm A 8:00pm">VIERNES 5:00PM A 8:00PM</ion-option>
+      <ion-option value="sabado 9:00am a 12:00pm">SABADO 9:00AM a 12:00PM</ion-option>
+      <ion-option value="sabado 1:00pm a 4:00pm">SABADO 1:00PM a 4:00PM</ion-option>
+      <ion-option value="sabado 4:00pm a 7:00pm">SABADO 4:00PM a 7:00PM</ion-option>
+    </ion-select>
+  </ion-item>
+
+    <button type="submit" ion-button block> Crear Curso </button>
+
+</ion-list>
+</form>
+</div>
+<!-- FIN DEL FORMULARIO PARA CREAR -->
+
+
+<!-- FORMULARIO PARA EDITAR-->
+<div *ngIf="id != 'nuevo';">
+  <h5 class="center">ACTUALIZAR LOS DATOS DEL CURSO:</h5>
+  <hr>
+  <div *ngFor="let item of listarCurso | async">
+<form (ngSubmit)="crud.guardar(forma)" #forma="ngForm">
+<ion-list>
+
+  <ion-item>
+    <ion-label>Nombre del Curso</ion-label>
+    <ion-select name="name"
+                [(ngModel)]="item.name">
+      <ion-option value="guitarra">GUITARRA</ion-option>
+      <ion-option value="ukulele">UKULELE</ion-option>
+      <ion-option value="bajo electrico">BAJO ELECTRICO</ion-option>
+      <ion-option value="violin">VIOLIN</ion-option>
+      <ion-option value="saxofon">SAXOFON</ion-option>
+      <ion-option value="piano">PIANO</ion-option>
+      <ion-option value="bateria">BATERIA</ion-option>
+      <ion-option value="canto">CANTO</ion-option>
+      <ion-option value="dibujo y pintura">DIBUJO Y PINTURA</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <input placeholder="Cupos Disponibles" type="text" name="spaces" [(ngModel)]="item.spaces">
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tipo</ion-label>
+    <ion-select name="type"
+                [(ngModel)]="item.type">
+      <ion-option value="adultos">ADULTOS</ion-option>
+      <ion-option value="adolescentes">ADOLESCENTES</ion-option>
+      <ion-option vapme="niños">NIÑOS</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>Horario</ion-label>
+    <ion-select name="schedule"
+                [(ngModel)]="item.schedule">>
+      <ion-option value="l y m 4:00pm a 5:30pm">L Y M 4:00PM a 5:30PM</ion-option>
+      <ion-option value="l y m 5:30pm a 7:00pm">L Y M 5:30PM a 7:00PM</ion-option>
+      <ion-option value="l y m 7:00pm a 8:30pm">L Y M 7:00PM a 8:30PM</ion-option>
+      <ion-option value="l y m 8:30pm a 10:00pm">L Y M 8:30PM a 10:00PM</ion-option>
+      <ion-option value="m y j 4:00pm a 5:30pm">M Y J 4:00PM a 5:30PM</ion-option>
+      <ion-option value="m y j 5:30pm a 7:00pm">M Y J 5:30PM a 7:00PM</ion-option>
+      <ion-option value="m y j 7:00pm a 8:30pm">M Y J 7:00PM a 8:30PM</ion-option>
+      <ion-option value="m y j 8:30pm a 10:00pm">M Y J 8:30PM a 10:00PM</ion-option>
+      <ion-option value="viernes 5:00pm A 8:00pm">VIERNES 5:00PM A 8:00PM</ion-option>
+      <ion-option value="sabado 9:00am a 12:00pm">SABADO 9:00AM a 12:00PM</ion-option>
+      <ion-option value="sabado 1:00pm a 4:00pm">SABADO 1:00PM a 4:00PM</ion-option>
+      <ion-option value="sabado 4:00pm a 7:00pm">SABADO 4:00PM a 7:00PM</ion-option>
+    </ion-select>
+  </ion-item>
+
+    <button type="submit" ion-button block> Actualizar Curso </button>
+
+</ion-list>
+</form>
+</div>
+</div>
+<!--  FIN DEL FORMULARIO PARA EDITAR>-->
+</ion-content>
