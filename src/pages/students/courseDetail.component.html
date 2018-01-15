@@ -13,32 +13,38 @@
       </ion-header>
       <ion-content>
             
-            <ion-card text-wrap>
+            <ion-card *ngFor="let item of lessons | async" text-wrap>
                     <ion-item>
                       <ion-avatar item-start>
                         <img src="img/marty-avatar.png">
                       </ion-avatar>
-                      <h2>Marty McFly</h2>
-                      <p>November 5, 1955</p>
+                      <h2>{{item.name}}</h2>
+                      <p>{{item.createdAt}}</p>
                     </ion-item>
                   
                     <ion-card-content>
-                      <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+                      <p>{{item.bodytext}}</p>
                     </ion-card-content>
                   
                     <ion-row>
+
                       <ion-col>
+
                         <button ion-button icon-left clear small>
                           <ion-icon name="thumbs-up"></ion-icon>
                           <div>12 Likes</div>
                         </button>
                       </ion-col>
+
                       <ion-col>
-                        <button ion-button icon-left clear small>
-                          <ion-icon name="md-cloud-download"></ion-icon>
-                          <div>Recurso compartido</div>
-                        </button>
-                      </ion-col>
+                        <a  href="{{item.url}}" download="{{item.name}}">
+                          <button ion-button icon-left clear small >
+                            Recurso Compartido 
+                            <ion-icon name="md-cloud-download"></ion-icon>
+                          </button>
+                          </a>
+                  </ion-col>
+
                       <ion-col center text-center>
                         <ion-note>
                           11h ago

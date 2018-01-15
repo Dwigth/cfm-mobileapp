@@ -13,4 +13,7 @@ export class StudentService {
     public getStudentGroups(){
       return  this.db.list("groups",val => val.orderByChild("members/"+this.afAuth.auth.currentUser.uid).equalTo(true)).valueChanges();
     }
+
+    public getLessons(groupkey){
+        return this.db.list('lessons/'+groupkey).valueChanges();    }
 }
