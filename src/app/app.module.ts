@@ -58,7 +58,7 @@ import { ManualComponent } from '../pages/aboutus/modals/manual.component';
 
 
 
-//services
+//SERVICES carlos
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';

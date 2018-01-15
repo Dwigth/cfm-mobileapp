@@ -1,0 +1,189 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+    Cursos
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancelar</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <button type="button" large block ion-button (click)="openCreatorCursoForm()"> Crear Nuevo Curso </button>
+  <!-- BUSQUEDAS POR CURSOS -->
+  <ion-item>
+    <ion-label>Busqueda por Curso</ion-label>
+    <ion-toggle color="secondary" [(ngModel)]="searchCurso" checked="false"></ion-toggle>
+  </ion-item>
+
+
+  <div *ngIf="searchCurso">
+    <form (ngSubmit)="getbyCourse(datos)" #datos="ngForm">
+    <ion-list>
+    <ion-item>
+      <ion-label>Instrumento</ion-label>
+      <ion-select name="name"
+                  [(ngModel)]="datos.name">
+        <ion-option value="guitarra">GUITARRA</ion-option>
+        <ion-option value="ukulele">UKULELE</ion-option>
+        <ion-option value="bajo electrico">BAJO ELECTRICO</ion-option>
+        <ion-option value="violin">VIOLIN</ion-option>
+        <ion-option value="saxofon">SAXOFON</ion-option>
+        <ion-option value="piano">PIANO</ion-option>
+        <ion-option value="bateria">BATERIA</ion-option>
+        <ion-option value="canto">CANTO</ion-option>
+        <ion-option value="dibujo y pintura">DIBUJO Y PINTURA</ion-option>
+
+      </ion-select>
+    </ion-item>
+
+  <ion-item>
+    <button type="submit" ion-button block>Buscar</button>
+  </ion-item>
+</ion-list>
+</form>
+
+  </div>
+  <!--  FIN DE LAS BUSQUEDAS -->
+  <!-- BUSQUEDAS POR HORARIO -->
+  <ion-item>
+    <ion-label>Busqueda por Horario</ion-label>
+    <ion-toggle color="secondary" [(ngModel)]="searchHorario" checked="false"></ion-toggle>
+  </ion-item>
+
+
+  <div *ngIf="searchHorario">
+    <form (ngSubmit)="getbySchedule(schedule)" #schedule="ngForm">
+    <ion-list>
+    <ion-item>
+      <ion-label>Horario</ion-label>
+      <ion-select name="schedule"
+                  [(ngModel)]="schedule.schedule">
+        <ion-option value="l y m 4:00pm a 5:30pm">L Y M 4:00PM a 5:30PM</ion-option>
+        <ion-option value="l y m 5:30pm a 7:00pm">L Y M 5:30PM a 7:00PM</ion-option>
+        <ion-option value="l y m 7:00pm a 8:30pm">L Y M 7:00PM a 8:30PM</ion-option>
+        <ion-option value="l y m 8:30pm a 10:00pm">L Y M 8:30PM a 10:00PM</ion-option>
+        <ion-option value="m y j 4:00pm a 5:30pm">M Y J 4:00PM a 5:30PM</ion-option>
+        <ion-option value="m y j 5:30pm a 7:00pm">M Y J 5:30PM a 7:00PM</ion-option>
+        <ion-option value="m y j 7:00pm a 8:30pm">M Y J 7:00PM a 8:30PM</ion-option>
+        <ion-option value="m y j 8:30pm a 10:00pm">M Y J 8:30PM a 10:00PM</ion-option>
+        <ion-option value="viernes 5:00pm A 8:00pm">VIERNES 5:00PM A 8:00PM</ion-option>
+        <ion-option value="sabado 9:00am a 12:00pm">SABADO 9:00AM a 12:00PM</ion-option>
+        <ion-option value="sabado 1:00pm a 4:00pm">SABADO 1:00PM a 4:00PM</ion-option>
+        <ion-option value="sabado 4:00pm a 7:00pm">SABADO 4:00PM a 7:00PM</ion-option>
+      </ion-select>
+    </ion-item>
+
+  <ion-item>
+    <button type="submit" ion-button block>Buscar</button>
+  </ion-item>
+</ion-list>
+</form>
+  </div>
+  <!--  FIN DE LAS BUSQUEDAS -->
+
+  <!-- para dar padding al contenido -->
+<h5 class="center">Registro & Control de Cursos</h5>
+<!--LISTA DE CURSOS -->
+<!-- BUSQUEDAS PARA NIÑOS -->
+<ion-item>
+  <ion-label> Niños </ion-label>
+  <ion-toggle color="secondary" [(ngModel)]="ninos" checked="false"></ion-toggle>
+</ion-item>
+<!-- BUSQUEDAS PARA ADOLESCENTES -->
+<ion-item>
+  <ion-label>Adolescentes</ion-label>
+  <ion-toggle color="secondary" [(ngModel)]="adolescentes" checked="false"></ion-toggle>
+</ion-item>
+<!-- BUSQUEDAS PARA ADULTOS -->
+<ion-item>
+  <ion-label>Adultos</ion-label>
+  <ion-toggle color="secondary" [(ngModel)]="adultos" checked="false"></ion-toggle>
+</ion-item>
+<!-- FIN DE LAS BUSQUEDAS-->
+<div *ngIf="ninos">
+<ion-list *ngFor="let item of listarCurso | async">
+  <!-- MUESTRA LA LISTA DE TODOS LOS NIÑOS -->
+  <div *ngIf="item.type == 'niños';">
+    <ion-item-sliding>
+      <ion-item>
+        <h3> {{ item.spaces }} - {{ item.type | uppercase }} </h3>
+        <h3> {{ item.name | uppercase }} - {{ item.schedule | uppercase }} </h3>
+
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button color="secondary" (click)="crud.recibirid(item.key)" type="button">
+          <ion-icon name="create"></ion-icon>
+          Editar
+        </button>
+        <button ion-button color="danger" (click)="crud.showConfirm(item.key)" type="button">
+          <ion-icon name="trash"></ion-icon>
+          Eliminar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </div>
+</ion-list>
+</div>
+  <!-- FIN DE LAS LISTAS DE NIÑOS -->
+
+  <!-- MUESTRA LA LISTA DE TODOS LOS ADOLESCENTES -->
+  <div *ngIf="adolescentes">
+  <ion-list *ngFor="let item of listarCurso | async">
+    <div *ngIf="item.type == 'adolescentes';">
+      <ion-item-sliding>
+        <ion-item>
+          <h3> {{ item.spaces }} - {{ item.type | uppercase }} </h3>
+          <h3> {{ item.name | uppercase }} - {{ item.schedule | uppercase }} </h3>
+
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="secondary" (click)="crud.recibirid(item.key)" type="button">
+            <ion-icon name="create"></ion-icon>
+            Editar
+          </button>
+          <button ion-button color="danger" (click)="crud.showConfirm(item.key)" type="button">
+            <ion-icon name="trash"></ion-icon>
+            Eliminar
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
+  </ion-list>
+  </div>
+  <!-- FIN DE LAS LISTAS DE ADOLESCENTES -->
+
+  <!-- MUESTRA LA LISTA DE TODOS LOS ADULTOS -->
+  <div *ngIf="adultos">
+  <ion-list *ngFor="let item of listarCurso | async">
+    <div *ngIf="item.type == 'adultos';">
+      <ion-item-sliding>
+        <ion-item>
+          <h3> {{ item.spaces }} - {{ item.type | uppercase }} </h3>
+          <h3> {{ item.name | uppercase }} - {{ item.schedule | uppercase }} </h3>
+
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="secondary" (click)="crud.recibirid(item.key)" type="button">
+            <ion-icon name="create"></ion-icon>
+            Editar
+          </button>
+          <button ion-button color="danger" (click)="crud.showConfirm(item.key)" type="button">
+            <ion-icon name="trash"></ion-icon>
+            Eliminar
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
+  </ion-list>
+  </div>
+  <!-- FIN DE LAS LISTAS DE ADULTOS -->
+
+</ion-content>
