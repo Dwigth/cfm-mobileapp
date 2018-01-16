@@ -6,7 +6,7 @@ import { CursosComponent } from "./cursos.component";
 @Component({
   selector: 'cursos-button',
   template:`
-<button type="button" ion-button large block color="primary" (click)="openModalCursos()" outline>Ver Cursos</button>
+<button type="button" ion-button large block color="primary" (click)="openModalCursos()" outline>Administrar cursos</button>
   `,
 })
 export class CursosButtonComponent implements OnInit {

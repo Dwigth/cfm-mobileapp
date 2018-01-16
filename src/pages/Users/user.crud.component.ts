@@ -18,7 +18,6 @@ export class UserCrud implements OnInit {
         public ursv:UserService) {
             this.item = params.get("item");
             console.log(this.item);
-            
      }
 
      editCurrentUser(item){

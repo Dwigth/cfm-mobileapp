@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewController,NavController,NavParams } from 'ionic-angular';
+import { ViewController,NavController } from 'ionic-angular';
 import { CourseDetailComponent } from './CourseDetail.component'; 
 import { Observable } from 'rxjs/Observable';
 import { StudentService } from './students.services';
+import { NavParams } from 'ionic-angular/navigation/nav-params';
 @Component({
     selector: 'classes-name',
     templateUrl: 'classes.component.html'
@@ -24,8 +25,9 @@ export class ClassesComponent implements OnInit {
 
     }
     
-    DisplayDetails(lessonkey){
-        this.Nav.push(CourseDetailComponent,{lessonkey:lessonkey})
+    DisplayDetails(key){
+        console.log(key);
+        this.Nav.push(CourseDetailComponent,{lessonkey:key});
     }
 
     dismiss(){

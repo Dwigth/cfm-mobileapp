@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //NECESARIO PARA RECIBIR PARAMETROS PROR URL
-import { NavController, NavParams, ViewController } from "ionic-angular";
+import { ViewController } from "ionic-angular";
 //NECESARIO PARA EL CRUD DE ANGULARFIRE
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
@@ -21,8 +21,6 @@ export class TemplateComponent implements OnInit {
   constructor(
     public db: AngularFireDatabase,
     public crud:CrudService,
-    public nav:NavController,
-    public params:NavParams,
     public viewCtrl:ViewController,
   ) {
     //HACE EL INSERT O EL UPDATE DEPENDIENDO SI ES NUEVO O YA EXISTE

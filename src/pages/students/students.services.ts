@@ -15,5 +15,6 @@ export class StudentService {
     }
 
     public getLessons(groupkey){
-        return this.db.list('lessons/'+groupkey).valueChanges();    }
+        return this.db.list("lessons/"+groupkey).valueChanges();
+    }
 }

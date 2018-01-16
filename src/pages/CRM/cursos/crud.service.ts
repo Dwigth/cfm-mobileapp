@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from "angularfire2/database";
-import { Http } from '@angular/http';
 import { NgForm } from '@angular/forms';
 //TEMPLATE PARA ABRIR EL FORMULARIO DE EDITAR
 import { ModalController } from 'ionic-angular';
-import { TemplateComponent } from './template.component';
 //BUSQUEDAS
 import { Observable } from 'rxjs/Observable';
 //CONFIRMACION/ALERTA PARA REMOVER CURSOS
@@ -34,13 +32,7 @@ public currentId:string = "nuevo";
   return this.db.object("courses/" + key);
   }
   //RECIBE EL ID DEL CURSO PARA EDITAR O ELIMINAR
-  recibirid(keyid:string){
-    console.log(keyid);
-    this.currentId = keyid;
-
-    let modal = this.modalCtrl.create( TemplateComponent );
-    modal.present();
-  }
+  
 
 //funcion que guarda un nuevo curso si el id es nuevo o edita si el id existe
 guardar(forma:NgForm){

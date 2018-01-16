@@ -32,6 +32,11 @@ export class CursosComponent implements OnInit {
   this.crud.currentId = "nuevo";
   }
 
+  OpenEditCursoForm(key){
+    this.nav.push(TemplateComponent);
+    this.crud.currentId = key;
+  }
+
   dismiss(){
     this.viewCtrl.dismiss();
   }

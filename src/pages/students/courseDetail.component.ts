@@ -10,7 +10,7 @@ import { StudentService } from './students.services';
 })
 
 export class CourseDetailComponent implements OnInit {
-    groupkey:string;
+    key:string;
     lessons:Observable<any[]>;
 
     constructor( 
@@ -18,9 +18,10 @@ export class CourseDetailComponent implements OnInit {
         public params:NavParams,
         public stdSrv:StudentService,
     ) { 
-        this.groupkey = params.get('groupkey');
-        this.lessons = stdSrv.getLessons(this.groupkey);
-        console.log(this.groupkey);
+        this.key = this.params.get('lessonkey');
+        console.log(this.key);
+        this.lessons = stdSrv.getLessons(this.key);
+        
         
     }
 

@@ -66,7 +66,10 @@ import { HistoriaComponent } from '../pages/aboutus/modals/historia.component';
 import { ReglamentoComponent } from '../pages/aboutus/modals/reglamento.component';
 import { ProfesoresComponent } from '../pages/aboutus/modals/profesoresmodal.component';
 import { ManualComponent } from '../pages/aboutus/modals/manual.component';
-
+import { CrudService } from '../pages/CRM/cursos/crud.service';
+import { CursosComponent } from '../pages/CRM/cursos/cursos.component';
+import { CursosButtonComponent } from '../pages/CRM/cursos/cursosbutton';
+import { TemplateComponent } from '../pages/CRM/cursos/template.component';
 
 
 //SERVICES carlos
@@ -140,6 +143,9 @@ export const firebaseConfig = {
     GroupFormComponent,
     LessonFormComponent,
     MemberComponent,
+    CursosComponent,
+    CursosButtonComponent,
+    TemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -200,6 +206,9 @@ export const firebaseConfig = {
     GroupFormComponent,
     LessonFormComponent,
     MemberComponent,
+    CursosComponent,
+    CursosButtonComponent,
+    TemplateComponent,
   ],
   providers: [
     StatusBar,
@@ -221,6 +230,7 @@ export const firebaseConfig = {
     UserService,
     StudentService,
     TeacherService,
+    CrudService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
