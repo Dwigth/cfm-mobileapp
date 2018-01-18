@@ -32,7 +32,7 @@ export class TeacherService {
      
      searchStudents(name){
          return this.db.list('students', val => val
-        .orderByChild("name")
+        .orderByChild('name')
         .startAt(name))
          .valueChanges();
      }

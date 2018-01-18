@@ -73,7 +73,7 @@
     </ion-item>
   
   <ion-item-options  side="right">
-      <button  ion-button color="primary">
+      <button *ngIf="item.isStudent == false" (click)="createStudent(item)" ion-button color="primary">
           <ion-icon name="person-add"></ion-icon>
           Crear estudiante
         </button>

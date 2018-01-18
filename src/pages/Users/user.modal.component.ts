@@ -11,7 +11,8 @@ import { UserCrud } from './user.crud.component'
 
 export class UserModal implements OnInit {
     advSrch:boolean;
-    list:Observable<any[]>
+    list:Observable<any[]>;
+
     properties = {
         property:"",
         textProperty:""
@@ -50,4 +51,11 @@ export class UserModal implements OnInit {
     dismiss(){ 
         this.viewCtrl.dismiss();
     }
+
+  createStudent(key){
+
+    console.log(key);
+      this.usrv.saveStudent(key);
+    
+}
 }

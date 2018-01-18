@@ -59,6 +59,10 @@ import { GroupFormComponent } from '../pages/teachers/groupForm.component';
 import { LessonFormComponent } from '../pages/teachers/lessonForm.component';
 import { TeacherService } from '../pages/teachers/teachers.services';
 import { MemberComponent } from '../pages/teachers/members.component';
+import { StudentButtonComponent } from '../pages/CRM/estudiantes/student.button';
+import { StudentCRMService } from '../pages/CRM/estudiantes/student.services';
+import { StudentCrudComponent } from '../pages/CRM/estudiantes/student.crud';
+import { StudentCRMComponent } from '../pages/CRM/estudiantes/studentCRM.component';
 //COMPONENT - CARLOS
 import { DirectoryComponent } from '../pages/directory/directory.component';
 import { MisionComponent } from '../pages/aboutus/modals/mision.component';
@@ -146,6 +150,9 @@ export const firebaseConfig = {
     CursosComponent,
     CursosButtonComponent,
     TemplateComponent,
+    StudentButtonComponent,
+    StudentCrudComponent,
+    StudentCRMComponent,
   ],
   imports: [
     BrowserModule,
@@ -209,6 +216,9 @@ export const firebaseConfig = {
     CursosComponent,
     CursosButtonComponent,
     TemplateComponent,
+    StudentButtonComponent,
+    StudentCrudComponent,
+    StudentCRMComponent,
   ],
   providers: [
     StatusBar,
@@ -231,6 +241,7 @@ export const firebaseConfig = {
     StudentService,
     TeacherService,
     CrudService,
+    StudentCRMService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

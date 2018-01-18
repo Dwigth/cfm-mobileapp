@@ -68,5 +68,68 @@ export class UserService {
         confirm.present();
       }
     
-
+    saveStudent(user){
+        let confirm = this.alertCtrl.create({
+            title: 'Crear estudiante',
+            message: '¿En realidad quiere hacer a este usuario estudiante?',
+            buttons: [
+              {
+                text: 'No',
+                handler: () => {
+                  console.log('Disagree clicked');
+                }
+              },
+              {
+                text: 'Si',
+                handler: () => {
+                    this.createStudent(user);
+                }
+              }
+            ]
+          });
+          confirm.present();
+    }
+    
+    createStudent(user){
+        this.db.list('students').update(user.uid,{
+            name:user.name,
+            lastName:user.lastName,
+            lastName2:user.lastName2,
+            imageURL:user.imageURL,
+            email:user.email,
+            key:user.key,
+            uid:user.uid,
+            enrollment:"N/A",
+            birthday:"N/A",
+            age:"N/A",
+            course:user.course,
+            genre:"N/A",
+            phone:user.phone,
+            ocupation:user.ocupation,
+            address:"N/A",
+            advertising:user.advertising,
+            medicalObservation:"N/A",
+            teacher:"",
+            type:"",
+            tutorName:"N/A",
+            tutorRelationship:"N/A",
+            tutorAge:"N/A",
+            tutorOcupation:"N/A",
+            tutorPosition:"N/A",
+            tutorPhone:"N/A",
+            tutorEmail:"N/A",
+            tutorAddress:"N/A",
+            tutorRegDate:"N/A",
+            tutorInitDate:"N/A",
+            tutorFinalDate:"N/A",
+            cost:"N/A",
+            registration:"N/A",
+            pedagogicalSample:"N/A",
+            coments:"N/A"
+        })
+        this.db.object("users/"+user.key).update({
+            isStudent:true
+        })
+    }
+    
 }

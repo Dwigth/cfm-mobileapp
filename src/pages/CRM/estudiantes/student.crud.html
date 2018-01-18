@@ -1,0 +1,179 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Estudiante: {{currentUID}}
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+                <span ion-text color="primary" showWhen="ios">Cancelar</span>
+                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <h3 text-center>Nombre</h3>
+    <ion-item>
+        <input placeholder="Nombre" [(ngModel)]="student.name" name="name" type="text">
+    </ion-item>
+    <h3 text-center>Apellido paterno</h3>
+    <ion-item>
+        <input placeholder="Apellido paterno" [(ngModel)]="student.lastName" name="lastname" type="text">
+    </ion-item>
+    <h3 text-center>Fecha de inscripción</h3>
+    <ion-item>
+        <input placeholder="Apellido materno" [(ngModel)]="student.lastName2" name="lastname2" type="text">
+    </ion-item>
+    <h3 text-center>Matricula</h3>
+    <ion-item>
+        <input placeholder="Matricula" [(ngModel)]="student.enrollment" name="enrollment" type="text">
+    </ion-item>
+    <h3 text-center>Curso</h3>
+    <ion-item>
+                    <ion-select name="course"
+                                [(ngModel)]="student.course">
+                      <ion-option value="guitarra">GUITARRA</ion-option>
+                      <ion-option value="ukulele">UKULELE</ion-option>
+                      <ion-option value="bajo electrico">BAJO ELECTRICO</ion-option>
+                      <ion-option value="violin">VIOLIN</ion-option>
+                      <ion-option value="saxofon">SAXOFON</ion-option>
+                      <ion-option value="piano">PIANO</ion-option>
+                      <ion-option value="bateria">BATERIA</ion-option>
+                      <ion-option value="canto">CANTO</ion-option>
+                      <ion-option value="dibujo y pintura">DIBUJO Y PINTURA</ion-option>
+                    </ion-select>
+    </ion-item>
+    <h3 text-center>Horario</h3>
+    <ion-item>
+            <ion-label>Horario</ion-label>
+            <ion-select name="schedule"
+                        [(ngModel)]="student.schedule">>
+              <ion-option value="l y m 4:00pm a 5:30pm">L Y M 4:00PM a 5:30PM</ion-option>
+              <ion-option value="l y m 5:30pm a 7:00pm">L Y M 5:30PM a 7:00PM</ion-option>
+              <ion-option value="l y m 7:00pm a 8:30pm">L Y M 7:00PM a 8:30PM</ion-option>
+              <ion-option value="l y m 8:30pm a 10:00pm">L Y M 8:30PM a 10:00PM</ion-option>
+              <ion-option value="m y j 4:00pm a 5:30pm">M Y J 4:00PM a 5:30PM</ion-option>
+              <ion-option value="m y j 5:30pm a 7:00pm">M Y J 5:30PM a 7:00PM</ion-option>
+              <ion-option value="m y j 7:00pm a 8:30pm">M Y J 7:00PM a 8:30PM</ion-option>
+              <ion-option value="m y j 8:30pm a 10:00pm">M Y J 8:30PM a 10:00PM</ion-option>
+              <ion-option value="viernes 5:00pm A 8:00pm">VIERNES 5:00PM A 8:00PM</ion-option>
+              <ion-option value="sabado 9:00am a 12:00pm">SABADO 9:00AM a 12:00PM</ion-option>
+              <ion-option value="sabado 1:00pm a 4:00pm">SABADO 1:00PM a 4:00PM</ion-option>
+              <ion-option value="sabado 4:00pm a 7:00pm">SABADO 4:00PM a 7:00PM</ion-option>
+            </ion-select>
+          </ion-item>
+
+    <h3 text-center>Edad</h3>
+    <ion-item>
+        <input placeholder="Edad" [(ngModel)]="student.age" name="age" type="text">
+    </ion-item>
+    <h3 text-center>E-mail</h3>
+    <ion-item>
+        <input placeholder="E-mail" [(ngModel)]="student.email" name="email" type="text">
+    </ion-item>
+    <h3 text-center>Genero</h3>
+    <ion-item>
+        <input placeholder="Genero" [(ngModel)]="student.genre" name="genre" type="text">
+    </ion-item>
+    <h3 text-center>Telefono</h3>
+    <ion-item>
+        <input placeholder="Teléfono" [(ngModel)]="student.phone" name="phone" type="text">
+    </ion-item>
+    <h3 text-center>Ocupación</h3>
+    <ion-item>
+        <input placeholder="Ocupación" [(ngModel)]="student.ocupation" name="ocupation" type="text">
+    </ion-item>
+    <h3 text-center>Ultimo grado de estudios</h3>
+    <ion-item>
+        <input placeholder="Ultimo grado de estudios" [(ngModel)]="student.grade" name="grade" type="text">
+    </ion-item>
+    <h3 text-center>Dirección</h3>
+    <ion-item>
+        <input placeholder="Dirección" [(ngModel)]="student.address" name="address" type="text">
+    </ion-item>
+    <h3 text-center>¿Cómo se enteró de nosotros?</h3>
+    <ion-item>
+        <input placeholder="¿Cómo se enteró de nosotros?" [(ngModel)]="student.advertising" name="advertising" type="text">
+    </ion-item>
+    <h3 text-center>Observaciones médicas</h3>
+    <ion-item>
+        <input placeholder="Observaciones médicas" [(ngModel)]="student.medicalObservation" name="medicalObservation" type="text">
+    </ion-item>
+    <h3 text-center>Maestro</h3>
+    <ion-item>
+            <ion-select [(ngModel)]="student.teacher" name="teacher">
+              <ion-option *ngFor="let item of teachers | async" value="{{item.name}}">{{item.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+    <h3 text-center>Tipo</h3>
+    <ion-item>
+        <input placeholder="Tipo" [(ngModel)]="student.type" name="type" type="text">
+    </ion-item>
+
+    <ion-item>
+        <h1 text-center color="primary">DATOS DEL TUTOR</h1>
+    </ion-item>
+
+    <h3 text-center>Nombre del tutor</h3>
+    <ion-item>
+        <input placeholder="Nombre del tutor" [(ngModel)]="student.tutorName" name="tutorName" type="text">
+    </ion-item>
+    <h3 text-center>Parentesco con alumno</h3>
+    <ion-item>
+        <input placeholder="Parentesco con alumno" [(ngModel)]="student.relationship" name="relationship" type="text">
+    </ion-item>
+    <h3 text-center>Edad de tutor</h3>
+    <ion-item>
+        <input placeholder="Edad de tutor" [(ngModel)]="student.tutorAge" name="tutorAge" type="text">
+    </ion-item>
+    <h3 text-center>Ocupación de tutor</h3>
+    <ion-item>
+        <input placeholder="Ocupación de tutor" [(ngModel)]="student.tutorOcupation" name="tutorOcupation" type="text">
+    </ion-item>
+    <h3 text-center>Telefono de tutor</h3>
+    <ion-item>
+        <input placeholder="Telefono de tutor" [(ngModel)]="student.tutorPhone" name="tutorPhone" type="text">
+    </ion-item>
+    <h3 text-center>Correo electrónico de tutor</h3>
+    <ion-item>
+        <input placeholder="Correo electrónico de tutor" [(ngModel)]="student.tutorEmail" name="tutorEmail" type="text">
+    </ion-item>
+    <h3 text-center>Dirección de tutor</h3>
+    <ion-item>
+        <input placeholder="Dirección de tutor" [(ngModel)]="student.tutorAddress" name="tutorAddress" type="text">
+    </ion-item>
+    <h3 text-center>Fecha de inscripción</h3>
+    <ion-item>
+        <input [(ngModel)]="student.tutorRedDate" name="tutorRedDate" type="date">
+    </ion-item>
+    <h3 text-center>Fecha de inicio</h3>
+    <ion-item>
+        <input [(ngModel)]="student.tutorInitDate" name="tutorInitDate" type="date">
+    </ion-item>
+    <h3 text-center>Fecha de término</h3>
+    <ion-item>
+        <input [(ngModel)]="student.tutorFinalDate" name="tutorFinalDate" type="date">
+    </ion-item>
+    <h3 text-center>Costo</h3>
+
+    <ion-item>
+        <input placeholder="Dirección de tutor" [(ngModel)]="student.cost" name="cost" type="text">
+    </ion-item>
+
+    <h3 text-center>Muestra pedagógica</h3>
+
+    <ion-item>
+        <input placeholder="Dirección de tutor" [(ngModel)]="student.pedagogicalSample" name="pedagogicalSample" type="text">
+    </ion-item>
+
+    <h3 text-center>Comentarios</h3>
+
+    <ion-item>
+        <textarea rows='5' data-min-rows='3' [(ngModel)]="student.coments" name="coments" placeholder='Cuerpo de noticia' required></textarea>
+    </ion-item>
+
+
+    <button type="button" ion-button block (click)="editStudent(student)"> Editar estudiante </button>
+</ion-content>
