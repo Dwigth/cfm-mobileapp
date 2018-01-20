@@ -136,7 +136,7 @@ export class ModalRegister {
         name: ['',Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
         lastName:['',Validators.compose([Validators.required])],
         lastName2:['',Validators.compose([Validators.required])],
-        email: ['',Validators.required],
+        email: ['',Validators.compose([Validators.required])],
         password: ['',Validators.required],
       })
 
@@ -164,7 +164,7 @@ export class ModalRegister {
           lastName:user.lastName,
           lastName2:user.lastName2,
           age:'N/A',
-          email:user.email,
+          email:user.email.toLowerCase(),
           password:user.password,
           accessLevel:'user',
           advertising: 'N/A',

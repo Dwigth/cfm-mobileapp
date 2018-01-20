@@ -83,6 +83,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    console.log( this.afAuth.auth.currentUser.email);
   }
 }

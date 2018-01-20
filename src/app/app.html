@@ -13,10 +13,8 @@
     <ion-toolbar>
       <ion-title>
       </ion-title>
-      <img class="logo" src="assets/imgs/CFM3.png" alt="">
-      <div *ngIf="afAuth.authState | async; let user;">
-        Hola {{ user.email }}!
-      </div>
+      <!--<img class="logo" src="assets/imgs/CFM3.png" alt="">-->
+      
     </ion-toolbar>
   </ion-header>
 
@@ -24,6 +22,14 @@
     <div id="menu">
     <div *ngIf="afAuth.authState | async; let user; else showUserPages" >
       <ion-list >
+          <ion-card text-center class="hide-card">
+              <img src="assets/imgs/CFM3.png" class="custom-avatar"/>
+              
+              <hr>
+              <div *ngIf="afAuth.authState | async; let user;">
+                  Hola {{ user.email }}!
+                </div>
+          </ion-card>
         <button menuClose ion-item *ngFor="let p of adminPages" (click)="openPage(p)">
           <ion-icon  name="{{p.icon}}"></ion-icon>
           {{p.title}}
@@ -33,6 +39,10 @@
 
     <ng-template #showUserPages>
       <ion-list>
+      <ion-card text-center class="hide-card">
+          <img src="assets/imgs/CFM3.png" class="custom-avatar"/>
+          <hr>
+      </ion-card>
         <button menuClose ion-item *ngFor="let p of userpages" (click)="openPage(p)">
           <ion-icon  name="{{p.icon}}"></ion-icon>
           {{p.title}}

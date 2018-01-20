@@ -37,10 +37,11 @@
           <div *ngIf="phone != true; else phoneNumber">
 
           </div>
+
           <ng-template #phoneNumber>
             <ion-item>
               <ion-icon name='call' item-start></ion-icon>
-              <input value="{{item.phone}}" readonly>
+              <input type="text" value="{{item.phone}}" readonly>
 
             </ion-item>
             <ion-item>
@@ -48,6 +49,7 @@
               <input id="phone" type="text" [(ngModel)]="userUpdate.phone" name="phone" placeholder="Agregar: ">
             </ion-item>
           </ng-template>
+
 
           <ion-item>
             <ion-icon name='alert' item-start></ion-icon>
@@ -72,7 +74,7 @@
           <ng-template #lastGrade>
             <ion-item>
               <ion-icon name='school' item-start></ion-icon>
-              <input  value="{{item.grade}}" readonly> 
+              <input  type="text"  value="{{item.grade}}" readonly> 
 
             </ion-item>
             <ion-item>
@@ -97,7 +99,7 @@
           <ng-template #ageU>
             <ion-item>
               <ion-icon name='body' item-start></ion-icon>
-              <input  value="{{item.age}}" readonly>
+              <input  type="text"  value="{{item.age}}" readonly>
             </ion-item>
             <ion-item>
               <ion-icon name='body' item-start></ion-icon>
@@ -121,7 +123,7 @@
           <ng-template #ocupationU>
             <ion-item>
                 <ion-icon name='folder' item-start></ion-icon>
-                <input  value="{{item.ocupation}}" readonly> 
+                <input  type="text" value="{{item.ocupation}}" readonly> 
 
             </ion-item>
             <ion-item>
@@ -152,23 +154,10 @@
             <input type="hidden"name="actOcupation" id="actOcupation" value="{{item.ocupation}}">
         </ion-list>
 
-       
-        <ion-list *ngIf="item.isStudent == false && item.accessLevel == 'user'">
-            <ion-item>
-                <input type="text" placeholder="Introduzca código de acceso" > 
-              <button ion-button outline item-end icon-left>
-                <ion-icon name="md-send"></ion-icon>
-                Enviar
-              </button>
-            </ion-item>
-          </ion-list>
-
         <ion-item>
           <label>Cargar foto de perfil</label>
         <upload-form></upload-form>
         </ion-item>
-
-       
 
         <button type="button" ion-button block (click)="UpdateInfo()" > Actualizar información</button>
   </ion-list>
