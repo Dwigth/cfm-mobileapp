@@ -47,6 +47,7 @@ export class CursosComponent implements OnInit {
   }
 
   getbySchedule(schedule:NgForm){
+    event.preventDefault();
     console.log("Valores Recibidos: ", schedule.value.schedule);
     this.listarCurso = this.crud.searchbySchedule(schedule.value.schedule);
   }
