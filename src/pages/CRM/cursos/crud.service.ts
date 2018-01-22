@@ -32,7 +32,7 @@ public currentId:string = "nuevo";
   return this.db.object("courses/" + key);
   }
   //RECIBE EL ID DEL CURSO PARA EDITAR O ELIMINAR
-  
+
 
 //funcion que guarda un nuevo curso si el id es nuevo o edita si el id existe
 guardar(forma:NgForm){
@@ -109,6 +109,7 @@ if ( this.currentId == "nuevo" ){
   }
 
   searchbySchedule( schedule:string ){
+  event.preventDefault();
   return this.db.list("courses", val => val.orderByChild("schedule").equalTo(schedule) ).valueChanges();
   }
 
