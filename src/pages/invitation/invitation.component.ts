@@ -15,7 +15,7 @@ export class InvitationComponent implements OnInit {
 
   showToast(position: string) {
     let toast = this.toastCtrl.create({
-      message: 'Para acceder al evento es necesario ser alumno #CFM y confirmar su asistencia dentro de la App. Desliza el botón de "Asistencia" de izquiera a derecha para confirmar tu asistencia y descargar el pase.',
+      message: 'Para acceder al evento es necesario ser alumno #CFM y confirmar su asistencia dentro de la App. Desliza el botón de "Asistencia" de izquiera a derecha para confirmar tu asistencia y generar un pase.',
       showCloseButton: true,
       closeButtonText: 'Ok',
       position: position
