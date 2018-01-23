@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header class="center">
+      ¡Bienvenido a CFM!
+    </ion-card-header>
+    <ion-card-content class="justify">
+      Centro de Formación Músical te la bienvenida a nuestra escuela, brindando
+      una fiesta de bienvenida donde contaremos con comida, concierto entre otras sorpresas.
+
+      <br><br>
+      <!--BOTON PARA VER LOS REQUERIMINETOS PARA ACCEDER A LA FIESTA-->
+      <button ion-button block (click)="showToast('middle')">Requisitos para asistir</button>
+      <br>
+
+      Para acceder al evento confirma tu asistencia descargando el pase de Bienvenida
+      CFM.
+      <br>
+
+    </ion-card-content>
+
+  </ion-card>
+  <br>
+
+  <ion-card>
+    <ion-card-header class="center">
+      <ion-item>
+        <ion-label>Si asistire</ion-label>
+        <ion-toggle color="secondary" [(ngModel)]="confirmed" checked="false"></ion-toggle>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- TOOGLE PARA CONFIRMAR -->
+
+      <div *ngIf="confirmed" class="justify">
+        ¡Tu confimación se realizó con exito! <br><br>
+        Te esperamos el 17 de Febrero, recuerda guardar tu pase a la fiesta, podrás acceder a el dentro de la aplicación siempre que quieras.
+        <br>
+        <br>
+        <button ion-button full>FOLIO: D292010SDZDPFG4 </button>
+        <br>
+        -Si desea cancelar su confirmación, puede des-seleccionar la opción de "Si Asistire" y su pase sera automaticamente cancelado. <br><br>
+        -En caso de cancelar su asistencia por accidente u otra razón, debera generar un nuevo pase, ya que el anterior se tomara como cancelado. <br>
+      </div>
+      <!-- FIN TOOGLE CONFIRMAR -->
+      <div *ngIf="!confirmed" class="justify">
+        -Fecha limite para confirmar asistencia: 10 de Febrero, 2018. <br><br>
+        -Niños menores de 12 años tienen derecho a ir acompañados de 1 adulto. <br><br>
+        -Si desea cancelar su confirmación, puede des-seleccionar la opción de "Si Asistire" y su pase sera automaticamente borrado. <br><br>
+        -En caso de cancelar su asistencia por accidente u otra razón, debera generar un nuevo pase, ya que el anterior se tomara cancelado. <br><br>
+        -Solo puede generar 1 pase por alumno. <br>
+      </div>
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <!-- OBSERVACIONES -->
+  <ion-card-content>
+
+
+  </ion-card-content>
+</ion-content>

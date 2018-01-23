@@ -50,6 +50,12 @@ $blue: blue;
   text-decoration: none;
 }
 */
+
+.toolbar-background-md {
+    border-color: #b2b2b2;
+    background: #151414;
+}
+
 .logo{
   width: 70%;
   margin: 0 auto;
@@ -75,6 +81,18 @@ ion-navbar{
 
 #paddinBottom2{
   margin-top: 3.5%;
+}
+
+.margintop{
+  margin-top: 18%;
+}
+
+.spacebottom{
+  margin-bottom: 50px;
+}
+
+.spacebottom2{
+  margin-bottom: 120px;
 }
 
 a:link{

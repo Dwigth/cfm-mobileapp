@@ -15,6 +15,7 @@ import { AboutUsComponent } from '../pages/aboutus/aboutus';
 import { CoursesComponent } from '../pages/courses/courses';
 //COMPONENTS -CARLOS
 import { DirectoryComponent } from '../pages/directory/directory.component';
+import { InvitationComponent } from '../pages/invitation/invitation.component';
 //
 import { OneSignal } from '@ionic-native/onesignal';
 import { Observable } from 'rxjs/Observable';
@@ -77,6 +78,7 @@ export class MyApp {
         { title: 'Quienes somos', component: AboutUsComponent, icon: 'contacts' },
         { title: 'Cursos', component: CoursesComponent, icon: 'md-albums' },
         { title: 'Directorio', component: DirectoryComponent, icon: 'bookmarks' },
+        { title: 'Invitación', component: InvitationComponent, icon: 'mail' },
         { title: 'Acceder/Salir', component: LoginComponent, icon: 'log-in' }
       ];
 

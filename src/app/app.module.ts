@@ -74,6 +74,7 @@ import { CrudService } from '../pages/CRM/cursos/crud.service';
 import { CursosComponent } from '../pages/CRM/cursos/cursos.component';
 import { CursosButtonComponent } from '../pages/CRM/cursos/cursosbutton';
 import { TemplateComponent } from '../pages/CRM/cursos/template.component';
+import { InvitationComponent } from '../pages/invitation/invitation.component';
 
 
 //SERVICES carlos
@@ -153,6 +154,7 @@ export const firebaseConfig = {
     StudentButtonComponent,
     StudentCrudComponent,
     StudentCRMComponent,
+    InvitationComponent
   ],
   imports: [
     BrowserModule,
@@ -219,6 +221,7 @@ export const firebaseConfig = {
     StudentButtonComponent,
     StudentCrudComponent,
     StudentCRMComponent,
+    InvitationComponent
   ],
   providers: [
     StatusBar,

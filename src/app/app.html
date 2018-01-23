@@ -9,12 +9,12 @@
 </ion-header>
 
 <ion-menu  [content]="content">
-  <ion-header>
+  <ion-header color="dark">
     <ion-toolbar>
       <ion-title>
       </ion-title>
       <!--<img class="logo" src="assets/imgs/CFM3.png" alt="">-->
-      
+
     </ion-toolbar>
   </ion-header>
 
@@ -24,7 +24,7 @@
       <ion-list >
           <ion-card text-center class="hide-card">
               <img src="assets/imgs/CFM3.png" class="custom-avatar"/>
-              
+
               <hr>
               <div *ngIf="afAuth.authState | async; let user;">
                   Hola {{ user.email }}!
