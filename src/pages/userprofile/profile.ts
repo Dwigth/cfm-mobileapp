@@ -12,6 +12,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class ProfileComponent implements OnInit {
   users: Observable<any[]>;
+  student: Observable<any[]>;
+
   constructor(
     public autServ:AuthService,
     public db: AngularFireDatabase,
@@ -29,6 +31,7 @@ export class ProfileComponent implements OnInit {
     }
 
     this.users = db.list('users', value => value.orderByChild('email').equalTo(user.email)).valueChanges();
+    this.student = db.list('students',value => value.orderByChild('uid').equalTo(user.uid)).valueChanges();
   }
 
   showAlert(message,title){
@@ -50,6 +53,21 @@ export class ProfileComponent implements OnInit {
   }
 
   UpdateInfo(){
+    let confirm = this.alertCtrl.create({
+      title: 'Editar perfil',
+      message: '¿En realidad quiere editar su perfil?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Si',
+          handler: () => {
+
+    
     this.userUpdate.key = (<HTMLInputElement>document.getElementById('key')).value;
 
     let item = this.db.object('users/'+ this.userUpdate.key);
@@ -80,6 +98,11 @@ export class ProfileComponent implements OnInit {
     age:this.userUpdate.age,
     advertising:this.userUpdate.advertising
   });
+          }
+        }
+        ]
+      });
+      confirm.present();
   }
 
   ngOnInit() {

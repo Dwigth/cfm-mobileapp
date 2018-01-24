@@ -36474,6 +36474,18 @@ $blue: blue;
   text-decoration: none;
 }
 */
+.toolbar-background-md {
+  border-color: #b2b2b2;
+  background: #151414;
+}
+
+.toolbar-title-md {
+  padding: 0 12px;
+  font-size: 2rem;
+  font-weight: 500;
+  color: white;
+}
+
 .logo {
   width: 70%;
   margin: 0 auto;
@@ -36504,6 +36516,18 @@ ion-navbar {
   margin-top: 3.5%;
 }
 
+.margintop {
+  margin-top: 18%;
+}
+
+.spacebottom {
+  margin-bottom: 50px;
+}
+
+.spacebottom2 {
+  margin-bottom: 120px;
+}
+
 a:link {
   text-decoration: none;
 }
@@ -36526,6 +36550,13 @@ a:link {
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.image {
+  margin: auto;
+  width: 80%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 input[type="button"] {
@@ -37064,4 +37095,14 @@ input[type="button"]:hover {
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.65);
   -webkit-transition: all 0.40s ease-out;
   transition: all 0.40s ease-out;
+}
+
+.custom-img {
+  height: 35vw;
+  width: 40vw;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
 }

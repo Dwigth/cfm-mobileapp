@@ -14,6 +14,26 @@
 
 
 <ion-content>
+
+<ion-item no-lines class="image">
+        <img src="{{student.imageURL}}">
+</ion-item>
+
+<ion-item>
+        <ion-label>Actualizar imagen</ion-label>
+        <ion-toggle [(ngModel)]="img" ></ion-toggle>
+</ion-item>
+
+<ion-item *ngIf="img" text-center> 
+    <h3>Agregar fotografía</h3>
+    <upload-form>
+
+    </upload-form>
+    <button (click)="editImage(student)" ion-button block >
+        Actualizar
+    </button>
+</ion-item>
+
     <h3 text-center>Nombre</h3>
     <ion-item>
         <input placeholder="Nombre" [(ngModel)]="student.name" name="name" type="text">
@@ -45,11 +65,17 @@
                       <ion-option value="dibujo y pintura">DIBUJO Y PINTURA</ion-option>
                     </ion-select>
     </ion-item>
+    <h3 text-center>Maestro</h3>
+    <ion-item>
+            <ion-select [(ngModel)]="student.teacher" name="teacher">
+              <ion-option *ngFor="let item of teachers | async" value="{{item.name}}">{{item.name}}</ion-option>
+            </ion-select>
+          </ion-item>
     <h3 text-center>Horario</h3>
     <ion-item>
             <ion-label>Horario</ion-label>
             <ion-select name="schedule"
-                        [(ngModel)]="student.schedule">>
+                        [(ngModel)]="student.schedule">
               <ion-option value="l y m 4:00pm a 5:30pm">L Y M 4:00PM a 5:30PM</ion-option>
               <ion-option value="l y m 5:30pm a 7:00pm">L Y M 5:30PM a 7:00PM</ion-option>
               <ion-option value="l y m 7:00pm a 8:30pm">L Y M 7:00PM a 8:30PM</ion-option>
@@ -64,6 +90,23 @@
               <ion-option value="sabado 4:00pm a 7:00pm">SABADO 4:00PM a 7:00PM</ion-option>
             </ion-select>
           </ion-item>
+
+          <h3 text-center>Aula</h3>
+          <ion-item>
+                  <ion-label>Aula</ion-label>
+                  <ion-select name="classroom"
+                              [(ngModel)]="student.classroom">
+                    <ion-option value="A1">A1</ion-option>
+                    <ion-option value="A2">A2</ion-option>
+                    <ion-option value="A3">A3</ion-option>
+                    <ion-option value="A4">A4</ion-option>
+                    <ion-option value="A5">A5</ion-option>
+                    <ion-option value="A6">A6</ion-option>
+                    <ion-option value="B1">B1</ion-option>
+                    <ion-option value="B2">B2</ion-option>
+                    <ion-option value="B3">B3</ion-option>
+                  </ion-select>
+                </ion-item>
 
     <h3 text-center>Edad</h3>
     <ion-item>
@@ -101,12 +144,7 @@
     <ion-item>
         <input placeholder="Observaciones médicas" [(ngModel)]="student.medicalObservation" name="medicalObservation" type="text">
     </ion-item>
-    <h3 text-center>Maestro</h3>
-    <ion-item>
-            <ion-select [(ngModel)]="student.teacher" name="teacher">
-              <ion-option *ngFor="let item of teachers | async" value="{{item.name}}">{{item.name}}</ion-option>
-            </ion-select>
-          </ion-item>
+    
     <h3 text-center>Tipo</h3>
     <ion-item>
         <input placeholder="Tipo" [(ngModel)]="student.type" name="type" type="text">

@@ -5,6 +5,8 @@ import { AlertController } from 'ionic-angular';
 @Injectable()
 export class StudentCRMService {
 
+    private imageUrl:string;
+
     constructor(
         public db:AngularFireDatabase,
         public alrtCtl:AlertController,
@@ -28,6 +30,20 @@ export class StudentCRMService {
         .startAt(name)
         ).valueChanges();
     }
+
+    setImageUrl(imageURL,uid){
+        this.db.object('students/'+uid.uid).update({
+            imageURL:imageURL
+        })
+        let alrt = this.alrtCtl.create({
+            title: 'Actualizaste una foto de estudiante.',
+            message: 'Recarga al estudiante para ver el cambio.',
+            buttons:['OK']
+        })
+        alrt.present();
+        
+    }
+
     editStudent(uid){
         let confirm = this.alrtCtl.create({
             title: 'Editar estudiante',
@@ -42,6 +58,7 @@ export class StudentCRMService {
               {
                 text: 'Si',
                 handler: () => {
+                   
                     this.db.object('students/'+uid.uid).update({
                         name:uid.name,
                         lastName:uid.lastName,
@@ -53,6 +70,8 @@ export class StudentCRMService {
                         course:uid.course,
                         genre:uid.genre,
                         phone:uid.phone,
+                        schedule:uid.schedule,
+                        classroom:uid.classroom,
                         ocupation:uid.ocupation,
                         address:uid.address,
                         advertising:uid.advertising,

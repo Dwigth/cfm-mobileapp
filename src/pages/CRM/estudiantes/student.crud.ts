@@ -10,6 +10,8 @@ import { StudentCRMService } from './student.services';
 export class StudentCrudComponent implements OnInit {
     currentUID:string;
     student;
+    newImageURL:string;
+    img:boolean = false;
     private teachers;
 
     constructor(
@@ -20,6 +22,7 @@ export class StudentCrudComponent implements OnInit {
         this.currentUID = params.get('uid');
         this.student = params.get('student');
         this.teachers = studnSrv.listTeachers();
+        
      }
 
     ngOnInit() { }
@@ -28,7 +31,16 @@ export class StudentCrudComponent implements OnInit {
         this.viewCtl.dismiss();
     }
 
+    editImage(student){
+        if (this.img) {
+            this.newImageURL = (<HTMLInputElement>document.getElementById('url')).value;
+            this.studnSrv.setImageUrl(this.newImageURL,student);
+            console.log();
+        }
+    }
+
     editStudent(student){
         this.studnSrv.editStudent(student);
+        
     }
 }

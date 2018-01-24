@@ -2,20 +2,24 @@
 <ion-content>
   <div id="container">
   </div>
-  <ion-list *ngFor="let item of users | async">
+  <ion-list no-lines *ngFor="let item of users | async">
 
       <ion-item>
-        <ion-avatar item-start>
-          <img  src="{{item.imageURL}}">
-          <input type="hidden" id="urlcurrent" value="{{item.imageURL}}">
-        </ion-avatar>
-        <h2 text-wrap > {{item.name + ' ' + item.lastName + ' '+ item.lastName2 | uppercase}} </h2>
-        
-        <p>Posición: <ion-badge color="orange"><ion-note id="pos">{{item.accessLevel}}</ion-note></ion-badge> </p> 
+
+          <ion-card text-center class="hide-card">
+              <img src="{{item.imageURL}}" class="custom-img"/>
+              <input type="hidden" id="urlcurrent" value="{{item.imageURL}}">
+              <br>
+              <br>
+              <h2 text-wrap > {{item.name + ' ' + item.lastName + ' '+ item.lastName2 | uppercase}} </h2>
+              <p>Posición: <ion-badge color="orange"><ion-note id="pos">{{item.accessLevel}}</ion-note></ion-badge> </p> 
+              <hr>
+          </ion-card>
       </ion-item>
+
         <ion-list no-border>
 
-          <ion-list-header>
+          <ion-list-header text-center>
             Información
           </ion-list-header>
 
@@ -154,19 +158,54 @@
             <input type="hidden"name="actOcupation" id="actOcupation" value="{{item.ocupation}}">
         </ion-list>
 
+          
+        
+  </ion-list >
+
+          
+      <ion-list  no-lines *ngFor="let stu of student | async">
+          <ion-list-header text-center>
+              Academia
+            </ion-list-header>
+
         <ion-item>
-          <label>Cargar foto de perfil</label>
-        <upload-form></upload-form>
+          <ion-icon name='paper' item-start></ion-icon>
+          Curso
+          <ion-note item-end>
+            {{stu.course}}
+          </ion-note>
         </ion-item>
 
-        <button type="button" ion-button block (click)="UpdateInfo()" > Actualizar información</button>
-  </ion-list>
-  <!--<ion-list *ngFor="let item of admin | async;">
-    <p *ngIf="item.accessLevel == 'admin'; else op">
-    Administrador op
-    {{item.name}}
-  </p>
+        <ion-item>
+            <ion-icon name='clock' item-start></ion-icon>
+            Horario
+            <ion-note item-end>
+              {{stu.schedule}}
+            </ion-note>
+          </ion-item>
 
-  <ng-template #op>kk</ng-template>
-</ion-list>-->
+          <ion-item>
+              <ion-icon name='contact' item-start></ion-icon>
+              Maestro
+              <ion-note item-end>
+                {{stu.teacher}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name='cube' item-start></ion-icon>
+                Aula
+                <ion-note item-end>
+                  {{stu.classroom}}
+                </ion-note>
+              </ion-item>
+
+       
+
+        </ion-list>
+          <ion-item>
+            <label>Cargar foto de perfil</label>
+          <upload-form></upload-form>
+          </ion-item>
+          <button type="button" ion-button block (click)="UpdateInfo()" > Actualizar información</button>
 </ion-content>
