@@ -117,7 +117,7 @@ export class StudentCRMService {
                 text: 'Si',
                 handler: () => {
                     this.db.list("students").remove(uid);
-                    this.db.object("users/"+key).update({
+                    this.db.object("users/"+uid).update({
                         isStudent:false
                     });
                 }

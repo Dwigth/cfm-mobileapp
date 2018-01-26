@@ -158,8 +158,8 @@ export class ModalRegister {
     user.password = this.registerForm.value.password.trim();
     //this.authServ.signup(user.email,user.password);
     this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.password).then(val =>{
-      const itemRef = this.db.list('users');
-      itemRef.push({
+      const itemRef = this.db.object('users/'+ this.afAuth.auth.currentUser.uid);
+      itemRef.update({
           name:user.name,
           lastName:user.lastName,
           lastName2:user.lastName2,
@@ -181,11 +181,6 @@ export class ModalRegister {
           tutorEmail:'N/A',
           uid: this.afAuth.auth.currentUser.uid,
           imageURL:'https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2Findice.png?alt=media&token=8080adfa-8bb4-4d4c-8a2b-ddac12c08a2a'
-      }).then(value =>{
-        const updateQuery = this.db.object('users/' + value.key);
-        updateQuery.update({
-          key:value.key
-        });
       });
       this.viewCtrl.dismiss();
     })

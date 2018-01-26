@@ -6,7 +6,6 @@ import { FormsModule }   from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HTTP } from '@ionic-native/http';
 
-//components - Dwigth
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ModalContentPage } from '../pages/home/home';
@@ -63,7 +62,7 @@ import { StudentButtonComponent } from '../pages/CRM/estudiantes/student.button'
 import { StudentCRMService } from '../pages/CRM/estudiantes/student.services';
 import { StudentCrudComponent } from '../pages/CRM/estudiantes/student.crud';
 import { StudentCRMComponent } from '../pages/CRM/estudiantes/studentCRM.component';
-//COMPONENT - CARLOS
+import { TutorRequestComponent } from '../pages/userprofile/tutorRequest';
 import { DirectoryComponent } from '../pages/directory/directory.component';
 import { MisionComponent } from '../pages/aboutus/modals/mision.component';
 import { HistoriaComponent } from '../pages/aboutus/modals/historia.component';
@@ -75,9 +74,6 @@ import { CursosComponent } from '../pages/CRM/cursos/cursos.component';
 import { CursosButtonComponent } from '../pages/CRM/cursos/cursosbutton';
 import { TemplateComponent } from '../pages/CRM/cursos/template.component';
 import { InvitationComponent } from '../pages/invitation/invitation.component';
-
-
-//SERVICES carlos
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -86,8 +82,8 @@ import { Push} from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { PushService } from './push.service';
 import { OneSignal } from '@ionic-native/onesignal';
-
-
+import { ProfileTabsComponent } from '../pages/userprofile/profileTabs.component';
+import { TutorComponent } from '../pages/tutor/tutor.component';
 
 export const firebaseConfig = {
  apiKey: "AIzaSyDObZjIkysrMu1aT2AMFfaYaQD8E1hn12k",
@@ -154,7 +150,10 @@ export const firebaseConfig = {
     StudentButtonComponent,
     StudentCrudComponent,
     StudentCRMComponent,
-    InvitationComponent
+    InvitationComponent,
+    TutorRequestComponent,
+    ProfileTabsComponent,
+    TutorComponent,
   ],
   imports: [
     BrowserModule,
@@ -221,7 +220,10 @@ export const firebaseConfig = {
     StudentButtonComponent,
     StudentCrudComponent,
     StudentCRMComponent,
-    InvitationComponent
+    InvitationComponent,
+    TutorRequestComponent,
+    ProfileTabsComponent,
+    TutorComponent,
   ],
   providers: [
     StatusBar,

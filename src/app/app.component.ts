@@ -9,6 +9,7 @@ import { LoginComponent } from '../pages/login/login';
 //import { optionsPage } from '../pages/components/options/options';
 import { dashboardPage } from '../pages/components/dashboard/dashboard';
 import { ProfileComponent } from '../pages/userprofile/profile';
+import { ProfileTabsComponent } from '../pages/userprofile/profileTabs.component';
 import { AnnouncementComponent } from '../pages/announcements/announcements';
 import { PushService } from './push.service';
 import { AboutUsComponent } from '../pages/aboutus/aboutus';
@@ -72,7 +73,7 @@ export class MyApp {
 
       this.adminPages = [
         { title: 'Últimas noticias', component: HomePage, icon: 'apps' },
-        { title: 'Perfil', component: ProfileComponent, icon: 'person' },
+        { title: 'Perfil', component: ProfileTabsComponent, icon: 'person' },
         { title: 'Dashboard', component: dashboardPage, icon: 'clipboard' },
         { title: 'Avisos', component: AnnouncementComponent, icon: 'bulb' },
         { title: 'Quienes somos', component: AboutUsComponent, icon: 'contacts' },

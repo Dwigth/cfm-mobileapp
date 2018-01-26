@@ -13,7 +13,6 @@ import { Observable } from 'rxjs/Observable';
 export class GroupFormComponent implements OnInit {
     groupForm:FormGroup; 
     students:Observable<any[]>;
-    members: any[] = [];
     membersuid:any[] = [];
 
     constructor(
@@ -37,33 +36,30 @@ export class GroupFormComponent implements OnInit {
 
     createGroup(){
         if(this.groupForm.valid){
-            this.tchSrv.saveGroup(this.groupForm.value.name,this.groupForm.value.course,this.members,this.membersuid);
+            this.tchSrv.saveGroup(this.groupForm.value.name,this.groupForm.value.course,this.membersuid);
             this.viewCtl.dismiss();
         }
     }
 
-    getValueEachMember(id,uid){
-        let memberItem = (<HTMLInputElement>document.getElementById(id));
+    getValueEachMember(uid){
+        let memberItem = (<HTMLInputElement>document.getElementById(uid));
 
         if(memberItem.checked){
-            this.members.push(id);
             this.membersuid.push(uid)
         }else{
-            this.deleteMembers(id);
+            this.deleteMembers(uid);
         }
         this.displayMembers();
         
     }
     displayMembers(){
-        console.log(this.members);  
         console.log(this.membersuid);        
     }
 
     deleteMembers(id){
-        for (let index = 0; index < this.members.length; index++) {
-                if (this.members[index] == id ) {
-                    this.membersuid.splice(index,1)
-                    this.members.splice(index,1)
+        for (let index = 0; index < this.membersuid.length; index++) {
+                if (this.membersuid[index] == id ) {
+                    this.membersuid.splice(index,1);
                 }
         }
     }

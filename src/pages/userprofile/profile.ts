@@ -49,7 +49,7 @@ export class ProfileComponent implements OnInit {
   grade:'',
   age:'',
   advertising:'',
-  key:''
+  uid:''
   }
 
   UpdateInfo(){
@@ -68,9 +68,9 @@ export class ProfileComponent implements OnInit {
           handler: () => {
 
     
-    this.userUpdate.key = (<HTMLInputElement>document.getElementById('key')).value;
+    this.userUpdate.uid = (<HTMLInputElement>document.getElementById('uid')).value;
 
-    let item = this.db.object('users/'+ this.userUpdate.key);
+    let item = this.db.object('users/'+ this.userUpdate.uid);
 
     let actPhone = (<HTMLInputElement>document.getElementById('actPhone')).value;
     let actGrade = (<HTMLInputElement>document.getElementById('actGrade')).value;
@@ -106,6 +106,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log( this.afAuth.auth.currentUser.email);
+    //console.log( this.afAuth.auth.currentUser.email);
   }
 }

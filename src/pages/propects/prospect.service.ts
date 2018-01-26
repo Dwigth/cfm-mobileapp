@@ -42,21 +42,35 @@ export class ProspectService {
   }
 
   createProspect(prospect: Prospect) {
+    let confirm = this.alertCtrl.create({
+      title: 'Se ha creado un nuevo prospecto',
+      message: 'Los campos de edad, numero y precio deben ser llenados con numeros ¿Está seguro que quiere guardar?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Si',
+          handler: () => {
+
     let date = moment();
     this.refLis().push({
       name: prospect.name,
       lastname: prospect.lastname,
       lastname2: prospect.lastname2,
-      age: prospect.age,
+      age: Number(prospect.age),
       state: prospect.state,
-      phone: prospect.phone,
+      phone: Number(prospect.phone),
       status: prospect.status,
       attended: prospect.attended,
       course: prospect.course,
       date: date.format("MMMM D YYYY").toString(),
       coment: prospect.coment,
       source: prospect.source,
-      price: prospect.price,
+      price: Number(prospect.price),
       day: Number(date.format("DDD"))
       //checkbox:prospect.checkbox
     }).then(val => {
@@ -64,6 +78,11 @@ export class ProspectService {
         key: val.key
       });
     });
+}
+              }
+            ]
+          });
+          confirm.present();
   }
 
   getProspect() {
@@ -89,7 +108,7 @@ export class ProspectService {
       name: item.name,
       lastname: item.lastname,
       lastname2: item.lastname2,
-      age: item.age,
+      age: Number(item.age),
       state: item.state,
       phone: item.phone,
       status: item.status,

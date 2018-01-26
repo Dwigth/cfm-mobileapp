@@ -37,16 +37,16 @@ export class TeacherService {
          .valueChanges();
      }
 
-     addMember(groupkey,studentuid,studentkey){
+     addMember(groupkey,studentuid,uid){
         this.db.list("groups/" + groupkey  ).update("members",{
             [studentuid]:true
         })
-        this.db.list("users/" + studentkey  ).update("/groups",{
+        this.db.list("users/" + uid  ).update("/groups",{
             [groupkey]:true
         })
      }
 
-     deleteMember(groupkey,studentkey){
+     deleteMember(groupkey,uid){
         let confirm = this.alertCtl.create({
             title: 'Borrar integrante',
             message: '¿En realidad quieres borrar este integrante?',
@@ -61,9 +61,9 @@ export class TeacherService {
                 text: 'Si',
                 handler: () => {
                     this.db.list("groups/" + groupkey + "/members/"
-                    ).remove(studentkey);
+                    ).remove(uid);
 
-                    this.db.list("users/" + studentkey + "/groups/"
+                    this.db.list("users/" + uid + "/groups/"
                 ).remove(groupkey);
                 }
               }
@@ -74,7 +74,7 @@ export class TeacherService {
      }
 
 
-    saveGroup(name,course,members:any[],memberuid:any[]){
+    saveGroup(name,course,memberuid:any[]){
         this.refGroupList().push({
             name:name,
             teacher:this.currentTeacherName,
@@ -85,7 +85,7 @@ export class TeacherService {
             object.update({
                 groupkey:val.key
             });
-            this.addMembersToGroup(val.key,members,memberuid);
+            this.addMembersToGroup(val.key,memberuid);
             let alert = this.alertCtl.create({
                 title: '¡Nuevo grupo!',
                 subTitle: '¡Haz creado un grupo enhorabuena!',
@@ -117,16 +117,15 @@ export class TeacherService {
           confirm.present();
     }
 
-    addMembersToGroup(key,member:any[],memberuid:any[]){
+    addMembersToGroup(key,memberuid:any[]){
 
-        for (let index = 0; index < member.length; index++) {
-            const element = member[index];
+        for (let index = 0; index < memberuid.length; index++) {
             const uidElement = memberuid[index];
 
             this.db.list("groups/"+key).update("members",{
                 [uidElement]:true
             })
-            this.db.list("users/"+[element]).update("groups",{
+            this.db.list("users/"+[uidElement]).update("groups",{
                 [key]:true
             })
         }

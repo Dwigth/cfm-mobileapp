@@ -36,7 +36,7 @@
                               <h2>{{item.name + " " +item.lastName  +" " + item.lastName2}}</h2>
                             </ion-item>
                             <ion-item-options side="right">
-                              <button (click)="deleteMember(id,item.key)" ion-button color="danger">
+                              <button (click)="deleteMember(id,item.uid)" ion-button color="danger">
                                 <ion-icon name="trash"></ion-icon>
                                 Borrar
                               </button>
@@ -62,7 +62,7 @@
                                       <h2>{{item.name + " " +item.lastName  +" " + item.lastName2}}</h2>
                                     </ion-item>
                                     <ion-item-options side="right">
-                                      <button (click)="addMember(id,item.uid,item.key)" ion-button color="primary" clear>
+                                      <button (click)="addMember(id,item.uid,item.uid)" ion-button color="primary" clear>
                                         <ion-icon name="add-circle"></ion-icon>
                                       </button>
                                     </ion-item-options>

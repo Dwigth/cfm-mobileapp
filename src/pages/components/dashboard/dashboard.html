@@ -38,6 +38,10 @@
      <students-module></students-module>
     </ion-item>
 
+    <ion-item *ngIf="item.accessLevel == 'tutor';">
+      <tutor></tutor>
+     </ion-item>
+
   </div>
 
 

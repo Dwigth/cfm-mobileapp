@@ -1,0 +1,32 @@
+<ion-content>
+
+        <ion-list  style="margin-top: 20%;">
+                 
+<div *ngFor="let item of requests | async; index as i;" [attr.data-index]="i">
+        
+        <p text-center *ngIf="item.type == 'tutorRequest' && i > 1" >Tienes {{i+1}} solicitudes de tutor pendiente</p>
+        <p text-center *ngIf="item.type == 'tutorRequest' && i == 0 " >Tienes una solicitud de tutor pendiente</p>
+
+                <ion-item-sliding >
+                 
+                  <ion-item>
+                    <h2>{{item.email}}</h2>
+                  </ion-item>
+                  <ion-item-options side="right">
+                    <button (click)="acceptRequest(item.uid)" ion-button color="secondary">
+                      <ion-icon clear name="checkbox"></ion-icon>
+                      Aceptar
+                    </button>
+                    <button ion-button color="danger">
+                      <ion-icon name="close"></ion-icon>
+                      Declinar
+                    </button>
+                    </ion-item-options>
+
+                </ion-item-sliding>
+              </div>  
+              </ion-list>
+
+
+
+</ion-content> 

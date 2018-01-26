@@ -1,13 +1,20 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { AlertController } from 'ionic-angular'
+import { AlertController } from 'ionic-angular';
+import * as moment from 'moment';
 
 @Injectable()
 export class UserService {
+    currentDay:number;  
+    day;
 
     constructor(
         public db:AngularFireDatabase,
-        public alertCtrl:AlertController) { }
+        public alertCtrl:AlertController) { 
+      this. day = moment();
+      this.currentDay = Number(this.day.format('DDD'))
+      moment.locale('es');
+         }
 
     listRef(){
         return this.db.list("users");
@@ -23,6 +30,13 @@ export class UserService {
         .startAt(name)
         ).valueChanges(["child_added"]);
     }
+
+    searchUserByEmail(email:string){
+        return this.db.list("users", val => val
+        .orderByChild("email")
+         .startAt(email).limitToFirst(1)
+         ).valueChanges();
+     }
 
     searchUserByProperty(node,data){
         return this.db.list("users", val => val
@@ -40,10 +54,10 @@ export class UserService {
     
     editUsers(item){
         console.log(item);
-        this.objectRef(item.key).update(item);
+        this.objectRef(item.uid).update(item);
     }
     deleteUsers(item){
-        this.listRef().remove(item.key);
+        this.listRef().remove(item.uid);
     }
 
     showConfirm(item) {
@@ -97,7 +111,6 @@ export class UserService {
             lastName2:user.lastName2,
             imageURL:user.imageURL,
             email:user.email,
-            key:user.key,
             uid:user.uid,
             enrollment:"N/A",
             birthday:"N/A",
@@ -127,9 +140,25 @@ export class UserService {
             pedagogicalSample:"N/A",
             coments:"N/A"
         })
-        this.db.object("users/"+user.key).update({
+        this.db.object("users/"+user.uid).update({
             isStudent:true
         })
     }
     
+    sendInvitation(uid:any[],sender,email){
+        for (let index = 0; index < uid.length; index++) {
+            const uidElement = uid[index];
+
+            this.db.list("users/"+sender).update("students/",{
+                [uidElement]:true
+            })
+            this.db.list("users/"+[uidElement]).update("requests/"+uidElement,{
+                accepted:false,
+                date:this.day.format('dddd, MMMM D YYYY'),
+                type:'tutorRequest',
+                email:email,
+                uid:uidElement,
+            })
+        }
+    }
 }

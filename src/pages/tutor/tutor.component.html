@@ -1,0 +1,53 @@
+
+    <div style="margin-top:20%;">
+
+            <ion-item>
+                    <ion-label> Buscar alumno</ion-label>
+                    <ion-toggle [(ngModel)]="requestInv"  checked="false"></ion-toggle>
+                  </ion-item>
+        
+
+        <ion-item *ngIf="requestInv" >
+                <input  [(ngModel)]="email" (keyup)="getItems($event)" type="text" name="email" placeholder="E-mail del alumno">
+
+                <ion-card>
+
+                        <ion-card-header>
+                         Alumnos
+                        </ion-card-header>
+                      
+                        <ion-card-content>
+                         <ion-item *ngFor="let item of students | async">
+                             <ion-avatar item-start>
+                                 <img src="{{item.imageURL}}" alt="">
+                             </ion-avatar>
+                            {{item.email}}
+                            <input type="checkbox" id="{{item.uid}}" (click)="getValueEachMember(item.uid,item.imageURL,item.name)" item-end color="secondary" > 
+                         </ion-item>
+                        </ion-card-content>
+                      
+                      </ion-card>
+
+                      <ion-card>
+
+                            <ion-card-header>
+                             En lista
+                            </ion-card-header>
+                          
+                            <ion-card-content>
+                             <ion-item *ngFor="let item of members">
+                                    <ion-avatar item-start>
+                                            <img src="{{item.imageURL}}" alt="">
+                                        </ion-avatar>
+                                {{item.name}}
+                             </ion-item>
+                            </ion-card-content>
+                          
+                          </ion-card>
+                <button ion-button (click)="sendInvitation()" type="button">Enviar</button>
+        </ion-item>
+
+
+
+    </div>
+

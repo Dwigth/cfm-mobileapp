@@ -63,7 +63,7 @@
                                     <img src="{{item.imageURL}}">
                               </ion-avatar>
                               <ion-label>{{item.name +" " + item.lastName + " " + item.lastName2}}</ion-label>
-                              <input type="checkbox" id="{{item.key}}" (click)="getValueEachMember(item.key,item.uid)" item-end color="secondary" > 
+                              <input type="checkbox" id="{{item.uid}}" (click)="getValueEachMember(item.uid)" item-end color="secondary" > 
                             </ion-item>
                     </ion-list>
                 </ion-card-content>
