@@ -1449,17 +1449,19 @@ var TutorRequestComponent = (function () {
             ]
         });
         confirm.present();
+        this.db.object(uid + "/students/").update({
+            requestAcepted: uid
+        });
     };
     TutorRequestComponent.prototype.declineRequest = function (uid) {
     };
     TutorRequestComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/userprofile/tutorRequest.html"*/'<ion-content>\n\n        <ion-list  style="margin-top: 20%;">\n                 \n<div *ngFor="let item of requests | async; index as i;" [attr.data-index]="i">\n        \n        <p text-center *ngIf="item.type == \'tutorRequest\' && i > 1" >Tienes {{i+1}} solicitudes de tutor pendiente</p>\n        <p text-center *ngIf="item.type == \'tutorRequest\' && i == 0 " >Tienes una solicitud de tutor pendiente</p>\n        \n                <ion-item-sliding >\n                 \n                  <ion-item>\n                    <h2>{{item.email}}</h2>\n                  </ion-item>\n                  <ion-item-options side="right">\n                    <button (click)="acceptRequest(item.uid)" ion-button color="secondary">\n                      <ion-icon clear name="checkbox"></ion-icon>\n                      Aceptar\n                    </button>\n                    <button ion-button color="danger">\n                      <ion-icon name="close"></ion-icon>\n                      Declinar\n                    </button>\n                    </ion-item-options>\n\n                </ion-item-sliding>\n              </div>  \n              </ion-list>\n\n         <p text-center>Aquí recibirás notificaciones</p>\n\n\n</ion-content> '/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/userprofile/tutorRequest.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */],
-            __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object])
     ], TutorRequestComponent);
     return TutorRequestComponent;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=tutorRequest.js.map

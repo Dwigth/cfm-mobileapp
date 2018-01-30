@@ -58,8 +58,9 @@ export class TutorRequestComponent implements OnInit {
           });
           confirm.present();
 
-        
-
+        this.db.object( uid + "/students/").update({
+            requestAcepted:uid
+        });
      }
 
      declineRequest(uid){
