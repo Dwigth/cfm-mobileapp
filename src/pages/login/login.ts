@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
-
+import { LoadingController } from 'ionic-angular';
 //
 import { User } from '../../pages/components/users/user';
 import { AuthService } from "../../app/auth.service";
@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
     public modalCtrl: ModalController,
     public afAuth: AngularFireAuth,
     public authServ: AuthService,
+    public loadingCtrl: LoadingController,
     public formBuilder: FormBuilder) { 
 
       this.loginForm = formBuilder.group({
@@ -47,9 +48,16 @@ export class LoginComponent implements OnInit {
     user.email = this.loginForm.value.email;
     user.password = this.loginForm.value.password;
     //this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password);
-    this.authServ.login(user.email,user.password);
+    this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password);
+    this.presentLoading();
   }
-
+  presentLoading() {
+    let loader = this.loadingCtrl.create({
+      content: "Espere porfavor...",
+      duration: 1500
+    });
+    loader.present();
+  }
 }
 @Component({
   template: `
@@ -131,6 +139,7 @@ export class ModalRegister {
     public authServ: AuthService,
     public db: AngularFireDatabase,
     public afAuth: AngularFireAuth,
+    public loadingCtrl: LoadingController,
     public formBuilder: FormBuilder){ 
       this.registerForm = formBuilder.group({
         name: ['',Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
@@ -168,6 +177,7 @@ export class ModalRegister {
           password:user.password,
           accessLevel:'user',
           advertising: 'N/A',
+          invitation:false,
           isStudent:false,
           status:'active',
           ocupation: 'N/A',
@@ -182,11 +192,19 @@ export class ModalRegister {
           uid: this.afAuth.auth.currentUser.uid,
           imageURL:'https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/resources%2Findice.png?alt=media&token=8080adfa-8bb4-4d4c-8a2b-ddac12c08a2a'
       });
+      this.presentLoading();
       this.viewCtrl.dismiss();
     })
     
   }
 }
 
+presentLoading() {
+  let loader = this.loadingCtrl.create({
+    content: "Espere porfavor...",
+    duration: 1500
+  });
+  loader.present();
+}
 
 }

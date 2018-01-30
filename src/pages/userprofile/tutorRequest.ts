@@ -31,7 +31,7 @@ export class TutorRequestComponent implements OnInit {
         });
 
         this.db.object( uid + "/students/").update({
-
+            requestAcepted:uid
         });
      }
 
