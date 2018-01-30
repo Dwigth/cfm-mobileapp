@@ -84,6 +84,7 @@ import { PushService } from './push.service';
 import { OneSignal } from '@ionic-native/onesignal';
 import { ProfileTabsComponent } from '../pages/userprofile/profileTabs.component';
 import { TutorComponent } from '../pages/tutor/tutor.component';
+import { InvitationService } from '../pages/invitation/invitation.service';
 
 export const firebaseConfig = {
  apiKey: "AIzaSyDObZjIkysrMu1aT2AMFfaYaQD8E1hn12k",
@@ -247,6 +248,7 @@ export const firebaseConfig = {
     TeacherService,
     CrudService,
     StudentCRMService,
+    InvitationService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

@@ -159,6 +159,13 @@ export class UserService {
                 email:email,
                 uid:uidElement,
             })
+            this.db.object("tutorRequest/"+sender + "/" + uidElement).update({
+                accepted:false,
+                date:this.day.format('dddd, MMMM D YYYY'),
+                type:'tutorRequest',
+                email:email,
+                uid:uidElement,
+            })
         }
     }
 }

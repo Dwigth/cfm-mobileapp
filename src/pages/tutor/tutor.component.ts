@@ -7,6 +7,7 @@ import { UserService } from '../Users/user.service';
 import { Tutor } from './tutor'; 
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 
+
 @Component({
     selector: 'tutor',
     templateUrl: 'tutor.component.html'
@@ -14,6 +15,8 @@ import { AlertController } from 'ionic-angular/components/alert/alert-controller
 
 export class TutorComponent implements OnInit {
     students:Observable<any[]>;
+    tutorStudents:Observable<any[]>;
+    stud:Observable<any[]>;
     email:string;
     members:any[] = [];
     membersuid:any[] = [];
@@ -25,8 +28,11 @@ export class TutorComponent implements OnInit {
         public loadingCtrl: LoadingController,
         public alertCtl:AlertController,
     ) { 
-        this.students = this.db.list("users/"+this.afauth.auth.currentUser.uid + "/students").valueChanges();
-        
+        this.tutorStudents = db.list('tutorRequest/' + afauth.auth.currentUser.uid,
+        val => val
+        .orderByChild('accepted')
+        .equalTo(true)
+        ).valueChanges();
     }
 
     ngOnInit() {  }
@@ -78,9 +84,15 @@ export class TutorComponent implements OnInit {
         
         let loader = this.loadingCtrl.create({
             content: "Espere un momento porfavor...",
-            duration: 3000
+            duration: 1500
           });
           loader.present();
+    }
+
+    findStudent(uid){
+       this.stud =  this.db.list('students',val => val.orderByChild('uid')
+        .equalTo(uid)
+        ).valueChanges();
     }
 
 }
