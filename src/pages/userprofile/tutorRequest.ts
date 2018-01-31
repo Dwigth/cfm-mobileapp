@@ -26,7 +26,7 @@ export class TutorRequestComponent implements OnInit {
         
      }
 
-    ngOnInit() { }
+    ngOnInit() {  }
 
      acceptRequest(uid){
         let confirm = this.alertCtrl.create({
@@ -49,7 +49,7 @@ export class TutorRequestComponent implements OnInit {
                     this.db.object( "users/" + uid + "/students/").update({
                         requestAcepted:uid
                     });
-                    this.db.object( "tutorRequest/" + uid + "/" + this.currentUser.uid).update({
+                    this.db.object( "tutorRequest/" + uid + "/" + this.currentUser.uid + "/").update({
                         accepted:true
                     });
                 }
@@ -57,10 +57,6 @@ export class TutorRequestComponent implements OnInit {
             ]
           });
           confirm.present();
-
-        this.db.object( uid + "/students/").update({
-            requestAcepted:uid
-        });
      }
 
      declineRequest(uid){

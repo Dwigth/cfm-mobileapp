@@ -28,7 +28,7 @@
   <br>
 
 <div *ngFor="let item of user | async">
-
+    <div *ngIf="item.accessLevel == 'student' || item.accessLevel == 'tutor';">
   <ion-card >
     <ion-card-header class="center">
       <ion-item> 
@@ -39,7 +39,9 @@
     </ion-card-header>
     <ion-card-content>
       <!-- TOOGLE PARA CONFIRMAR -->
+      
 
+      
       <div *ngIf="item.invitation" class="justify">
         ¡Tu confimación se realizó con exito! <br><br>
         Te esperamos el 17 de Febrero, recuerda guardar tu pase a la fiesta, podrás acceder a el dentro de la aplicación siempre que quieras.
@@ -65,6 +67,7 @@
     </ion-card-content>
 
   </ion-card>
+</div>
 </div>
 
 
