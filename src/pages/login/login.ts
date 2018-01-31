@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
     user.email = this.loginForm.value.email;
     user.password = this.loginForm.value.password;
     //this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password);
-    this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password);
+    this.authServ.login(user.email,user.password);
     this.presentLoading();
   }
   presentLoading() {

@@ -147,19 +147,20 @@ export class UserService {
     
     sendInvitation(uid:any[],sender,email){
         for (let index = 0; index < uid.length; index++) {
-            const uidElement = uid[index];
+            let uidElement = uid[index];
 
-            this.db.list("users/"+sender).update("students/",{
+            this.db.list("users/"+ sender ).update("students/",{
                 [uidElement]:true
             })
-            this.db.list("users/"+[uidElement]).update("requests/"+uidElement,{
+            this.db.list("users/"+uidElement ).update("requests/"+sender,{
                 accepted:false,
                 date:this.day.format('dddd, MMMM D YYYY'),
                 type:'tutorRequest',
                 email:email,
+                sender:sender,
                 uid:uidElement,
             })
-            this.db.object("tutorRequest/"+sender + "/" + uidElement).update({
+            this.db.object("tutorRequest/"+ sender + "/" + uidElement +'/').update({
                 accepted:false,
                 date:this.day.format('dddd, MMMM D YYYY'),
                 type:'tutorRequest',
