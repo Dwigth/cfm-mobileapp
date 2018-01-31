@@ -17,7 +17,6 @@ export class TutorComponent implements OnInit {
     students:Observable<any[]>;
     tutorStudents:Observable<any[]>;
     stud:Observable<any[]>;
-    email:string;
     members:any[] = [];
     membersuid:any[] = [];
 

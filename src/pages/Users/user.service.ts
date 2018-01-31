@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AlertController } from 'ionic-angular';
 import * as moment from 'moment';
+import { Button } from 'ionic-angular/components/button/button';
 
 @Injectable()
 export class UserService {
@@ -53,8 +54,13 @@ export class UserService {
     }
     
     editUsers(item){
-        console.log(item);
         this.objectRef(item.uid).update(item);
+        let alert = this.alertCtrl.create({
+            title: 'Editar',
+            subTitle: ' Se ha editado un usuario',
+            buttons: ['OK']
+        });
+        alert.present();
     }
     deleteUsers(item){
         this.listRef().remove(item.uid);

@@ -21,7 +21,8 @@ export class UserCrud implements OnInit {
      }
 
      editCurrentUser(item){
-        this.ursv.editUsers(item)
+        this.ursv.editUsers(item);
+        this.vCtrl.dismiss();
      }
 
     ngOnInit() { }
