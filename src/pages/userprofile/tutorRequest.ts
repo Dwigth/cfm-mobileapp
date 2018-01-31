@@ -36,7 +36,8 @@ export class TutorRequestComponent implements OnInit {
               {
                 text: 'No',
                 handler: () => {
-                  this.declineRequest(uid);
+                  console.log("no");
+                  
                 }
               },
               {
@@ -60,6 +61,28 @@ export class TutorRequestComponent implements OnInit {
      }
 
      declineRequest(uid){
-
+        let confirm = this.alertCtrl.create({
+            title: 'Solicitudes',
+            message: '¿Está de acuerdo con eliminar esta solicitud?',
+            buttons: [
+              {
+                text: 'No',
+                handler: () => {
+                  console.log("no");
+                  
+                }
+              },
+              {
+                text: 'Si',
+                handler: () => {
+                    let item = this.db.object("users/" + this.currentUser.uid + "/requests/" + uid + "/" );
+                    item.remove();
+                }
+              }
+            ]
+          });
+          confirm.present();
+       
+        
      }
 }

@@ -33,7 +33,6 @@ export class UserModal implements OnInit {
         if (item && item.trim() != '') {
             return this.list = this.usrv.searchUserByName(item);
           }
-        
     }
 
     searchProspectByProperty(){
