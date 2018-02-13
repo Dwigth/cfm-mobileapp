@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule,Http } from '@angular/http';
 import { HTTP } from '@ionic-native/http';
 
 import { MyApp } from './app.component';
@@ -85,6 +85,11 @@ import { OneSignal } from '@ionic-native/onesignal';
 import { ProfileTabsComponent } from '../pages/userprofile/profileTabs.component';
 import { TutorComponent } from '../pages/tutor/tutor.component';
 import { InvitationService } from '../pages/invitation/invitation.service';
+import { AssitanceService } from '../pages/CRM/asistencia/services/assistance.service';
+import { AsistenceComponent } from '../pages/CRM/asistencia/components/frontview/assistence.component';
+import { ButtonAssitenceComponent } from '../pages/CRM/asistencia/components/buttonview/button.component';
+import { ListAssitanceComponent } from '../pages/CRM/asistencia/components/listComponent/list-assitance.component';
+
 
 export const firebaseConfig = {
  apiKey: "AIzaSyDObZjIkysrMu1aT2AMFfaYaQD8E1hn12k",
@@ -155,6 +160,9 @@ export const firebaseConfig = {
     TutorRequestComponent,
     ProfileTabsComponent,
     TutorComponent,
+    AsistenceComponent,
+    ButtonAssitenceComponent,
+    ListAssitanceComponent,
   ],
   imports: [
     BrowserModule,
@@ -225,6 +233,9 @@ export const firebaseConfig = {
     TutorRequestComponent,
     ProfileTabsComponent,
     TutorComponent,
+    AsistenceComponent,
+    ButtonAssitenceComponent,
+    ListAssitanceComponent
   ],
   providers: [
     StatusBar,
@@ -249,6 +260,7 @@ export const firebaseConfig = {
     CrudService,
     StudentCRMService,
     InvitationService,
+    AssitanceService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

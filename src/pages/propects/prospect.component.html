@@ -50,6 +50,8 @@
       <ion-option value="status">Estatus </ion-option>
       <ion-option value="course">Curso</ion-option>
       <ion-option value="source">Fuente</ion-option>
+      <ion-option value="phone">Telefono</ion-option> 
+      <!--llamada y página web-->     
       <ion-option value="lastname">Apellido paterno</ion-option>
       <ion-option value="lastname2">Apellido materno</ion-option>
     </ion-select>
@@ -70,9 +72,9 @@
 <ion-list>
 <ion-item-group >
 <ion-item-divider style="text-align:center;" color="light">Prospectos del día</ion-item-divider>
-<ion-item-sliding *ngFor="let item of list | async; index as i;" [attr.data-index]="i">
+<ion-item-sliding  *ngFor="let item of list | async; index as i;" [attr.data-index]="i">
   <ion-item >
-      <p>{{ i+1 + ". "+ item.name + " " + item.lastname +" " +item.phone}}</p>
+      <p style="font-size: 100%;">{{ i+1 + ". "+ item.name + " " + item.lastname +" " +item.phone}}</p>
   </ion-item>
 
 <ion-item-options  side="right">

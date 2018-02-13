@@ -19,10 +19,16 @@
                     </ion-card-header>
                   
                     <ion-list *ngFor="let item of groups | async">
-                      <button (click)="DisplayDetails(item.groupkey)" ion-item>
-                        <ion-icon name="at" item-start></ion-icon>
-                        {{item.name}}
-                      </button>
+
+                      <div>
+                          <button (click)="DisplayDetails(item.groupkey)" ion-item>
+
+                              <ion-icon name="at" item-start></ion-icon>
+      
+                              {{item.name}}
+                            </button>
+                      </div>
+                      
                     </ion-list>
                   </ion-card>
       </ion-content>

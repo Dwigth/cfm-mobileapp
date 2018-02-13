@@ -64,7 +64,6 @@ searchProspectByProperty(){
   console.log(this.properties)
   this.list = this.prosSrv.searchProspectByProperty(this.properties.textProperty,this.properties.property);
   this.advSrch = false;
-  console.log(this.advSrch)
 }
 
   dismiss(){

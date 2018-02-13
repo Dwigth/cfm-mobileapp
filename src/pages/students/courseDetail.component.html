@@ -12,6 +12,7 @@
         </ion-toolbar>
       </ion-header>
       <ion-content>
+        <p>¡Aquí recibirás tus lecciones!</p>
             <ion-card *ngFor="let item of lessons | async" text-wrap>
                     <ion-item>
                       <h2>{{item.name}}</h2>
@@ -24,7 +25,7 @@
                     <ion-row>
 
                       <ion-col>
-                        <a  href="{{item.url}}" download="{{item.name}}">
+                        <a  href="{{item.url}}" >
                           <button ion-button icon-left clear small >
                             Recurso Compartido 
                             <ion-icon name="md-cloud-download"></ion-icon>

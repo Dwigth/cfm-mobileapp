@@ -34,9 +34,11 @@ export class LoginComponent implements OnInit {
       })
     }
 
-    Open (){
-      let modal = this.modalCtrl.create(ModalRegister);
+    Open (action){
+      let modal = this.modalCtrl.create(ModalRegister,{action:action});
       modal.present();
+      console.log(action);
+      
    }
 
   ngOnInit() {
@@ -75,7 +77,7 @@ export class LoginComponent implements OnInit {
   </ion-toolbar>
 </ion-header>
 <ion-content>
-<ion-list no-lines>
+<ion-list no-lines *ngIf="action == 'registro' " >
 
 <p *ngIf="submitAttempt" style="color: #ea6153;">Por favor rellene todo los campos correctamente.</p>
 
@@ -122,6 +124,22 @@ export class LoginComponent implements OnInit {
 </form>
 
 </ion-list>
+<ion-list no-lines *ngIf="action == 'recuperacion' " >
+<ion-row>
+
+<ion-col col-12>
+
+<ion-item>
+  <input [(ngModel)]="correo" autocorrect="on" placeholder="ejemplo@ejemplo.com" type="text"   >
+  <label text-center>Correo de recuperación</label>
+  <button type="button" ion-button (click)="recuperar(correo)" block>Enviar </button>
+</ion-item>
+
+</ion-col>
+</ion-row>
+
+</ion-list>
+
 </ion-content>
 `
 })
@@ -130,7 +148,9 @@ export class ModalRegister {
 
   registerForm:FormGroup;
   submitAttempt:boolean;
-  
+  action:string;
+  correo:string;
+
   constructor(
     public platform: Platform,
     public params: NavParams,
@@ -141,6 +161,8 @@ export class ModalRegister {
     public afAuth: AngularFireAuth,
     public loadingCtrl: LoadingController,
     public formBuilder: FormBuilder){ 
+      this.action = params.get('action');
+
       this.registerForm = formBuilder.group({
         name: ['',Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
         lastName:['',Validators.compose([Validators.required])],
@@ -205,6 +227,32 @@ presentLoading() {
     duration: 1500
   });
   loader.present();
+}
+
+recuperar(correo){
+  this.afAuth.auth.sendPasswordResetEmail(correo.toLowerCase()).then( val => {
+      console.log(val);
+      let alert = this.alertCtrl.create({
+        title:'Exito',
+        subTitle:'Se te ha enviado un correo de validación.',
+        buttons:[{
+          text:'Ok',
+          handler: data =>{
+            this.dismiss();
+          }
+        }]
+      });
+      alert.present();
+    }
+  ).catch(err => {
+    console.log(err);
+    let alert = this.alertCtrl.create({
+      title:'Error',
+      subTitle:'Se ha producido el siguiente evento con el código de error: ' + "'" +err.code + "'",
+      buttons:['Ok']
+    });
+    alert.present();
+  });
 }
 
 }

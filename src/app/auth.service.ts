@@ -35,7 +35,7 @@ export class AuthService {
         .signInWithEmailAndPassword(email, password)
         .then(value => {
           console.log('Nice, it worked!');
-          this.showAlert("Funcionó","Excelente");
+          this.showAlert(this.firebaseAuth.auth.currentUser.email,"Bienvenido: ");
         })
         .catch(err => {
           console.log('Something went wrong:',err.message);
