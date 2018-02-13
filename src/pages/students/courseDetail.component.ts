@@ -13,16 +13,13 @@ export class CourseDetailComponent implements OnInit {
     key:string;
     lessons:Observable<any[]>;
 
-    constructor( 
+    constructor(
         public viewCtl:ViewController,
         public params:NavParams,
         public stdSrv:StudentService,
-    ) { 
+    ) {
         this.key = this.params.get('lessonkey');
-        console.log(this.key);
         this.lessons = stdSrv.getLessons(this.key);
-        
-        
     }
 
     ngOnInit() { }
@@ -30,4 +27,6 @@ export class CourseDetailComponent implements OnInit {
     dismiss(){
         this.viewCtl.dismiss();
     }
+
+    
 }

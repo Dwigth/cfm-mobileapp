@@ -91,11 +91,11 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-plugin-badge/cfmapp-badge.gradle"
-apply from: "../cordova-plugin-fcm/cfmapp-FCMPlugin.gradle"
-apply from: "../cordova-plugin-local-notification/cfmapp-localnotification.gradle"
-apply from: "../onesignal-cordova-plugin/cfmapp-build-extras-onesignal.gradle"
-apply from: "../phonegap-plugin-push/cfmapp-push.gradle"
+apply from: "../cordova-plugin-badge/app-badge.gradle"
+apply from: "../cordova-plugin-fcm/app-FCMPlugin.gradle"
+apply from: "../cordova-plugin-local-notification/app-localnotification.gradle"
+apply from: "../onesignal-cordova-plugin/app-build-extras-onesignal.gradle"
+apply from: "../phonegap-plugin-push/app-push.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()

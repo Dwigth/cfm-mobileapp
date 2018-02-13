@@ -94,13 +94,13 @@
           "NSPhotoLibraryUsageDescription": [
             {
               "xml": "<string>This application needs access to your Photo Library to include the images you want to provide.</string>",
-              "count": 2
+              "count": 14
             }
           ],
           "NSCameraUsageDescription": [
             {
               "xml": "<string>Allows you to take the pictures you want to provide </string>",
-              "count": 2
+              "count": 14
             }
           ]
         }

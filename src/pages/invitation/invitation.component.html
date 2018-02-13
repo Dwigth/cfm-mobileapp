@@ -4,6 +4,7 @@
 </ion-header>
 
 <ion-content  padding>
+
   <div *ngIf="currentDay < maxDay">
   <ion-card >
     <ion-card-header class="center">
@@ -27,8 +28,10 @@
   </ion-card>
   <br>
 
+  
+
 <div *ngFor="let item of user | async">
-    <div *ngIf="item.accessLevel == 'student' || item.accessLevel == 'tutor';">
+    <div *ngIf="item.accessLevel == 'student' || item.accessLevel == 'tutor' || item.accessLevel == 'coordi' || item.accessLevel == 'admin' ;">
   <ion-card >
     <ion-card-header class="center">
       <ion-item> 
