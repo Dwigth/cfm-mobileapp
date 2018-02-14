@@ -50,10 +50,20 @@ $blue: blue;
   text-decoration: none;
 }
 */
-
-.toolbar-background-md {
-    border-color: #b2b2b2;
-    background: #151414;
+.toolbar-ios-dark .toolbar-background-ios {
+    background: #93c11e;
+}
+.toolbar-md {
+    display: none;
+}
+.toolbar-md-dark .toolbar-background-md {
+    background: #93c11e;
+}
+.content-md {
+    margin-top: 5%;
+}
+.toolbar-ios {
+    margin-top: 8%;
 }
 
 .toolbar-title-md {
