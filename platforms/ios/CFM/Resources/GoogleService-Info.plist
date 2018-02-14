@@ -20,18 +20,16 @@
 	<string>com.cfm.ap</string>
 	<key>PROJECT_ID</key>
 	<string>pcfm-5eeb9</string>
-	<key>STORAGE_BUCKET</key>
-	<string>pcfm-5eeb9.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:205598390265:ios:03acc0645c48d854</string>
 	<key>DATABASE_URL</key>

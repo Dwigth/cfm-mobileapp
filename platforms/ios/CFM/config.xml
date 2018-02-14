@@ -35,6 +35,9 @@
     <feature name="FCMPlugin">
         <param name="ios-package" value="FCMPlugin" />
     </feature>
+    <feature name="FileTransfer">
+        <param name="ios-package" value="CDVFileTransfer" />
+    </feature>
     <allow-navigation href="http://localhost:8080/*" />
     <feature name="CDVWKWebViewEngine">
         <param name="ios-package" value="CDVWKWebViewEngine" />
@@ -52,9 +55,6 @@
     </feature>
     <feature name="OneSignalPush">
         <param name="ios-package" value="OneSignalPush" />
-    </feature>
-    <feature name="PushNotification">
-        <param name="ios-package" value="PushPlugin" />
     </feature>
     <name>CFM</name>
     <description>An awesome Ionic/Cordova app.</description>
@@ -127,11 +127,7 @@
     <preference name="android-minSdkVersion" value="16" />
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="SplashMaintainAspectRatio" value="false" />
-<<<<<<< HEAD
-    <preference name="FadeSplashScreen" value="true" />
-=======
     <preference name="FadeSplashScreen" value="false" />
->>>>>>> master
     <preference name="FadeSplashScreenDuration" value="0" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="none" />

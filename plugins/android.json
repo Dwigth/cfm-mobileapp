@@ -16,9 +16,6 @@
     "cordova-plugin-fcm": {
       "PACKAGE_NAME": "com.cfm.app"
     },
-    "cordova-plugin-file-transfer": {
-      "PACKAGE_NAME": "com.cfm.app"
-    },
     "cordova-plugin-ionic-webview": {
       "PACKAGE_NAME": "com.cfm.app"
     },
