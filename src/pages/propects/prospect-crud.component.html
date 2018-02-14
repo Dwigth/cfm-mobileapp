@@ -17,31 +17,38 @@
   <ion-list *ngIf="isEditing == false; else editing">
 
     <ion-item>
+      <p>Nombre</p>
       <input placeholder="Nombre" [(ngModel)]="currentProspect.name" name="name" type="text">
     </ion-item>
 
     <ion-item>
+      <p>Apellido paterno</p>
       <input placeholder="Apellido paterno" [(ngModel)]="currentProspect.lastname" name="lastname" type="text">
     </ion-item>
 
     <ion-item>
+      <p>Apellido Materno</p>
       <input placeholder="Apellido Materno"  [(ngModel)]="currentProspect.lastname2" name="lastname2" type="text">
     </ion-item>
 
     <ion-item>
+      <p>Edad</p>
       <input placeholder="Edad" [(ngModel)]="currentProspect.age" name="age" type="text">
+      <p>Solo números enteros (necesario).</p>
     </ion-item>
 
-    <ion-item>
+    <!--<ion-item>
       <ion-label>Estado</ion-label>
       <ion-select [(ngModel)]="currentProspect.state" name="state">
         <ion-option value="si">Si</ion-option>
         <ion-option value="nn">No</ion-option>
       </ion-select>
-    </ion-item>
+    </ion-item>-->
 
     <ion-item>
+      <p>Número de telefono</p>
       <input placeholder="Telefono" maxlength="10" [(ngModel)]="currentProspect.phone" name="phone" type="text">
+      <p>Máximo 10 dígitos.</p>
     </ion-item>
 
     <ion-item>
@@ -88,6 +95,7 @@
         <ion-icon name="logo-usd" item-start></ion-icon>
           Precio
         <input [(ngModel)]="currentProspect.price" name="price" type="text">
+        <p>Solo números enteros sin decimales.</p>
       </ion-item>
 
 
@@ -98,31 +106,40 @@
 <ng-template #editing>
 
       <ion-item>
+          <p>Nombre</p>
         <input  placeholder="Nombre" [(ngModel)]="item.name" name="name" type="text">
       </ion-item>
 
       <ion-item>
+          <p>Apellido paterno</p>
         <input placeholder="Apellido paterno"  [(ngModel)]="item.lastname" name="lastname" type="text">
       </ion-item>
 
       <ion-item>
+          <p>Apellido Materno</p>        
         <input  placeholder="Apellido materno" [(ngModel)]="item.lastname2" name="lastname2" type="text">
       </ion-item>
 
       <ion-item>
+          <p>Edad</p>
+        
         <input placeholder="Edad" [(ngModel)]="item.age" name="age" type="text">
+        <p>Solo números enteros (necesario).</p>
+        
       </ion-item>
 
-      <ion-item>
+      <!--ion-item>
         <ion-label>Estado</ion-label>
         <ion-select [(ngModel)]="item.state" name="state">
           <ion-option value="si">Si</ion-option>
           <ion-option value="nn">No</ion-option>
         </ion-select>
-      </ion-item>
+      </ion-item>-->
 
       <ion-item>
+        <p>Número de telefono</p>
         <input placeholder="Telefono"  maxlength="10" [(ngModel)]="item.phone" name="phone" type="text">
+        <p>Máximo 10 dígitos.</p>
       </ion-item>
 
       <ion-item>
@@ -169,6 +186,7 @@
           <ion-icon name="logo-usd" item-start></ion-icon>
             Precio
           <input [(ngModel)]="item.price" name="price" type="text">
+          <p>Solo números enteros sin decimales.</p>
         </ion-item>
 
 

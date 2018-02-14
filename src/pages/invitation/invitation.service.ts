@@ -23,6 +23,10 @@ export class InvitationService {
         searchByUID(uid){
            return this.db.list('invitations',val => val.orderByChild('uid').equalTo(uid)).valueChanges();
         } 
+        searchInfo(){
+            return this.db.list('info');
+        }
+
         searchByInvitationStat(uid){
             return this.db.list('users', val => val.orderByChild('uid').equalTo(uid)).valueChanges();
         }

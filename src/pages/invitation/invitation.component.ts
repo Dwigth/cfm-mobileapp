@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as moment from 'moment';
@@ -10,13 +10,13 @@ import { Observable } from 'rxjs/Observable';
   selector: 'app-invitation',
   templateUrl: 'invitation.component.html',
 })
-export class InvitationComponent {
+export class InvitationComponent implements OnInit {
   private currentDay:number;
   private currentUser:string;
-  private maxDay:number;
+  public maxDay:number;
   private code:string;
   private user:Observable<any[]>;
-
+  private days;
   constructor(// POP UP DE REQUERIMINETOS PARA DESCARGAR LA INVITACION
               public toastCtrl: ToastController,
               private auth:AngularFireAuth,
@@ -25,13 +25,18 @@ export class InvitationComponent {
     let day = moment();
     this.currentUser = this.auth.auth.currentUser.uid;
     this.currentDay = Number(day.format('DDD'));
-    this.maxDay = 41;
+    this.maxDay = 49;
+    console.log(this.currentDay);
     this.user = isrv.searchByInvitationStat(this.currentUser);
+  }
+
+  ngOnInit() {
+    
   }
 
   showToast(position: string) {
     let toast = this.toastCtrl.create({
-      message: 'Para acceder al evento es necesario ser alumno #CFM y confirmar su asistencia dentro de la App. Desliza el botón de "Asistencia" de izquiera a derecha para confirmar tu asistencia y generar un pase.',
+      message: 'Para acceder al evento es necesario ser alumno #CFM y confirmar su asistencia dentro de la App. Desliza el botón de "Asistencia" de izquierda a derecha para confirmar tu asistencia y generar un pase.',
       showCloseButton: true,
       closeButtonText: 'Ok',
       position: position

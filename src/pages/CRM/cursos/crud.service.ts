@@ -143,6 +143,4 @@ if ( this.currentId == "nuevo" ){
     confirm.present();
   }
 
-
-
 }

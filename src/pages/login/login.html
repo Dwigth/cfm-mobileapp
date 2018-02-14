@@ -25,7 +25,11 @@
 </ion-row>
   <button type="button" ion-button outline block (click)="submitForm()" >Entrar</button>
 </ion-list>
-<button type="button" ion-button outline block (click)="Open()" >Registrarte</button>
+<button type="button" ion-button outline block (click)="Open('registro')" >Registrarte</button>
+
+<button type="button" ion-button outline block color="danger" (click)="Open('recuperacion')">¿Olvidaste tú contraseña?</button>
+
 </form>
+
 </ng-template>
 </ion-content>

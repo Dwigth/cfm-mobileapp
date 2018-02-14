@@ -44,7 +44,7 @@ export class ProspectService {
   createProspect(prospect: Prospect) {
     let confirm = this.alertCtrl.create({
       title: 'Se ha creado un nuevo prospecto',
-      message: 'Los campos de edad, numero y precio deben ser llenados con numeros ¿Está seguro que quiere guardar?',
+      message: '¿Está seguro que quiere guardar?',
       buttons: [
         {
           text: 'No',
@@ -55,7 +55,6 @@ export class ProspectService {
         {
           text: 'Si',
           handler: () => {
-
     let date = moment();
     this.refLis().push({
       name: prospect.name,

@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 158:
+/***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -118,7 +118,7 @@ var AnnouncementService = (function () {
 
 /***/ }),
 
-/***/ 159:
+/***/ 160:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -129,7 +129,7 @@ var AnnouncementService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__news__ = __webpack_require__(453);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__news_service__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__news_service__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -241,14 +241,14 @@ var UpdateNewsModal = (function () {
 
 /***/ }),
 
-/***/ 160:
+/***/ 161:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewsService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_local_notifications__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_local_notifications__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(11);
@@ -373,14 +373,14 @@ var NewsService = (function () {
 
 /***/ }),
 
-/***/ 161:
+/***/ 162:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(652);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(655);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -483,7 +483,7 @@ var UploadService = (function () {
 
 /***/ }),
 
-/***/ 166:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -493,8 +493,8 @@ var UploadService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__announcements_service__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__announcement__ = __webpack_require__(681);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__announcements_service__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__announcement__ = __webpack_require__(684);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -616,7 +616,7 @@ var AnnouncementModalCRUD = (function () {
 
 /***/ }),
 
-/***/ 167:
+/***/ 168:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -624,10 +624,10 @@ var AnnouncementModalCRUD = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__(683);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__(686);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -670,7 +670,7 @@ var ProspectService = (function () {
         var _this = this;
         var confirm = this.alertCtrl.create({
             title: 'Se ha creado un nuevo prospecto',
-            message: 'Los campos de edad, numero y precio deben ser llenados con numeros ¿Está seguro que quiere guardar?',
+            message: '¿Está seguro que quiere guardar?',
             buttons: [
                 {
                     text: 'No',
@@ -804,7 +804,7 @@ var ProspectService = (function () {
 
 /***/ }),
 
-/***/ 168:
+/***/ 169:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -848,7 +848,7 @@ var StudentService = (function () {
 
 /***/ }),
 
-/***/ 169:
+/***/ 170:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -992,7 +992,7 @@ var StudentCRMService = (function () {
 
 /***/ }),
 
-/***/ 170:
+/***/ 171:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1149,7 +1149,7 @@ var CrudService = (function () {
 
 /***/ }),
 
-/***/ 184:
+/***/ 185:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1162,11 +1162,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 184;
+webpackEmptyAsyncContext.id = 185;
 
 /***/ }),
 
-/***/ 225:
+/***/ 226:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1179,7 +1179,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 225;
+webpackEmptyAsyncContext.id = 226;
 
 /***/ }),
 
@@ -1213,7 +1213,11 @@ var dashboardPage = (function () {
     dashboardPage.prototype.ngOnInit = function () { };
     dashboardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+<<<<<<< HEAD
             selector: 'app-dashboard',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\components\dashboard\dashboard.html"*/'\n\n<ion-content>\n\n  <div id="container">\n\n\n\n  </div>\n\n\n\n  <div *ngFor="let item of user | async">\n\n\n\n    <ion-item *ngIf="item.accessLevel == \'user\' ;" text-wrap>\n\n      <p>Ingresa a la academia para poder visualizar esta sección.</p>\n\n    </ion-item>\n\n\n\n    <ion-item *ngIf="item.accessLevel == \'admin\';">\n\n      <app-news></app-news>\n\n      <announcement-button></announcement-button>\n\n      <prospect-button></prospect-button>\n\n      <user-button></user-button>\n\n      <cursos-button></cursos-button>\n\n      <student-button></student-button>\n\n    </ion-item>\n\n\n\n\n\n    <ion-item *ngIf="item.accessLevel == \'coordi\';">\n\n      <app-news></app-news>\n\n      <announcement-button></announcement-button>\n\n      <prospect-button></prospect-button>\n\n      <user-button></user-button>\n\n      <cursos-button></cursos-button>\n\n      <student-button></student-button>\n\n    </ion-item>\n\n\n\n    <ion-item *ngIf="item.accessLevel == \'teacher\';" text-wrap>\n\n      <teachers-module></teachers-module>\n\n    </ion-item>       \n\n\n\n\n\n    <ion-item *ngIf="item.accessLevel == \'student\';">\n\n     <students-module></students-module>\n\n    </ion-item>\n\n\n\n    <ion-item *ngIf="item.accessLevel == \'tutor\';">\n\n      <tutor></tutor>\n\n     </ion-item>\n\n\n\n  </div>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\components\dashboard\dashboard.html"*/,
+=======
+            selector: 'app-dashboard',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/components/dashboard/dashboard.html"*/'\n<ion-content>\n  <div id="container">\n\n  </div>\n\n  <div *ngFor="let item of user | async">\n\n    <ion-item *ngIf="item.accessLevel == \'user\' ;" text-wrap>\n      <p>Ingresa a la academia para poder visualizar esta sección.</p>\n    </ion-item>\n\n    <div text-center *ngIf="item.accessLevel == \'admin\';">\n        <ion-badge  color="secondary">\n            <h1  text-center>Menú administrativo</h1>\n          </ion-badge>\n    </div>\n\n    <ion-item text-center *ngIf="item.accessLevel == \'admin\' || item.accessLevel == \'coordi\';">\n      <app-news></app-news>\n      <announcement-button></announcement-button>\n      <prospect-button></prospect-button>\n      <user-button></user-button>\n      <cursos-button></cursos-button>\n      <student-button></student-button>\n      \n      <hr>\n      <ion-badge  color="secondary">\n        <h1  text-center>Asistencias</h1>\n      </ion-badge>\n\n      <button-assitence></button-assitence>\n\n      <hr>\n    </ion-item>\n\n\n    <ion-item *ngIf="item.accessLevel == \'teacher\'; " text-wrap>\n      <teachers-module></teachers-module>\n    </ion-item>       \n\n\n    <ion-item *ngIf="item.accessLevel == \'student\' ;">\n     <students-module></students-module>\n    </ion-item>\n\n    <ion-item *ngIf="item.accessLevel == \'tutor\';">\n      <tutor></tutor>\n     </ion-item>\n\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/components/dashboard/dashboard.html"*/,
+>>>>>>> master
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */],
             __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]])
@@ -1514,7 +1518,7 @@ var TutorRequestComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnnouncementComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__announcements_service__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__announcements_service__ = __webpack_require__(159);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1735,7 +1739,11 @@ var ReglamentoComponent = (function () {
     };
     ReglamentoComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+<<<<<<< HEAD
             selector: 'app-reglamento',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\aboutus\modals\reglamento.component.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-buttons start>\n\n      <button ion-button (click)="dismiss()">\n\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content id="paddinBottom">\n\n<ion-card class="spacebottom2">\n\n  <ion-card-header class="center">\n\n    Estatutos, Reglamentos <br> y Disposiciones Generales\n\n  </ion-card-header>\n\n  <ion-card-content class="justify">\n\n    El centro de Formación Musical, tiene entre sus facultades encauzar las aptitudes artísticas y académicas tanto de niños, jóvenes y adultos, enfocándose así a su formación y desarrollo tanto musical como académico.\n\nEl presente Reglamento tiene como propósito promover el orden, dentro de un marco educativo, que permita regular el óptimo desarrollo de las actividades musicales y académicas impartidas en la escuela. El cumplimiento de estas normas contribuirá de manera positiva al desarrollo de un ambiente cordial y armónico en la comunidad CFM y además para para la vigilancia y control integral de los bienes muebles e inmuebles que son patrimonio de la Escuela de Música, por lo que es de importancia general y de observancia obligatoria para los alumnos, profesores y personal que forman parte del CFM y Mr. NERD así como para el cuidado de las relaciones afectivas de la #Familia CFM.\n\n  </ion-card-content>\n\n  <a  href="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/Reglamento%20Academico%2FReglamento%20CFM.pdf?alt=media&token=22fd1c61-f2fd-4b1c-b613-501735b66702" download="Reglamento">\n\n  <button ion-button full >Descargar en PDF <ion-icon name="md-download" > </ion-icon></button>\n\n  </a>\n\n</ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\aboutus\modals\reglamento.component.html"*/,
+=======
+            selector: 'app-reglamento',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/aboutus/modals/reglamento.component.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content id="paddinBottom">\n<ion-card class="spacebottom2">\n  <ion-card-header class="center">\n    Estatutos, Reglamentos <br> y Disposiciones Generales\n  </ion-card-header>\n  <ion-card-content class="justify">\n    El centro de Formación Musical, tiene entre sus facultades encauzar las aptitudes artísticas y académicas tanto de niños, jóvenes y adultos, enfocándose así a su formación y desarrollo tanto musical como académico.\nEl presente Reglamento tiene como propósito promover el orden, dentro de un marco educativo, que permita regular el óptimo desarrollo de las actividades musicales y académicas impartidas en la escuela. El cumplimiento de estas normas contribuirá de manera positiva al desarrollo de un ambiente cordial y armónico en la comunidad CFM y además para para la vigilancia y control integral de los bienes muebles e inmuebles que son patrimonio de la Escuela de Música, por lo que es de importancia general y de observancia obligatoria para los alumnos, profesores y personal que forman parte del CFM y Mr. NERD así como para el cuidado de las relaciones afectivas de la #Familia CFM.\n  </ion-card-content>\n  <a  href="https://firebasestorage.googleapis.com/v0/b/pcfm-5eeb9.appspot.com/o/Reglamento%20Academico%2FReglamento%20CFM.pdf?alt=media&token=22fd1c61-f2fd-4b1c-b613-501735b66702" >\n  <button ion-button full >Descargar en PDF <ion-icon name="md-download" > </ion-icon></button>\n  </a>\n</ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/aboutus/modals/reglamento.component.html"*/,
+>>>>>>> master
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */]])
     ], ReglamentoComponent);
@@ -1942,12 +1950,15 @@ var InvitationComponent = (function () {
         var day = __WEBPACK_IMPORTED_MODULE_3_moment__();
         this.currentUser = this.auth.auth.currentUser.uid;
         this.currentDay = Number(day.format('DDD'));
-        this.maxDay = 41;
+        this.maxDay = 49;
+        console.log(this.currentDay);
         this.user = isrv.searchByInvitationStat(this.currentUser);
     }
+    InvitationComponent.prototype.ngOnInit = function () {
+    };
     InvitationComponent.prototype.showToast = function (position) {
         var toast = this.toastCtrl.create({
-            message: 'Para acceder al evento es necesario ser alumno #CFM y confirmar su asistencia dentro de la App. Desliza el botón de "Asistencia" de izquiera a derecha para confirmar tu asistencia y generar un pase.',
+            message: 'Para acceder al evento es necesario ser alumno #CFM y confirmar su asistencia dentro de la App. Desliza el botón de "Asistencia" de izquierda a derecha para confirmar tu asistencia y generar un pase.',
             showCloseButton: true,
             closeButtonText: 'Ok',
             position: position
@@ -1973,9 +1984,13 @@ var InvitationComponent = (function () {
     InvitationComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
 <<<<<<< HEAD
+<<<<<<< HEAD
             selector: 'app-invitation',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\invitation\invitation.component.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content  padding>\n\n  <div *ngIf="currentDay < maxDay">\n\n  <ion-card >\n\n    <ion-card-header class="center">\n\n      ¡Bienvenido a CFM!\n\n    </ion-card-header>\n\n    <ion-card-content class="justify">\n\n      Centro de Formación Músical te la bienvenida a nuestra escuela, brindando\n\n      una fiesta de bienvenida donde contaremos con comida, concierto entre otras sorpresas.\n\n\n\n      <br><br>\n\n      <!--BOTON PARA VER LOS REQUERIMINETOS PARA ACCEDER A LA FIESTA-->\n\n      <button ion-button block (click)="showToast(\'middle\')">Requisitos para asistir</button>\n\n      <br>\n\n\n\n      Para acceder al evento confirma tu asistencia descargando el pase de Bienvenida\n\n      CFM.\n\n      <br>\n\n\n\n    </ion-card-content>\n\n\n\n  </ion-card>\n\n  <br>\n\n\n\n<div *ngFor="let item of user | async">\n\n\n\n  <ion-card >\n\n    <ion-card-header class="center">\n\n      <ion-item> \n\n        <ion-label *ngIf="item.invitation">Si asistiré</ion-label>\n\n        <ion-label *ngIf="!item.invitation">No asistiré</ion-label>\n\n        <ion-toggle color="secondary" (ionChange)="generateInvitation(item.invitation)" [(ngModel)]="item.invitation" ></ion-toggle>\n\n      </ion-item> \n\n    </ion-card-header>\n\n    <ion-card-content>\n\n      <!-- TOOGLE PARA CONFIRMAR -->\n\n\n\n      <div *ngIf="item.invitation" class="justify">\n\n        ¡Tu confimación se realizó con exito! <br><br>\n\n        Te esperamos el 17 de Febrero, recuerda guardar tu pase a la fiesta, podrás acceder a el dentro de la aplicación siempre que quieras.\n\n        <br>\n\n        <br>\n\n        \n\n        <button ion-button full>FOLIO: {{item.invitations.code}}  </button>\n\n     \n\n        <br>\n\n        A nombre: {{item.name +" "+item.lastName +" " +item.lastName2}} \n\n        <br>\n\n        -Si desea cancelar su confirmación, puede deseleccionar la opción de "Sí asistiré" y su pase sera automaticamente cancelado. <br><br>\n\n        -En caso de cancelar su asistencia por accidente u otra razón, debera generar un nuevo pase, ya que el anterior se tomara como cancelado. <br>\n\n      </div>\n\n      <!-- FIN TOOGLE CONFIRMAR -->\n\n      <div *ngIf="!item.invitation" class="justify">\n\n        -Fecha limite para confirmar asistencia: 10 de Febrero, 2018. <br><br>\n\n        -Niños menores de 12 años tienen derecho a ir acompañados de 1 adulto. <br><br>\n\n        -Si desea cancelar su confirmación, puede deseleccionar la opción de "Sí asistiré" y su pase sera automaticamente borrado. <br><br>\n\n        -En caso de cancelar su asistencia por accidente u otra razón, debera generar un nuevo pase, ya que el anterior se tomara cancelado. <br><br>\n\n        -Solo puede generar 1 pase por alumno. <br>\n\n      </div>\n\n    </ion-card-content>\n\n\n\n  </ion-card>\n\n</div>\n\n\n\n\n\n  <!-- OBSERVACIONES -->\n\n  <ion-card-content>\n\n\n\n\n\n  </ion-card-content>\n\n</div>\n\n<div *ngIf="currentDay >= maxDay">\n\n    <ion-card >\n\n        <ion-card-content class="justify">\n\n          Centro de Formación Músical te las gracias por haber participado.\n\n          Lamentablemente la fecha de invitaciones ha concluido.\n\n          <br>\n\n    \n\n        </ion-card-content>\n\n    \n\n      </ion-card>\n\n</div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\invitation\invitation.component.html"*/,
 =======
             selector: 'app-invitation',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/invitation/invitation.component.html"*/'<ion-header>\n  <ion-toolbar>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content  padding>\n  <div *ngIf="currentDay < maxDay">\n  <ion-card >\n    <ion-card-header class="center">\n      ¡Bienvenido a CFM!\n    </ion-card-header>\n    <ion-card-content class="justify">\n      Centro de Formación Músical te la bienvenida a nuestra escuela, brindando\n      una fiesta de bienvenida donde contaremos con comida, concierto entre otras sorpresas.\n\n      <br><br>\n      <!--BOTON PARA VER LOS REQUERIMINETOS PARA ACCEDER A LA FIESTA-->\n      <button ion-button block (click)="showToast(\'middle\')">Requisitos para asistir</button>\n      <br>\n\n      Para acceder al evento confirma tu asistencia descargando el pase de Bienvenida\n      CFM.\n      <br>\n\n    </ion-card-content>\n\n  </ion-card>\n  <br>\n\n<div *ngFor="let item of user | async">\n    <div *ngIf="item.accessLevel == \'student\' || item.accessLevel == \'tutor\';">\n  <ion-card >\n    <ion-card-header class="center">\n      <ion-item> \n        <ion-label *ngIf="item.invitation">Si asistiré</ion-label>\n        <ion-label *ngIf="!item.invitation">No asistiré</ion-label>\n        <ion-toggle color="secondary" (ionChange)="generateInvitation(item.invitation)" [(ngModel)]="item.invitation" ></ion-toggle>\n      </ion-item> \n    </ion-card-header>\n    <ion-card-content>\n      <!-- TOOGLE PARA CONFIRMAR -->\n      \n\n      \n      <div *ngIf="item.invitation" class="justify">\n        ¡Tu confimación se realizó con exito! <br><br>\n        Te esperamos el 17 de Febrero, recuerda guardar tu pase a la fiesta, podrás acceder a el dentro de la aplicación siempre que quieras.\n        <br>\n        <br>\n        \n        <button ion-button full>FOLIO: {{item.invitations.code}}  </button>\n     \n        <br>\n        A nombre: {{item.name +" "+item.lastName +" " +item.lastName2}} \n        <br>\n        -Si desea cancelar su confirmación, puede deseleccionar la opción de "Sí asistiré" y su pase sera automaticamente cancelado. <br><br>\n        -En caso de cancelar su asistencia por accidente u otra razón, debera generar un nuevo pase, ya que el anterior se tomara como cancelado. <br>\n      </div>\n      <!-- FIN TOOGLE CONFIRMAR -->\n      <div *ngIf="!item.invitation" class="justify">\n        -Fecha limite para confirmar asistencia: 10 de Febrero, 2018. <br><br>\n        -Niños menores de 12 años tienen derecho a ir acompañados de 1 adulto. <br><br>\n        -Si desea cancelar su confirmación, puede deseleccionar la opción de "Sí asistiré" y su pase sera automaticamente borrado. <br><br>\n        -En caso de cancelar su asistencia por accidente u otra razón, debera generar un nuevo pase, ya que el anterior se tomara cancelado. <br><br>\n        -Solo puede generar 1 pase por alumno. <br>\n      </div>\n    </ion-card-content>\n\n  </ion-card>\n</div>\n</div>\n\n\n  <!-- OBSERVACIONES -->\n  <ion-card-content>\n\n\n  </ion-card-content>\n</div>\n<div *ngIf="currentDay >= maxDay">\n    <ion-card >\n        <ion-card-content class="justify">\n          Centro de Formación Músical te las gracias por haber participado.\n          Lamentablemente la fecha de invitaciones ha concluido.\n          <br>\n    \n        </ion-card-content>\n    \n      </ion-card>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/invitation/invitation.component.html"*/,
+>>>>>>> master
+=======
+            selector: 'app-invitation',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/invitation/invitation.component.html"*/'<ion-header>\n  <ion-toolbar>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content  padding>\n\n  <div *ngIf="currentDay < maxDay">\n  <ion-card >\n    <ion-card-header class="center">\n      ¡Bienvenido a CFM!\n    </ion-card-header>\n    <ion-card-content class="justify">\n      Centro de Formación Músical te la bienvenida a nuestra escuela, brindando\n      una fiesta de bienvenida donde contaremos con comida, concierto entre otras sorpresas.\n\n      <br><br>\n      <!--BOTON PARA VER LOS REQUERIMINETOS PARA ACCEDER A LA FIESTA-->\n      <button ion-button block (click)="showToast(\'middle\')">Requisitos para asistir</button>\n      <br>\n\n      Para acceder al evento confirma tu asistencia descargando el pase de Bienvenida\n      CFM.\n      <br>\n\n    </ion-card-content>\n\n  </ion-card>\n  <br>\n\n  \n\n<div *ngFor="let item of user | async">\n    <div *ngIf="item.accessLevel == \'student\' || item.accessLevel == \'tutor\' || item.accessLevel == \'coordi\' || item.accessLevel == \'admin\' ;">\n  <ion-card >\n    <ion-card-header class="center">\n      <ion-item> \n        <ion-label *ngIf="item.invitation">Si asistiré</ion-label>\n        <ion-label *ngIf="!item.invitation">No asistiré</ion-label>\n        <ion-toggle color="secondary" (ionChange)="generateInvitation(item.invitation)" [(ngModel)]="item.invitation" ></ion-toggle>\n      </ion-item> \n    </ion-card-header>\n    <ion-card-content>\n      <!-- TOOGLE PARA CONFIRMAR -->\n      \n\n      \n      <div *ngIf="item.invitation" class="justify">\n        ¡Tu confimación se realizó con exito! <br><br>\n        Te esperamos el 17 de Febrero, recuerda guardar tu pase a la fiesta, podrás acceder a el dentro de la aplicación siempre que quieras.\n        <br>\n        <br>\n        \n        <button ion-button full>FOLIO: {{item.invitations.code}}  </button>\n     \n        <br>\n        A nombre: {{item.name +" "+item.lastName +" " +item.lastName2}} \n        <br>\n        -Si desea cancelar su confirmación, puede deseleccionar la opción de "Sí asistiré" y su pase sera automaticamente cancelado. <br><br>\n        -En caso de cancelar su asistencia por accidente u otra razón, debera generar un nuevo pase, ya que el anterior se tomara como cancelado. <br>\n      </div>\n      <!-- FIN TOOGLE CONFIRMAR -->\n      <div *ngIf="!item.invitation" class="justify">\n        -Fecha limite para confirmar asistencia: 10 de Febrero, 2018. <br><br>\n        -Niños menores de 12 años tienen derecho a ir acompañados de 1 adulto. <br><br>\n        -Si desea cancelar su confirmación, puede deseleccionar la opción de "Sí asistiré" y su pase sera automaticamente borrado. <br><br>\n        -En caso de cancelar su asistencia por accidente u otra razón, debera generar un nuevo pase, ya que el anterior se tomara cancelado. <br><br>\n        -Solo puede generar 1 pase por alumno. <br>\n      </div>\n    </ion-card-content>\n\n  </ion-card>\n</div>\n</div>\n\n\n  <!-- OBSERVACIONES -->\n  <ion-card-content>\n\n\n  </ion-card-content>\n</div>\n<div *ngIf="currentDay >= maxDay">\n    <ion-card >\n        <ion-card-content class="justify">\n          Centro de Formación Músical te las gracias por haber participado.\n          Lamentablemente la fecha de invitaciones ha concluido.\n          <br>\n    \n        </ion-card-content>\n    \n      </ion-card>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/invitation/invitation.component.html"*/,
 >>>>>>> master
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */],
@@ -2022,6 +2037,9 @@ var InvitationService = (function () {
     };
     InvitationService.prototype.searchByUID = function (uid) {
         return this.db.list('invitations', function (val) { return val.orderByChild('uid').equalTo(uid); }).valueChanges();
+    };
+    InvitationService.prototype.searchInfo = function () {
+        return this.db.list('info');
     };
     InvitationService.prototype.searchByInvitationStat = function (uid) {
         return this.db.list('users', function (val) { return val.orderByChild('uid').equalTo(uid); }).valueChanges();
@@ -2073,8 +2091,8 @@ var News = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__news__ = __webpack_require__(453);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_push_service__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__news_service__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__news_list_component__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__news_service__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__news_list_component__ = __webpack_require__(160);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2206,7 +2224,7 @@ var Upload = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProspectModalComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_service__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_service__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prospect_crud_component__ = __webpack_require__(466);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2261,13 +2279,16 @@ var ProspectModalComponent = (function () {
         console.log(this.properties);
         this.list = this.prosSrv.searchProspectByProperty(this.properties.textProperty, this.properties.property);
         this.advSrch = false;
-        console.log(this.advSrch);
     };
     ProspectModalComponent.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
     };
     ProspectModalComponent = __decorate([
+<<<<<<< HEAD
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\propects\prospect.component.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>\n\n      Prospectos\n\n    </ion-title>\n\n    <ion-buttons start>\n\n      <button ion-button (click)="dismiss()">\n\n        <span ion-text color="primary" showWhen="ios">Cancelar</span>\n\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n<ion-item>\n\n<button type="button" large block ion-button (click)="openCreatorProspectForm()"> Crear prospecto </button>\n\n</ion-item>\n\n<!--d-->\n\n\n\n\n\n\n\n<!--sss-->\n\n<ion-searchbar (keyup)="getItems($event)" ></ion-searchbar>\n\n\n\n<ion-item >\n\n  <ion-label>Estadística del día</ion-label>\n\n  <div class="chart-container" style="position: relative; height:40vh; width:80vw">\n\n      <canvas id="chart"></canvas>\n\n  </div>\n\n</ion-item>\n\n\n\n\n\n\n\n\n\n\n\n<ion-item>\n\n  <ion-label>Busqueda avanzada</ion-label>\n\n  <ion-toggle color="secondary" [(ngModel)]="advSrch" checked="false"></ion-toggle>\n\n</ion-item>\n\n\n\n\n\n<div *ngIf="advSrch">\n\n  <ion-item>\n\n    <ion-label>Buscar por:</ion-label>\n\n    <ion-select  [(ngModel)]="properties.property">\n\n      <ion-option value="attended">Atendió</ion-option>\n\n      <ion-option value="age">Edad </ion-option>\n\n      <ion-option value="state">Estado </ion-option>\n\n      <ion-option value="status">Estatus </ion-option>\n\n      <ion-option value="course">Curso</ion-option>\n\n      <ion-option value="source">Fuente</ion-option>\n\n      <ion-option value="lastname">Apellido paterno</ion-option>\n\n      <ion-option value="lastname2">Apellido materno</ion-option>\n\n    </ion-select>\n\n  </ion-item>\n\n\n\n  <ion-item >\n\n    <label>Cuando sea:</label>\n\n    <input [(ngModel)]="properties.textProperty" placeholder="De acuerdo a...">\n\n  </ion-item>\n\n\n\n<ion-item>\n\n  <button type="button" (click)="searchProspectByProperty()" ion-button block>Buscar</button>\n\n</ion-item>\n\n\n\n</div>\n\n\n\n<!--Resultados de busqueda-->\n\n<ion-list>\n\n<ion-item-group >\n\n<ion-item-divider style="text-align:center;" color="light">Prospectos del día</ion-item-divider>\n\n<ion-item-sliding *ngFor="let item of list | async; index as i;" [attr.data-index]="i">\n\n  <ion-item >\n\n      <p>{{ i+1 + ". "+ item.name + " " + item.lastname +" " +item.phone}}</p>\n\n  </ion-item>\n\n\n\n<ion-item-options  side="right">\n\n    <button (click)="editProspect(item)" ion-button color="secondary">\n\n      <ion-icon name="open"></ion-icon>\n\n      Editar\n\n    </button>\n\n    <button (click)="deleteProspect(item)" ion-button  color="danger">\n\n      <ion-icon name="trash"></ion-icon>\n\n      Eliminar\n\n    </button>\n\n  </ion-item-options>\n\n</ion-item-sliding>\n\n</ion-item-group>\n\n</ion-list>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\propects\prospect.component.html"*/
+=======
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/propects/prospect.component.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Prospectos\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancelar</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n<ion-item>\n<button type="button" large block ion-button (click)="openCreatorProspectForm()"> Crear prospecto </button>\n</ion-item>\n<!--d-->\n\n\n\n<!--sss-->\n<ion-searchbar (keyup)="getItems($event)" ></ion-searchbar>\n\n<ion-item >\n  <ion-label>Estadística del día</ion-label>\n  <div class="chart-container" style="position: relative; height:40vh; width:80vw">\n      <canvas id="chart"></canvas>\n  </div>\n</ion-item>\n\n\n\n\n\n<ion-item>\n  <ion-label>Busqueda avanzada</ion-label>\n  <ion-toggle color="secondary" [(ngModel)]="advSrch" checked="false"></ion-toggle>\n</ion-item>\n\n\n<div *ngIf="advSrch">\n  <ion-item>\n    <ion-label>Buscar por:</ion-label>\n    <ion-select  [(ngModel)]="properties.property">\n      <ion-option value="attended">Atendió</ion-option>\n      <ion-option value="age">Edad </ion-option>\n      <ion-option value="state">Estado </ion-option>\n      <ion-option value="status">Estatus </ion-option>\n      <ion-option value="course">Curso</ion-option>\n      <ion-option value="source">Fuente</ion-option>\n      <ion-option value="phone">Telefono</ion-option> \n      <!--llamada y página web-->     \n      <ion-option value="lastname">Apellido paterno</ion-option>\n      <ion-option value="lastname2">Apellido materno</ion-option>\n    </ion-select>\n  </ion-item>\n\n  <ion-item >\n    <label>Cuando sea:</label>\n    <input [(ngModel)]="properties.textProperty" placeholder="De acuerdo a...">\n  </ion-item>\n\n<ion-item>\n  <button type="button" (click)="searchProspectByProperty()" ion-button block>Buscar</button>\n</ion-item>\n\n</div>\n\n<!--Resultados de busqueda-->\n<ion-list>\n<ion-item-group >\n<ion-item-divider style="text-align:center;" color="light">Prospectos del día</ion-item-divider>\n<ion-item-sliding  *ngFor="let item of list | async; index as i;" [attr.data-index]="i">\n  <ion-item >\n      <p style="font-size: 100%;">{{ i+1 + ". "+ item.name + " " + item.lastname +" " +item.phone}}</p>\n  </ion-item>\n\n<ion-item-options  side="right">\n    <button (click)="editProspect(item)" ion-button color="secondary">\n      <ion-icon name="open"></ion-icon>\n      Editar\n    </button>\n    <button (click)="deleteProspect(item)" ion-button  color="danger">\n      <ion-icon name="trash"></ion-icon>\n      Eliminar\n    </button>\n  </ion-item-options>\n</ion-item-sliding>\n</ion-item-group>\n</ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/propects/prospect.component.html"*/
+>>>>>>> master
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -2288,8 +2309,8 @@ var ProspectModalComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProspectCrudComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_service__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prospect__ = __webpack_require__(684);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_service__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prospect__ = __webpack_require__(687);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2358,7 +2379,11 @@ var ProspectCrudComponent = (function () {
     };
     ProspectCrudComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+<<<<<<< HEAD
             selector: "prospect-crud",template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\propects\prospect-crud.component.html"*/'<ion-header>\n\n  <ion-toolbar>\n\n    <ion-title>\n\n      Prospectos\n\n    </ion-title>\n\n    <ion-buttons start>\n\n      <button ion-button (click)="dismiss()">\n\n        <span ion-text color="primary" showWhen="ios">Cancelar</span>\n\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-header>\n\n<ion-content>\n\n\n\n<!--Si no va a editar-->\n\n  <ion-list *ngIf="isEditing == false; else editing">\n\n\n\n    <ion-item>\n\n      <input placeholder="Nombre" [(ngModel)]="currentProspect.name" name="name" type="text">\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <input placeholder="Apellido paterno" [(ngModel)]="currentProspect.lastname" name="lastname" type="text">\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <input placeholder="Apellido Materno"  [(ngModel)]="currentProspect.lastname2" name="lastname2" type="text">\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <input placeholder="Edad" [(ngModel)]="currentProspect.age" name="age" type="text">\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Estado</ion-label>\n\n      <ion-select [(ngModel)]="currentProspect.state" name="state">\n\n        <ion-option value="si">Si</ion-option>\n\n        <ion-option value="nn">No</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <input placeholder="Telefono" maxlength="10" [(ngModel)]="currentProspect.phone" name="phone" type="text">\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Estatus</ion-label>\n\n      <ion-select [(ngModel)]="currentProspect.status" name="status">\n\n        <ion-option value="debil">Débil</ion-option>\n\n        <ion-option value="interesado">Interesado</ion-option>\n\n        <ion-option value="inscrito">Inscrito</ion-option>\n\n        <ion-option value="muerto">Muerto</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Atendió</ion-label>\n\n      <ion-select [(ngModel)]="currentProspect.attended" name="attended">\n\n        <ion-option *ngFor="let item of coordi | async" value="{{item.name}}">{{item.name}}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Cursos</ion-label>\n\n      <ion-select [(ngModel)]="currentProspect.course" name="course">\n\n        <ion-option *ngFor="let item of cursos;" value="{{item}}">{{item}}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n\n\n    <ion-item>\n\n      <textarea rows=\'5\' [(ngModel)]="currentProspect.coment" name="coment" data-min-rows=\'3\' name="coment" placeholder=\'Comentario...\' required></textarea>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Fuente</ion-label>\n\n      <ion-select [(ngModel)]="currentProspect.source" name="source">\n\n        <ion-option value="inboxfb">INBOX FB</ion-option>\n\n        <ion-option value="whatsapp">WHATSAPP</ion-option>\n\n        <ion-option value="comentariofb">COMENTARIO</ion-option>\n\n        <ion-option value="database">BASE DE DATOS</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n\n\n\n\n    <ion-item>\n\n        <ion-icon name="logo-usd" item-start></ion-icon>\n\n          Precio\n\n        <input [(ngModel)]="currentProspect.price" name="price" type="text">\n\n      </ion-item>\n\n\n\n\n\n      <button type="button" ion-button block (click)="createNewProspect()" > Crear prospecto </button>\n\n\n\n  </ion-list>\n\n\n\n<ng-template #editing>\n\n\n\n      <ion-item>\n\n        <input  placeholder="Nombre" [(ngModel)]="item.name" name="name" type="text">\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <input placeholder="Apellido paterno"  [(ngModel)]="item.lastname" name="lastname" type="text">\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <input  placeholder="Apellido materno" [(ngModel)]="item.lastname2" name="lastname2" type="text">\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <input placeholder="Edad" [(ngModel)]="item.age" name="age" type="text">\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label>Estado</ion-label>\n\n        <ion-select [(ngModel)]="item.state" name="state">\n\n          <ion-option value="si">Si</ion-option>\n\n          <ion-option value="nn">No</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <input placeholder="Telefono"  maxlength="10" [(ngModel)]="item.phone" name="phone" type="text">\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label>Estatus</ion-label>\n\n        <ion-select [(ngModel)]="item.status" name="status">\n\n          <ion-option value="debil">Débil</ion-option>\n\n          <ion-option value="interesado">Interesado</ion-option>\n\n          <ion-option value="inscrito">Inscrito</ion-option>\n\n          <ion-option value="muerto">Muerto</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label>Atendió</ion-label>\n\n        <ion-select [(ngModel)]="item.attended" name="attended">\n\n          <ion-option *ngFor="let item of coordi | async" value="{{item.name}}">{{item.name}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label>Cursos</ion-label>\n\n        <ion-select [(ngModel)]="item.course" name="course">\n\n          <ion-option *ngFor="let item of cursos;" value="{{item}}">{{item}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n\n\n\n\n      <ion-item>\n\n        <textarea rows=\'5\' [(ngModel)]="item.coment" name="coment" data-min-rows=\'3\' name="coment" placeholder=\'Comentario...\' required></textarea>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label>Fuente</ion-label>\n\n        <ion-select [(ngModel)]="item.source" name="source">\n\n          <ion-option value="inboxfb">INBOX FB</ion-option>\n\n          <ion-option value="whatsapp">WHATSAPP</ion-option>\n\n          <ion-option value="comentariofb">COMENTARIO</ion-option>\n\n          <ion-option value="database">BASE DE DATOS</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n\n\n\n\n      <ion-item>\n\n          <ion-icon name="logo-usd" item-start></ion-icon>\n\n            Precio\n\n          <input [(ngModel)]="item.price" name="price" type="text">\n\n        </ion-item>\n\n\n\n\n\n        <button type="button" ion-button block (click)="editCurrentProspect(item)" > Editar prospecto </button>\n\n\n\n</ng-template>\n\n\n\n  <!--Si va a editar-->\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\propects\prospect-crud.component.html"*/,
+=======
+            selector: "prospect-crud",template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/propects/prospect-crud.component.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Prospectos\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancelar</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n<!--Si no va a editar-->\n  <ion-list *ngIf="isEditing == false; else editing">\n\n    <ion-item>\n      <p>Nombre</p>\n      <input placeholder="Nombre" [(ngModel)]="currentProspect.name" name="name" type="text">\n    </ion-item>\n\n    <ion-item>\n      <p>Apellido paterno</p>\n      <input placeholder="Apellido paterno" [(ngModel)]="currentProspect.lastname" name="lastname" type="text">\n    </ion-item>\n\n    <ion-item>\n      <p>Apellido Materno</p>\n      <input placeholder="Apellido Materno"  [(ngModel)]="currentProspect.lastname2" name="lastname2" type="text">\n    </ion-item>\n\n    <ion-item>\n      <p>Edad</p>\n      <input placeholder="Edad" [(ngModel)]="currentProspect.age" name="age" type="text">\n      <p>Solo números enteros (necesario).</p>\n    </ion-item>\n\n    <!--<ion-item>\n      <ion-label>Estado</ion-label>\n      <ion-select [(ngModel)]="currentProspect.state" name="state">\n        <ion-option value="si">Si</ion-option>\n        <ion-option value="nn">No</ion-option>\n      </ion-select>\n    </ion-item>-->\n\n    <ion-item>\n      <p>Número de telefono</p>\n      <input placeholder="Telefono" maxlength="10" [(ngModel)]="currentProspect.phone" name="phone" type="text">\n      <p>Máximo 10 dígitos.</p>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Estatus</ion-label>\n      <ion-select [(ngModel)]="currentProspect.status" name="status">\n        <ion-option value="debil">Débil</ion-option>\n        <ion-option value="interesado">Interesado</ion-option>\n        <ion-option value="inscrito">Inscrito</ion-option>\n        <ion-option value="muerto">Muerto</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Atendió</ion-label>\n      <ion-select [(ngModel)]="currentProspect.attended" name="attended">\n        <ion-option *ngFor="let item of coordi | async" value="{{item.name}}">{{item.name}}</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Cursos</ion-label>\n      <ion-select [(ngModel)]="currentProspect.course" name="course">\n        <ion-option *ngFor="let item of cursos;" value="{{item}}">{{item}}</ion-option>\n      </ion-select>\n    </ion-item>\n\n\n    <ion-item>\n      <textarea rows=\'5\' [(ngModel)]="currentProspect.coment" name="coment" data-min-rows=\'3\' name="coment" placeholder=\'Comentario...\' required></textarea>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Fuente</ion-label>\n      <ion-select [(ngModel)]="currentProspect.source" name="source">\n        <ion-option value="inboxfb">INBOX FB</ion-option>\n        <ion-option value="whatsapp">WHATSAPP</ion-option>\n        <ion-option value="comentariofb">COMENTARIO</ion-option>\n        <ion-option value="database">BASE DE DATOS</ion-option>\n      </ion-select>\n    </ion-item>\n\n\n    <ion-item>\n        <ion-icon name="logo-usd" item-start></ion-icon>\n          Precio\n        <input [(ngModel)]="currentProspect.price" name="price" type="text">\n        <p>Solo números enteros sin decimales.</p>\n      </ion-item>\n\n\n      <button type="button" ion-button block (click)="createNewProspect()" > Crear prospecto </button>\n\n  </ion-list>\n\n<ng-template #editing>\n\n      <ion-item>\n          <p>Nombre</p>\n        <input  placeholder="Nombre" [(ngModel)]="item.name" name="name" type="text">\n      </ion-item>\n\n      <ion-item>\n          <p>Apellido paterno</p>\n        <input placeholder="Apellido paterno"  [(ngModel)]="item.lastname" name="lastname" type="text">\n      </ion-item>\n\n      <ion-item>\n          <p>Apellido Materno</p>        \n        <input  placeholder="Apellido materno" [(ngModel)]="item.lastname2" name="lastname2" type="text">\n      </ion-item>\n\n      <ion-item>\n          <p>Edad</p>\n        \n        <input placeholder="Edad" [(ngModel)]="item.age" name="age" type="text">\n        <p>Solo números enteros (necesario).</p>\n        \n      </ion-item>\n\n      <!--ion-item>\n        <ion-label>Estado</ion-label>\n        <ion-select [(ngModel)]="item.state" name="state">\n          <ion-option value="si">Si</ion-option>\n          <ion-option value="nn">No</ion-option>\n        </ion-select>\n      </ion-item>-->\n\n      <ion-item>\n        <p>Número de telefono</p>\n        <input placeholder="Telefono"  maxlength="10" [(ngModel)]="item.phone" name="phone" type="text">\n        <p>Máximo 10 dígitos.</p>\n      </ion-item>\n\n      <ion-item>\n        <ion-label>Estatus</ion-label>\n        <ion-select [(ngModel)]="item.status" name="status">\n          <ion-option value="debil">Débil</ion-option>\n          <ion-option value="interesado">Interesado</ion-option>\n          <ion-option value="inscrito">Inscrito</ion-option>\n          <ion-option value="muerto">Muerto</ion-option>\n        </ion-select>\n      </ion-item>\n\n      <ion-item>\n        <ion-label>Atendió</ion-label>\n        <ion-select [(ngModel)]="item.attended" name="attended">\n          <ion-option *ngFor="let item of coordi | async" value="{{item.name}}">{{item.name}}</ion-option>\n        </ion-select>\n      </ion-item>\n\n      <ion-item>\n        <ion-label>Cursos</ion-label>\n        <ion-select [(ngModel)]="item.course" name="course">\n          <ion-option *ngFor="let item of cursos;" value="{{item}}">{{item}}</ion-option>\n        </ion-select>\n      </ion-item>\n\n\n      <ion-item>\n        <textarea rows=\'5\' [(ngModel)]="item.coment" name="coment" data-min-rows=\'3\' name="coment" placeholder=\'Comentario...\' required></textarea>\n      </ion-item>\n\n      <ion-item>\n        <ion-label>Fuente</ion-label>\n        <ion-select [(ngModel)]="item.source" name="source">\n          <ion-option value="inboxfb">INBOX FB</ion-option>\n          <ion-option value="whatsapp">WHATSAPP</ion-option>\n          <ion-option value="comentariofb">COMENTARIO</ion-option>\n          <ion-option value="database">BASE DE DATOS</ion-option>\n        </ion-select>\n      </ion-item>\n\n\n      <ion-item>\n          <ion-icon name="logo-usd" item-start></ion-icon>\n            Precio\n          <input [(ngModel)]="item.price" name="price" type="text">\n          <p>Solo números enteros sin decimales.</p>\n        </ion-item>\n\n\n        <button type="button" ion-button block (click)="editCurrentProspect(item)" > Editar prospecto </button>\n\n</ng-template>\n\n  <!--Si va a editar-->\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/propects/prospect-crud.component.html"*/,
+>>>>>>> master
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -2550,7 +2575,7 @@ var QualificationComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CourseDetail_component__ = __webpack_require__(471);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__students_services__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__students_services__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular_navigation_nav_params__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2585,7 +2610,11 @@ var ClassesComponent = (function () {
     };
     ClassesComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+<<<<<<< HEAD
             selector: 'classes-name',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\students\classes.component.html"*/'<ion-header>\n        <ion-toolbar>\n          <ion-title>\n              Clases\n          </ion-title>\n          <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n              <span ion-text color="primary" showWhen="ios">Cancel</span>\n              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-toolbar>\n      </ion-header>\n      <ion-content>\n            \n            <ion-card>\n                    <ion-card-header>\n                     Cursos\n                    </ion-card-header>\n                  \n                    <ion-list *ngFor="let item of groups | async">\n                      <button (click)="DisplayDetails(item.groupkey)" ion-item>\n                        <ion-icon name="at" item-start></ion-icon>\n                        {{item.name}}\n                      </button>\n                    </ion-list>\n                  </ion-card>\n      </ion-content>'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\students\classes.component.html"*/
+=======
+            selector: 'classes-name',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/students/classes.component.html"*/'<ion-header>\n        <ion-toolbar>\n          <ion-title>\n              Clases\n          </ion-title>\n          <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n              <span ion-text color="primary" showWhen="ios">Cancel</span>\n              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-toolbar>\n      </ion-header>\n      <ion-content>\n            \n            <ion-card>\n                    <ion-card-header>\n                     Cursos\n                    </ion-card-header>\n                  \n                    <ion-list *ngFor="let item of groups | async">\n\n                      <div>\n                          <button (click)="DisplayDetails(item.groupkey)" ion-item>\n\n                              <ion-icon name="at" item-start></ion-icon>\n      \n                              {{item.name}}\n                            </button>\n                      </div>\n                      \n                    </ion-list>\n                  </ion-card>\n      </ion-content>'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/students/classes.component.html"*/
+>>>>>>> master
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
@@ -2606,7 +2635,7 @@ var ClassesComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CourseDetailComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__students_services__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__students_services__ = __webpack_require__(169);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2626,7 +2655,6 @@ var CourseDetailComponent = (function () {
         this.params = params;
         this.stdSrv = stdSrv;
         this.key = this.params.get('lessonkey');
-        console.log(this.key);
         this.lessons = stdSrv.getLessons(this.key);
     }
     CourseDetailComponent.prototype.ngOnInit = function () { };
@@ -2635,7 +2663,11 @@ var CourseDetailComponent = (function () {
     };
     CourseDetailComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+<<<<<<< HEAD
             selector: 'courseDetail-name',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\students\courseDetail.component.html"*/'<ion-header>\n        <ion-toolbar>\n          <ion-title>\n              Detalles de grupo: \n          </ion-title>\n          <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n              <span ion-text color="primary" showWhen="ios">Cancel</span>\n              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-toolbar>\n      </ion-header>\n      <ion-content>\n            <ion-card *ngFor="let item of lessons | async" text-wrap>\n                    <ion-item>\n                      <h2>{{item.name}}</h2>\n                      <p>{{item.createdAt}}</p>\n                    </ion-item>\n                  \n                    <ion-card-content text-wrap>\n                      <p>{{item.bodytext}}</p>\n                    </ion-card-content>\n                    <ion-row>\n\n                      <ion-col>\n                        <a  href="{{item.url}}" download="{{item.name}}">\n                          <button ion-button icon-left clear small >\n                            Recurso Compartido \n                            <ion-icon name="md-cloud-download"></ion-icon>\n                          </button>\n                          </a>\n                  </ion-col>\n                    </ion-row>\n                  \n                  </ion-card>\n\n      </ion-content>'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\students\courseDetail.component.html"*/
+=======
+            selector: 'courseDetail-name',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/students/courseDetail.component.html"*/'<ion-header>\n        <ion-toolbar>\n          <ion-title>\n              Detalles de grupo: \n          </ion-title>\n          <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n              <span ion-text color="primary" showWhen="ios">Cancel</span>\n              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-toolbar>\n      </ion-header>\n      <ion-content>\n        <p>¡Aquí recibirás tus lecciones!</p>\n            <ion-card *ngFor="let item of lessons | async" text-wrap>\n                    <ion-item>\n                      <h2>{{item.name}}</h2>\n                      <p>{{item.createdAt}}</p>\n                    </ion-item>\n                  \n                    <ion-card-content text-wrap>\n                      <p>{{item.bodytext}}</p>\n                    </ion-card-content>\n                    <ion-row>\n\n                      <ion-col>\n                        <a  href="{{item.url}}" >\n                          <button ion-button icon-left clear small >\n                            Recurso Compartido \n                            <ion-icon name="md-cloud-download"></ion-icon>\n                          </button>\n                          </a>\n                  </ion-col>\n                    </ion-row>\n                  \n                  </ion-card>\n\n      </ion-content>'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/students/courseDetail.component.html"*/
+>>>>>>> master
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -2762,7 +2794,11 @@ var GroupDetailsComponent = (function () {
     };
     GroupDetailsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+<<<<<<< HEAD
             selector: 'group-details',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\teachers\groupsDetails.component.html"*/'<ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>\n\n          Lecciones agregadas\n\n      </ion-title>\n\n      <ion-buttons start>\n\n        <button ion-button (click)="dismiss()">\n\n          <span ion-text color="primary" showWhen="ios">Cancel</span>\n\n          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n\n        </button>\n\n      </ion-buttons>\n\n      <ion-buttons end>\n\n            <button (click)="OpenLessonCreator(groupkey)" ion-button >\n\n                    <ion-icon name="add-circle" ></ion-icon>\n\n                  </button>\n\n          </ion-buttons>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n  <ion-content>\n\n        \n\n        <ion-card *ngFor="let item of lessons | async" text-wrap>\n\n           \n\n                <ion-item>\n\n                  <h2>{{item.name}}</h2>\n\n                  <p>{{item.createdAt}}</p>\n\n                </ion-item>\n\n              \n\n                <ion-card-content text-wrap>\n\n                  {{item.bodytext}}\n\n                </ion-card-content>\n\n              \n\n                <ion-row>\n\n                    <ion-col>\n\n                      <button (click)="this.tchSrv.deleteLesson(groupkey,item.key)" ion-button icon-left clear small>\n\n                          <ion-icon color="danger" name="trash"></ion-icon>\n\n                      </button>\n\n                    </ion-col>\n\n\n\n                    <ion-col>\n\n                            <a  href="{{item.url}}" download="{{item.name}}">\n\n                              <button ion-button icon-left clear small >\n\n                                Recurso Compartido \n\n                                \n\n                                <ion-icon name="md-cloud-download"></ion-icon>\n\n                              </button>\n\n                              </a>\n\n                          \n\n                       \n\n                      </ion-col>\n\n                    \n\n                      <ion-col>\n\n                          <button (click)="Edit(item.key)" ion-button icon-left clear small>\n\n                            <ion-icon name="build"></ion-icon>\n\n                            <div>Editar</div>\n\n                          </button>\n\n                        </ion-col>\n\n\n\n                  </ion-row>\n\n              </ion-card>\n\n\n\n  </ion-content>'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\teachers\groupsDetails.component.html"*/
+=======
+            selector: 'group-details',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/teachers/groupsDetails.component.html"*/'<ion-header>\n    <ion-toolbar>\n      <ion-title>\n          Lecciones agregadas\n      </ion-title>\n      <ion-buttons start>\n        <button ion-button (click)="dismiss()">\n          <span ion-text color="primary" showWhen="ios">Cancel</span>\n          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n        </button>\n      </ion-buttons>\n      <ion-buttons end>\n            <button (click)="OpenLessonCreator(groupkey)" ion-button >\n                    <ion-icon name="add-circle" ></ion-icon>\n                  </button>\n          </ion-buttons>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content>\n        \n        <ion-card *ngFor="let item of lessons | async" text-wrap>\n           \n                <ion-item>\n                  <h2>{{item.name}}</h2>\n                  <p>{{item.createdAt}}</p>\n                </ion-item>\n              \n                <ion-card-content text-wrap>\n                  {{item.bodytext}}\n                </ion-card-content>\n              \n                <ion-row>\n                    <ion-col>\n                      <button (click)="this.tchSrv.deleteLesson(groupkey,item.key)" ion-button icon-left clear small>\n                          <ion-icon color="danger" name="trash"></ion-icon>\n                      </button>\n                    </ion-col>\n\n                    <ion-col>\n                            <a  href="{{item.url}}">\n                              <button ion-button icon-left clear small >\n                                Recurso Compartido \n                                \n                                <ion-icon name="md-cloud-download"></ion-icon>\n                              </button>\n                              </a>\n                          \n                       \n                      </ion-col>\n                    \n                      <ion-col>\n                          <button (click)="Edit(item.key)" ion-button icon-left clear small>\n                            <ion-icon name="build"></ion-icon>\n                            <div>Editar</div>\n                          </button>\n                        </ion-col>\n\n                  </ion-row>\n              </ion-card>\n\n  </ion-content>'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/teachers/groupsDetails.component.html"*/
+>>>>>>> master
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_view_controller__["a" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_3_ionic_angular_navigation_nav_controller__["a" /* NavController */],
@@ -3008,7 +3044,7 @@ var MemberComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StudentCRMComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__student_services__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__student_services__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__student_crud__ = __webpack_require__(478);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3076,7 +3112,7 @@ var StudentCRMComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_params__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_view_controller__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__student_services__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__student_services__ = __webpack_require__(170);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3136,7 +3172,7 @@ var StudentCrudComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__template_component__ = __webpack_require__(480);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__crud_service__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__crud_service__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3207,7 +3243,7 @@ var CursosComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__crud_service__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__crud_service__ = __webpack_require__(171);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3260,9 +3296,159 @@ var TemplateComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssitanceService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(144);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AssitanceService = (function () {
+    function AssitanceService(http) {
+        this.http = http;
+    }
+    /**
+     * Opciones:
+     * 1 = listar
+     * 2 = insertar
+     * 3 = modificar
+     * 4 = eliminar
+    */
+    AssitanceService.prototype.retrieve = function (sql, option) {
+        return this.http.get('http://centrodeformacionmusical.mx/www/config/Functions.php?sql=' + sql + '&opcion=' + option);
+    };
+    AssitanceService.prototype.retrieveSpecific = function (sql) {
+    };
+    AssitanceService.prototype.save = function () {
+    };
+    AssitanceService.prototype.edit = function () {
+    };
+    AssitanceService.prototype.delete = function () {
+    };
+    AssitanceService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    ], AssitanceService);
+    return AssitanceService;
+}());
+
+//# sourceMappingURL=assistance.service.js.map
+
+/***/ }),
+
+/***/ 482:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AsistenceComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__listComponent_list_assitance_component__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AsistenceComponent = (function () {
+    function AsistenceComponent(viewCtl, navCtl) {
+        this.viewCtl = viewCtl;
+        this.navCtl = navCtl;
+        this.tab1 = __WEBPACK_IMPORTED_MODULE_1__listComponent_list_assitance_component__["a" /* ListAssitanceComponent */];
+        this.tab2 = __WEBPACK_IMPORTED_MODULE_1__listComponent_list_assitance_component__["a" /* ListAssitanceComponent */];
+    }
+    AsistenceComponent.prototype.ngOnInit = function () { };
+    AsistenceComponent.prototype.dismiss = function () {
+        this.navCtl.pop();
+        this.viewCtl.dismiss();
+    };
+    AsistenceComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'assistence',
+            template: "\n    <ion-tabs >\n    <ion-tab tabIcon=\"person\" tabTitle=\"Perfil\"  [root]=\"tab1\"></ion-tab>\n    <ion-tab  tabIcon=\"notifications-outline\"  [root]=\"tab2\"></ion-tab>\n  </ion-tabs>\n    "
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["l" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */]])
+    ], AsistenceComponent);
+    return AsistenceComponent;
+}());
+
+//# sourceMappingURL=assistence.component.js.map
+
+/***/ }),
+
+/***/ 483:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListAssitanceComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_assistance_service__ = __webpack_require__(481);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ListAssitanceComponent = (function () {
+    function ListAssitanceComponent(viewCtl, assisSvc) {
+        this.viewCtl = viewCtl;
+        this.assisSvc = assisSvc;
+    }
+    ListAssitanceComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var sql = "SELECT * FROM horario ORDER BY `horario`.`id_horario` ASC";
+        this.assisSvc.retrieve(sql, 1)
+            .map(function (response) { return response.json(); })
+            .subscribe(function (data) {
+            _this.cursos = data;
+        });
+    };
+    ListAssitanceComponent.prototype.dismiss = function () {
+        this.viewCtl.dismiss();
+    };
+    ListAssitanceComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'ListAssitance',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/CRM/asistencia/components/listComponent/list-assitance.component.html"*/'<ion-header>\n    <ion-toolbar>\n        <ion-title>\n            Asistencia\n        </ion-title>\n        <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n                <span ion-text color="primary" showWhen="ios">Cancelar</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    \n    <ion-item *ngFor="let item of cursos">\n        <p>\n                {{item.nombre + " " + item.horas}}\n    </p>\n    </ion-item>\n</ion-content>'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/CRM/asistencia/components/listComponent/list-assitance.component.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_2__services_assistance_service__["a" /* AssitanceService */]])
+    ], ListAssitanceComponent);
+    return ListAssitanceComponent;
+}());
+
+//# sourceMappingURL=list-assitance.component.js.map
+
+/***/ }),
+
+/***/ 484:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(482);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(500);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(503);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -3270,7 +3456,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 500:
+/***/ 503:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3279,58 +3465,58 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(544);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(267);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__ = __webpack_require__(545);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(554);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__ = __webpack_require__(548);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(557);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_list_list__ = __webpack_require__(647);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_list_list__ = __webpack_require__(650);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_components_navbar_navbar__ = __webpack_require__(648);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_components_navbar_navbar__ = __webpack_require__(651);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_components_dashboard_dashboard__ = __webpack_require__(319);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_components_options_options__ = __webpack_require__(649);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_components_options_options__ = __webpack_require__(652);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__ = __webpack_require__(269);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_components_news_news_list_component__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_components_news_news_list_component__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_components_news_news_component__ = __webpack_require__(454);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_components_pageHandler_pageHandler_component__ = __webpack_require__(650);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_components_pageHandler_pageHandler_component__ = __webpack_require__(653);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_userprofile_profile__ = __webpack_require__(321);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_components_uploads_shared_upload_list_upload_list_component__ = __webpack_require__(651);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_components_uploads_shared_upload_form_upload_form_component__ = __webpack_require__(677);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_components_uploads_shared_upload_service__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_components_news_news_service__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_components_sort_reverse__ = __webpack_require__(678);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_components_modal_modal__ = __webpack_require__(679);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_components_news_news_list_service__ = __webpack_require__(680);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_components_uploads_shared_upload_list_upload_list_component__ = __webpack_require__(654);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_components_uploads_shared_upload_form_upload_form_component__ = __webpack_require__(680);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_components_uploads_shared_upload_service__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_components_news_news_service__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_components_sort_reverse__ = __webpack_require__(681);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_components_modal_modal__ = __webpack_require__(682);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_components_news_news_list_service__ = __webpack_require__(683);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_announcements_announcements__ = __webpack_require__(323);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_announcements_announcement_crud__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_announcements_announcement_crud__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_aboutus_aboutus__ = __webpack_require__(443);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_courses_courses__ = __webpack_require__(449);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__auth_service__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_announcements_announcements_service__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_propects_prospect_button__ = __webpack_require__(682);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_announcements_announcements_service__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_propects_prospect_button__ = __webpack_require__(685);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_propects_prospect_component__ = __webpack_require__(465);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_propects_prospect_service__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_propects_prospect_service__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_propects_prospect_crud_component__ = __webpack_require__(466);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_Users_user_button__ = __webpack_require__(685);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_Users_user_button__ = __webpack_require__(688);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_Users_user_crud_component__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_Users_user_modal_component__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_Users_user_service__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_students_students_component__ = __webpack_require__(686);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_students_students_services__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_students_students_component__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_students_students_services__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_students_qualification_component__ = __webpack_require__(469);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_students_classes_component__ = __webpack_require__(470);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_students_CourseDetail_component__ = __webpack_require__(471);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_teachers_groupAdmin_component__ = __webpack_require__(472);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_teachers_teachers_component__ = __webpack_require__(687);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_teachers_teachers_component__ = __webpack_require__(690);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_teachers_groupsDetails_component__ = __webpack_require__(473);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_teachers_groupForm_component__ = __webpack_require__(475);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_teachers_lessonForm_component__ = __webpack_require__(474);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_teachers_teachers_services__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_teachers_members_component__ = __webpack_require__(476);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_CRM_estudiantes_student_button__ = __webpack_require__(688);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_CRM_estudiantes_student_services__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_CRM_estudiantes_student_button__ = __webpack_require__(691);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_CRM_estudiantes_student_services__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_CRM_estudiantes_student_crud__ = __webpack_require__(478);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_CRM_estudiantes_studentCRM_component__ = __webpack_require__(477);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_userprofile_tutorRequest__ = __webpack_require__(322);
@@ -3340,28 +3526,36 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__pages_aboutus_modals_reglamento_component__ = __webpack_require__(446);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__pages_aboutus_modals_profesoresmodal_component__ = __webpack_require__(447);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__pages_aboutus_modals_manual_component__ = __webpack_require__(448);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__pages_CRM_cursos_crud_service__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__pages_CRM_cursos_crud_service__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_CRM_cursos_cursos_component__ = __webpack_require__(479);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__pages_CRM_cursos_cursosbutton__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__pages_CRM_cursos_cursosbutton__ = __webpack_require__(692);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_CRM_cursos_template_component__ = __webpack_require__(480);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__pages_invitation_invitation_component__ = __webpack_require__(451);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_69_angularfire2__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_70_angularfire2_database__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_71_angularfire2_auth__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__ionic_native_fcm__ = __webpack_require__(690);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__ionic_native_push__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__ionic_native_local_notifications__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__ionic_native_fcm__ = __webpack_require__(693);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__ionic_native_push__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__ionic_native_local_notifications__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__push_service__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__ionic_native_onesignal__ = __webpack_require__(691);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__ionic_native_onesignal__ = __webpack_require__(694);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__pages_userprofile_profileTabs_component__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__pages_tutor_tutor_component__ = __webpack_require__(692);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__pages_tutor_tutor_component__ = __webpack_require__(695);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__pages_invitation_invitation_service__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__pages_CRM_asistencia_services_assistance_service__ = __webpack_require__(481);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__pages_CRM_asistencia_components_frontview_assistence_component__ = __webpack_require__(482);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__pages_CRM_asistencia_components_buttonview_button_component__ = __webpack_require__(697);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__pages_CRM_asistencia_components_listComponent_list_assitance_component__ = __webpack_require__(483);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -3519,6 +3713,9 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_57__pages_userprofile_tutorRequest__["a" /* TutorRequestComponent */],
                 __WEBPACK_IMPORTED_MODULE_77__pages_userprofile_profileTabs_component__["a" /* ProfileTabsComponent */],
                 __WEBPACK_IMPORTED_MODULE_78__pages_tutor_tutor_component__["a" /* TutorComponent */],
+                __WEBPACK_IMPORTED_MODULE_81__pages_CRM_asistencia_components_frontview_assistence_component__["a" /* AsistenceComponent */],
+                __WEBPACK_IMPORTED_MODULE_82__pages_CRM_asistencia_components_buttonview_button_component__["a" /* ButtonAssitenceComponent */],
+                __WEBPACK_IMPORTED_MODULE_83__pages_CRM_asistencia_components_listComponent_list_assitance_component__["a" /* ListAssitanceComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -3591,6 +3788,9 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_57__pages_userprofile_tutorRequest__["a" /* TutorRequestComponent */],
                 __WEBPACK_IMPORTED_MODULE_77__pages_userprofile_profileTabs_component__["a" /* ProfileTabsComponent */],
                 __WEBPACK_IMPORTED_MODULE_78__pages_tutor_tutor_component__["a" /* TutorComponent */],
+                __WEBPACK_IMPORTED_MODULE_81__pages_CRM_asistencia_components_frontview_assistence_component__["a" /* AsistenceComponent */],
+                __WEBPACK_IMPORTED_MODULE_82__pages_CRM_asistencia_components_buttonview_button_component__["a" /* ButtonAssitenceComponent */],
+                __WEBPACK_IMPORTED_MODULE_83__pages_CRM_asistencia_components_listComponent_list_assitance_component__["a" /* ListAssitanceComponent */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__["a" /* StatusBar */],
@@ -3615,6 +3815,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_64__pages_CRM_cursos_crud_service__["a" /* CrudService */],
                 __WEBPACK_IMPORTED_MODULE_54__pages_CRM_estudiantes_student_services__["a" /* StudentCRMService */],
                 __WEBPACK_IMPORTED_MODULE_79__pages_invitation_invitation_service__["a" /* InvitationService */],
+                __WEBPACK_IMPORTED_MODULE_80__pages_CRM_asistencia_services_assistance_service__["a" /* AssitanceService */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
             ]
         })
@@ -3840,7 +4041,7 @@ var TeacherService = (function () {
 
 /***/ }),
 
-/***/ 554:
+/***/ 557:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3849,7 +4050,7 @@ var TeacherService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(269);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_push__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_push__ = __webpack_require__(146);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_components_dashboard_dashboard__ = __webpack_require__(319);
@@ -3862,7 +4063,7 @@ var TeacherService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_invitation_invitation_component__ = __webpack_require__(451);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angularfire2_auth__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_firebase_app__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_firebase_app__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_firebase_app__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_auth_service__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -4012,7 +4213,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 640:
+/***/ 643:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4027,7 +4228,7 @@ var User = (function () {
 
 /***/ }),
 
-/***/ 646:
+/***/ 649:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -4284,11 +4485,11 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 646;
+webpackContext.id = 649;
 
 /***/ }),
 
-/***/ 647:
+/***/ 650:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4345,7 +4546,7 @@ var ListPage = (function () {
 
 /***/ }),
 
-/***/ 648:
+/***/ 651:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4389,7 +4590,7 @@ var NavbarComponent = (function () {
 
 /***/ }),
 
-/***/ 649:
+/***/ 652:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4422,7 +4623,7 @@ var optionsPage = (function () {
 
 /***/ }),
 
-/***/ 650:
+/***/ 653:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4467,13 +4668,13 @@ var PageHandlerComponent = (function () {
 
 /***/ }),
 
-/***/ 651:
+/***/ 654:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__upload_service__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__upload_service__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__upload__ = __webpack_require__(464);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4517,13 +4718,91 @@ var UploadListComponent = (function () {
 
 /***/ }),
 
-/***/ 677:
+/***/ 68:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(16);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthService = (function () {
+    function AuthService(firebaseAuth, alertCtrl) {
+        this.firebaseAuth = firebaseAuth;
+        this.alertCtrl = alertCtrl;
+        this.user = firebaseAuth.authState;
+    }
+    AuthService.prototype.signup = function (email, password) {
+        var _this = this;
+        this.firebaseAuth
+            .auth
+            .createUserWithEmailAndPassword(email, password)
+            .then(function (value) {
+            console.log('Success!', value);
+            _this.showAlert("Muchas gracias por registrarte", "Bienvenido");
+        })
+            .catch(function (err) {
+            console.log('Something went wrong:', err.message);
+            _this.showAlert(err.message, "Algo salió mal");
+        });
+    };
+    AuthService.prototype.login = function (email, password) {
+        var _this = this;
+        this.firebaseAuth
+            .auth
+            .signInWithEmailAndPassword(email, password)
+            .then(function (value) {
+            console.log('Nice, it worked!');
+            _this.showAlert(_this.firebaseAuth.auth.currentUser.email, "Bienvenido: ");
+        })
+            .catch(function (err) {
+            console.log('Something went wrong:', err.message);
+            _this.showAlert(err.message, "Algo salió mal");
+        });
+    };
+    AuthService.prototype.logout = function () {
+        this.firebaseAuth
+            .auth
+            .signOut();
+    };
+    AuthService.prototype.showAlert = function (message, title) {
+        var alert = this.alertCtrl.create({
+            title: title,
+            subTitle: message,
+            buttons: ['OK']
+        });
+        alert.present();
+    };
+    AuthService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], AuthService);
+    return AuthService;
+}());
+
+//# sourceMappingURL=auth.service.js.map
+
+/***/ }),
+
+/***/ 680:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadFormComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__upload_service__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__upload_service__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__upload__ = __webpack_require__(464);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4579,7 +4858,7 @@ var UploadFormComponent = (function () {
 
 /***/ }),
 
-/***/ 678:
+/***/ 681:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4613,7 +4892,7 @@ var ReversePipe = (function () {
 
 /***/ }),
 
-/***/ 679:
+/***/ 682:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4653,85 +4932,7 @@ var ModalComponent = (function () {
 
 /***/ }),
 
-/***/ 68:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(16);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var AuthService = (function () {
-    function AuthService(firebaseAuth, alertCtrl) {
-        this.firebaseAuth = firebaseAuth;
-        this.alertCtrl = alertCtrl;
-        this.user = firebaseAuth.authState;
-    }
-    AuthService.prototype.signup = function (email, password) {
-        var _this = this;
-        this.firebaseAuth
-            .auth
-            .createUserWithEmailAndPassword(email, password)
-            .then(function (value) {
-            console.log('Success!', value);
-            _this.showAlert("Muchas gracias por registrarte", "Bienvenido");
-        })
-            .catch(function (err) {
-            console.log('Something went wrong:', err.message);
-            _this.showAlert(err.message, "Algo salió mal");
-        });
-    };
-    AuthService.prototype.login = function (email, password) {
-        var _this = this;
-        this.firebaseAuth
-            .auth
-            .signInWithEmailAndPassword(email, password)
-            .then(function (value) {
-            console.log('Nice, it worked!');
-            _this.showAlert("Funcionó", "Excelente");
-        })
-            .catch(function (err) {
-            console.log('Something went wrong:', err.message);
-            _this.showAlert(err.message, "Algo salió mal");
-        });
-    };
-    AuthService.prototype.logout = function () {
-        this.firebaseAuth
-            .auth
-            .signOut();
-    };
-    AuthService.prototype.showAlert = function (message, title) {
-        var alert = this.alertCtrl.create({
-            title: title,
-            subTitle: message,
-            buttons: ['OK']
-        });
-        alert.present();
-    };
-    AuthService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], AuthService);
-    return AuthService;
-}());
-
-//# sourceMappingURL=auth.service.js.map
-
-/***/ }),
-
-/***/ 680:
+/***/ 683:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4764,7 +4965,7 @@ var NewsListService = (function () {
 
 /***/ }),
 
-/***/ 681:
+/***/ 684:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4786,7 +4987,7 @@ var Announcement = (function () {
 
 /***/ }),
 
-/***/ 682:
+/***/ 685:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4830,7 +5031,7 @@ var ProspectButtonComponent = (function () {
 
 /***/ }),
 
-/***/ 684:
+/***/ 687:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4845,7 +5046,7 @@ var Prospect = (function () {
 
 /***/ }),
 
-/***/ 685:
+/***/ 688:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4888,7 +5089,7 @@ var UserButton = (function () {
 
 /***/ }),
 
-/***/ 686:
+/***/ 689:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4939,7 +5140,7 @@ var StudentsComponent = (function () {
 
 /***/ }),
 
-/***/ 687:
+/***/ 690:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4987,7 +5188,7 @@ var TeachersComponent = (function () {
 
 /***/ }),
 
-/***/ 688:
+/***/ 691:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5030,7 +5231,7 @@ var StudentButtonComponent = (function () {
 
 /***/ }),
 
-/***/ 689:
+/***/ 692:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5074,7 +5275,7 @@ var CursosButtonComponent = (function () {
 
 /***/ }),
 
-/***/ 692:
+/***/ 695:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5084,7 +5285,7 @@ var CursosButtonComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Users_user_service__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__tutor__ = __webpack_require__(693);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__tutor__ = __webpack_require__(696);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular_components_alert_alert_controller__ = __webpack_require__(76);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5191,7 +5392,7 @@ var TutorComponent = (function () {
 
 /***/ }),
 
-/***/ 693:
+/***/ 696:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5203,6 +5404,48 @@ var Tutor = (function () {
 }());
 
 //# sourceMappingURL=tutor.js.map
+
+/***/ }),
+
+/***/ 697:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonAssitenceComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__frontview_assistence_component__ = __webpack_require__(482);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ButtonAssitenceComponent = (function () {
+    function ButtonAssitenceComponent(navCtrl) {
+        this.navCtrl = navCtrl;
+    }
+    ButtonAssitenceComponent.prototype.ngOnInit = function () { };
+    ButtonAssitenceComponent.prototype.openModalAssitences = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_1__frontview_assistence_component__["a" /* AsistenceComponent */]);
+    };
+    ButtonAssitenceComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'button-assitence',
+            template: "\n<button type=\"button\" ion-button large block color=\"primary\" (click)=\"openModalAssitences()\" outline>Administrar asistencias</button>\n  ",
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */]])
+    ], ButtonAssitenceComponent);
+    return ButtonAssitenceComponent;
+}());
+
+//# sourceMappingURL=button.component.js.map
 
 /***/ }),
 
@@ -5294,8 +5537,8 @@ var ModalContentPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PushService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_push__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_local_notifications__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_push__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_local_notifications__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5347,7 +5590,7 @@ var PushService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_components_users_user__ = __webpack_require__(640);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_components_users_user__ = __webpack_require__(643);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_auth_service__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_database__ = __webpack_require__(11);
@@ -5387,9 +5630,10 @@ var LoginComponent = (function () {
             password: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required],
         });
     }
-    LoginComponent.prototype.Open = function () {
-        var modal = this.modalCtrl.create(ModalRegister);
+    LoginComponent.prototype.Open = function (action) {
+        var modal = this.modalCtrl.create(ModalRegister, { action: action });
         modal.present();
+        console.log(action);
     };
     LoginComponent.prototype.ngOnInit = function () {
     };
@@ -5411,7 +5655,11 @@ var LoginComponent = (function () {
     };
     LoginComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+<<<<<<< HEAD
             selector: 'app-login',template:/*ion-inline-start:"C:\cfm-mobileapp\src\pages\login\login.html"*/'\n\n<ion-content padding id="form">\n\n  <div *ngIf="this.afAuth.authState  | async; let user; else showLogin">\n\n\n\n      <ion-badge text-wrap color="secondary"><p>Usted ya ha iniciado sesión con: {{user.email}}</p></ion-badge>\n\n      <ion-item>\n\n        <button type="button" name="button"ion-button block (click)="authServ.logout()">Cerrar sesión</button>\n\n      </ion-item>\n\n  </div>\n\n\n\n  <ng-template #showLogin>\n\n  <form [formGroup]="loginForm">\n\n  <ion-list>\n\n<ion-row>\n\n    <ion-col col-12>\n\n  <ion-item>\n\n    <input autocorrect="on"  type="text" placeholder="Correo"formControlName="email" >\n\n  </ion-item>\n\n  </ion-col>\n\n  <ion-col col-12>\n\n  <ion-item>\n\n    <input autocorrect="on"  type="password" placeholder="Contraseña" formControlName="password" >\n\n  </ion-item>\n\n</ion-col>\n\n</ion-row>\n\n  <button type="button" ion-button outline block (click)="submitForm()" >Entrar</button>\n\n</ion-list>\n\n<button type="button" ion-button outline block (click)="Open()" >Registrarte</button>\n\n</form>\n\n</ng-template>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\cfm-mobileapp\src\pages\login\login.html"*/,
+=======
+            selector: 'app-login',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/login/login.html"*/'\n<ion-content padding id="form">\n  <div *ngIf="this.afAuth.authState  | async; let user; else showLogin">\n\n      <ion-badge text-wrap color="secondary"><p>Usted ya ha iniciado sesión con: {{user.email}}</p></ion-badge>\n      <ion-item>\n        <button type="button" name="button"ion-button block (click)="authServ.logout()">Cerrar sesión</button>\n      </ion-item>\n  </div>\n\n  <ng-template #showLogin>\n  <form [formGroup]="loginForm">\n  <ion-list>\n<ion-row>\n    <ion-col col-12>\n  <ion-item>\n    <input autocorrect="on"  type="text" placeholder="Correo"formControlName="email" >\n  </ion-item>\n  </ion-col>\n  <ion-col col-12>\n  <ion-item>\n    <input autocorrect="on"  type="password" placeholder="Contraseña" formControlName="password" >\n  </ion-item>\n</ion-col>\n</ion-row>\n  <button type="button" ion-button outline block (click)="submitForm()" >Entrar</button>\n</ion-list>\n<button type="button" ion-button outline block (click)="Open(\'registro\')" >Registrarte</button>\n\n<button type="button" ion-button outline block color="danger" (click)="Open(\'recuperacion\')">¿Olvidaste tú contraseña?</button>\n\n</form>\n\n</ng-template>\n</ion-content>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/login/login.html"*/,
+>>>>>>> master
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -5435,6 +5683,7 @@ var ModalRegister = (function () {
         this.afAuth = afAuth;
         this.loadingCtrl = loadingCtrl;
         this.formBuilder = formBuilder;
+        this.action = params.get('action');
         this.registerForm = formBuilder.group({
             name: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].pattern('[a-zA-Z]*')])],
             lastName: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required])],
@@ -5497,9 +5746,34 @@ var ModalRegister = (function () {
         });
         loader.present();
     };
+    ModalRegister.prototype.recuperar = function (correo) {
+        var _this = this;
+        this.afAuth.auth.sendPasswordResetEmail(correo.toLowerCase()).then(function (val) {
+            console.log(val);
+            var alert = _this.alertCtrl.create({
+                title: 'Exito',
+                subTitle: 'Se te ha enviado un correo de validación.',
+                buttons: [{
+                        text: 'Ok',
+                        handler: function (data) {
+                            _this.dismiss();
+                        }
+                    }]
+            });
+            alert.present();
+        }).catch(function (err) {
+            console.log(err);
+            var alert = _this.alertCtrl.create({
+                title: 'Error',
+                subTitle: 'Se ha producido el siguiente evento con el código de error: ' + "'" + err.code + "'",
+                buttons: ['Ok']
+            });
+            alert.present();
+        });
+    };
     ModalRegister = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            template: "\n<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Registro\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)=\"dismiss()\">\n        <span ion-text color=\"primary\" showWhen=\"ios\">Cancel</span>\n        <ion-icon name=\"md-close\" showWhen=\"android, windows\"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n<ion-list no-lines>\n\n<p *ngIf=\"submitAttempt\" style=\"color: #ea6153;\">Por favor rellene todo los campos correctamente.</p>\n\n<form  [formGroup]=\"registerForm\">\n<ion-row>\n\n<ion-col col-12>\n\n<ion-item>\n  <input autocorrect=\"on\" placeholder=\"Nombre\" type=\"text\"  formControlName=\"name\"  >\n</ion-item>\n\n</ion-col>\n\n<ion-col col-12>\n<ion-item>\n  <input autocorrect=\"on\" placeholder=\"Apellido paterno\" type=\"text\"  formControlName=\"lastName\" >\n</ion-item>\n</ion-col>\n\n<ion-col col-12>\n<ion-item>\n  <input autocorrect=\"on\" placeholder=\"Apellido materno\" type=\"text\"  formControlName=\"lastName2\" >\n</ion-item>\n</ion-col>\n\n<ion-col col-12>\n<ion-item>\n  <input autocorrect=\"on\" placeholder=\"e-mail\" type=\"text\"  formControlName=\"email\" >\n</ion-item>\n</ion-col>\n\n<ion-col col-12>\n<ion-item>\n  <input autocorrect=\"on\" placeholder=\"Contrase\u00F1a\" type=\"password\"  formControlName=\"password\" >\n</ion-item>\n</ion-col>\n\n</ion-row>\n\n<ion-item>\n  <button type=\"button\" (click)=\"logForm()\" ion-button block>Registrar</button>\n</ion-item>\n</form>\n\n</ion-list>\n</ion-content>\n"
+            template: "\n<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Registro\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)=\"dismiss()\">\n        <span ion-text color=\"primary\" showWhen=\"ios\">Cancel</span>\n        <ion-icon name=\"md-close\" showWhen=\"android, windows\"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n<ion-list no-lines *ngIf=\"action == 'registro' \" >\n\n<p *ngIf=\"submitAttempt\" style=\"color: #ea6153;\">Por favor rellene todo los campos correctamente.</p>\n\n<form  [formGroup]=\"registerForm\">\n<ion-row>\n\n<ion-col col-12>\n\n<ion-item>\n  <input autocorrect=\"on\" placeholder=\"Nombre\" type=\"text\"  formControlName=\"name\"  >\n</ion-item>\n\n</ion-col>\n\n<ion-col col-12>\n<ion-item>\n  <input autocorrect=\"on\" placeholder=\"Apellido paterno\" type=\"text\"  formControlName=\"lastName\" >\n</ion-item>\n</ion-col>\n\n<ion-col col-12>\n<ion-item>\n  <input autocorrect=\"on\" placeholder=\"Apellido materno\" type=\"text\"  formControlName=\"lastName2\" >\n</ion-item>\n</ion-col>\n\n<ion-col col-12>\n<ion-item>\n  <input autocorrect=\"on\" placeholder=\"e-mail\" type=\"text\"  formControlName=\"email\" >\n</ion-item>\n</ion-col>\n\n<ion-col col-12>\n<ion-item>\n  <input autocorrect=\"on\" placeholder=\"Contrase\u00F1a\" type=\"password\"  formControlName=\"password\" >\n</ion-item>\n</ion-col>\n\n</ion-row>\n\n<ion-item>\n  <button type=\"button\" (click)=\"logForm()\" ion-button block>Registrar</button>\n</ion-item>\n</form>\n\n</ion-list>\n<ion-list no-lines *ngIf=\"action == 'recuperacion' \" >\n<ion-row>\n\n<ion-col col-12>\n\n<ion-item>\n  <input [(ngModel)]=\"correo\" autocorrect=\"on\" placeholder=\"ejemplo@ejemplo.com\" type=\"text\"   >\n  <label text-center>Correo de recuperaci\u00F3n</label>\n  <button type=\"button\" ion-button (click)=\"recuperar(correo)\" block>Enviar </button>\n</ion-item>\n\n</ion-col>\n</ion-row>\n\n</ion-list>\n\n</ion-content>\n"
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -5707,5 +5981,5 @@ var UserService = (function () {
 
 /***/ })
 
-},[481]);
+},[484]);
 //# sourceMappingURL=main.js.map

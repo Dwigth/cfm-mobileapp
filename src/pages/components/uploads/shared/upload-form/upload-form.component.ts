@@ -11,6 +11,7 @@ import { Upload } from '../upload';
 export class UploadFormComponent {
 
   selectedFiles: FileList | null;
+  file: File;
   currentUpload: Upload;
 
   constructor(private upSvc: UploadService) { }
