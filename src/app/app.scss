@@ -49,10 +49,21 @@ $blue: blue;
 .dark-head {
   text-decoration: none;
 }
-*/
+
+/* CORRECCIONES EN IOS*/
+.toolbar-ios-dark .toolbar-title-ios, .toolbar-ios-dark .bar-button-clear-ios, .toolbar-ios-dark .bar-button-default-ios {
+    margin-top: 5%;
+}
 .toolbar-ios-dark .toolbar-background-ios {
     background: #93c11e;
 }
+.toolbar-ios {
+    padding: 1.5%;
+    padding-left: 3.5%;
+}
+/* FIN CORRECCIONES EN IOS*/
+
+/*CORRECCIONES EN ANDROID*/
 .toolbar-md {
     display: none;
 }
@@ -62,20 +73,28 @@ $blue: blue;
 .content-md {
     margin-top: 5%;
 }
+/*FIN DE CAMBIOS EN ANDROID*/
 
-.logo{
-  width: 70%;
-  margin: 0 auto;
-  text-align: center;
-  display:  block;
+/*CAMBIOS GENERALES*/
+.bgcontainer{
+  background-color: #f1f1f1;
 }
-ion-header{
-margin-bottom: 5%;
-background-color: rgba(0,0,0,0.5);
+.button-ios-green {
+    background-color: #93c11e;
 }
-ion-navbar{
-  height: 50px;
+.button-md-green {
+    background-color: #93c11e;
 }
+.bgverde{
+    background-color: #93c11e;
+    height: 5%;
+}
+.textblack{
+  color: black;
+  margin-top: 1.8%;
+}
+/* FIN CAMBIOS GENERALES*/
+
 .navimg{
   width: 50%;
   margin: auto;
@@ -87,7 +106,7 @@ ion-navbar{
 }
 
 #paddinBottom2{
-  margin-top: 3.5%;
+  margin-top: 5%;
 }
 
 .margintop{
