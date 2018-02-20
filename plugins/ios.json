@@ -16,9 +16,6 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.cfm.app"
     },
-    "cordova-plugin-fcm": {
-      "PACKAGE_NAME": "com.cfm.app"
-    },
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.cfm.app"
     },
@@ -36,6 +33,9 @@
     },
     "ionic-plugin-keyboard": {
       "PACKAGE_NAME": "com.cfm.app"
+    },
+    "cordova-plugin-fcm": {
+      "PACKAGE_NAME": "com.cfm.ap"
     }
   },
   "dependent_plugins": {

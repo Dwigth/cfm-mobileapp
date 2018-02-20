@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
 <ion-content>
 <ion-list no-lines *ngIf="action == 'registro' " >
 
-<p *ngIf="submitAttempt" style="color: #ea6153;">Por favor rellene todo los campos correctamente.</p>
+<p text-center *ngIf="submitAttempt" style="color: #ea6153;">Por favor rellene todo los campos correctamente.</p>
 
 <form  [formGroup]="registerForm">
 <ion-row>
@@ -113,6 +113,8 @@ export class LoginComponent implements OnInit {
 <ion-col col-12>
 <ion-item>
   <input autocorrect="on" placeholder="Contraseña" type="password"  formControlName="password" >
+  <p text-wrap *ngIf="submitAttempt" style="color: #ea6153;">Recuerda que tu contraseña debe tener al menos 8 carácteres, números y carácteres especiales.</p>
+
 </ion-item>
 </ion-col>
 

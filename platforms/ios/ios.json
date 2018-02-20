@@ -47,10 +47,6 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"FCMPlugin\"><param name=\"ios-package\" value=\"FCMPlugin\" /></feature>",
-              "count": 1
-            },
-            {
               "xml": "<feature name=\"FileTransfer\"><param name=\"ios-package\" value=\"CDVFileTransfer\" /></feature>",
               "count": 1
             },
@@ -80,6 +76,10 @@
             },
             {
               "xml": "<feature name=\"OneSignalPush\"><param name=\"ios-package\" value=\"OneSignalPush\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"FCMPlugin\"><param name=\"ios-package\" value=\"FCMPlugin\" /></feature>",
               "count": 1
             }
           ]
@@ -143,9 +143,6 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.cfm.app"
     },
-    "cordova-plugin-fcm": {
-      "PACKAGE_NAME": "com.cfm.app"
-    },
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.cfm.app"
     },
@@ -166,6 +163,9 @@
     },
     "onesignal-cordova-plugin": {
       "PACKAGE_NAME": "com.cfm.app"
+    },
+    "cordova-plugin-fcm": {
+      "PACKAGE_NAME": "com.cfm.ap"
     }
   },
   "dependent_plugins": {},
@@ -393,14 +393,6 @@
       ]
     },
     {
-      "id": "cordova-plugin-fcm.FCMPlugin",
-      "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
-      "pluginId": "cordova-plugin-fcm",
-      "clobbers": [
-        "FCMPlugin"
-      ]
-    },
-    {
       "id": "cordova-plugin-file-transfer.FileTransferError",
       "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
       "pluginId": "cordova-plugin-file-transfer",
@@ -474,6 +466,14 @@
       "clobbers": [
         "OneSignal"
       ]
+    },
+    {
+      "id": "cordova-plugin-fcm.FCMPlugin",
+      "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
+      "pluginId": "cordova-plugin-fcm",
+      "clobbers": [
+        "FCMPlugin"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -482,13 +482,13 @@
     "cordova-plugin-badge": "0.8.5",
     "cordova-plugin-compat": "1.2.0",
     "cordova-plugin-device": "1.1.7",
-    "cordova-plugin-fcm": "2.1.2",
     "cordova-plugin-file-transfer": "1.7.1",
     "cordova-plugin-ionic-webview": "1.1.16",
     "cordova-plugin-local-notification": "0.9.0-beta.1",
     "cordova-plugin-splashscreen": "4.1.0",
     "cordova-plugin-whitelist": "1.3.3",
     "ionic-plugin-keyboard": "2.2.1",
-    "onesignal-cordova-plugin": "2.2.5"
+    "onesignal-cordova-plugin": "2.2.5",
+    "cordova-plugin-fcm": "2.1.2"
   }
 }

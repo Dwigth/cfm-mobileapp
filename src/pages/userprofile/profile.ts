@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit {
     }
 
     this.users = db.list('users', value => value.orderByChild('email').equalTo(user.email)).valueChanges();
-    this.student = db.list('students',value => value.orderByChild('uid').equalTo(user.uid)).valueChanges();
+    this.student = db.list('students/' + user.uid + '/courses/').valueChanges();
   }
 
   showAlert(message,title){

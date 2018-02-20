@@ -32,9 +32,6 @@
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
     </feature>
-    <feature name="FCMPlugin">
-        <param name="ios-package" value="FCMPlugin" />
-    </feature>
     <feature name="FileTransfer">
         <param name="ios-package" value="CDVFileTransfer" />
     </feature>
@@ -133,4 +130,7 @@
     <preference name="SplashScreen" value="none" />
     <preference name="SplashScreenDelay" value="100" />
     <preference name="loadUrlTimeoutValue" value="700000" />
+    <feature name="FCMPlugin">
+        <param name="ios-package" value="FCMPlugin" />
+    </feature>
 </widget>
