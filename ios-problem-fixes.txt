@@ -1,4 +1,8 @@
 PODS_ROOT ---- ${SRCROOT}/Pods
 
 PODS_PODFILE_DIR_PATH ---- ${SRCROOT}
-//rutas de PODFILE 
+//Error rutas de PODFILE 
+
+//Error #1
+UnhandledPromiseRejectionWarning: Unhandled promise rejection
+(rejection id: 1): TypeError: Invalid data, chunk must be a string or buffer, not object

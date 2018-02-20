@@ -3,5 +3,4 @@ platform :ios, '8.0'
 target 'CFM' do
 	project 'CFM.xcodeproj'
 	pod 'OneSignal', '2.6.0'
-	pod 'FirebaseMessaging', '~> 2.0.0'
 end

@@ -36473,35 +36473,60 @@ $blue: blue;
 .dark-head {
   text-decoration: none;
 }
-*/
-.toolbar-background-md {
-  border-color: #b2b2b2;
-  background: #151414;
+
+/* CORRECCIONES EN IOS*/
+.toolbar-ios-dark .toolbar-title-ios, .toolbar-ios-dark .bar-button-clear-ios, .toolbar-ios-dark .bar-button-default-ios {
+  margin-top: 5%;
 }
 
-.toolbar-title-md {
-  padding: 0 12px;
-  font-size: 2rem;
-  font-weight: 500;
-  color: white;
+.toolbar-ios-dark .toolbar-background-ios {
+  background: #93c11e;
 }
 
-.logo {
-  width: 70%;
-  margin: 0 auto;
-  text-align: center;
-  display: block;
+.toolbar-ios {
+  padding: 1.5%;
+  padding-left: 3.5%;
 }
 
-ion-header {
-  margin-bottom: 5%;
-  background-color: rgba(0, 0, 0, 0.5);
+/* FIN CORRECCIONES EN IOS*/
+/*CORRECCIONES EN ANDROID*/
+.toolbar-md {
+  display: none;
 }
 
-ion-navbar {
-  height: 50px;
+.toolbar-md-dark .toolbar-background-md {
+  background: #93c11e;
 }
 
+.content-md {
+  margin-top: 5%;
+}
+
+/*FIN DE CAMBIOS EN ANDROID*/
+/*CAMBIOS GENERALES*/
+.bgcontainer {
+  background-color: #f1f1f1;
+}
+
+.button-ios-green {
+  background-color: #93c11e;
+}
+
+.button-md-green {
+  background-color: #93c11e;
+}
+
+.bgverde {
+  background-color: #93c11e;
+  height: 5%;
+}
+
+.textblack {
+  color: black;
+  margin-top: 1.8%;
+}
+
+/* FIN CAMBIOS GENERALES*/
 .navimg {
   width: 50%;
   margin: auto;
@@ -36513,7 +36538,7 @@ ion-navbar {
 }
 
 #paddinBottom2 {
-  margin-top: 3.5%;
+  margin-top: 5%;
 }
 
 .margintop {

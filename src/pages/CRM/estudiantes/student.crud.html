@@ -50,10 +50,25 @@
     <ion-item>
         <input placeholder="Matricula" [(ngModel)]="student.enrollment" name="enrollment" type="text">
     </ion-item>
-    <h3 text-center>Curso</h3>
+    <h3 text-center>Cursos</h3>
+
     <ion-item>
-                    <ion-select name="course"
-                                [(ngModel)]="student.course">
+        <ion-label>Agregar cursos</ion-label>
+        <ion-toggle text-center  color="primary" [(ngModel)]="show"></ion-toggle>
+    </ion-item>
+
+        <div *ngIf="show">
+                <h3 text-center>Curso</h3>
+                <ion-item>
+                        <ion-select [(ngModel)]="courses.name" name="name">
+                          <ion-option  *ngFor="let names of courses_db | async" value="{{names.name}}" (ionSelect)="getId(names.id)" >
+                              {{names.name}}
+                              </ion-option>
+                        </ion-select>
+                      </ion-item>
+                <!--<h3 text-center>Curso</h3>
+                <ion-item>
+                    <ion-select [(ngModel)]="courses.name" name="name" >
                       <ion-option value="guitarra">GUITARRA</ion-option>
                       <ion-option value="ukulele">UKULELE</ion-option>
                       <ion-option value="bajo electrico">BAJO ELECTRICO</ion-option>
@@ -64,49 +79,78 @@
                       <ion-option value="canto">CANTO</ion-option>
                       <ion-option value="dibujo y pintura">DIBUJO Y PINTURA</ion-option>
                     </ion-select>
-    </ion-item>
-    <h3 text-center>Maestro</h3>
-    <ion-item>
-            <ion-select [(ngModel)]="student.teacher" name="teacher">
-              <ion-option *ngFor="let item of teachers | async" value="{{item.name}}">{{item.name}}</ion-option>
-            </ion-select>
-          </ion-item>
-    <h3 text-center>Horario</h3>
-    <ion-item>
-            <ion-label>Horario</ion-label>
-            <ion-select name="schedule"
-                        [(ngModel)]="student.schedule">
-              <ion-option value="l y m 4:00pm a 5:30pm">L Y M 4:00PM a 5:30PM</ion-option>
-              <ion-option value="l y m 5:30pm a 7:00pm">L Y M 5:30PM a 7:00PM</ion-option>
-              <ion-option value="l y m 7:00pm a 8:30pm">L Y M 7:00PM a 8:30PM</ion-option>
-              <ion-option value="l y m 8:30pm a 10:00pm">L Y M 8:30PM a 10:00PM</ion-option>
-              <ion-option value="m y j 4:00pm a 5:30pm">M Y J 4:00PM a 5:30PM</ion-option>
-              <ion-option value="m y j 5:30pm a 7:00pm">M Y J 5:30PM a 7:00PM</ion-option>
-              <ion-option value="m y j 7:00pm a 8:30pm">M Y J 7:00PM a 8:30PM</ion-option>
-              <ion-option value="m y j 8:30pm a 10:00pm">M Y J 8:30PM a 10:00PM</ion-option>
-              <ion-option value="viernes 5:00pm A 8:00pm">VIERNES 5:00PM A 8:00PM</ion-option>
-              <ion-option value="sabado 9:00am a 12:00pm">SABADO 9:00AM a 12:00PM</ion-option>
-              <ion-option value="sabado 1:00pm a 4:00pm">SABADO 1:00PM a 4:00PM</ion-option>
-              <ion-option value="sabado 4:00pm a 7:00pm">SABADO 4:00PM a 7:00PM</ion-option>
-            </ion-select>
-          </ion-item>
+                </ion-item>-->
+                    <h3 text-center>Maestro</h3>
+                    <ion-item>
+                            <ion-select [(ngModel)]="courses.teacher" name="teacher">
+                              <ion-option *ngFor="let item of teachers | async" value="{{item.name}}">
+                                  {{item.name}}
+                                </ion-option>
+                            </ion-select>
+                          </ion-item>
+                    <h3 text-center>Horario</h3>
+                    <ion-item>
+                            <ion-label>Horario</ion-label>
+                            <ion-select [(ngModel)]="courses.schedule" name="schedule" >
+                              <ion-option value="l y m 4:00pm a 5:30pm">L Y M 4:00PM a 5:30PM</ion-option>
+                              <ion-option value="l y m 5:30pm a 7:00pm">L Y M 5:30PM a 7:00PM</ion-option>
+                              <ion-option value="l y m 7:00pm a 8:30pm">L Y M 7:00PM a 8:30PM</ion-option>
+                              <ion-option value="l y m 8:30pm a 10:00pm">L Y M 8:30PM a 10:00PM</ion-option>
+                              <ion-option value="m y j 4:00pm a 5:30pm">M Y J 4:00PM a 5:30PM</ion-option>
+                              <ion-option value="m y j 5:30pm a 7:00pm">M Y J 5:30PM a 7:00PM</ion-option>
+                              <ion-option value="m y j 7:00pm a 8:30pm">M Y J 7:00PM a 8:30PM</ion-option>
+                              <ion-option value="m y j 8:30pm a 10:00pm">M Y J 8:30PM a 10:00PM</ion-option>
+                              <ion-option value="viernes 5:00pm A 8:00pm">VIERNES 5:00PM A 8:00PM</ion-option>
+                              <ion-option value="sabado 9:00am a 12:00pm">SABADO 9:00AM a 12:00PM</ion-option>
+                              <ion-option value="sabado 1:00pm a 4:00pm">SABADO 1:00PM a 4:00PM</ion-option>
+                              <ion-option value="sabado 4:00pm a 7:00pm">SABADO 4:00PM a 7:00PM</ion-option>
+                            </ion-select>
+                          </ion-item>
+                
+                          <h3 text-center>Aula</h3>
+                          <ion-item>
+                                  <ion-label>Aula</ion-label>
+                                  <ion-select [(ngModel)]="courses.classroom" name="classroom" >
+                                    <ion-option value="A1">A1</ion-option>
+                                    <ion-option value="A2">A2</ion-option>
+                                    <ion-option value="A3">A3</ion-option>
+                                    <ion-option value="A4">A4</ion-option>
+                                    <ion-option value="A5">A5</ion-option>
+                                    <ion-option value="A6">A6</ion-option>
+                                    <ion-option value="B1">B1</ion-option>
+                                    <ion-option value="B2">B2</ion-option>
+                                    <ion-option value="B3">B3</ion-option>
+                                  </ion-select>
+                                </ion-item>
 
-          <h3 text-center>Aula</h3>
-          <ion-item>
-                  <ion-label>Aula</ion-label>
-                  <ion-select name="classroom"
-                              [(ngModel)]="student.classroom">
-                    <ion-option value="A1">A1</ion-option>
-                    <ion-option value="A2">A2</ion-option>
-                    <ion-option value="A3">A3</ion-option>
-                    <ion-option value="A4">A4</ion-option>
-                    <ion-option value="A5">A5</ion-option>
-                    <ion-option value="A6">A6</ion-option>
-                    <ion-option value="B1">B1</ion-option>
-                    <ion-option value="B2">B2</ion-option>
-                    <ion-option value="B3">B3</ion-option>
-                  </ion-select>
-                </ion-item>
+                    <button type="button" (click)="addCourses(courses)" ion-button>Agregar</button>
+
+                </div>
+
+    <ion-list *ngIf="show" >
+            <ion-item-divider  color="light">Cursos seleccionados</ion-item-divider>
+                   
+                            <button *ngFor="let cours of courses; index as i;" [attr.data-index]="i" (click)="removeCourse(i)" type="button" color="secondary"ion-button icon-end>
+                                    {{cours.name}}
+                                    <ion-icon name="remove-circle"></ion-icon>
+                                </button>
+                    
+                    
+            
+        </ion-list>
+
+    <ion-list>
+        <ion-item-divider color="light">Cursos actuales</ion-item-divider>
+                
+                <button *ngFor="let item of Student_courses | async" (click)="deleteCourse(currentUID,item.key)" type="button" color="danger"ion-button icon-end>
+                        {{item.name}}
+                        <ion-icon name="remove-circle"></ion-icon>
+                    </button>
+        
+    </ion-list>
+<br>
+    
+<hr>
 
     <h3 text-center>Edad</h3>
     <ion-item>

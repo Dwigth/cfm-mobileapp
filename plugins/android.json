@@ -8,46 +8,49 @@
   },
   "installed_plugins": {
     "cordova-plugin-advanced-http": {
-      "PACKAGE_NAME": "com.cfm.app"
+      "PACKAGE_NAME": "com.cfm.ap"
     },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.cfm.app"
-    },
-    "cordova-plugin-fcm": {
-      "PACKAGE_NAME": "com.cfm.app"
+      "PACKAGE_NAME": "com.cfm.ap"
     },
     "cordova-plugin-file-transfer": {
-      "PACKAGE_NAME": "com.cfm.app"
+      "PACKAGE_NAME": "com.cfm.ap"
+    },
+    "cordova-plugin-firebase": {
+      "PACKAGE_NAME": "com.cfm.ap"
     },
     "cordova-plugin-ionic-webview": {
-      "PACKAGE_NAME": "com.cfm.app"
+      "PACKAGE_NAME": "com.cfm.ap"
     },
     "cordova-plugin-local-notification": {
-      "PACKAGE_NAME": "com.cfm.app"
+      "PACKAGE_NAME": "com.cfm.ap"
     },
     "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.cfm.app"
+      "PACKAGE_NAME": "com.cfm.ap"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.cfm.app"
+      "PACKAGE_NAME": "com.cfm.ap"
     },
     "ionic-plugin-keyboard": {
-      "PACKAGE_NAME": "com.cfm.app"
+      "PACKAGE_NAME": "com.cfm.ap"
     },
     "onesignal-cordova-plugin": {
-      "PACKAGE_NAME": "com.cfm.app"
+      "PACKAGE_NAME": "com.cfm.ap"
     },
     "phonegap-plugin-push": {
       "FCM_VERSION": "11.0.1",
-      "PACKAGE_NAME": "com.cfm.app"
+      "PACKAGE_NAME": "com.cfm.ap"
+    },
+    "cordova-plugin-fcm": {
+      "PACKAGE_NAME": "com.cfm.ap"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-file": {
-      "PACKAGE_NAME": "com.cfm.app"
+      "PACKAGE_NAME": "com.cfm.ap"
     },
     "cordova-plugin-badge": {
-      "PACKAGE_NAME": "com.cfm.app"
+      "PACKAGE_NAME": "com.cfm.ap"
     }
   }
 }

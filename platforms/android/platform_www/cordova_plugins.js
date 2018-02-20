@@ -223,14 +223,6 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-fcm.FCMPlugin",
-    "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
-    "pluginId": "cordova-plugin-fcm",
-    "clobbers": [
-      "FCMPlugin"
-    ]
-  },
-  {
     "id": "cordova-plugin-file-transfer.FileTransferError",
     "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
     "pluginId": "cordova-plugin-file-transfer",
@@ -244,6 +236,14 @@ module.exports = [
     "pluginId": "cordova-plugin-file-transfer",
     "clobbers": [
       "window.FileTransfer"
+    ]
+  },
+  {
+    "id": "cordova-plugin-firebase.FirebasePlugin",
+    "file": "plugins/cordova-plugin-firebase/www/firebase.js",
+    "pluginId": "cordova-plugin-firebase",
+    "clobbers": [
+      "FirebasePlugin"
     ]
   },
   {
@@ -304,6 +304,14 @@ module.exports = [
     "clobbers": [
       "PushNotification"
     ]
+  },
+  {
+    "id": "cordova-plugin-fcm.FCMPlugin",
+    "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
+    "pluginId": "cordova-plugin-fcm",
+    "clobbers": [
+      "FCMPlugin"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -313,15 +321,16 @@ module.exports.metadata =
   "cordova-plugin-advanced-http": "1.9.0",
   "cordova-plugin-badge": "0.8.5",
   "cordova-plugin-device": "1.1.7",
-  "cordova-plugin-fcm": "2.1.2",
   "cordova-plugin-file-transfer": "1.7.1",
+  "cordova-plugin-firebase": "0.1.25",
   "cordova-plugin-ionic-webview": "1.1.16",
   "cordova-plugin-local-notification": "0.9.0-beta.1",
   "cordova-plugin-splashscreen": "4.1.0",
   "cordova-plugin-whitelist": "1.3.3",
   "ionic-plugin-keyboard": "2.2.1",
   "onesignal-cordova-plugin": "2.2.5",
-  "phonegap-plugin-push": "2.1.2"
+  "phonegap-plugin-push": "2.1.2",
+  "cordova-plugin-fcm": "2.1.2"
 };
 // BOTTOM OF METADATA
 });

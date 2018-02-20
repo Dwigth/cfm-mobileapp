@@ -44,7 +44,7 @@ export class StudentCRMService {
         
     }
 
-    editStudent(uid){
+    editStudent(uid,courses:any[]){
         let confirm = this.alrtCtl.create({
             title: 'Editar estudiante',
             message: '¿En realidad quiere editar este estudiante?',
@@ -94,12 +94,35 @@ export class StudentCRMService {
                         pedagogicalSample:uid.pedagogicalSample,
                         coments:uid.coments
                       });  
+                      for (let index = 0; index < courses.length; index++) {
+                          const element = courses[index];
+                          this.db.list('students/'+uid.uid +'/courses/').push({
+                            name:element.name,
+                            schedule:element.schedule,
+                            teacher:element.teacher,
+                            classroom:element.classroom,
+                            id_course:element.id_course
+                          }).then(val =>{
+                              this.db.object('students/'+uid.uid + '/courses/'+val.key).update({
+                                  key:val.key
+                              })
+                          });
+                          
+                      }
                 }
               }
             ]
           });
           confirm.present();
          
+    }
+
+    listCourses(){
+        return this.db.list('course').valueChanges();
+    }
+
+    listStudentCourses(uid){
+        return this.db.list('students/'+ uid + "/courses").valueChanges();
     }
 
     eraseStudent(uid,key){
@@ -120,6 +143,29 @@ export class StudentCRMService {
                     this.db.object("users/"+uid).update({
                         isStudent:false
                     });
+                }
+              }
+            ]
+          });
+          confirm.present();
+        
+    }
+
+    eraseStudentCourse(uid,key){
+        let confirm = this.alrtCtl.create({
+            title: 'Borrar curso',
+            message: '¿En realidad quiere borrar este curso?',
+            buttons: [
+              {
+                text: 'No',
+                handler: () => {
+                  console.log('Disagree clicked');
+                }
+              },
+              {
+                text: 'Si',
+                handler: () => {
+                    this.db.list("students/"+ uid + "/courses/" + key ).remove();
                 }
               }
             ]
