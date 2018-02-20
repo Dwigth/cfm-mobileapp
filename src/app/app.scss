@@ -65,7 +65,11 @@ $blue: blue;
 
 /*CORRECCIONES EN ANDROID*/
 .toolbar-md {
-    display: none;
+    padding: 0px;
+    min-height: 0px;
+}
+ion-navbar.toolbar {
+    padding: 7px;
 }
 .toolbar-md-dark .toolbar-background-md {
     background: #93c11e;
