@@ -24,6 +24,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { AuthService } from "../app/auth.service";
+import { ActivitiesService } from '../pages/activitiesRecorder/services/activities.service';
+import * as moment from 'moment';
 @Component({
   templateUrl: 'app.html'
 })
@@ -47,14 +49,17 @@ export class MyApp {
     public db: AngularFireDatabase,
     public push: Push,
     public alertCtrl:AlertController,
-    public pushServ:PushService
+    public pushServ:PushService,
+    public actSrv:ActivitiesService
   ) {
 
     this.initializeApp();
 
     firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    this.date = moment();
       console.log("Usuario:" + user.email);
+      
     // User is signed in.
   } else {
     // No user is signed in.

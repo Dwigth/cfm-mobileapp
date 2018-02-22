@@ -1,0 +1,71 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        Actividades diarias
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+      
+        <button ion-button icon-start color="light" (click)="goBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+        </button>
+<hr>
+
+<div>
+    <button type="button" (click)=" createToast()" ion-button > Información </button>
+</div>
+
+<div>
+              <ion-list>
+                <ion-item>
+                  <ion-label>Filtros</ion-label>
+                  <ion-select [(ngModel)]="gaming">
+                    <ion-option value="nes">NES</ion-option>
+                    <ion-option value="n64">Nintendo64</ion-option>
+                    <ion-option value="ps">PlayStation</ion-option>
+                    <ion-option value="genesis">Sega Genesis</ion-option>
+                    <ion-option value="saturn">Sega Saturn</ion-option>
+                    <ion-option value="snes">SNES</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+</div>
+
+<div text-wrap class="cardsocial" *ngFor="let item of activities | async;index as i;" [attr.data-index]="i">
+  
+
+  
+        <p>
+          Actividades
+        </p>
+        <div>
+          El usuario <ion-badge  color="orange" id="myBtn{{i}}" (click)="modal(item.user,i)">{{item.user}}</ion-badge> con el correo <ion-badge color="secondary">{{item.email}}</ion-badge> ha <ion-badge color="secondary">{{item.activity}}</ion-badge>.
+           <div>
+                    <ion-icon name="calendar" item-start></ion-icon>
+                    Fecha
+                    <ion-badge item-end>{{item.date}}</ion-badge>
+                    <ion-icon  name="time" item-end></ion-icon>
+                      Hora
+                      <ion-badge color="danger" item-end>{{item.hour}}</ion-badge>
+                  </div>
+        </div>
+</div>
+
+      <!-- The Modal -->
+      <div id="myModal"  class="modal">
+      
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span (click)="closeModal()" class="close">&times;</span>
+          <ion-item *ngFor="let item of user | async;index as i;" [attr.data-index]="i">
+                <ion-avatar item-start>
+                    <img src="{{item.imageURL}}" alt="">
+                </ion-avatar>
+                <p>{{item.name + " " +item.lastName + " " +item.lastName2}}</p>
+                <p>Nivel: {{item.accessLevel}}</p>
+          </ion-item>
+        </div>
+      </div>
+  </ion-content>

@@ -4,17 +4,21 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as moment from 'moment';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { Observable } from 'rxjs/Observable';
+import { ActivitiesService } from '../activitiesRecorder/services/activities.service';
 
 @Injectable()
 export class TeacherService {
     private currentTeacherName:string;
+    private currentTeacherEmail:string;
     private moment:any;
 
     constructor(
     public db:AngularFireDatabase,
     public afauth:AngularFireAuth,
-    public alertCtl:AlertController,) { 
+    public alertCtl:AlertController,
+    public actSrv:ActivitiesService) { 
         this.currentTeacherName = afauth.auth.currentUser.uid;
+        this.currentTeacherEmail = afauth.auth.currentUser.email;
         this.moment = moment();
     }
 
@@ -31,19 +35,35 @@ export class TeacherService {
      }
      
      searchStudents(name){
+        this.actSrv.recordActivity(
+            this.afauth.auth.currentUser.uid,
+            this.afauth.auth.currentUser.email,
+            "Buscado un alumno por el nombre: " + name,
+            moment().format("L"),
+            moment().format('LT')
+          );
          return this.db.list('students', val => val
         .orderByChild('name')
         .startAt(name))
          .valueChanges();
+         
      }
 
      addMember(groupkey,studentuid,uid){
+        this.actSrv.recordActivity(
+            this.afauth.auth.currentUser.uid,
+            this.afauth.auth.currentUser.email,
+            "Agregado al alumno: " +  studentuid + " en el grupo : " + groupkey,
+            moment().format("L"),
+            moment().format('LT')
+          );
         this.db.list("groups/" + groupkey  ).update("members",{
             [studentuid]:true
         })
         this.db.list("users/" + uid  ).update("/groups",{
             [groupkey]:true
         })
+       
      }
 
      deleteMember(groupkey,uid){
@@ -65,6 +85,13 @@ export class TeacherService {
 
                     this.db.list("users/" + uid + "/groups/"
                 ).remove(groupkey);
+                this.actSrv.recordActivity(
+                    this.afauth.auth.currentUser.uid,
+                    this.afauth.auth.currentUser.email,
+                    "eliminado al: " + uid + " del grupo " + groupkey,
+                    moment().format("L"),
+                    moment().format('LT')
+                  );
                 }
               }
             ]
@@ -92,6 +119,13 @@ export class TeacherService {
                 buttons: ['OK']
             });
             alert.present();
+            this.actSrv.recordActivity(
+                this.afauth.auth.currentUser.uid,
+                this.afauth.auth.currentUser.email,
+                "Creado un grupo con el nombre: " + name + " del curso: " + course,
+                moment().format("L"),
+                moment().format('LT')
+              );
         })
     }
     
@@ -110,6 +144,13 @@ export class TeacherService {
                 text: 'Si',
                 handler: () => {
                     this.refGroupObj(key).remove();
+                    this.actSrv.recordActivity(
+                        this.afauth.auth.currentUser.uid,
+                        this.afauth.auth.currentUser.email,
+                        "Eliminado el grupo: " + key,
+                        moment().format("L"),
+                        moment().format('LT')
+                      );
                 }
               }
             ]
@@ -128,6 +169,13 @@ export class TeacherService {
             this.db.list("users/"+[uidElement]).update("groups",{
                 [key]:true
             })
+            this.actSrv.recordActivity(
+                this.afauth.auth.currentUser.uid,
+                this.afauth.auth.currentUser.email,
+                "agregado a: " + uidElement + "al grupo: " + key,
+                moment().format("L"),
+                moment().format('LT')
+              );
         }
     }
 
@@ -159,6 +207,13 @@ export class TeacherService {
                 buttons: ['OK']
             });
             alert.present();
+            this.actSrv.recordActivity(
+                this.afauth.auth.currentUser.uid,
+                this.afauth.auth.currentUser.email,
+                "creado la lección: " + name + " para el grupo: " + groupkey,
+                moment().format("L"),
+                moment().format('LT')
+              );
         })
     }
 
@@ -177,6 +232,13 @@ export class TeacherService {
                 text: 'Si',
                 handler: () => {
                     this.db.list("lessons/" + groupkey).remove(lessonkey);
+                    this.actSrv.recordActivity(
+                        this.afauth.auth.currentUser.uid,
+                        this.afauth.auth.currentUser.email,
+                        "eliminado la lección: " + lessonkey + " para el grupo: " + groupkey,
+                        moment().format("L"),
+                        moment().format('LT')
+                      );
                 }
               }
             ]
@@ -200,6 +262,13 @@ export class TeacherService {
                 buttons: ['OK']
             });
             alert.present();
+            this.actSrv.recordActivity(
+                this.afauth.auth.currentUser.uid,
+                this.afauth.auth.currentUser.email,
+                "editado la lección: " + lessonkey + " para el grupo: " + groupkey,
+                moment().format("L"),
+                moment().format('LT')
+              );
         })
     }
 }

@@ -7,6 +7,8 @@ import * as moment from 'moment';
 //
 import { AngularFireDatabase,AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { ActivitiesService } from '../../activitiesRecorder/services/activities.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Injectable()
 export class NewsService {
@@ -15,8 +17,10 @@ export class NewsService {
   currentDay:number;
 
   constructor(public db:AngularFireDatabase,
+    public firebaseAuth:AngularFireAuth,
     public alertCtrl:AlertController,
-    public lclPushNot:LocalNotifications) {
+    public lclPushNot:LocalNotifications,
+    public actSrv:ActivitiesService) {
       let day = moment();
       this.currentDay = Number(day.format('DDD'))
       moment.locale('es');
@@ -37,6 +41,13 @@ export class NewsService {
       const s = this.db.object('news/' + value.key);
       s.update({key:value.key});
       this.showAlert("Excelente","¡Haz subido una noticia al servidor!");
+      this.actSrv.recordActivity(
+        this.firebaseAuth.auth.currentUser.uid,
+        this.firebaseAuth.auth.currentUser.email,
+        "Creado una noticia: " + value.key,
+        moment().format("L"),
+        moment().format('LT')
+      );
     });
   }
 
@@ -54,6 +65,13 @@ return itemRef;
       uploadFor: news.uploadFor
     }).then(val =>{
         this.showAlert("Presione 'OK' para continuar.","Exito al actualizar elemento: " + val);
+        this.actSrv.recordActivity(
+          this.firebaseAuth.auth.currentUser.uid,
+          this.firebaseAuth.auth.currentUser.email,
+          "Editado una noticia: " + news.key,
+          moment().format("L"),
+          moment().format('LT')
+        );
     }).catch(err =>{
         this.showAlert("Erro tipo: " + err,"Error al actualizar");
     });
@@ -64,6 +82,13 @@ deleteNews(news:News):void{
 const itemRef = this.db.object('news/' + news.key);
 itemRef.remove().then(value => {
     this.showAlert("Presione 'OK' para continuar.","Exito al eliminar elemento: " + value);
+    this.actSrv.recordActivity(
+      this.firebaseAuth.auth.currentUser.uid,
+      this.firebaseAuth.auth.currentUser.email,
+      "Eliminado una noticia: " + news.key,
+      moment().format("L"),
+      moment().format('LT')
+    );
 }).catch(err => {
   this.showAlert("Erro tipo: " + err,"Error al eliminar");
 });

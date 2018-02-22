@@ -102,5 +102,5 @@
     <plugin name="cordova-plugin-advanced-http" spec="^1.10.0" />
     <plugin name="onesignal-cordova-plugin" spec="^2.2.5" />
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
-    <engine name="android" spec="^6.3.0" />
+    <engine name="android" spec="7.0.0" />
 </widget>

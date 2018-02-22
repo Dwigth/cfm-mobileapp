@@ -50,7 +50,7 @@
         <ion-item>
             <p text-center>Alumnos:</p>
             <ion-item *ngFor="let item of tutorStudents | async">
-                <button type="button" ion-button (click)="findStudent(item.uid)">
+                <button type="button" ion-button icon-start (click)="findStudent(item.uid)">
                     
                     <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
                    Identificador: {{item.uid}}
@@ -66,32 +66,38 @@
                               <h2 text-wrap>{{tut.name + " " +tut.lastName + " " +tut.lastName2}}</h2>
                               
                             </ion-item>
-                            <ion-item>
-                                    
-                                    <ion-icon name="person" item-start></ion-icon>
-                                    Maestro: 
-                                    <div item-end>{{ tut.teacher }} </div>  
-                                  </ion-item>
-                          
-                          <ion-item >
-                                
-                                <ion-icon name="calendar" item-start></ion-icon>
-                                Horario:   <div text-wrap item-end>{{ tut.schedule }} </div> 
-                              </ion-item>
-                              <ion-item>
-                                   
-                                    <ion-icon name="cube" item-start></ion-icon>
-                                    Aula:   <div item-end>{{ tut.classroom }} </div> 
-                                  </ion-item>
-                                  <ion-item>
-                                        
-                                        <ion-icon name="paper" item-start></ion-icon>
-                                        Curso:   <div item-end>{{ tut.course }} </div> 
-                                      </ion-item>
+                            
+                            
                       </ion-list>
             </div>
+            <div *ngFor="let item of courses | async; index as i;" [attr.data-index]="i">
+                        <ion-list>
+
+                        <ion-item-divider color="light">Curso: {{i + 1}}</ion-item-divider>
+                        <ion-item>
+                            
+                            <ion-icon name="person" item-start></ion-icon>
+                            Maestro: 
+                            <div item-end>{{ item.teacher | uppercase}} </div>  
+                          </ion-item>
+                  
+                  <ion-item >
+                        
+                        <ion-icon name="calendar" item-start></ion-icon>
+                        Horario:   <div text-wrap item-end>{{ item.schedule | uppercase}} </div> 
+                      </ion-item>
+                      <ion-item>
+                           
+                            <ion-icon name="cube" item-start></ion-icon>
+                            Aula:   <div item-end>{{ item.classroom }} </div> 
+                          </ion-item>
+                          <ion-item>
+                                
+                                <ion-icon name="paper" item-start></ion-icon>
+                                Curso:   <div item-end>{{ item.name | uppercase }} </div> 
+                              </ion-item>
+                              
+                        </ion-list>
+                    </div>
         </ion-item>
-
-
     </div>
-

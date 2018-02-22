@@ -3,6 +3,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AlertController } from 'ionic-angular';
 import * as moment from 'moment';
 import { Button } from 'ionic-angular/components/button/button';
+import { ActivitiesService } from '../activitiesRecorder/services/activities.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Injectable()
 export class UserService {
@@ -10,8 +12,10 @@ export class UserService {
     day;
 
     constructor(
+        public firebaseAuth:AngularFireAuth,
         public db:AngularFireDatabase,
-        public alertCtrl:AlertController) { 
+        public alertCtrl:AlertController,
+        public actSrv:ActivitiesService) { 
       this. day = moment();
       this.currentDay = Number(this.day.format('DDD'))
       moment.locale('es');
@@ -25,14 +29,34 @@ export class UserService {
         return this.db.object("users/"+key);
     }
 
+    listUserByUID(uid){
+        return this.db.list("users/", val => val.orderByChild("uid").equalTo(uid)).valueChanges();
+    }
+
     searchUserByName(name:string){
+        this.actSrv.recordActivity(
+            this.firebaseAuth.auth.currentUser.uid,
+            this.firebaseAuth.auth.currentUser.email,
+            "Buscado un usuario por el nombre: " + "'" +name + "'",
+            moment().format("L"),
+            moment().format('LT')
+          );
+
        return this.db.list("users", val => val
         .orderByChild("name")
         .startAt(name)
         ).valueChanges(["child_added"]);
+        
     }
 
     searchUserByEmail(email:string){
+        this.actSrv.recordActivity(
+            this.firebaseAuth.auth.currentUser.uid,
+            this.firebaseAuth.auth.currentUser.email,
+            "Buscado un usuario por el correo: " + "'" +email + "'",
+            moment().format("L"),
+            moment().format('LT')
+          );
         return this.db.list("users", val => val
         .orderByChild("email")
          .startAt(email).limitToFirst(1)
@@ -40,6 +64,13 @@ export class UserService {
      }
 
     searchUserByProperty(node,data){
+        this.actSrv.recordActivity(
+            this.firebaseAuth.auth.currentUser.uid,
+            this.firebaseAuth.auth.currentUser.email,
+            "Buscado un usuario en el nodo "+ "'"+node +"'" + " por la propiedad: " + "'" + data + "'",
+            moment().format("L"),
+            moment().format('LT')
+          );
         return this.db.list("users", val => val
         .orderByChild(node)
         .equalTo(data)
@@ -61,9 +92,23 @@ export class UserService {
             buttons: ['OK']
         });
         alert.present();
+        this.actSrv.recordActivity(
+            this.firebaseAuth.auth.currentUser.uid,
+            this.firebaseAuth.auth.currentUser.email,
+            "Editado al usuario con el nombre: " + "'" + item.name + "'",
+            moment().format("L"),
+            moment().format('LT')
+          );
     }
     deleteUsers(item){
         this.listRef().remove(item.uid);
+        this.actSrv.recordActivity(
+            this.firebaseAuth.auth.currentUser.uid,
+            this.firebaseAuth.auth.currentUser.email,
+            "Eliminado al usuario : " + "'" +item.name + "'",
+            moment().format("L"),
+            moment().format('LT')
+          );
     }
 
     showConfirm(item) {
@@ -108,6 +153,13 @@ export class UserService {
             ]
           });
           confirm.present();
+          this.actSrv.recordActivity(
+            this.firebaseAuth.auth.currentUser.uid,
+            this.firebaseAuth.auth.currentUser.email,
+            "Creado al usuario al estudiante: " + "'" +user.name + "'",
+            moment().format("L"),
+            moment().format('LT')
+          );
     }
     
     createStudent(user){
@@ -173,6 +225,13 @@ export class UserService {
                 email:email,
                 uid:uidElement,
             })
+            this.actSrv.recordActivity(
+                this.firebaseAuth.auth.currentUser.uid,
+                this.firebaseAuth.auth.currentUser.email,
+                "enviado una invitación al usuario: " + "'" +uid[index] + "'",
+                moment().format("L"),
+                moment().format('LT')
+              );
         }
     }
 }

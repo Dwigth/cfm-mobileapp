@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AlertController } from 'ionic-angular';
-
+import { AngularFireAuth } from 'angularfire2/auth';
+import { ActivitiesService } from '../../activitiesRecorder/services/activities.service';
+import * as moment from 'moment';
 @Injectable()
 export class StudentCRMService {
 
@@ -9,7 +11,9 @@ export class StudentCRMService {
 
     constructor(
         public db:AngularFireDatabase,
+        public afauth:AngularFireAuth,
         public alrtCtl:AlertController,
+        public actSrv:ActivitiesService
     ) { }
 
     getStudents(){
@@ -41,7 +45,13 @@ export class StudentCRMService {
             buttons:['OK']
         })
         alrt.present();
-        
+        this.actSrv.recordActivity(
+            this.afauth.auth.currentUser.uid,
+            this.afauth.auth.currentUser.email,
+            "editado a: " + uid + "con la imagen: " + imageURL,
+            moment().format("L"),
+            moment().format('LT')
+          );
     }
 
     editStudent(uid,courses:any[]){
@@ -106,6 +116,13 @@ export class StudentCRMService {
                               this.db.object('students/'+uid.uid + '/courses/'+val.key).update({
                                   key:val.key
                               })
+                              this.actSrv.recordActivity(
+                                this.afauth.auth.currentUser.uid,
+                                this.afauth.auth.currentUser.email,
+                                "editado al estudiante: " + uid,
+                                moment().format("L"),
+                                moment().format('LT')
+                              );
                           });
                           
                       }
@@ -143,6 +160,13 @@ export class StudentCRMService {
                     this.db.object("users/"+uid).update({
                         isStudent:false
                     });
+                    this.actSrv.recordActivity(
+                        this.afauth.auth.currentUser.uid,
+                        this.afauth.auth.currentUser.email,
+                        "eliminado al estudiante: " + uid,
+                        moment().format("L"),
+                        moment().format('LT')
+                      );
                 }
               }
             ]
@@ -166,6 +190,13 @@ export class StudentCRMService {
                 text: 'Si',
                 handler: () => {
                     this.db.list("students/"+ uid + "/courses/" + key ).remove();
+                    this.actSrv.recordActivity(
+                        this.afauth.auth.currentUser.uid,
+                        this.afauth.auth.currentUser.email,
+                        "eliminado el curso: " + key,
+                        moment().format("L"),
+                        moment().format('LT')
+                      );
                 }
               }
             ]

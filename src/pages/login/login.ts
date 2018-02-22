@@ -4,12 +4,15 @@ import { ModalController, Platform, NavParams, ViewController } from 'ionic-angu
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
+import * as moment from 'moment';
 //
 import { User } from '../../pages/components/users/user';
 import { AuthService } from "../../app/auth.service";
 //
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { ActivitiesService } from '../activitiesRecorder/services/activities.service';
+
 //import * as firebase from 'firebase/app';
 
 @Component({
@@ -18,7 +21,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class LoginComponent implements OnInit {
   loginForm:FormGroup;
-
+  date;
   constructor(
     public navCtrl: NavController,
     public params: NavParams,
@@ -26,6 +29,7 @@ export class LoginComponent implements OnInit {
     public afAuth: AngularFireAuth,
     public authServ: AuthService,
     public loadingCtrl: LoadingController,
+    public actSrv:ActivitiesService,
     public formBuilder: FormBuilder) { 
 
       this.loginForm = formBuilder.group({
@@ -46,12 +50,14 @@ export class LoginComponent implements OnInit {
 
   //user:User;
   submitForm(){
+    this.date = moment();
     let user = new User();
     user.email = this.loginForm.value.email;
     user.password = this.loginForm.value.password;
     //this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password);
     this.authServ.login(user.email,user.password);
     this.presentLoading();
+    
   }
   presentLoading() {
     let loader = this.loadingCtrl.create({
@@ -59,6 +65,7 @@ export class LoginComponent implements OnInit {
       duration: 1500
     });
     loader.present();
+   
   }
 }
 @Component({
@@ -162,6 +169,7 @@ export class ModalRegister {
     public db: AngularFireDatabase,
     public afAuth: AngularFireAuth,
     public loadingCtrl: LoadingController,
+    public actSrv:ActivitiesService,
     public formBuilder: FormBuilder){ 
       this.action = params.get('action');
 
@@ -218,6 +226,7 @@ export class ModalRegister {
       });
       this.presentLoading();
       this.viewCtrl.dismiss();
+      
     })
     
   }

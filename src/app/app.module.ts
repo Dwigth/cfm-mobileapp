@@ -89,7 +89,9 @@ import { AssitanceService } from '../pages/CRM/asistencia/services/assistance.se
 import { AsistenceComponent } from '../pages/CRM/asistencia/components/frontview/assistence.component';
 import { ButtonAssitenceComponent } from '../pages/CRM/asistencia/components/buttonview/button.component';
 import { ListAssitanceComponent } from '../pages/CRM/asistencia/components/listComponent/list-assitance.component';
-
+import { ActivitiesComponent } from "../pages/activitiesRecorder/components/activities.component";
+import { ActivitiesButtonComponent } from "../pages/activitiesRecorder/components/activities.button";
+import { ActivitiesService } from "../pages/activitiesRecorder/services/activities.service";
 
 export const firebaseConfig = {
  apiKey: "AIzaSyDObZjIkysrMu1aT2AMFfaYaQD8E1hn12k",
@@ -163,6 +165,8 @@ export const firebaseConfig = {
     AsistenceComponent,
     ButtonAssitenceComponent,
     ListAssitanceComponent,
+    ActivitiesComponent,
+    ActivitiesButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -235,7 +239,9 @@ export const firebaseConfig = {
     TutorComponent,
     AsistenceComponent,
     ButtonAssitenceComponent,
-    ListAssitanceComponent
+    ListAssitanceComponent,
+    ActivitiesComponent,
+    ActivitiesButtonComponent,
   ],
   providers: [
     StatusBar,
@@ -261,6 +267,7 @@ export const firebaseConfig = {
     StudentCRMService,
     InvitationService,
     AssitanceService,
+    ActivitiesService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

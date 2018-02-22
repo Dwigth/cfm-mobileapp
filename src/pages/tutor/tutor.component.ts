@@ -19,6 +19,7 @@ export class TutorComponent implements OnInit {
     stud:Observable<any[]>;
     members:any[] = [];
     membersuid:any[] = [];
+    courses;
 
     constructor(
         private db:AngularFireDatabase,
@@ -92,6 +93,7 @@ export class TutorComponent implements OnInit {
        this.stud =  this.db.list('students',val => val.orderByChild('uid')
         .equalTo(uid)
         ).valueChanges();
+        this.courses = this.db.list('students/' + uid + '/courses/').valueChanges();
     }
 
 }

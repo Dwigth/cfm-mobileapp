@@ -5,13 +5,19 @@ import { Announcement } from './announcement';
 
 import { Observable } from 'rxjs/Observable';
 import { AlertController } from "ionic-angular";
+import { ActivitiesService } from '../activitiesRecorder/services/activities.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Injectable()
 export class AnnouncementService {
 
 announcements:Observable<any[]>;
 day:string;
-constructor(public db:AngularFireDatabase,public alertCtrl:AlertController){
+constructor(
+  public db:AngularFireDatabase,
+  public alertCtrl:AlertController,
+  public actSrv:ActivitiesService,
+  public firebaseAuth:AngularFireAuth,){
 moment.locale('es');
 }
 
@@ -47,6 +53,13 @@ this.refObj( Announcement.key).update({
     buttons: ['OK']
     });
     alert.present();
+    this.actSrv.recordActivity(
+      this.firebaseAuth.auth.currentUser.uid,
+      this.firebaseAuth.auth.currentUser.email,
+      "Editado un anuncio ",
+      moment().format("L"),
+      moment().format('LT')
+    );
 }). catch(err =>{
   let alert =   this.alertCtrl.create({
     title: '¡Error!',
@@ -72,6 +85,13 @@ public createAnnouncements(Announcement:Announcement):void{
     buttons: ['OK']
     });
     alert.present();
+    this.actSrv.recordActivity(
+      this.firebaseAuth.auth.currentUser.uid,
+      this.firebaseAuth.auth.currentUser.email,
+      "Creado un anuncio ",
+      moment().format("L"),
+      moment().format('LT')
+    );
   });
 }
 
@@ -84,6 +104,13 @@ this.refObj( item.key).remove()
       buttons: ['OK']
       });
       alert.present();
+      this.actSrv.recordActivity(
+        this.firebaseAuth.auth.currentUser.uid,
+        this.firebaseAuth.auth.currentUser.email,
+        "Borrado un anuncio :" + item.key,
+        moment().format("L"),
+        moment().format('LT')
+      );
   }).catch(err =>{
     let alert =   this.alertCtrl.create({
       title: 'Error!',
