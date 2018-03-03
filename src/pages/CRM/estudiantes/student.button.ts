@@ -5,7 +5,7 @@ import { StudentCRMComponent } from './studentCRM.component';
 @Component({
     selector:'student-button',
     template: `
-    <button type="button" ion-button large block color="primary" (click)="OpenStudents()" outline>Administrar estudiantes</button>
+    <button type="button" class="button_round" (click)="OpenStudents()" >Administrar estudiantes</button>
 
     `
 })

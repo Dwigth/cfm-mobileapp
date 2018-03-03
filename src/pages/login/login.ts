@@ -174,7 +174,7 @@ export class ModalRegister {
       this.action = params.get('action');
 
       this.registerForm = formBuilder.group({
-        name: ['',Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
+        name: ['',Validators.compose([Validators.required])],
         lastName:['',Validators.compose([Validators.required])],
         lastName2:['',Validators.compose([Validators.required])],
         email: ['',Validators.compose([Validators.required])],

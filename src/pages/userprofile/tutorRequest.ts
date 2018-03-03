@@ -3,6 +3,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { AlertController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 @Component({
     templateUrl: 'tutorRequest.html'
@@ -11,11 +12,12 @@ import { AlertController } from 'ionic-angular';
 export class TutorRequestComponent implements OnInit {
     requests: Observable<any[]>;
     currentUser;
-
+    users;
     constructor(
         public db: AngularFireDatabase,
         public afAuth:AngularFireAuth,
         public alertCtrl: AlertController,
+        public navCtrl:NavController,
     ) { 
         this.requests = db.list('users/'+afAuth.auth.currentUser.uid + "/requests",
         val => val
@@ -23,7 +25,7 @@ export class TutorRequestComponent implements OnInit {
         .equalTo(false)
         ).valueChanges();
         this.currentUser = afAuth.auth.currentUser;
-        
+        this.users = db.list('users', value => value.orderByChild('email').equalTo(this.currentUser.email)).valueChanges();
      }
 
     ngOnInit() {  }
@@ -58,6 +60,10 @@ export class TutorRequestComponent implements OnInit {
             ]
           });
           confirm.present();
+     }
+
+     pop(){
+       this.navCtrl.pop();
      }
 
      declineRequest(uid){

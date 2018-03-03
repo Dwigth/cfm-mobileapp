@@ -6,7 +6,7 @@ import { ProspectModalComponent } from "./prospect.component";
 @Component({
   selector: 'prospect-button',
   template:`
-<button type="button" ion-button large block color="primary" (click)="openModalProspects()" outline>Administrar prospectos</button>
+<button type="button"  (click)="openModalProspects()" class="button_round">Administrar prospectos</button>
   `,
 })
 export class ProspectButtonComponent implements OnInit {

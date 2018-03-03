@@ -5,17 +5,17 @@ import { UserModal } from "./user.modal.component";
 @Component({
     selector: 'user-button',
     template: `
-    <button type="button" ion-button large block color="primary" (click)="openModalUser()" outline>Administrar usuarios</button>
+    <button type="button" class="button_round" (click)="OMU()" >Administrar usuarios</button>
     `
 })
 
 export class UserButton implements OnInit {
-    constructor(public modalCtrl:ModalController) { }
+    constructor(public MC:ModalController) { }
 
     ngOnInit() { }
 
-    openModalUser(){
-        let modal = this.modalCtrl.create(UserModal);
+    OMU(){
+        let modal = this.MC.create(UserModal);
         modal.present();
       }
 }

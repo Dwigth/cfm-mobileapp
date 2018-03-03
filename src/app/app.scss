@@ -14,29 +14,32 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-/*$dark: #222;
-$red : red;
-$blue: blue;
+$dark: black;
 .dark {
   background-color:$dark !important;
   color: #ffffff;
+  border: none;
   .item {
     background-color: rgba(0, 0, 0, 0);
     border: none;
-    //border-top: 1px solid;
-    //border-bottom: 2px solid;
-    //border-color:  darken( $blue, 10% );
-    padding: 10px;
+    border-top: 1px solid;
+    border-bottom: 2px solid;
+    border-color:  darken( $dark, 10% );
+    //padding: 10px;
     color: #F0F1F1;
     max-height: none;
 
     &:last-child {
       border-bottom: 1px solid #333333;
     }
-    &.current{ background-color:darken( $dark, 10% )   !important;
+    &.current{ 
+      background-color:darken( $dark, 10% )   !important;
        border-top: 1px solid #464646 !important;
        border-bottom: 2px solid #333333 !important;
-      p,h3{opacity: .7;}
+       border: none;
+      p,h3{opacity: .7;
+        border: none;
+      }
             }
   }
   h2,
@@ -48,6 +51,7 @@ $blue: blue;
 }
 .dark-head {
   text-decoration: none;
+  border: none;
 }
 
 /* CORRECCIONES EN IOS*/
@@ -55,11 +59,9 @@ $blue: blue;
     margin-top: 5%;
 }
 .toolbar-ios-dark .toolbar-background-ios {
-    background: #93c11e;
+    background: black;
 }
 .toolbar-ios {
-    padding: 1.5%;
-    padding-left: 3.5%;
 }
 /* FIN CORRECCIONES EN IOS*/
 
@@ -72,10 +74,10 @@ ion-navbar.toolbar {
     padding: 7px;
 }
 .toolbar-md-dark .toolbar-background-md {
-    background: #93c11e;
+    background: black;
 }
 .content-md {
-    margin-top: 5%;
+    margin-top: 2%;
 }
 /*FIN DE CAMBIOS EN ANDROID*/
 
@@ -84,13 +86,13 @@ ion-navbar.toolbar {
   background-color: #f1f1f1;
 }
 .button-ios-green {
-    background-color: #93c11e;
+    background-color: #95c11e;
 }
 .button-md-green {
-    background-color: #93c11e;
+    background-color: #95c11e;
 }
 .bgverde{
-    background-color: #93c11e;
+    background-color: #95c11e;
     height: 5%;
 }
 .textblack{

@@ -4,3 +4,24 @@ app-news-list{
 #container{
   margin-top: 20%;
 }
+.button_round{
+  width: 95%;
+  padding: 3%;
+  font-size: 150%;
+  background-color: white;
+  border: 2px solid #95c11e;
+  color: black;
+  margin: 2%;
+  display: block;
+  border-radius: 24px;
+}
+.button_round_black{
+  width: 95%;
+  padding: 3%;
+  font-size: 150%;
+  background-color: black;
+  color: white;
+  margin: 2%;
+  display: block;
+  border-radius: 24px;
+}

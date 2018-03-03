@@ -56,7 +56,7 @@ this.annserv.editAnnouncement(this.item);
 @Component({
   selector: 'announcement-button',
   template: `
-<button type="button" ion-button large block color="primary" outline (click)="OpenModal ()">Administrar avisos</button>
+<button type="button" class="button_round" (click)="OpenModal ()">Administrar avisos</button>
   `
 })
 export class AnnouncementButton{

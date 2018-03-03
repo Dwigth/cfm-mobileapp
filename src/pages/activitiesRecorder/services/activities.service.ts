@@ -9,7 +9,12 @@ export class ActivitiesService {
     ) { }
 
     retrieveActivities(hour:string){
-        return this.db.list('activities',val => val.limitToFirst(50)).valueChanges(['child_added']).map((arr) =>{return arr.reverse();} );
+        return this.db.list('activities',
+        val => val.limitToLast(50))
+        .valueChanges(['child_added'])
+        .map((arr) => { 
+            return arr.reverse();
+        });
     }
 
     recordActivity(uid,email,activity,date,hour){

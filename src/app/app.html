@@ -19,11 +19,11 @@
   </ion-header>
 
   <ion-content class="dark">
-    <div id="menu">
+    <div class="menu">
     <div *ngIf="afAuth.authState | async; let user; else showUserPages" >
-      <ion-list >
-          <ion-card text-center class="hide-card">
-              <img src="assets/imgs/CFM3.png" class="custom-avatar"/>
+      <ion-list no-lines>
+          <ion-card color="dark" text-center class="hide-card">
+              <img src="assets/imgs/LOGO-CFM-BLANCO.png" class="custom-avatar"/>
 
               <hr>
               <div *ngIf="afAuth.authState | async; let user;">
@@ -39,8 +39,8 @@
 
     <ng-template #showUserPages>
       <ion-list>
-      <ion-card text-center class="hide-card">
-          <img src="assets/imgs/CFM3.png" class="custom-avatar"/>
+      <ion-card color="dark" text-center class="hide-card">
+          <img src="assets/imgs/LOGO-CFM-BLANCO.png" class="custom-avatar"/>
           <hr>
       </ion-card>
         <button menuClose ion-item *ngFor="let p of userpages" (click)="openPage(p)">

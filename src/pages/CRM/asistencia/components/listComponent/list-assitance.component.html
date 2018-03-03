@@ -13,10 +13,33 @@
 </ion-header>
 
 <ion-content>
-    
-    <ion-item *ngFor="let item of cursos">
-        <p>
-                {{item.nombre + " " + item.horas}}
-    </p>
-    </ion-item>
+
+    <ion-list>
+        <ion-item>
+            <ion-label>Estudiante</ion-label>
+                <ion-select [(ngModel)]="id">
+                    
+                        <ion-option *ngFor="let item of students | async;" value="{{item.uid}}">{{item.name + " " + item.lastName}}</ion-option>
+                </ion-select>
+        </ion-item>
+           <ion-item>
+                <ion-label>Horario</ion-label>
+                <ion-select [(ngModel)]="horarios">
+                        <ion-option *ngFor="let item of horario" value="{{item.id_horario}}">{{item.nombre + " " + item.horas}} </ion-option>
+                </ion-select>
+           </ion-item>
+           <ion-item>
+                <ion-label>Cursos</ion-label>
+                <ion-select [(ngModel)]="curso">
+                        <ion-option *ngFor="let item of cursos | async " value="{{item.id}}">{{item.name |  uppercase}} </ion-option>
+                </ion-select>
+           </ion-item>
+           <ion-item>
+               <input type="date">
+           </ion-item>
+
+            
+    </ion-list>
+        
+
 </ion-content>

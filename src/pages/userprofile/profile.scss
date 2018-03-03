@@ -1,13 +1,50 @@
 app-profile{
 
 }
-#container{
-  margin-top: 20%;
+.background{
+  background-color: #95c11e;
+}
+.namepos{
+  width: 100%;
+  height: 150px;
+  background-color: black;
+  color: whitesmoke;
+}
+.name{
+}
+.parap{
+  color: #95c11e;
+}
+
+#cont{
+  margin-top: 30%;
+  width: 90%;
+  margin: auto;
 }
 #pos{
   color:whitesmoke;
 }
-
+.card_profile{
+  position: relative;
+  z-index: 1;
+  width: 80%;
+  height: 50%;
+  border-radius: 47%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.custom-img{
+  height: 35vw;
+  width: 45vw;
+  border: 1px solid #fff;
+  border-radius: 60%;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.notif{
+  position: relative;
+  left: 20%;
+}
 input[type="button"]{
   display: block;
   font-size: 14px;
@@ -62,12 +99,16 @@ input[type="button"]:hover {
   transition: all 0.40s ease-out;
 }
 
-.custom-img{
-  height: 35vw;
-  width: 40vw;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
+
+.content_list{
+  height: 100%;
+  width: 100%;
+}
+
+@media  only screen and (max-width: 600px) {
+  .card_profile{
+    width: 100%;
+    height: 80%;
+    display: block;
+  }
 }

@@ -9,6 +9,7 @@ import { AlertController } from 'ionic-angular';
 import { Prospect } from "./prospect";
 import { Http } from '@angular/http';
 import * as moment from 'moment';
+import { ActivitiesService } from '../activitiesRecorder/services/activities.service';
 @Injectable()
 
 export class ProspectService {
@@ -24,7 +25,9 @@ export class ProspectService {
     public db: AngularFireDatabase,
     public http: Http, 
     public afAuth: AngularFireAuth,
-    public alertCtrl:AlertController) {
+    public alertCtrl:AlertController,
+    public actSrv:ActivitiesService,
+    public firebaseAuth:AngularFireAuth) {
     let day = moment();
     this.currentDay = Number(day.format('DDD'))
     moment.locale('es');
@@ -90,16 +93,31 @@ export class ProspectService {
 
   searchProspectByProperty(n, property) {
     let result: Observable<any[]>;
+    this.actSrv.recordActivity(
+      this.firebaseAuth.auth.currentUser.uid,
+      this.firebaseAuth.auth.currentUser.email,
+      "Buscado un usuario en el nodo "+ "'"+n +"'" + " por la propiedad: " + "'" + property + "'",
+      moment().format("L"),
+      moment().format('LT')
+    );
     return result = this.db.list("prospects", val => val.orderByChild(property).equalTo(n).limitToFirst(50) ).valueChanges();
   }
 
   searchByName(name: string) {
+    this.actSrv.recordActivity(
+      this.firebaseAuth.auth.currentUser.uid,
+      this.firebaseAuth.auth.currentUser.email,
+      "Buscado un prospecto por el nombre: " + "'" +name + "'",
+      moment().format("L"),
+      moment().format('LT')
+    );
     //console.log(name)
     return this.db.list("prospects", val =>
       val.orderByChild("name")//.equalTo(name)
       .startAt(name.trim())
       //.endAt(name.trim())
     ).valueChanges();
+    
   }
 
   editProspect(item) {
@@ -116,11 +134,26 @@ export class ProspectService {
       coment: item.coment,
       source: item.source,
       price: item.price
+    }).then(val => {
+      this.actSrv.recordActivity(
+        this.firebaseAuth.auth.currentUser.uid,
+        this.firebaseAuth.auth.currentUser.email,
+        "Editado al prospecto con el nombre: " + "'" + item.name + "'",
+        moment().format("L"),
+        moment().format('LT')
+      );
     });
   }
 
   deleteProspect(item) {
     this.refObj(item.key).remove();
+    this.actSrv.recordActivity(
+      this.firebaseAuth.auth.currentUser.uid,
+      this.firebaseAuth.auth.currentUser.email,
+      "Eliminado al prospecto : " + "'" +item.name + "'",
+      moment().format("L"),
+      moment().format('LT')
+    );
   }
 
   getItems(ev: any) {

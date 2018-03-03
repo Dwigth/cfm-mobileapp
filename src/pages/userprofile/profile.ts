@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
+import { TutorRequestComponent } from './tutorRequest';
 import { AlertController } from 'ionic-angular';
 import {AuthService} from '../../app/auth.service';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'app-profile',
@@ -13,15 +14,16 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class ProfileComponent implements OnInit {
   users: Observable<any[]>;
   student: Observable<any[]>;
+  tab1: any;
 
   constructor(
     public autServ:AuthService,
     public db: AngularFireDatabase,
     public afAuth:AngularFireAuth,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    public navCtrl:NavController) {
     let user = afAuth.auth.currentUser;
     let name, email, photoUrl, uid, emailVerified;
-    
     if (user != null) {
       name = user.displayName;
       email = user.email;
@@ -104,7 +106,9 @@ export class ProfileComponent implements OnInit {
       });
       confirm.present();
   }
-
+  notification(){
+    this.navCtrl.push(TutorRequestComponent);
+  }
   ngOnInit() {
     //console.log( this.afAuth.auth.currentUser.email);
   }

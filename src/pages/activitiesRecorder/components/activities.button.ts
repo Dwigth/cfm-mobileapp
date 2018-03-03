@@ -5,7 +5,7 @@ import { ActivitiesComponent } from "./activities.component";
 @Component({
     selector:"activities-button",
     template: `
-    <button type="button" ion-button outline block (click)="OpenNav()" color="danger"> Registro de actividad </button>
+    <button type="button" class="button_round" (click)="OpenNav()" > Registro de actividad </button>
     `
 })
 

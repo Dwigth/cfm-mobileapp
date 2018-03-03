@@ -5,7 +5,7 @@ import { NavController } from 'ionic-angular';
 @Component({
     selector: 'button-assitence',
     template:`
-<button type="button" ion-button large block color="primary" (click)="openModalAssitences()" outline>Administrar asistencias</button>
+<button type="button" class="button_round" (click)="openModalAssitences()" >Administrar asistencias</button>
   `,
 })
 

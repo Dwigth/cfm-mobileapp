@@ -17,21 +17,6 @@
     <button type="button" (click)=" createToast()" ion-button > Información </button>
 </div>
 
-<div>
-              <ion-list>
-                <ion-item>
-                  <ion-label>Filtros</ion-label>
-                  <ion-select [(ngModel)]="gaming">
-                    <ion-option value="nes">NES</ion-option>
-                    <ion-option value="n64">Nintendo64</ion-option>
-                    <ion-option value="ps">PlayStation</ion-option>
-                    <ion-option value="genesis">Sega Genesis</ion-option>
-                    <ion-option value="saturn">Sega Saturn</ion-option>
-                    <ion-option value="snes">SNES</ion-option>
-                  </ion-select>
-                </ion-item>
-              </ion-list>
-</div>
 
 <div text-wrap class="cardsocial" *ngFor="let item of activities | async;index as i;" [attr.data-index]="i">
   

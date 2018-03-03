@@ -78,7 +78,7 @@ export class MyApp {
 
       this.adminPages = [
         { title: 'Últimas noticias', component: HomePage, icon: 'apps' },
-        { title: 'Perfil', component: ProfileTabsComponent, icon: 'person' },
+        { title: 'Perfil', component: ProfileComponent, icon: 'person' },
         { title: 'Dashboard', component: dashboardPage, icon: 'clipboard' },
         { title: 'Avisos', component: AnnouncementComponent, icon: 'bulb' },
         { title: 'Quienes somos', component: AboutUsComponent, icon: 'contacts' },

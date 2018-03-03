@@ -1,42 +1,66 @@
 
 <ion-content>
+  <div class="back" *ngFor="let item of user | async" >
+  <div class="namepos">
+      <ion-grid>
+          <ion-row>
+            <!--<ion-col >
+              <div padding>
+
+              </div>
+              <ion-item class="card_profile">
+                  <img src="{{item.imageURL}}" class="custom-img"/>
+                  <input type="hidden" id="urlcurrent" value="{{item.imageURL}}">
+              </ion-item>
+            </ion-col>-->
+            <ion-col >
+              <div padding></div>
+              <div>
+                  <h1 text-center class="parap">DASHBOARD</h1>
+              </div>
+               
+              </ion-col>
+          </ion-row>
+        </ion-grid>
+  </div>
   <div id="container">
 
   </div>
 
-  <div *ngFor="let item of user | async">
+  <div id="cont" >
 
     <ion-item *ngIf="item.accessLevel == 'user' ;" text-wrap>
       <p>Ingresa a la academia para poder visualizar esta sección.</p>
     </ion-item>
 
     <div text-center *ngIf="item.accessLevel == 'admin';">
-        <ion-badge  color="secondary">
-            <h1  text-center>Menú administrativo</h1>
-          </ion-badge>
+        
+            <h1 class="button_round_black" text-center>Menú administrativo</h1>
+          
     </div>
 
     <ion-item text-center *ngIf="item.accessLevel == 'admin' || item.accessLevel == 'coordi';">
+      <div class="container">
+        
       <app-news></app-news>
       <announcement-button></announcement-button>
       <prospect-button></prospect-button>
       <user-button></user-button>
       <cursos-button></cursos-button>
       <student-button></student-button>
+      </div>
       
       <hr>
-      <ion-badge  color="secondary">
-        <h1  text-center>Asistencias</h1>
-      </ion-badge>
+      
+        <h1 class="button_round_black" text-center>Asistencias</h1>
 
       <button-assitence></button-assitence>
 
       <hr>
 
     
-      <ion-badge  color="primary">
-        <h1  text-center>Control</h1>
-      </ion-badge>
+    
+        <h1 class="button_round_black" text-center>Control</h1>
 
       <activities-button></activities-button>
 
@@ -58,4 +82,18 @@
 
   </div>
 
+<div class="ng-d" *ngIf="item.accessLevel != 'admin'"></div>
+<div class="footer_cont">
+    <ion-grid>
+        <ion-row>
+          <ion-col >
+            <div>
+                <img class="img_i" src="../../assets/imgs/CFM3.png" alt="">
+            </div>
+             
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+</div>
+</div>
 </ion-content>

@@ -22,6 +22,10 @@ export class StudentCRMService {
     ).valueChanges();
     }
 
+    getCourses(){
+        return this.db.list('course').valueChanges();
+    }
+
     searchByProperty(property,node){
         return this.db.list("students", 
         val => val.orderByChild(node.trim())

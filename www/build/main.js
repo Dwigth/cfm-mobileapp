@@ -1,6 +1,246 @@
 webpackJsonp([0],{
 
-/***/ 161:
+/***/ 162:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tutorRequest__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_auth_service__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__ = __webpack_require__(11);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var ProfileComponent = (function () {
+    function ProfileComponent(autServ, db, afAuth, alertCtrl, navCtrl) {
+        this.autServ = autServ;
+        this.db = db;
+        this.afAuth = afAuth;
+        this.alertCtrl = alertCtrl;
+        this.navCtrl = navCtrl;
+        this.userUpdate = {
+            imageURL: '',
+            phone: '',
+            ocupation: '',
+            grade: '',
+            age: '',
+            advertising: '',
+            uid: ''
+        };
+        var user = afAuth.auth.currentUser;
+        var name, email, photoUrl, uid, emailVerified;
+        if (user != null) {
+            name = user.displayName;
+            email = user.email;
+            photoUrl = user.photoURL;
+            emailVerified = user.emailVerified;
+            uid = user.uid;
+        }
+        this.users = db.list('users', function (value) { return value.orderByChild('email').equalTo(user.email); }).valueChanges();
+        this.student = db.list('students/' + user.uid + '/courses/').valueChanges();
+    }
+    ProfileComponent.prototype.showAlert = function (message, title) {
+        var alert = this.alertCtrl.create({
+            title: title,
+            subTitle: message,
+            buttons: ['OK']
+        });
+        alert.present();
+    };
+    ProfileComponent.prototype.UpdateInfo = function () {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Editar perfil',
+            message: '¿En realidad quiere editar su perfil?',
+            buttons: [
+                {
+                    text: 'No',
+                    handler: function () {
+                        console.log('Disagree clicked');
+                    }
+                },
+                {
+                    text: 'Si',
+                    handler: function () {
+                        _this.userUpdate.uid = document.getElementById('uid').value;
+                        var item = _this.db.object('users/' + _this.userUpdate.uid);
+                        var actPhone = document.getElementById('actPhone').value;
+                        var actGrade = document.getElementById('actGrade').value;
+                        var actAge = document.getElementById('actAge').value;
+                        var actOcupation = document.getElementById('actOcupation').value;
+                        var phone = (_this.userUpdate.phone == '') ? actPhone : _this.userUpdate.phone;
+                        var grade = (_this.userUpdate.grade == '') ? actGrade : _this.userUpdate.grade;
+                        var age = (_this.userUpdate.age == '') ? actAge : _this.userUpdate.age;
+                        var ocupation = (_this.userUpdate.ocupation == '') ? actOcupation : _this.userUpdate.ocupation;
+                        var imageURL = document.getElementById('url');
+                        var currentImage = document.getElementById('urlcurrent').value;
+                        _this.userUpdate.phone = phone;
+                        _this.userUpdate.grade = grade;
+                        _this.userUpdate.age = age;
+                        _this.userUpdate.ocupation = ocupation;
+                        _this.userUpdate.imageURL = (imageURL != null) ? imageURL.value : currentImage;
+                        item.update({
+                            imageURL: _this.userUpdate.imageURL,
+                            phone: _this.userUpdate.phone,
+                            ocupation: _this.userUpdate.ocupation,
+                            grade: _this.userUpdate.grade,
+                            age: _this.userUpdate.age,
+                            advertising: _this.userUpdate.advertising
+                        });
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    ProfileComponent.prototype.notification = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_1__tutorRequest__["a" /* TutorRequestComponent */]);
+    };
+    ProfileComponent.prototype.ngOnInit = function () {
+        //console.log( this.afAuth.auth.currentUser.email);
+    };
+    ProfileComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-profile',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/userprofile/profile.html"*/'\n<ion-content>\n  <div class="background"  *ngFor="let item of users | async">\n  <div class="namepos">\n      <ion-grid>\n          <ion-row>\n            <ion-col >\n              <div padding>\n\n              </div>\n              <ion-item class="card_profile">\n                  <img src="{{item.imageURL}}" class="custom-img"/>\n                  <input type="hidden" id="urlcurrent" value="{{item.imageURL}}">\n              </ion-item>\n            </ion-col>\n            <ion-col >\n              <div padding></div>\n              <div>\n                  <h4>{{item.name + " " + item.lastName | uppercase}}</h4>\n                  <p class="parap">POSICIÓN: {{item.accessLevel | uppercase}}</p>\n              </div>\n               \n              </ion-col>\n          </ion-row>\n        </ion-grid>\n  </div>\n  <div id="cont">\n  <ion-list padding no-lines >\n\n     <!-- <ion-item>\n          \n          <ion-card text-center class="hide-card">\n              <img src="{{item.imageURL}}" class="custom-img"/>\n              <input type="hidden" id="urlcurrent" value="{{item.imageURL}}">\n              <br>\n              <br>\n              <h2 text-wrap > {{item.name + \' \' + item.lastName + \' \'+ item.lastName2 | uppercase}} </h2>\n              <p>Posición: <ion-badge color="orange"><ion-note id="pos">{{item.accessLevel}}</ion-note></ion-badge> </p> \n              <hr>\n          </ion-card>\n          \n      </ion-item>-->\n          <ion-item>\n              <p text-center class="notif" (click)="notification()"><ion-icon name="notifications-outline"></ion-icon> Notificaciones </p>\n          </ion-item>\n      \n            <ion-item text-center>\n                   <h1> INFORMACIÓN</h1>\n            </ion-item>\n\n          <ion-item>\n           \n            <ion-icon name=\'mail\' item-start></ion-icon>\n            E-mail\n            <ion-note item-end>\n            {{item.email}}\n            </ion-note>\n          </ion-item>\n\n          <ion-item>\n            <ion-toggle [(ngModel)]="phone" name="phone" checked="false"></ion-toggle>\n            <ion-label>\n              Telefono\n            </ion-label>\n            <ion-icon name=\'call\' item-start></ion-icon>\n          </ion-item>\n          <div *ngIf="phone != true; else phoneNumber">\n\n          </div>\n\n          <ng-template #phoneNumber>\n            <ion-item>\n              <ion-icon name=\'call\' item-start></ion-icon>\n              <input type="text" value="{{item.phone}}" readonly>\n\n            </ion-item>\n            <ion-item>\n              <ion-icon name=\'call\' item-start></ion-icon>\n              <input id="phone" type="text" [(ngModel)]="userUpdate.phone" name="phone" placeholder="Agregar: ">\n            </ion-item>\n          </ng-template>\n\n\n          <ion-item>\n            <ion-icon name=\'alert\' item-start></ion-icon>\n            Estatus\n            <ion-badge item-end color="green"> <ion-note id="pos" item-end>\n            {{item.status}}\n            </ion-note></ion-badge>\n          </ion-item>\n\n<!-- -->\n          <ion-item>\n            <ion-label>\n              Último grado de estudios\n            </ion-label>\n            <ion-toggle [(ngModel)]="grade" name="grade" checked="false"></ion-toggle>\n            <ion-icon name=\'school\' item-start></ion-icon>\n          </ion-item>\n\n          <div *ngIf="grade != true; else lastGrade">\n\n          </div>\n          <ng-template #lastGrade>\n            <ion-item>\n              <ion-icon name=\'school\' item-start></ion-icon>\n              <input  type="text"  value="{{item.grade}}" readonly> \n\n            </ion-item>\n            <ion-item>\n              <ion-icon name=\'school\' item-start></ion-icon>\n              <input id="grade" type="text" [(ngModel)]="userUpdate.grade" name="grade" placeholder="Actualizar: ">\n            </ion-item>\n\n          </ng-template>\n<!-- -->\n<!-- -->\n          <ion-item>\n            <ion-label>\n              Edad\n            </ion-label>\n            <ion-toggle [(ngModel)]="age" name="age" checked="false"></ion-toggle>\n            <ion-icon name=\'body\' item-start></ion-icon>\n          </ion-item>\n\n          <div *ngIf="age != true; else ageU">\n\n          </div>\n          <ng-template #ageU>\n            <ion-item>\n              <ion-icon name=\'body\' item-start></ion-icon>\n              <input  type="text"  value="{{item.age}}" readonly>\n            </ion-item>\n            <ion-item>\n              <ion-icon name=\'body\' item-start></ion-icon>\n              <input id="age"type="text" [(ngModel)]="userUpdate.age" name="age" placeholder="Actualizar: ">\n            </ion-item>\n\n          </ng-template>\n<!-- -->\n<!-- -->\n          <ion-item>\n            <ion-label>\n              Ocupación\n            </ion-label>\n            <ion-toggle [(ngModel)]="ocupation" checked="false"></ion-toggle>\n            <ion-icon name=\'folder\' item-start></ion-icon>\n          </ion-item>\n\n          <div *ngIf="ocupation != true; else ocupationU">\n\n          </div>\n          <ng-template #ocupationU>\n            <ion-item>\n                <ion-icon name=\'folder\' item-start></ion-icon>\n                <input  type="text" value="{{item.ocupation}}" readonly> \n\n            </ion-item>\n            <ion-item>\n              <ion-icon name=\'folder\' item-start></ion-icon>\n              <input id="ocupation" type="text" [(ngModel)]="userUpdate.ocupation" name="ocupation" placeholder="Actualizar: ">\n            </ion-item>\n\n          </ng-template>\n<!-- -->\n\n          <ion-item>\n            <ion-icon name=\'create\' item-start></ion-icon>\n\n      <ion-label>¿Cómo se enteró de la escuela?</ion-label>\n            <ion-select [(ngModel)]="userUpdate.advertising" name="advertising" item-end>\n              <ion-option value="redes">Redes sociales</ion-option>\n              <ion-option value="conocido">Conocido</ion-option>\n              <ion-option value="cartel">Cartel</ion-option>\n            </ion-select>\n\n\n\n          </ion-item>\n          <input type="hidden"name="uid" id="uid" value="{{item.uid}}">\n          <input type="hidden"name="actPhone" id="actPhone" value="{{item.phone}}">\n            <input type="hidden"name="actGrade" id="actGrade" value="{{item.grade}}">\n            <input type="hidden"name="actAge" id="actAge" value="{{item.age}}">\n            <input type="hidden"name="actOcupation" id="actOcupation" value="{{item.ocupation}}">\n \n\n            <ion-item>\n          \n      <ion-list  no-lines *ngFor="let stu of student | async">\n        <ion-item>\n            <ion-list-header text-center>\n                Academia\n              </ion-list-header>\n        </ion-item>\n          \n\n        <ion-item>\n          <ion-icon name=\'paper\' item-start></ion-icon>\n          Curso\n          <ion-note item-end>\n            {{stu.name | uppercase}}\n          </ion-note>\n        </ion-item>\n\n        <ion-item>\n            <ion-icon name=\'clock\' item-start></ion-icon>\n            Horario\n            <ion-note item-end>\n              {{stu.schedule | uppercase}}\n            </ion-note>\n          </ion-item>\n\n          <ion-item>\n              <ion-icon name=\'contact\' item-start></ion-icon>\n              Maestro\n              <ion-note item-end>\n                {{stu.teacher | uppercase}}\n              </ion-note>\n            </ion-item>\n\n            <ion-item>\n                <ion-icon name=\'cube\' item-start></ion-icon>\n                Aula\n                <ion-note item-end>\n                  {{stu.classroom}}\n                </ion-note>\n              </ion-item>\n\n        </ion-list>\n      </ion-item>\n      <ion-item>\n          <label>Cargar foto de perfil</label>\n        <upload-form></upload-form>\n        <button type="button" ion-button block (click)="UpdateInfo()" > Actualizar información</button>\n        </ion-item>\n      </ion-list>\n\n          \n          \n\n        </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/userprofile/profile.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__app_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__["a" /* AngularFireDatabase */],
+            __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */]])
+    ], ProfileComponent);
+    return ProfileComponent;
+}());
+
+//# sourceMappingURL=profile.js.map
+
+/***/ }),
+
+/***/ 163:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TutorRequestComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(5);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var TutorRequestComponent = (function () {
+    function TutorRequestComponent(db, afAuth, alertCtrl, navCtrl) {
+        var _this = this;
+        this.db = db;
+        this.afAuth = afAuth;
+        this.alertCtrl = alertCtrl;
+        this.navCtrl = navCtrl;
+        this.requests = db.list('users/' + afAuth.auth.currentUser.uid + "/requests", function (val) { return val
+            .orderByChild('accepted')
+            .equalTo(false); }).valueChanges();
+        this.currentUser = afAuth.auth.currentUser;
+        this.users = db.list('users', function (value) { return value.orderByChild('email').equalTo(_this.currentUser.email); }).valueChanges();
+    }
+    TutorRequestComponent.prototype.ngOnInit = function () { };
+    TutorRequestComponent.prototype.acceptRequest = function (uid) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Solicitudes',
+            message: '¿Está de acuerdo con aceptar esta solicitud?',
+            buttons: [
+                {
+                    text: 'No',
+                    handler: function () {
+                        console.log("no");
+                    }
+                },
+                {
+                    text: 'Si',
+                    handler: function () {
+                        _this.db.object("users/" + _this.currentUser.uid + "/requests/" + uid + "/").update({
+                            accepted: true
+                        });
+                        _this.db.object("users/" + uid + "/students/").update({
+                            requestAcepted: uid
+                        });
+                        _this.db.object("tutorRequest/" + uid + "/" + _this.currentUser.uid + "/").update({
+                            accepted: true
+                        });
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    TutorRequestComponent.prototype.pop = function () {
+        this.navCtrl.pop();
+    };
+    TutorRequestComponent.prototype.declineRequest = function (uid) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Solicitudes',
+            message: '¿Está de acuerdo con eliminar esta solicitud?',
+            buttons: [
+                {
+                    text: 'No',
+                    handler: function () {
+                        console.log("no");
+                    }
+                },
+                {
+                    text: 'Si',
+                    handler: function () {
+                        var item = _this.db.object("users/" + _this.currentUser.uid + "/requests/" + uid + "/");
+                        item.remove();
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    TutorRequestComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/userprofile/tutorRequest.html"*/'<ion-content>\n\n        <ion-list  style="margin-top: 20%;">\n                 \n<div *ngFor="let item of requests | async; index as i;" [attr.data-index]="i">\n        \n        <p text-center *ngIf="item.type == \'tutorRequest\' && i > 1" >Tienes {{i+1}} solicitudes de tutor pendiente</p>\n        <p text-center *ngIf="item.type == \'tutorRequest\' && i == 0 " >Tienes una solicitud de tutor pendiente</p>\n        \n                <ion-item-sliding >\n                 \n                  <ion-item>\n                    <h2>{{item.email}}</h2>\n                  </ion-item>\n                  <ion-item-options side="right">\n                    <button (click)="acceptRequest(item.sender)" ion-button color="secondary">\n                      <ion-icon clear name="checkbox"></ion-icon>\n                      Aceptar\n                    </button>\n                    <button (click)=" declineRequest(item.sender)" ion-button color="danger">\n                      <ion-icon name="close"></ion-icon>\n                      Declinar\n                    </button>\n                    </ion-item-options>\n\n                </ion-item-sliding>\n              </div>  \n              </ion-list>\n\n         <p text-center>Aquí recibirás notificaciones</p>\n\n\n</ion-content> '/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/userprofile/tutorRequest.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */],
+            __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */]])
+    ], TutorRequestComponent);
+    return TutorRequestComponent;
+}());
+
+//# sourceMappingURL=tutorRequest.js.map
+
+/***/ }),
+
+/***/ 164:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10,7 +250,7 @@ webpackJsonp([0],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__activitiesRecorder_services_activities_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__activitiesRecorder_services_activities_service__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -130,7 +370,7 @@ var AnnouncementService = (function () {
 
 /***/ }),
 
-/***/ 162:
+/***/ 165:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -138,10 +378,10 @@ var AnnouncementService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return UpdateNewsModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__news__ = __webpack_require__(454);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__news__ = __webpack_require__(453);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__news_service__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__news_service__ = __webpack_require__(166);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -253,18 +493,18 @@ var UpdateNewsModal = (function () {
 
 /***/ }),
 
-/***/ 163:
+/***/ 166:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewsService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_local_notifications__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_local_notifications__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__activitiesRecorder_services_activities_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__activitiesRecorder_services_activities_service__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -396,14 +636,14 @@ var NewsService = (function () {
 
 /***/ }),
 
-/***/ 164:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(657);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(656);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -506,7 +746,7 @@ var UploadService = (function () {
 
 /***/ }),
 
-/***/ 169:
+/***/ 172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -516,8 +756,8 @@ var UploadService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__announcements_service__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__announcement__ = __webpack_require__(686);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__announcements_service__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__announcement__ = __webpack_require__(685);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -589,7 +829,7 @@ var AnnouncementButton = (function () {
     AnnouncementButton = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'announcement-button',
-            template: "\n<button type=\"button\" ion-button large block color=\"primary\" outline (click)=\"OpenModal ()\">Administrar avisos</button>\n  "
+            template: "\n<button type=\"button\" class=\"button_round\" (click)=\"OpenModal ()\">Administrar avisos</button>\n  "
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
@@ -639,7 +879,7 @@ var AnnouncementModalCRUD = (function () {
 
 /***/ }),
 
-/***/ 170:
+/***/ 173:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -647,12 +887,13 @@ var AnnouncementModalCRUD = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__(688);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__(687);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__activitiesRecorder_services_activities_service__ = __webpack_require__(26);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -669,12 +910,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ProspectService = (function () {
-    function ProspectService(db, http, afAuth, alertCtrl) {
+    function ProspectService(db, http, afAuth, alertCtrl, actSrv, firebaseAuth) {
         this.db = db;
         this.http = http;
         this.afAuth = afAuth;
         this.alertCtrl = alertCtrl;
+        this.actSrv = actSrv;
+        this.firebaseAuth = firebaseAuth;
         this.prospects = [];
         var day = __WEBPACK_IMPORTED_MODULE_6_moment__();
         this.currentDay = Number(day.format('DDD'));
@@ -737,9 +981,11 @@ var ProspectService = (function () {
     };
     ProspectService.prototype.searchProspectByProperty = function (n, property) {
         var result;
+        this.actSrv.recordActivity(this.firebaseAuth.auth.currentUser.uid, this.firebaseAuth.auth.currentUser.email, "Buscado un usuario en el nodo " + "'" + n + "'" + " por la propiedad: " + "'" + property + "'", __WEBPACK_IMPORTED_MODULE_6_moment__().format("L"), __WEBPACK_IMPORTED_MODULE_6_moment__().format('LT'));
         return result = this.db.list("prospects", function (val) { return val.orderByChild(property).equalTo(n).limitToFirst(50); }).valueChanges();
     };
     ProspectService.prototype.searchByName = function (name) {
+        this.actSrv.recordActivity(this.firebaseAuth.auth.currentUser.uid, this.firebaseAuth.auth.currentUser.email, "Buscado un prospecto por el nombre: " + "'" + name + "'", __WEBPACK_IMPORTED_MODULE_6_moment__().format("L"), __WEBPACK_IMPORTED_MODULE_6_moment__().format('LT'));
         //console.log(name)
         return this.db.list("prospects", function (val) {
             return val.orderByChild("name") //.equalTo(name)
@@ -749,6 +995,7 @@ var ProspectService = (function () {
         ).valueChanges();
     };
     ProspectService.prototype.editProspect = function (item) {
+        var _this = this;
         this.refObj(item.key).update({
             name: item.name,
             lastname: item.lastname,
@@ -762,10 +1009,13 @@ var ProspectService = (function () {
             coment: item.coment,
             source: item.source,
             price: item.price
+        }).then(function (val) {
+            _this.actSrv.recordActivity(_this.firebaseAuth.auth.currentUser.uid, _this.firebaseAuth.auth.currentUser.email, "Editado al prospecto con el nombre: " + "'" + item.name + "'", __WEBPACK_IMPORTED_MODULE_6_moment__().format("L"), __WEBPACK_IMPORTED_MODULE_6_moment__().format('LT'));
         });
     };
     ProspectService.prototype.deleteProspect = function (item) {
         this.refObj(item.key).remove();
+        this.actSrv.recordActivity(this.firebaseAuth.auth.currentUser.uid, this.firebaseAuth.auth.currentUser.email, "Eliminado al prospecto : " + "'" + item.name + "'", __WEBPACK_IMPORTED_MODULE_6_moment__().format("L"), __WEBPACK_IMPORTED_MODULE_6_moment__().format('LT'));
     };
     ProspectService.prototype.getItems = function (ev) {
         var _this = this;
@@ -818,7 +1068,9 @@ var ProspectService = (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */],
             __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Http */],
             __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]])
+            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_7__activitiesRecorder_services_activities_service__["a" /* ActivitiesService */],
+            __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], ProspectService);
     return ProspectService;
 }());
@@ -827,7 +1079,7 @@ var ProspectService = (function () {
 
 /***/ }),
 
-/***/ 171:
+/***/ 174:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -871,208 +1123,7 @@ var StudentService = (function () {
 
 /***/ }),
 
-/***/ 172:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StudentCRMService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__activitiesRecorder_services_activities_service__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var StudentCRMService = (function () {
-    function StudentCRMService(db, afauth, alrtCtl, actSrv) {
-        this.db = db;
-        this.afauth = afauth;
-        this.alrtCtl = alrtCtl;
-        this.actSrv = actSrv;
-    }
-    StudentCRMService.prototype.getStudents = function () {
-        return this.db.list("students", function (val) { return val.limitToFirst(50); }).valueChanges();
-    };
-    StudentCRMService.prototype.searchByProperty = function (property, node) {
-        return this.db.list("students", function (val) { return val.orderByChild(node.trim())
-            .startAt(property.trim()); }).valueChanges();
-    };
-    StudentCRMService.prototype.searchByName = function (name) {
-        return this.db.list("students", function (val) { return val.orderByChild("name")
-            .startAt(name); }).valueChanges();
-    };
-    StudentCRMService.prototype.setImageUrl = function (imageURL, uid) {
-        this.db.object('students/' + uid.uid).update({
-            imageURL: imageURL
-        });
-        var alrt = this.alrtCtl.create({
-            title: 'Actualizaste una foto de estudiante.',
-            message: 'Recarga al estudiante para ver el cambio.',
-            buttons: ['OK']
-        });
-        alrt.present();
-        this.actSrv.recordActivity(this.afauth.auth.currentUser.uid, this.afauth.auth.currentUser.email, "editado a: " + uid + "con la imagen: " + imageURL, __WEBPACK_IMPORTED_MODULE_5_moment__().format("L"), __WEBPACK_IMPORTED_MODULE_5_moment__().format('LT'));
-    };
-    StudentCRMService.prototype.editStudent = function (uid, courses) {
-        var _this = this;
-        var confirm = this.alrtCtl.create({
-            title: 'Editar estudiante',
-            message: '¿En realidad quiere editar este estudiante?',
-            buttons: [
-                {
-                    text: 'No',
-                    handler: function () {
-                        console.log('Disagree clicked');
-                    }
-                },
-                {
-                    text: 'Si',
-                    handler: function () {
-                        _this.db.object('students/' + uid.uid).update({
-                            name: uid.name,
-                            lastName: uid.lastName,
-                            lastName2: uid.lastName2,
-                            imageURL: uid.imageURL,
-                            email: uid.email,
-                            enrollment: uid.enrollment,
-                            age: uid.age,
-                            course: uid.course,
-                            genre: uid.genre,
-                            phone: uid.phone,
-                            schedule: uid.schedule,
-                            classroom: uid.classroom,
-                            ocupation: uid.ocupation,
-                            address: uid.address,
-                            advertising: uid.advertising,
-                            medicalObservation: uid.medicalObservation,
-                            teacher: uid.teacher,
-                            type: uid.type,
-                            tutorName: uid.tutorName,
-                            tutorRelationship: uid.tutorRelationship,
-                            tutorAge: uid.tutorAge,
-                            tutorOcupation: uid.tutorOcupation,
-                            tutorPosition: uid.tutorPosition,
-                            tutorPhone: uid.tutorPhone,
-                            tutorEmail: uid.tutorEmail,
-                            tutorAddress: uid.tutorAddress,
-                            tutorRegDate: uid.tutorRegDate,
-                            tutorInitDate: uid.tutorInitDate,
-                            tutorFinalDate: uid.tutorFinalDate,
-                            cost: uid.cost,
-                            registration: uid.registration,
-                            pedagogicalSample: uid.pedagogicalSample,
-                            coments: uid.coments
-                        });
-                        for (var index = 0; index < courses.length; index++) {
-                            var element = courses[index];
-                            _this.db.list('students/' + uid.uid + '/courses/').push({
-                                name: element.name,
-                                schedule: element.schedule,
-                                teacher: element.teacher,
-                                classroom: element.classroom,
-                                id_course: element.id_course
-                            }).then(function (val) {
-                                _this.db.object('students/' + uid.uid + '/courses/' + val.key).update({
-                                    key: val.key
-                                });
-                                _this.actSrv.recordActivity(_this.afauth.auth.currentUser.uid, _this.afauth.auth.currentUser.email, "editado al estudiante: " + uid, __WEBPACK_IMPORTED_MODULE_5_moment__().format("L"), __WEBPACK_IMPORTED_MODULE_5_moment__().format('LT'));
-                            });
-                        }
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    StudentCRMService.prototype.listCourses = function () {
-        return this.db.list('course').valueChanges();
-    };
-    StudentCRMService.prototype.listStudentCourses = function (uid) {
-        return this.db.list('students/' + uid + "/courses").valueChanges();
-    };
-    StudentCRMService.prototype.eraseStudent = function (uid, key) {
-        var _this = this;
-        var confirm = this.alrtCtl.create({
-            title: 'Borrar estudiante',
-            message: '¿En realidad quiere borrar este estudiante?',
-            buttons: [
-                {
-                    text: 'No',
-                    handler: function () {
-                        console.log('Disagree clicked');
-                    }
-                },
-                {
-                    text: 'Si',
-                    handler: function () {
-                        _this.db.list("students").remove(uid);
-                        _this.db.object("users/" + uid).update({
-                            isStudent: false
-                        });
-                        _this.actSrv.recordActivity(_this.afauth.auth.currentUser.uid, _this.afauth.auth.currentUser.email, "eliminado al estudiante: " + uid, __WEBPACK_IMPORTED_MODULE_5_moment__().format("L"), __WEBPACK_IMPORTED_MODULE_5_moment__().format('LT'));
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    StudentCRMService.prototype.eraseStudentCourse = function (uid, key) {
-        var _this = this;
-        var confirm = this.alrtCtl.create({
-            title: 'Borrar curso',
-            message: '¿En realidad quiere borrar este curso?',
-            buttons: [
-                {
-                    text: 'No',
-                    handler: function () {
-                        console.log('Disagree clicked');
-                    }
-                },
-                {
-                    text: 'Si',
-                    handler: function () {
-                        _this.db.list("students/" + uid + "/courses/" + key).remove();
-                        _this.actSrv.recordActivity(_this.afauth.auth.currentUser.uid, _this.afauth.auth.currentUser.email, "eliminado el curso: " + key, __WEBPACK_IMPORTED_MODULE_5_moment__().format("L"), __WEBPACK_IMPORTED_MODULE_5_moment__().format('LT'));
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    StudentCRMService.prototype.listTeachers = function () {
-        return this.db.list('users', function (val) { return val.orderByChild('accessLevel')
-            .equalTo('teacher'); }).valueChanges();
-    };
-    StudentCRMService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */],
-            __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_4__activitiesRecorder_services_activities_service__["a" /* ActivitiesService */]])
-    ], StudentCRMService);
-    return StudentCRMService;
-}());
-
-//# sourceMappingURL=student.services.js.map
-
-/***/ }),
-
-/***/ 173:
+/***/ 175:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1229,7 +1280,7 @@ var CrudService = (function () {
 
 /***/ }),
 
-/***/ 187:
+/***/ 189:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1242,11 +1293,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 187;
+webpackEmptyAsyncContext.id = 189;
 
 /***/ }),
 
-/***/ 228:
+/***/ 230:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1259,11 +1310,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 228;
+webpackEmptyAsyncContext.id = 230;
 
 /***/ }),
 
-/***/ 29:
+/***/ 26:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1286,7 +1337,11 @@ var ActivitiesService = (function () {
         this.db = db;
     }
     ActivitiesService.prototype.retrieveActivities = function (hour) {
-        return this.db.list('activities', function (val) { return val.limitToFirst(50); }).valueChanges(['child_added']).map(function (arr) { return arr.reverse(); });
+        return this.db.list('activities', function (val) { return val.limitToLast(50); })
+            .valueChanges(['child_added'])
+            .map(function (arr) {
+            return arr.reverse();
+        });
     };
     ActivitiesService.prototype.recordActivity = function (uid, email, activity, date, hour) {
         this.db.list('activities').push({
@@ -1308,7 +1363,7 @@ var ActivitiesService = (function () {
 
 /***/ }),
 
-/***/ 439:
+/***/ 441:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1335,10 +1390,11 @@ var dashboardPage = (function () {
         var user = afAuth.auth.currentUser;
         this.user = db.list('users', function (value) { return value.orderByChild('email').equalTo(user.email); }).valueChanges();
     }
-    dashboardPage.prototype.ngOnInit = function () { };
+    dashboardPage.prototype.ngOnInit = function () {
+    };
     dashboardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-dashboard',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/components/dashboard/dashboard.html"*/'\n<ion-content>\n  <div id="container">\n\n  </div>\n\n  <div *ngFor="let item of user | async">\n\n    <ion-item *ngIf="item.accessLevel == \'user\' ;" text-wrap>\n      <p>Ingresa a la academia para poder visualizar esta sección.</p>\n    </ion-item>\n\n    <div text-center *ngIf="item.accessLevel == \'admin\';">\n        <ion-badge  color="secondary">\n            <h1  text-center>Menú administrativo</h1>\n          </ion-badge>\n    </div>\n\n    <ion-item text-center *ngIf="item.accessLevel == \'admin\' || item.accessLevel == \'coordi\';">\n      <app-news></app-news>\n      <announcement-button></announcement-button>\n      <prospect-button></prospect-button>\n      <user-button></user-button>\n      <cursos-button></cursos-button>\n      <student-button></student-button>\n      \n      <hr>\n      <ion-badge  color="secondary">\n        <h1  text-center>Asistencias</h1>\n      </ion-badge>\n\n      <button-assitence></button-assitence>\n\n      <hr>\n\n    \n      <ion-badge  color="primary">\n        <h1  text-center>Control</h1>\n      </ion-badge>\n\n      <activities-button></activities-button>\n\n    </ion-item>\n\n\n    <ion-item *ngIf="item.accessLevel == \'teacher\'; " text-wrap>\n      <teachers-module></teachers-module>\n    </ion-item>       \n\n\n    <ion-item *ngIf="item.accessLevel == \'student\' ;">\n     <students-module></students-module>\n    </ion-item>\n\n    <ion-item *ngIf="item.accessLevel == \'tutor\';">\n      <tutor></tutor>\n     </ion-item>\n\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/components/dashboard/dashboard.html"*/,
+            selector: 'app-dashboard',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/components/dashboard/dashboard.html"*/'\n<ion-content>\n  <div class="back" *ngFor="let item of user | async" >\n  <div class="namepos">\n      <ion-grid>\n          <ion-row>\n            <!--<ion-col >\n              <div padding>\n\n              </div>\n              <ion-item class="card_profile">\n                  <img src="{{item.imageURL}}" class="custom-img"/>\n                  <input type="hidden" id="urlcurrent" value="{{item.imageURL}}">\n              </ion-item>\n            </ion-col>-->\n            <ion-col >\n              <div padding></div>\n              <div>\n                  <h1 text-center class="parap">DASHBOARD</h1>\n              </div>\n               \n              </ion-col>\n          </ion-row>\n        </ion-grid>\n  </div>\n  <div id="container">\n\n  </div>\n\n  <div id="cont" >\n\n    <ion-item *ngIf="item.accessLevel == \'user\' ;" text-wrap>\n      <p>Ingresa a la academia para poder visualizar esta sección.</p>\n    </ion-item>\n\n    <div text-center *ngIf="item.accessLevel == \'admin\';">\n        \n            <h1 class="button_round_black" text-center>Menú administrativo</h1>\n          \n    </div>\n\n    <ion-item text-center *ngIf="item.accessLevel == \'admin\' || item.accessLevel == \'coordi\';">\n      <div class="container">\n        \n      <app-news></app-news>\n      <announcement-button></announcement-button>\n      <prospect-button></prospect-button>\n      <user-button></user-button>\n      <cursos-button></cursos-button>\n      <student-button></student-button>\n      </div>\n      \n      <hr>\n      \n        <h1 class="button_round_black" text-center>Asistencias</h1>\n\n      <button-assitence></button-assitence>\n\n      <hr>\n\n    \n    \n        <h1 class="button_round_black" text-center>Control</h1>\n\n      <activities-button></activities-button>\n\n    </ion-item>\n\n\n    <ion-item *ngIf="item.accessLevel == \'teacher\'; " text-wrap>\n      <teachers-module></teachers-module>\n    </ion-item>       \n\n\n    <ion-item *ngIf="item.accessLevel == \'student\' ;">\n     <students-module></students-module>\n    </ion-item>\n\n    <ion-item *ngIf="item.accessLevel == \'tutor\';">\n      <tutor></tutor>\n     </ion-item>\n\n  </div>\n\n<div class="ng-d" *ngIf="item.accessLevel != \'admin\'"></div>\n<div class="footer_cont">\n    <ion-grid>\n        <ion-row>\n          <ion-col >\n            <div>\n                <img class="img_i" src="../../assets/imgs/CFM3.png" alt="">\n            </div>\n             \n            </ion-col>\n        </ion-row>\n      </ion-grid>\n</div>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/components/dashboard/dashboard.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */],
             __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]])
@@ -1350,275 +1406,13 @@ var dashboardPage = (function () {
 
 /***/ }),
 
-/***/ 440:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileTabsComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__profile__ = __webpack_require__(441);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tutorRequest__ = __webpack_require__(442);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var ProfileTabsComponent = (function () {
-    function ProfileTabsComponent() {
-        this.tab1 = __WEBPACK_IMPORTED_MODULE_1__profile__["a" /* ProfileComponent */];
-        this.tab2 = __WEBPACK_IMPORTED_MODULE_2__tutorRequest__["a" /* TutorRequestComponent */];
-    }
-    ProfileTabsComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            template: "\n    <ion-tabs >\n      <ion-tab tabIcon=\"person\" tabTitle=\"Perfil\"  [root]=\"tab1\"></ion-tab>\n      <ion-tab  tabIcon=\"notifications-outline\"  [root]=\"tab2\"></ion-tab>\n    </ion-tabs>\n    "
-        }),
-        __metadata("design:paramtypes", [])
-    ], ProfileTabsComponent);
-    return ProfileTabsComponent;
-}());
-
-//# sourceMappingURL=profileTabs.component.js.map
-
-/***/ }),
-
-/***/ 441:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_auth_service__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(11);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var ProfileComponent = (function () {
-    function ProfileComponent(autServ, db, afAuth, alertCtrl) {
-        this.autServ = autServ;
-        this.db = db;
-        this.afAuth = afAuth;
-        this.alertCtrl = alertCtrl;
-        this.userUpdate = {
-            imageURL: '',
-            phone: '',
-            ocupation: '',
-            grade: '',
-            age: '',
-            advertising: '',
-            uid: ''
-        };
-        var user = afAuth.auth.currentUser;
-        var name, email, photoUrl, uid, emailVerified;
-        if (user != null) {
-            name = user.displayName;
-            email = user.email;
-            photoUrl = user.photoURL;
-            emailVerified = user.emailVerified;
-            uid = user.uid;
-        }
-        this.users = db.list('users', function (value) { return value.orderByChild('email').equalTo(user.email); }).valueChanges();
-        this.student = db.list('students/' + user.uid + '/courses/').valueChanges();
-    }
-    ProfileComponent.prototype.showAlert = function (message, title) {
-        var alert = this.alertCtrl.create({
-            title: title,
-            subTitle: message,
-            buttons: ['OK']
-        });
-        alert.present();
-    };
-    ProfileComponent.prototype.UpdateInfo = function () {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: 'Editar perfil',
-            message: '¿En realidad quiere editar su perfil?',
-            buttons: [
-                {
-                    text: 'No',
-                    handler: function () {
-                        console.log('Disagree clicked');
-                    }
-                },
-                {
-                    text: 'Si',
-                    handler: function () {
-                        _this.userUpdate.uid = document.getElementById('uid').value;
-                        var item = _this.db.object('users/' + _this.userUpdate.uid);
-                        var actPhone = document.getElementById('actPhone').value;
-                        var actGrade = document.getElementById('actGrade').value;
-                        var actAge = document.getElementById('actAge').value;
-                        var actOcupation = document.getElementById('actOcupation').value;
-                        var phone = (_this.userUpdate.phone == '') ? actPhone : _this.userUpdate.phone;
-                        var grade = (_this.userUpdate.grade == '') ? actGrade : _this.userUpdate.grade;
-                        var age = (_this.userUpdate.age == '') ? actAge : _this.userUpdate.age;
-                        var ocupation = (_this.userUpdate.ocupation == '') ? actOcupation : _this.userUpdate.ocupation;
-                        var imageURL = document.getElementById('url');
-                        var currentImage = document.getElementById('urlcurrent').value;
-                        _this.userUpdate.phone = phone;
-                        _this.userUpdate.grade = grade;
-                        _this.userUpdate.age = age;
-                        _this.userUpdate.ocupation = ocupation;
-                        _this.userUpdate.imageURL = (imageURL != null) ? imageURL.value : currentImage;
-                        item.update({
-                            imageURL: _this.userUpdate.imageURL,
-                            phone: _this.userUpdate.phone,
-                            ocupation: _this.userUpdate.ocupation,
-                            grade: _this.userUpdate.grade,
-                            age: _this.userUpdate.age,
-                            advertising: _this.userUpdate.advertising
-                        });
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    ProfileComponent.prototype.ngOnInit = function () {
-        //console.log( this.afAuth.auth.currentUser.email);
-    };
-    ProfileComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-profile',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/userprofile/profile.html"*/'\n<ion-content>\n  <div id="container">\n  </div>\n  <ion-list no-lines *ngFor="let item of users | async">\n\n      <ion-item>\n\n          <ion-card text-center class="hide-card">\n              <img src="{{item.imageURL}}" class="custom-img"/>\n              <input type="hidden" id="urlcurrent" value="{{item.imageURL}}">\n              <br>\n              <br>\n              <h2 text-wrap > {{item.name + \' \' + item.lastName + \' \'+ item.lastName2 | uppercase}} </h2>\n              <p>Posición: <ion-badge color="orange"><ion-note id="pos">{{item.accessLevel}}</ion-note></ion-badge> </p> \n              <hr>\n          </ion-card>\n      </ion-item>\n\n        <ion-list no-border>\n\n          <ion-list-header text-center>\n            Información\n          </ion-list-header>\n\n          <ion-item>\n            <ion-icon name=\'mail\' item-start></ion-icon>\n            E-mail\n            <ion-note item-end>\n            {{item.email}}\n            </ion-note>\n          </ion-item>\n\n          <ion-item>\n            <ion-toggle [(ngModel)]="phone" name="phone" checked="false"></ion-toggle>\n            <ion-label>\n              Telefono\n            </ion-label>\n            <ion-icon name=\'call\' item-start></ion-icon>\n          </ion-item>\n          <div *ngIf="phone != true; else phoneNumber">\n\n          </div>\n\n          <ng-template #phoneNumber>\n            <ion-item>\n              <ion-icon name=\'call\' item-start></ion-icon>\n              <input type="text" value="{{item.phone}}" readonly>\n\n            </ion-item>\n            <ion-item>\n              <ion-icon name=\'call\' item-start></ion-icon>\n              <input id="phone" type="text" [(ngModel)]="userUpdate.phone" name="phone" placeholder="Agregar: ">\n            </ion-item>\n          </ng-template>\n\n\n          <ion-item>\n            <ion-icon name=\'alert\' item-start></ion-icon>\n            Estatus\n            <ion-badge item-end color="green"> <ion-note id="pos" item-end>\n            {{item.status}}\n            </ion-note></ion-badge>\n          </ion-item>\n\n<!-- -->\n          <ion-item>\n            <ion-label>\n              Último grado de estudios\n            </ion-label>\n            <ion-toggle [(ngModel)]="grade" name="grade" checked="false"></ion-toggle>\n            <ion-icon name=\'school\' item-start></ion-icon>\n          </ion-item>\n\n          <div *ngIf="grade != true; else lastGrade">\n\n          </div>\n          <ng-template #lastGrade>\n            <ion-item>\n              <ion-icon name=\'school\' item-start></ion-icon>\n              <input  type="text"  value="{{item.grade}}" readonly> \n\n            </ion-item>\n            <ion-item>\n              <ion-icon name=\'school\' item-start></ion-icon>\n              <input id="grade" type="text" [(ngModel)]="userUpdate.grade" name="grade" placeholder="Actualizar: ">\n            </ion-item>\n\n          </ng-template>\n<!-- -->\n<!-- -->\n          <ion-item>\n            <ion-label>\n              Edad\n            </ion-label>\n            <ion-toggle [(ngModel)]="age" name="age" checked="false"></ion-toggle>\n            <ion-icon name=\'body\' item-start></ion-icon>\n          </ion-item>\n\n          <div *ngIf="age != true; else ageU">\n\n          </div>\n          <ng-template #ageU>\n            <ion-item>\n              <ion-icon name=\'body\' item-start></ion-icon>\n              <input  type="text"  value="{{item.age}}" readonly>\n            </ion-item>\n            <ion-item>\n              <ion-icon name=\'body\' item-start></ion-icon>\n              <input id="age"type="text" [(ngModel)]="userUpdate.age" name="age" placeholder="Actualizar: ">\n            </ion-item>\n\n          </ng-template>\n<!-- -->\n<!-- -->\n          <ion-item>\n            <ion-label>\n              Ocupación\n            </ion-label>\n            <ion-toggle [(ngModel)]="ocupation" checked="false"></ion-toggle>\n            <ion-icon name=\'folder\' item-start></ion-icon>\n          </ion-item>\n\n          <div *ngIf="ocupation != true; else ocupationU">\n\n          </div>\n          <ng-template #ocupationU>\n            <ion-item>\n                <ion-icon name=\'folder\' item-start></ion-icon>\n                <input  type="text" value="{{item.ocupation}}" readonly> \n\n            </ion-item>\n            <ion-item>\n              <ion-icon name=\'folder\' item-start></ion-icon>\n              <input id="ocupation" type="text" [(ngModel)]="userUpdate.ocupation" name="ocupation" placeholder="Actualizar: ">\n            </ion-item>\n\n          </ng-template>\n<!-- -->\n\n          <ion-item>\n            <ion-icon name=\'create\' item-start></ion-icon>\n\n      <ion-label>¿Cómo se enteró de la escuela?</ion-label>\n            <ion-select [(ngModel)]="userUpdate.advertising" name="advertising" item-end>\n              <ion-option value="redes">Redes sociales</ion-option>\n              <ion-option value="conocido">Conocido</ion-option>\n              <ion-option value="cartel">Cartel</ion-option>\n            </ion-select>\n\n\n\n          </ion-item>\n          <input type="hidden"name="uid" id="uid" value="{{item.uid}}">\n          <input type="hidden"name="actPhone" id="actPhone" value="{{item.phone}}">\n            <input type="hidden"name="actGrade" id="actGrade" value="{{item.grade}}">\n            <input type="hidden"name="actAge" id="actAge" value="{{item.age}}">\n            <input type="hidden"name="actOcupation" id="actOcupation" value="{{item.ocupation}}">\n        </ion-list>\n\n          \n        \n  </ion-list >\n\n          \n      <ion-list  no-lines *ngFor="let stu of student | async">\n          <ion-list-header text-center>\n              Academia\n            </ion-list-header>\n\n        <ion-item>\n          <ion-icon name=\'paper\' item-start></ion-icon>\n          Curso\n          <ion-note item-end>\n            {{stu.name | uppercase}}\n          </ion-note>\n        </ion-item>\n\n        <ion-item>\n            <ion-icon name=\'clock\' item-start></ion-icon>\n            Horario\n            <ion-note item-end>\n              {{stu.schedule | uppercase}}\n            </ion-note>\n          </ion-item>\n\n          <ion-item>\n              <ion-icon name=\'contact\' item-start></ion-icon>\n              Maestro\n              <ion-note item-end>\n                {{stu.teacher | uppercase}}\n              </ion-note>\n            </ion-item>\n\n            <ion-item>\n                <ion-icon name=\'cube\' item-start></ion-icon>\n                Aula\n                <ion-note item-end>\n                  {{stu.classroom}}\n                </ion-note>\n              </ion-item>\n\n\n        </ion-list>\n          <ion-item>\n            <label>Cargar foto de perfil</label>\n          <upload-form></upload-form>\n          </ion-item>\n          <button type="button" ion-button block (click)="UpdateInfo()" > Actualizar información</button>\n</ion-content>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/userprofile/profile.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__app_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */],
-            __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], ProfileComponent);
-    return ProfileComponent;
-}());
-
-//# sourceMappingURL=profile.js.map
-
-/***/ }),
-
 /***/ 442:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TutorRequestComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(5);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var TutorRequestComponent = (function () {
-    function TutorRequestComponent(db, afAuth, alertCtrl) {
-        this.db = db;
-        this.afAuth = afAuth;
-        this.alertCtrl = alertCtrl;
-        this.requests = db.list('users/' + afAuth.auth.currentUser.uid + "/requests", function (val) { return val
-            .orderByChild('accepted')
-            .equalTo(false); }).valueChanges();
-        this.currentUser = afAuth.auth.currentUser;
-    }
-    TutorRequestComponent.prototype.ngOnInit = function () { };
-    TutorRequestComponent.prototype.acceptRequest = function (uid) {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: 'Solicitudes',
-            message: '¿Está de acuerdo con aceptar esta solicitud?',
-            buttons: [
-                {
-                    text: 'No',
-                    handler: function () {
-                        console.log("no");
-                    }
-                },
-                {
-                    text: 'Si',
-                    handler: function () {
-                        _this.db.object("users/" + _this.currentUser.uid + "/requests/" + uid + "/").update({
-                            accepted: true
-                        });
-                        _this.db.object("users/" + uid + "/students/").update({
-                            requestAcepted: uid
-                        });
-                        _this.db.object("tutorRequest/" + uid + "/" + _this.currentUser.uid + "/").update({
-                            accepted: true
-                        });
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    TutorRequestComponent.prototype.declineRequest = function (uid) {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: 'Solicitudes',
-            message: '¿Está de acuerdo con eliminar esta solicitud?',
-            buttons: [
-                {
-                    text: 'No',
-                    handler: function () {
-                        console.log("no");
-                    }
-                },
-                {
-                    text: 'Si',
-                    handler: function () {
-                        var item = _this.db.object("users/" + _this.currentUser.uid + "/requests/" + uid + "/");
-                        item.remove();
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    TutorRequestComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/userprofile/tutorRequest.html"*/'<ion-content>\n\n        <ion-list  style="margin-top: 20%;">\n                 \n<div *ngFor="let item of requests | async; index as i;" [attr.data-index]="i">\n        \n        <p text-center *ngIf="item.type == \'tutorRequest\' && i > 1" >Tienes {{i+1}} solicitudes de tutor pendiente</p>\n        <p text-center *ngIf="item.type == \'tutorRequest\' && i == 0 " >Tienes una solicitud de tutor pendiente</p>\n        \n                <ion-item-sliding >\n                 \n                  <ion-item>\n                    <h2>{{item.email}}</h2>\n                  </ion-item>\n                  <ion-item-options side="right">\n                    <button (click)="acceptRequest(item.sender)" ion-button color="secondary">\n                      <ion-icon clear name="checkbox"></ion-icon>\n                      Aceptar\n                    </button>\n                    <button (click)=" declineRequest(item.sender)" ion-button color="danger">\n                      <ion-icon name="close"></ion-icon>\n                      Declinar\n                    </button>\n                    </ion-item-options>\n\n                </ion-item-sliding>\n              </div>  \n              </ion-list>\n\n         <p text-center>Aquí recibirás notificaciones</p>\n\n\n</ion-content> '/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/userprofile/tutorRequest.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */],
-            __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */]])
-    ], TutorRequestComponent);
-    return TutorRequestComponent;
-}());
-
-//# sourceMappingURL=tutorRequest.js.map
-
-/***/ }),
-
-/***/ 443:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnnouncementComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__announcements_service__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__announcements_service__ = __webpack_require__(164);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1650,18 +1444,18 @@ var AnnouncementComponent = (function () {
 
 /***/ }),
 
-/***/ 444:
+/***/ 443:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutUsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modals_mision_component__ = __webpack_require__(445);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_historia_component__ = __webpack_require__(446);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modals_reglamento_component__ = __webpack_require__(447);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modals_profesoresmodal_component__ = __webpack_require__(448);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modals_manual_component__ = __webpack_require__(449);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modals_mision_component__ = __webpack_require__(444);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_historia_component__ = __webpack_require__(445);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modals_reglamento_component__ = __webpack_require__(446);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modals_profesoresmodal_component__ = __webpack_require__(447);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modals_manual_component__ = __webpack_require__(448);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1731,7 +1525,7 @@ var AboutUsComponent = (function () {
 
 /***/ }),
 
-/***/ 445:
+/***/ 444:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1770,7 +1564,7 @@ var MisionComponent = (function () {
 
 /***/ }),
 
-/***/ 446:
+/***/ 445:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1811,7 +1605,7 @@ var HistoriaComponent = (function () {
 
 /***/ }),
 
-/***/ 447:
+/***/ 446:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1850,7 +1644,7 @@ var ReglamentoComponent = (function () {
 
 /***/ }),
 
-/***/ 448:
+/***/ 447:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1889,7 +1683,7 @@ var ProfesoresComponent = (function () {
 
 /***/ }),
 
-/***/ 449:
+/***/ 448:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1928,7 +1722,7 @@ var ManualComponent = (function () {
 
 /***/ }),
 
-/***/ 450:
+/***/ 449:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1974,7 +1768,7 @@ var CoursesComponent = (function () {
 
 /***/ }),
 
-/***/ 451:
+/***/ 450:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2008,7 +1802,7 @@ var DirectoryComponent = (function () {
 
 /***/ }),
 
-/***/ 452:
+/***/ 451:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2018,7 +1812,7 @@ var DirectoryComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__invitation_service__ = __webpack_require__(453);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__invitation_service__ = __webpack_require__(452);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2088,7 +1882,7 @@ var InvitationComponent = (function () {
 
 /***/ }),
 
-/***/ 453:
+/***/ 452:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2096,7 +1890,7 @@ var InvitationComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__activitiesRecorder_services_activities_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__activitiesRecorder_services_activities_service__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2160,7 +1954,7 @@ var InvitationService = (function () {
 
 /***/ }),
 
-/***/ 454:
+/***/ 453:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2175,7 +1969,7 @@ var News = (function () {
 
 /***/ }),
 
-/***/ 455:
+/***/ 454:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2185,10 +1979,10 @@ var News = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__news__ = __webpack_require__(454);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__news__ = __webpack_require__(453);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_push_service__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__news_service__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__news_list_component__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__news_service__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__news_list_component__ = __webpack_require__(165);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2225,7 +2019,7 @@ var NewsComponent = (function () {
     NewsComponent.prototype.ngOnInit = function () { };
     NewsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-news',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/components/news/news.component.html"*/'<button type="button" ion-button large block color="primary" (click)="OpenModal()" outline name="" value="">Crear noticia</button>\n<button type="button" ion-button large block color="primary" (click)="Op()" outline>Listar noticias creadas</button>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/components/news/news.component.html"*/,
+            selector: 'app-news',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/components/news/news.component.html"*/'<button type="button" class="button_round" (click)="OpenModal()"  name="" value="">Crear noticia</button>\n<button type="button" class="button_round" (click)="Op()" >Listar noticias creadas</button>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/components/news/news.component.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_6__news_service__["a" /* NewsService */],
@@ -2291,7 +2085,7 @@ var NewsFormPage = (function () {
 
 /***/ }),
 
-/***/ 465:
+/***/ 464:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2313,15 +2107,15 @@ var Upload = (function () {
 
 /***/ }),
 
-/***/ 466:
+/***/ 465:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProspectModalComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_service__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prospect_crud_component__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prospect_crud_component__ = __webpack_require__(466);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2394,15 +2188,15 @@ var ProspectModalComponent = (function () {
 
 /***/ }),
 
-/***/ 467:
+/***/ 466:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProspectCrudComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_service__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prospect__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prospect__ = __webpack_require__(688);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2485,7 +2279,7 @@ var ProspectCrudComponent = (function () {
 
 /***/ }),
 
-/***/ 468:
+/***/ 467:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2493,7 +2287,7 @@ var ProspectCrudComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_service__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_crud_component__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_crud_component__ = __webpack_require__(468);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2557,7 +2351,7 @@ var UserModal = (function () {
 
 /***/ }),
 
-/***/ 469:
+/***/ 468:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2609,7 +2403,7 @@ var UserCrud = (function () {
 
 /***/ }),
 
-/***/ 470:
+/***/ 469:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2655,15 +2449,15 @@ var QualificationComponent = (function () {
 
 /***/ }),
 
-/***/ 471:
+/***/ 470:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ClassesComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CourseDetail_component__ = __webpack_require__(472);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__students_services__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__CourseDetail_component__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__students_services__ = __webpack_require__(174);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular_navigation_nav_params__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2698,7 +2492,7 @@ var ClassesComponent = (function () {
     };
     ClassesComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'classes-name',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/students/classes.component.html"*/'<ion-header>\n        <ion-toolbar>\n          <ion-title>\n              Clases\n          </ion-title>\n          <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n              <span ion-text color="primary" showWhen="ios">Cancel</span>\n              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-toolbar>\n      </ion-header>\n      <ion-content>\n            \n            <ion-card>\n                    <ion-card-header>\n                     Cursos\n                    </ion-card-header>\n                  \n                    <ion-list *ngFor="let item of groups | async">\n\n                      <div>\n                          <button (click)="DisplayDetails(item.groupkey)" ion-item>\n\n                              <ion-icon name="at" item-start></ion-icon>\n      \n                              {{item.name}}\n                            </button>\n                      </div>\n                      \n                    </ion-list>\n                  </ion-card>\n      </ion-content>'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/students/classes.component.html"*/
+            selector: 'classes-name',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/students/classes.component.html"*/'<ion-header>\n        <ion-toolbar>\n          <ion-title>\n              Clases\n          </ion-title>\n          <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n              <span ion-text color="primary" showWhen="ios">Cancel</span>\n              <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-toolbar>\n      </ion-header>\n      <ion-content>\n            \n            <ion-card>\n                    <ion-card-header>\n                     Cursos\n                    </ion-card-header>\n                  \n                    <ion-list *ngFor="let item of groups | async">\n\n                      <div>\n                          <button  (click)="DisplayDetails(item.groupkey)" ion-item>\n\n                              <ion-icon name="at" item-start></ion-icon>\n      \n                              {{item.name}}\n                            </button>\n                      </div>\n                      \n                    </ion-list>\n                  </ion-card>\n      </ion-content>'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/students/classes.component.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
@@ -2712,14 +2506,14 @@ var ClassesComponent = (function () {
 
 /***/ }),
 
-/***/ 472:
+/***/ 471:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CourseDetailComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__students_services__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__students_services__ = __webpack_require__(174);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2760,18 +2554,18 @@ var CourseDetailComponent = (function () {
 
 /***/ }),
 
-/***/ 473:
+/***/ 472:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GroupAdminComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__teachers_groupsDetails_component__ = __webpack_require__(474);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__teachers_groupForm_component__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__teachers_groupsDetails_component__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__teachers_groupForm_component__ = __webpack_require__(475);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__teachers_services__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__teachers_members_component__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__teachers_members_component__ = __webpack_require__(476);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2825,15 +2619,15 @@ var GroupAdminComponent = (function () {
 
 /***/ }),
 
-/***/ 474:
+/***/ 473:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GroupDetailsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_view_controller__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__teachers_lessonForm_component__ = __webpack_require__(475);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular_navigation_nav_controller__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__teachers_lessonForm_component__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular_navigation_nav_controller__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular_navigation_nav_params__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__teachers_services__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2888,7 +2682,7 @@ var GroupDetailsComponent = (function () {
 
 /***/ }),
 
-/***/ 475:
+/***/ 474:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2958,7 +2752,7 @@ var LessonFormComponent = (function () {
 
 /***/ }),
 
-/***/ 476:
+/***/ 475:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3044,7 +2838,7 @@ var GroupFormComponent = (function () {
 
 /***/ }),
 
-/***/ 477:
+/***/ 476:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3113,15 +2907,15 @@ var MemberComponent = (function () {
 
 /***/ }),
 
-/***/ 478:
+/***/ 477:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StudentCRMComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__student_services__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__student_crud__ = __webpack_require__(479);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__student_services__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__student_crud__ = __webpack_require__(478);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3180,7 +2974,7 @@ var StudentCRMComponent = (function () {
 
 /***/ }),
 
-/***/ 479:
+/***/ 478:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3188,8 +2982,8 @@ var StudentCRMComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_params__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_view_controller__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__student_services__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__clases_curso__ = __webpack_require__(694);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__student_services__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__clases_curso__ = __webpack_require__(693);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3270,15 +3064,15 @@ var StudentCrudComponent = (function () {
 
 /***/ }),
 
-/***/ 480:
+/***/ 479:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CursosComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__template_component__ = __webpack_require__(481);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__crud_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__template_component__ = __webpack_require__(480);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__crud_service__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3341,7 +3135,7 @@ var CursosComponent = (function () {
 
 /***/ }),
 
-/***/ 481:
+/***/ 480:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3349,7 +3143,7 @@ var CursosComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__crud_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__crud_service__ = __webpack_require__(175);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3398,13 +3192,13 @@ var TemplateComponent = (function () {
 
 /***/ }),
 
-/***/ 482:
+/***/ 481:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssitanceService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(147);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3449,13 +3243,13 @@ var AssitanceService = (function () {
 
 /***/ }),
 
-/***/ 483:
+/***/ 482:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AsistenceComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__listComponent_list_assitance_component__ = __webpack_require__(484);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__listComponent_list_assitance_component__ = __webpack_require__(483);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3497,14 +3291,15 @@ var AsistenceComponent = (function () {
 
 /***/ }),
 
-/***/ 484:
+/***/ 483:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListAssitanceComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_assistance_service__ = __webpack_require__(482);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_assistance_service__ = __webpack_require__(481);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__estudiantes_student_services__ = __webpack_require__(98);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3517,10 +3312,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ListAssitanceComponent = (function () {
-    function ListAssitanceComponent(viewCtl, assisSvc) {
+    function ListAssitanceComponent(viewCtl, assisSvc, stdSrv) {
         this.viewCtl = viewCtl;
         this.assisSvc = assisSvc;
+        this.stdSrv = stdSrv;
     }
     ListAssitanceComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -3528,18 +3325,21 @@ var ListAssitanceComponent = (function () {
         this.assisSvc.retrieve(sql, 1)
             .map(function (response) { return response.json(); })
             .subscribe(function (data) {
-            _this.cursos = data;
+            _this.horario = data;
         });
+        this.students = this.stdSrv.getStudents();
+        this.cursos = this.stdSrv.getCourses();
     };
     ListAssitanceComponent.prototype.dismiss = function () {
         this.viewCtl.dismiss();
     };
     ListAssitanceComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'ListAssitance',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/CRM/asistencia/components/listComponent/list-assitance.component.html"*/'<ion-header>\n    <ion-toolbar>\n        <ion-title>\n            Asistencia\n        </ion-title>\n        <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n                <span ion-text color="primary" showWhen="ios">Cancelar</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    \n    <ion-item *ngFor="let item of cursos">\n        <p>\n                {{item.nombre + " " + item.horas}}\n    </p>\n    </ion-item>\n</ion-content>'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/CRM/asistencia/components/listComponent/list-assitance.component.html"*/
+            selector: 'ListAssitance',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/CRM/asistencia/components/listComponent/list-assitance.component.html"*/'<ion-header>\n    <ion-toolbar>\n        <ion-title>\n            Asistencia\n        </ion-title>\n        <ion-buttons start>\n            <button ion-button (click)="dismiss()">\n                <span ion-text color="primary" showWhen="ios">Cancelar</span>\n                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-list>\n        <ion-item>\n            <ion-label>Estudiante</ion-label>\n                <ion-select [(ngModel)]="id">\n                    \n                        <ion-option *ngFor="let item of students | async;" value="{{item.uid}}">{{item.name + " " + item.lastName}}</ion-option>\n                </ion-select>\n        </ion-item>\n           <ion-item>\n                <ion-label>Horario</ion-label>\n                <ion-select [(ngModel)]="horarios">\n                        <ion-option *ngFor="let item of horario" value="{{item.id_horario}}">{{item.nombre + " " + item.horas}} </ion-option>\n                </ion-select>\n           </ion-item>\n           <ion-item>\n                <ion-label>Cursos</ion-label>\n                <ion-select [(ngModel)]="curso">\n                        <ion-option *ngFor="let item of cursos | async " value="{{item.id}}">{{item.name |  uppercase}} </ion-option>\n                </ion-select>\n           </ion-item>\n           <ion-item>\n               <input type="date">\n           </ion-item>\n\n            \n    </ion-list>\n        \n\n</ion-content>'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/CRM/asistencia/components/listComponent/list-assitance.component.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_2__services_assistance_service__["a" /* AssitanceService */]])
+            __WEBPACK_IMPORTED_MODULE_2__services_assistance_service__["a" /* AssitanceService */],
+            __WEBPACK_IMPORTED_MODULE_3__estudiantes_student_services__["a" /* StudentCRMService */]])
     ], ListAssitanceComponent);
     return ListAssitanceComponent;
 }());
@@ -3548,16 +3348,16 @@ var ListAssitanceComponent = (function () {
 
 /***/ }),
 
-/***/ 485:
+/***/ 484:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActivitiesComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_activities_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_activities_service__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Users_user_service__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular_components_toast_toast_controller__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular_components_toast_toast_controller__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3617,7 +3417,7 @@ var ActivitiesComponent = (function () {
     };
     ActivitiesComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'activities-component',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/activitiesRecorder/components/activities.component.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title>\n        Actividades diarias\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n      \n        <button ion-button icon-start color="light" (click)="goBack()">\n                <ion-icon name="arrow-back"></ion-icon>\n        </button>\n<hr>\n\n<div>\n    <button type="button" (click)=" createToast()" ion-button > Información </button>\n</div>\n\n<div>\n              <ion-list>\n                <ion-item>\n                  <ion-label>Filtros</ion-label>\n                  <ion-select [(ngModel)]="gaming">\n                    <ion-option value="nes">NES</ion-option>\n                    <ion-option value="n64">Nintendo64</ion-option>\n                    <ion-option value="ps">PlayStation</ion-option>\n                    <ion-option value="genesis">Sega Genesis</ion-option>\n                    <ion-option value="saturn">Sega Saturn</ion-option>\n                    <ion-option value="snes">SNES</ion-option>\n                  </ion-select>\n                </ion-item>\n              </ion-list>\n</div>\n\n<div text-wrap class="cardsocial" *ngFor="let item of activities | async;index as i;" [attr.data-index]="i">\n  \n\n  \n        <p>\n          Actividades\n        </p>\n        <div>\n          El usuario <ion-badge  color="orange" id="myBtn{{i}}" (click)="modal(item.user,i)">{{item.user}}</ion-badge> con el correo <ion-badge color="secondary">{{item.email}}</ion-badge> ha <ion-badge color="secondary">{{item.activity}}</ion-badge>.\n           <div>\n                    <ion-icon name="calendar" item-start></ion-icon>\n                    Fecha\n                    <ion-badge item-end>{{item.date}}</ion-badge>\n                    <ion-icon  name="time" item-end></ion-icon>\n                      Hora\n                      <ion-badge color="danger" item-end>{{item.hour}}</ion-badge>\n                  </div>\n        </div>\n</div>\n\n      <!-- The Modal -->\n      <div id="myModal"  class="modal">\n      \n        <!-- Modal content -->\n        <div class="modal-content">\n          <span (click)="closeModal()" class="close">&times;</span>\n          <ion-item *ngFor="let item of user | async;index as i;" [attr.data-index]="i">\n                <ion-avatar item-start>\n                    <img src="{{item.imageURL}}" alt="">\n                </ion-avatar>\n                <p>{{item.name + " " +item.lastName + " " +item.lastName2}}</p>\n                <p>Nivel: {{item.accessLevel}}</p>\n          </ion-item>\n        </div>\n      </div>\n  </ion-content>'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/activitiesRecorder/components/activities.component.html"*/
+            selector: 'activities-component',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/activitiesRecorder/components/activities.component.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title>\n        Actividades diarias\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n      \n        <button ion-button icon-start color="light" (click)="goBack()">\n                <ion-icon name="arrow-back"></ion-icon>\n        </button>\n<hr>\n\n<div>\n    <button type="button" (click)=" createToast()" ion-button > Información </button>\n</div>\n\n\n<div text-wrap class="cardsocial" *ngFor="let item of activities | async;index as i;" [attr.data-index]="i">\n  \n\n  \n        <p>\n          Actividades\n        </p>\n        <div>\n          El usuario <ion-badge  color="orange" id="myBtn{{i}}" (click)="modal(item.user,i)">{{item.user}}</ion-badge> con el correo <ion-badge color="secondary">{{item.email}}</ion-badge> ha <ion-badge color="secondary">{{item.activity}}</ion-badge>.\n           <div>\n                    <ion-icon name="calendar" item-start></ion-icon>\n                    Fecha\n                    <ion-badge item-end>{{item.date}}</ion-badge>\n                    <ion-icon  name="time" item-end></ion-icon>\n                      Hora\n                      <ion-badge color="danger" item-end>{{item.hour}}</ion-badge>\n                  </div>\n        </div>\n</div>\n\n      <!-- The Modal -->\n      <div id="myModal"  class="modal">\n      \n        <!-- Modal content -->\n        <div class="modal-content">\n          <span (click)="closeModal()" class="close">&times;</span>\n          <ion-item *ngFor="let item of user | async;index as i;" [attr.data-index]="i">\n                <ion-avatar item-start>\n                    <img src="{{item.imageURL}}" alt="">\n                </ion-avatar>\n                <p>{{item.name + " " +item.lastName + " " +item.lastName2}}</p>\n                <p>Nivel: {{item.accessLevel}}</p>\n          </ion-item>\n        </div>\n      </div>\n  </ion-content>'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/activitiesRecorder/components/activities.component.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__["a" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__services_activities_service__["a" /* ActivitiesService */],
@@ -3631,13 +3431,13 @@ var ActivitiesComponent = (function () {
 
 /***/ }),
 
-/***/ 486:
+/***/ 485:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(487);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(505);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(486);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(504);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -3645,7 +3445,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 505:
+/***/ 504:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3654,90 +3454,90 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(546);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(545);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__ = __webpack_require__(550);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(559);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__ = __webpack_require__(549);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(558);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_list_list__ = __webpack_require__(652);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_list_list__ = __webpack_require__(651);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_components_navbar_navbar__ = __webpack_require__(653);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_components_dashboard_dashboard__ = __webpack_require__(439);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_components_options_options__ = __webpack_require__(654);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__ = __webpack_require__(271);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_components_news_news_list_component__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_components_news_news_component__ = __webpack_require__(455);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_components_pageHandler_pageHandler_component__ = __webpack_require__(655);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_userprofile_profile__ = __webpack_require__(441);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_components_uploads_shared_upload_list_upload_list_component__ = __webpack_require__(656);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_components_uploads_shared_upload_form_upload_form_component__ = __webpack_require__(682);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_components_uploads_shared_upload_service__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_components_news_news_service__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_components_sort_reverse__ = __webpack_require__(683);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_components_modal_modal__ = __webpack_require__(684);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_components_news_news_list_service__ = __webpack_require__(685);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_announcements_announcements__ = __webpack_require__(443);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_announcements_announcement_crud__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_aboutus_aboutus__ = __webpack_require__(444);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_courses_courses__ = __webpack_require__(450);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_components_navbar_navbar__ = __webpack_require__(652);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_components_dashboard_dashboard__ = __webpack_require__(441);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_components_options_options__ = __webpack_require__(653);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_status_bar__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_splash_screen__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_components_news_news_list_component__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_components_news_news_component__ = __webpack_require__(454);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_components_pageHandler_pageHandler_component__ = __webpack_require__(654);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_userprofile_profile__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_components_uploads_shared_upload_list_upload_list_component__ = __webpack_require__(655);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_components_uploads_shared_upload_form_upload_form_component__ = __webpack_require__(681);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_components_uploads_shared_upload_service__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_components_news_news_service__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_components_sort_reverse__ = __webpack_require__(682);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_components_modal_modal__ = __webpack_require__(683);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_components_news_news_list_service__ = __webpack_require__(684);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_announcements_announcements__ = __webpack_require__(442);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_announcements_announcement_crud__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_aboutus_aboutus__ = __webpack_require__(443);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_courses_courses__ = __webpack_require__(449);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__auth_service__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_announcements_announcements_service__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_propects_prospect_button__ = __webpack_require__(687);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_propects_prospect_component__ = __webpack_require__(466);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_propects_prospect_service__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_propects_prospect_crud_component__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_Users_user_button__ = __webpack_require__(690);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_Users_user_crud_component__ = __webpack_require__(469);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_Users_user_modal_component__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_announcements_announcements_service__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_propects_prospect_button__ = __webpack_require__(686);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_propects_prospect_component__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_propects_prospect_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_propects_prospect_crud_component__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_Users_user_button__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_Users_user_crud_component__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_Users_user_modal_component__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_Users_user_service__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_students_students_component__ = __webpack_require__(691);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_students_students_services__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_students_qualification_component__ = __webpack_require__(470);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_students_classes_component__ = __webpack_require__(471);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_students_CourseDetail_component__ = __webpack_require__(472);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_teachers_groupAdmin_component__ = __webpack_require__(473);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_teachers_teachers_component__ = __webpack_require__(692);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_teachers_groupsDetails_component__ = __webpack_require__(474);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_teachers_groupForm_component__ = __webpack_require__(476);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_teachers_lessonForm_component__ = __webpack_require__(475);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_students_students_component__ = __webpack_require__(690);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_students_students_services__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_students_qualification_component__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_students_classes_component__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_students_CourseDetail_component__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_teachers_groupAdmin_component__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_teachers_teachers_component__ = __webpack_require__(691);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_teachers_groupsDetails_component__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_teachers_groupForm_component__ = __webpack_require__(475);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_teachers_lessonForm_component__ = __webpack_require__(474);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_teachers_teachers_services__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_teachers_members_component__ = __webpack_require__(477);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_CRM_estudiantes_student_button__ = __webpack_require__(693);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_CRM_estudiantes_student_services__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_CRM_estudiantes_student_crud__ = __webpack_require__(479);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_CRM_estudiantes_studentCRM_component__ = __webpack_require__(478);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_userprofile_tutorRequest__ = __webpack_require__(442);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_directory_directory_component__ = __webpack_require__(451);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__pages_aboutus_modals_mision_component__ = __webpack_require__(445);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_aboutus_modals_historia_component__ = __webpack_require__(446);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__pages_aboutus_modals_reglamento_component__ = __webpack_require__(447);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__pages_aboutus_modals_profesoresmodal_component__ = __webpack_require__(448);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__pages_aboutus_modals_manual_component__ = __webpack_require__(449);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__pages_CRM_cursos_crud_service__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_CRM_cursos_cursos_component__ = __webpack_require__(480);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__pages_CRM_cursos_cursosbutton__ = __webpack_require__(695);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_CRM_cursos_template_component__ = __webpack_require__(481);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__pages_invitation_invitation_component__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_teachers_members_component__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_CRM_estudiantes_student_button__ = __webpack_require__(692);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_CRM_estudiantes_student_services__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_CRM_estudiantes_student_crud__ = __webpack_require__(478);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_CRM_estudiantes_studentCRM_component__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_userprofile_tutorRequest__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_directory_directory_component__ = __webpack_require__(450);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__pages_aboutus_modals_mision_component__ = __webpack_require__(444);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_aboutus_modals_historia_component__ = __webpack_require__(445);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__pages_aboutus_modals_reglamento_component__ = __webpack_require__(446);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__pages_aboutus_modals_profesoresmodal_component__ = __webpack_require__(447);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__pages_aboutus_modals_manual_component__ = __webpack_require__(448);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__pages_CRM_cursos_crud_service__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_CRM_cursos_cursos_component__ = __webpack_require__(479);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__pages_CRM_cursos_cursosbutton__ = __webpack_require__(694);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_CRM_cursos_template_component__ = __webpack_require__(480);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__pages_invitation_invitation_component__ = __webpack_require__(451);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_69_angularfire2__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_70_angularfire2_database__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_71_angularfire2_auth__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__ionic_native_fcm__ = __webpack_require__(696);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__ionic_native_push__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__ionic_native_local_notifications__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__ionic_native_fcm__ = __webpack_require__(695);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__ionic_native_push__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__ionic_native_local_notifications__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__push_service__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__ionic_native_onesignal__ = __webpack_require__(697);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__pages_userprofile_profileTabs_component__ = __webpack_require__(440);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__ionic_native_onesignal__ = __webpack_require__(696);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__pages_userprofile_profileTabs_component__ = __webpack_require__(697);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__pages_tutor_tutor_component__ = __webpack_require__(698);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__pages_invitation_invitation_service__ = __webpack_require__(453);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__pages_CRM_asistencia_services_assistance_service__ = __webpack_require__(482);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__pages_CRM_asistencia_components_frontview_assistence_component__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__pages_invitation_invitation_service__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__pages_CRM_asistencia_services_assistance_service__ = __webpack_require__(481);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__pages_CRM_asistencia_components_frontview_assistence_component__ = __webpack_require__(482);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__pages_CRM_asistencia_components_buttonview_button_component__ = __webpack_require__(700);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__pages_CRM_asistencia_components_listComponent_list_assitance_component__ = __webpack_require__(484);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__pages_activitiesRecorder_components_activities_component__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__pages_CRM_asistencia_components_listComponent_list_assitance_component__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_84__pages_activitiesRecorder_components_activities_component__ = __webpack_require__(484);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_85__pages_activitiesRecorder_components_activities_button__ = __webpack_require__(701);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__pages_activitiesRecorder_services_activities_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__pages_activitiesRecorder_services_activities_service__ = __webpack_require__(26);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4038,7 +3838,7 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular_components_alert_alert_controller__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__activitiesRecorder_services_activities_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__activitiesRecorder_services_activities_service__ = __webpack_require__(26);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4255,32 +4055,32 @@ var TeacherService = (function () {
 
 /***/ }),
 
-/***/ 559:
+/***/ 558:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(271);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_push__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_push__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_components_dashboard_dashboard__ = __webpack_require__(439);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_userprofile_profileTabs_component__ = __webpack_require__(440);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_announcements_announcements__ = __webpack_require__(443);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_components_dashboard_dashboard__ = __webpack_require__(441);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_userprofile_profile__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_announcements_announcements__ = __webpack_require__(442);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__push_service__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_aboutus_aboutus__ = __webpack_require__(444);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_courses_courses__ = __webpack_require__(450);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_directory_directory_component__ = __webpack_require__(451);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_invitation_invitation_component__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_aboutus_aboutus__ = __webpack_require__(443);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_courses_courses__ = __webpack_require__(449);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_directory_directory_component__ = __webpack_require__(450);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_invitation_invitation_component__ = __webpack_require__(451);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_angularfire2_auth__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_firebase_app__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_firebase_app__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_firebase_app__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_auth_service__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_activitiesRecorder_services_activities_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_activitiesRecorder_services_activities_service__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -4349,7 +4149,7 @@ var MyApp = (function () {
         ];
         this.adminPages = [
             { title: 'Últimas noticias', component: __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */], icon: 'apps' },
-            { title: 'Perfil', component: __WEBPACK_IMPORTED_MODULE_8__pages_userprofile_profileTabs_component__["a" /* ProfileTabsComponent */], icon: 'person' },
+            { title: 'Perfil', component: __WEBPACK_IMPORTED_MODULE_8__pages_userprofile_profile__["a" /* ProfileComponent */], icon: 'person' },
             { title: 'Dashboard', component: __WEBPACK_IMPORTED_MODULE_7__pages_components_dashboard_dashboard__["a" /* dashboardPage */], icon: 'clipboard' },
             { title: 'Avisos', component: __WEBPACK_IMPORTED_MODULE_9__pages_announcements_announcements__["a" /* AnnouncementComponent */], icon: 'bulb' },
             { title: 'Quienes somos', component: __WEBPACK_IMPORTED_MODULE_11__pages_aboutus_aboutus__["a" /* AboutUsComponent */], icon: 'contacts' },
@@ -4415,7 +4215,7 @@ var MyApp = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/app/app.html"*/'\n<ion-header>\n  <ion-navbar color="dark">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-menu  [content]="content">\n  <ion-header color="dark">\n    <ion-toolbar>\n      <ion-title>\n      </ion-title>\n      <!--<img class="logo" src="assets/imgs/CFM3.png" alt="">-->\n\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content class="dark">\n    <div id="menu">\n    <div *ngIf="afAuth.authState | async; let user; else showUserPages" >\n      <ion-list >\n          <ion-card text-center class="hide-card">\n              <img src="assets/imgs/CFM3.png" class="custom-avatar"/>\n\n              <hr>\n              <div *ngIf="afAuth.authState | async; let user;">\n                  Hola {{ user.email }}!\n                </div>\n          </ion-card>\n        <button menuClose ion-item *ngFor="let p of adminPages" (click)="openPage(p)">\n          <ion-icon  name="{{p.icon}}"></ion-icon>\n          {{p.title}}\n        </button>\n      </ion-list>\n    </div>\n\n    <ng-template #showUserPages>\n      <ion-list>\n      <ion-card text-center class="hide-card">\n          <img src="assets/imgs/CFM3.png" class="custom-avatar"/>\n          <hr>\n      </ion-card>\n        <button menuClose ion-item *ngFor="let p of userpages" (click)="openPage(p)">\n          <ion-icon  name="{{p.icon}}"></ion-icon>\n          {{p.title}}\n        </button>\n      </ion-list>\n    </ng-template>\n\n      </div>\n  </ion-content>\n\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav   [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/app/app.html"*/'\n<ion-header>\n  <ion-navbar color="dark">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-menu  [content]="content">\n  <ion-header color="dark">\n    <ion-toolbar>\n      <ion-title>\n      </ion-title>\n      <!--<img class="logo" src="assets/imgs/CFM3.png" alt="">-->\n\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content class="dark">\n    <div class="menu">\n    <div *ngIf="afAuth.authState | async; let user; else showUserPages" >\n      <ion-list no-lines>\n          <ion-card color="dark" text-center class="hide-card">\n              <img src="assets/imgs/LOGO-CFM-BLANCO.png" class="custom-avatar"/>\n\n              <hr>\n              <div *ngIf="afAuth.authState | async; let user;">\n                  Hola {{ user.email }}!\n                </div>\n          </ion-card>\n        <button menuClose ion-item *ngFor="let p of adminPages" (click)="openPage(p)">\n          <ion-icon  name="{{p.icon}}"></ion-icon>\n          {{p.title}}\n        </button>\n      </ion-list>\n    </div>\n\n    <ng-template #showUserPages>\n      <ion-list>\n      <ion-card color="dark" text-center class="hide-card">\n          <img src="assets/imgs/LOGO-CFM-BLANCO.png" class="custom-avatar"/>\n          <hr>\n      </ion-card>\n        <button menuClose ion-item *ngFor="let p of userpages" (click)="openPage(p)">\n          <ion-icon  name="{{p.icon}}"></ion-icon>\n          {{p.title}}\n        </button>\n      </ion-list>\n    </ng-template>\n\n      </div>\n  </ion-content>\n\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav   [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
@@ -4435,248 +4235,248 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 646:
+/***/ 645:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 319,
-	"./af.js": 319,
-	"./ar": 320,
-	"./ar-dz": 321,
-	"./ar-dz.js": 321,
-	"./ar-kw": 322,
-	"./ar-kw.js": 322,
-	"./ar-ly": 323,
-	"./ar-ly.js": 323,
-	"./ar-ma": 324,
-	"./ar-ma.js": 324,
-	"./ar-sa": 325,
-	"./ar-sa.js": 325,
-	"./ar-tn": 326,
-	"./ar-tn.js": 326,
-	"./ar.js": 320,
-	"./az": 327,
-	"./az.js": 327,
-	"./be": 328,
-	"./be.js": 328,
-	"./bg": 329,
-	"./bg.js": 329,
-	"./bm": 330,
-	"./bm.js": 330,
-	"./bn": 331,
-	"./bn.js": 331,
-	"./bo": 332,
-	"./bo.js": 332,
-	"./br": 333,
-	"./br.js": 333,
-	"./bs": 334,
-	"./bs.js": 334,
-	"./ca": 335,
-	"./ca.js": 335,
-	"./cs": 336,
-	"./cs.js": 336,
-	"./cv": 337,
-	"./cv.js": 337,
-	"./cy": 338,
-	"./cy.js": 338,
-	"./da": 339,
-	"./da.js": 339,
-	"./de": 340,
-	"./de-at": 341,
-	"./de-at.js": 341,
-	"./de-ch": 342,
-	"./de-ch.js": 342,
-	"./de.js": 340,
-	"./dv": 343,
-	"./dv.js": 343,
-	"./el": 344,
-	"./el.js": 344,
-	"./en-au": 345,
-	"./en-au.js": 345,
-	"./en-ca": 346,
-	"./en-ca.js": 346,
-	"./en-gb": 347,
-	"./en-gb.js": 347,
-	"./en-ie": 348,
-	"./en-ie.js": 348,
-	"./en-nz": 349,
-	"./en-nz.js": 349,
-	"./eo": 350,
-	"./eo.js": 350,
-	"./es": 351,
-	"./es-do": 352,
-	"./es-do.js": 352,
-	"./es-us": 353,
-	"./es-us.js": 353,
-	"./es.js": 351,
-	"./et": 354,
-	"./et.js": 354,
-	"./eu": 355,
-	"./eu.js": 355,
-	"./fa": 356,
-	"./fa.js": 356,
-	"./fi": 357,
-	"./fi.js": 357,
-	"./fo": 358,
-	"./fo.js": 358,
-	"./fr": 359,
-	"./fr-ca": 360,
-	"./fr-ca.js": 360,
-	"./fr-ch": 361,
-	"./fr-ch.js": 361,
-	"./fr.js": 359,
-	"./fy": 362,
-	"./fy.js": 362,
-	"./gd": 363,
-	"./gd.js": 363,
-	"./gl": 364,
-	"./gl.js": 364,
-	"./gom-latn": 365,
-	"./gom-latn.js": 365,
-	"./gu": 366,
-	"./gu.js": 366,
-	"./he": 367,
-	"./he.js": 367,
-	"./hi": 368,
-	"./hi.js": 368,
-	"./hr": 369,
-	"./hr.js": 369,
-	"./hu": 370,
-	"./hu.js": 370,
-	"./hy-am": 371,
-	"./hy-am.js": 371,
-	"./id": 372,
-	"./id.js": 372,
-	"./is": 373,
-	"./is.js": 373,
-	"./it": 374,
-	"./it.js": 374,
-	"./ja": 375,
-	"./ja.js": 375,
-	"./jv": 376,
-	"./jv.js": 376,
-	"./ka": 377,
-	"./ka.js": 377,
-	"./kk": 378,
-	"./kk.js": 378,
-	"./km": 379,
-	"./km.js": 379,
-	"./kn": 380,
-	"./kn.js": 380,
-	"./ko": 381,
-	"./ko.js": 381,
-	"./ky": 382,
-	"./ky.js": 382,
-	"./lb": 383,
-	"./lb.js": 383,
-	"./lo": 384,
-	"./lo.js": 384,
-	"./lt": 385,
-	"./lt.js": 385,
-	"./lv": 386,
-	"./lv.js": 386,
-	"./me": 387,
-	"./me.js": 387,
-	"./mi": 388,
-	"./mi.js": 388,
-	"./mk": 389,
-	"./mk.js": 389,
-	"./ml": 390,
-	"./ml.js": 390,
-	"./mr": 391,
-	"./mr.js": 391,
-	"./ms": 392,
-	"./ms-my": 393,
-	"./ms-my.js": 393,
-	"./ms.js": 392,
-	"./mt": 394,
-	"./mt.js": 394,
-	"./my": 395,
-	"./my.js": 395,
-	"./nb": 396,
-	"./nb.js": 396,
-	"./ne": 397,
-	"./ne.js": 397,
-	"./nl": 398,
-	"./nl-be": 399,
-	"./nl-be.js": 399,
-	"./nl.js": 398,
-	"./nn": 400,
-	"./nn.js": 400,
-	"./pa-in": 401,
-	"./pa-in.js": 401,
-	"./pl": 402,
-	"./pl.js": 402,
-	"./pt": 403,
-	"./pt-br": 404,
-	"./pt-br.js": 404,
-	"./pt.js": 403,
-	"./ro": 405,
-	"./ro.js": 405,
-	"./ru": 406,
-	"./ru.js": 406,
-	"./sd": 407,
-	"./sd.js": 407,
-	"./se": 408,
-	"./se.js": 408,
-	"./si": 409,
-	"./si.js": 409,
-	"./sk": 410,
-	"./sk.js": 410,
-	"./sl": 411,
-	"./sl.js": 411,
-	"./sq": 412,
-	"./sq.js": 412,
-	"./sr": 413,
-	"./sr-cyrl": 414,
-	"./sr-cyrl.js": 414,
-	"./sr.js": 413,
-	"./ss": 415,
-	"./ss.js": 415,
-	"./sv": 416,
-	"./sv.js": 416,
-	"./sw": 417,
-	"./sw.js": 417,
-	"./ta": 418,
-	"./ta.js": 418,
-	"./te": 419,
-	"./te.js": 419,
-	"./tet": 420,
-	"./tet.js": 420,
-	"./th": 421,
-	"./th.js": 421,
-	"./tl-ph": 422,
-	"./tl-ph.js": 422,
-	"./tlh": 423,
-	"./tlh.js": 423,
-	"./tr": 424,
-	"./tr.js": 424,
-	"./tzl": 425,
-	"./tzl.js": 425,
-	"./tzm": 426,
-	"./tzm-latn": 427,
-	"./tzm-latn.js": 427,
-	"./tzm.js": 426,
-	"./uk": 428,
-	"./uk.js": 428,
-	"./ur": 429,
-	"./ur.js": 429,
-	"./uz": 430,
-	"./uz-latn": 431,
-	"./uz-latn.js": 431,
-	"./uz.js": 430,
-	"./vi": 432,
-	"./vi.js": 432,
-	"./x-pseudo": 433,
-	"./x-pseudo.js": 433,
-	"./yo": 434,
-	"./yo.js": 434,
-	"./zh-cn": 435,
-	"./zh-cn.js": 435,
-	"./zh-hk": 436,
-	"./zh-hk.js": 436,
-	"./zh-tw": 437,
-	"./zh-tw.js": 437
+	"./af": 321,
+	"./af.js": 321,
+	"./ar": 322,
+	"./ar-dz": 323,
+	"./ar-dz.js": 323,
+	"./ar-kw": 324,
+	"./ar-kw.js": 324,
+	"./ar-ly": 325,
+	"./ar-ly.js": 325,
+	"./ar-ma": 326,
+	"./ar-ma.js": 326,
+	"./ar-sa": 327,
+	"./ar-sa.js": 327,
+	"./ar-tn": 328,
+	"./ar-tn.js": 328,
+	"./ar.js": 322,
+	"./az": 329,
+	"./az.js": 329,
+	"./be": 330,
+	"./be.js": 330,
+	"./bg": 331,
+	"./bg.js": 331,
+	"./bm": 332,
+	"./bm.js": 332,
+	"./bn": 333,
+	"./bn.js": 333,
+	"./bo": 334,
+	"./bo.js": 334,
+	"./br": 335,
+	"./br.js": 335,
+	"./bs": 336,
+	"./bs.js": 336,
+	"./ca": 337,
+	"./ca.js": 337,
+	"./cs": 338,
+	"./cs.js": 338,
+	"./cv": 339,
+	"./cv.js": 339,
+	"./cy": 340,
+	"./cy.js": 340,
+	"./da": 341,
+	"./da.js": 341,
+	"./de": 342,
+	"./de-at": 343,
+	"./de-at.js": 343,
+	"./de-ch": 344,
+	"./de-ch.js": 344,
+	"./de.js": 342,
+	"./dv": 345,
+	"./dv.js": 345,
+	"./el": 346,
+	"./el.js": 346,
+	"./en-au": 347,
+	"./en-au.js": 347,
+	"./en-ca": 348,
+	"./en-ca.js": 348,
+	"./en-gb": 349,
+	"./en-gb.js": 349,
+	"./en-ie": 350,
+	"./en-ie.js": 350,
+	"./en-nz": 351,
+	"./en-nz.js": 351,
+	"./eo": 352,
+	"./eo.js": 352,
+	"./es": 353,
+	"./es-do": 354,
+	"./es-do.js": 354,
+	"./es-us": 355,
+	"./es-us.js": 355,
+	"./es.js": 353,
+	"./et": 356,
+	"./et.js": 356,
+	"./eu": 357,
+	"./eu.js": 357,
+	"./fa": 358,
+	"./fa.js": 358,
+	"./fi": 359,
+	"./fi.js": 359,
+	"./fo": 360,
+	"./fo.js": 360,
+	"./fr": 361,
+	"./fr-ca": 362,
+	"./fr-ca.js": 362,
+	"./fr-ch": 363,
+	"./fr-ch.js": 363,
+	"./fr.js": 361,
+	"./fy": 364,
+	"./fy.js": 364,
+	"./gd": 365,
+	"./gd.js": 365,
+	"./gl": 366,
+	"./gl.js": 366,
+	"./gom-latn": 367,
+	"./gom-latn.js": 367,
+	"./gu": 368,
+	"./gu.js": 368,
+	"./he": 369,
+	"./he.js": 369,
+	"./hi": 370,
+	"./hi.js": 370,
+	"./hr": 371,
+	"./hr.js": 371,
+	"./hu": 372,
+	"./hu.js": 372,
+	"./hy-am": 373,
+	"./hy-am.js": 373,
+	"./id": 374,
+	"./id.js": 374,
+	"./is": 375,
+	"./is.js": 375,
+	"./it": 376,
+	"./it.js": 376,
+	"./ja": 377,
+	"./ja.js": 377,
+	"./jv": 378,
+	"./jv.js": 378,
+	"./ka": 379,
+	"./ka.js": 379,
+	"./kk": 380,
+	"./kk.js": 380,
+	"./km": 381,
+	"./km.js": 381,
+	"./kn": 382,
+	"./kn.js": 382,
+	"./ko": 383,
+	"./ko.js": 383,
+	"./ky": 384,
+	"./ky.js": 384,
+	"./lb": 385,
+	"./lb.js": 385,
+	"./lo": 386,
+	"./lo.js": 386,
+	"./lt": 387,
+	"./lt.js": 387,
+	"./lv": 388,
+	"./lv.js": 388,
+	"./me": 389,
+	"./me.js": 389,
+	"./mi": 390,
+	"./mi.js": 390,
+	"./mk": 391,
+	"./mk.js": 391,
+	"./ml": 392,
+	"./ml.js": 392,
+	"./mr": 393,
+	"./mr.js": 393,
+	"./ms": 394,
+	"./ms-my": 395,
+	"./ms-my.js": 395,
+	"./ms.js": 394,
+	"./mt": 396,
+	"./mt.js": 396,
+	"./my": 397,
+	"./my.js": 397,
+	"./nb": 398,
+	"./nb.js": 398,
+	"./ne": 399,
+	"./ne.js": 399,
+	"./nl": 400,
+	"./nl-be": 401,
+	"./nl-be.js": 401,
+	"./nl.js": 400,
+	"./nn": 402,
+	"./nn.js": 402,
+	"./pa-in": 403,
+	"./pa-in.js": 403,
+	"./pl": 404,
+	"./pl.js": 404,
+	"./pt": 405,
+	"./pt-br": 406,
+	"./pt-br.js": 406,
+	"./pt.js": 405,
+	"./ro": 407,
+	"./ro.js": 407,
+	"./ru": 408,
+	"./ru.js": 408,
+	"./sd": 409,
+	"./sd.js": 409,
+	"./se": 410,
+	"./se.js": 410,
+	"./si": 411,
+	"./si.js": 411,
+	"./sk": 412,
+	"./sk.js": 412,
+	"./sl": 413,
+	"./sl.js": 413,
+	"./sq": 414,
+	"./sq.js": 414,
+	"./sr": 415,
+	"./sr-cyrl": 416,
+	"./sr-cyrl.js": 416,
+	"./sr.js": 415,
+	"./ss": 417,
+	"./ss.js": 417,
+	"./sv": 418,
+	"./sv.js": 418,
+	"./sw": 419,
+	"./sw.js": 419,
+	"./ta": 420,
+	"./ta.js": 420,
+	"./te": 421,
+	"./te.js": 421,
+	"./tet": 422,
+	"./tet.js": 422,
+	"./th": 423,
+	"./th.js": 423,
+	"./tl-ph": 424,
+	"./tl-ph.js": 424,
+	"./tlh": 425,
+	"./tlh.js": 425,
+	"./tr": 426,
+	"./tr.js": 426,
+	"./tzl": 427,
+	"./tzl.js": 427,
+	"./tzm": 428,
+	"./tzm-latn": 429,
+	"./tzm-latn.js": 429,
+	"./tzm.js": 428,
+	"./uk": 430,
+	"./uk.js": 430,
+	"./ur": 431,
+	"./ur.js": 431,
+	"./uz": 432,
+	"./uz-latn": 433,
+	"./uz-latn.js": 433,
+	"./uz.js": 432,
+	"./vi": 434,
+	"./vi.js": 434,
+	"./x-pseudo": 435,
+	"./x-pseudo.js": 435,
+	"./yo": 436,
+	"./yo.js": 436,
+	"./zh-cn": 437,
+	"./zh-cn.js": 437,
+	"./zh-hk": 438,
+	"./zh-hk.js": 438,
+	"./zh-tw": 439,
+	"./zh-tw.js": 439
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -4692,11 +4492,11 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 646;
+webpackContext.id = 645;
 
 /***/ }),
 
-/***/ 647:
+/***/ 646:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4711,7 +4511,7 @@ var User = (function () {
 
 /***/ }),
 
-/***/ 652:
+/***/ 651:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4768,7 +4568,7 @@ var ListPage = (function () {
 
 /***/ }),
 
-/***/ 653:
+/***/ 652:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4812,7 +4612,7 @@ var NavbarComponent = (function () {
 
 /***/ }),
 
-/***/ 654:
+/***/ 653:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4845,7 +4645,7 @@ var optionsPage = (function () {
 
 /***/ }),
 
-/***/ 655:
+/***/ 654:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4890,14 +4690,14 @@ var PageHandlerComponent = (function () {
 
 /***/ }),
 
-/***/ 656:
+/***/ 655:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__upload_service__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__upload__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__upload_service__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__upload__ = __webpack_require__(464);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4940,14 +4740,14 @@ var UploadListComponent = (function () {
 
 /***/ }),
 
-/***/ 682:
+/***/ 681:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadFormComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__upload_service__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__upload__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__upload_service__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__upload__ = __webpack_require__(464);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5002,7 +4802,7 @@ var UploadFormComponent = (function () {
 
 /***/ }),
 
-/***/ 683:
+/***/ 682:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5036,7 +4836,7 @@ var ReversePipe = (function () {
 
 /***/ }),
 
-/***/ 684:
+/***/ 683:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5076,7 +4876,7 @@ var ModalComponent = (function () {
 
 /***/ }),
 
-/***/ 685:
+/***/ 684:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5109,7 +4909,7 @@ var NewsListService = (function () {
 
 /***/ }),
 
-/***/ 686:
+/***/ 685:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5131,14 +4931,14 @@ var Announcement = (function () {
 
 /***/ }),
 
-/***/ 687:
+/***/ 686:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProspectButtonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_component__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prospect_component__ = __webpack_require__(465);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5164,7 +4964,7 @@ var ProspectButtonComponent = (function () {
     ProspectButtonComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'prospect-button',
-            template: "\n<button type=\"button\" ion-button large block color=\"primary\" (click)=\"openModalProspects()\" outline>Administrar prospectos</button>\n  ",
+            template: "\n<button type=\"button\"  (click)=\"openModalProspects()\" class=\"button_round\">Administrar prospectos</button>\n  ",
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
     ], ProspectButtonComponent);
@@ -5175,7 +4975,7 @@ var ProspectButtonComponent = (function () {
 
 /***/ }),
 
-/***/ 689:
+/***/ 688:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5190,6 +4990,49 @@ var Prospect = (function () {
 
 /***/ }),
 
+/***/ 689:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserButton; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_modal_component__ = __webpack_require__(467);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var UserButton = (function () {
+    function UserButton(MC) {
+        this.MC = MC;
+    }
+    UserButton.prototype.ngOnInit = function () { };
+    UserButton.prototype.OMU = function () {
+        var modal = this.MC.create(__WEBPACK_IMPORTED_MODULE_2__user_modal_component__["a" /* UserModal */]);
+        modal.present();
+    };
+    UserButton = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'user-button',
+            template: "\n    <button type=\"button\" class=\"button_round\" (click)=\"OMU()\" >Administrar usuarios</button>\n    "
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
+    ], UserButton);
+    return UserButton;
+}());
+
+//# sourceMappingURL=user.button.js.map
+
+/***/ }),
+
 /***/ 69:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5200,7 +5043,7 @@ var Prospect = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_activitiesRecorder_services_activities_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_activitiesRecorder_services_activities_service__ = __webpack_require__(26);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5283,54 +5126,11 @@ var AuthService = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserButton; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_modal_component__ = __webpack_require__(468);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var UserButton = (function () {
-    function UserButton(modalCtrl) {
-        this.modalCtrl = modalCtrl;
-    }
-    UserButton.prototype.ngOnInit = function () { };
-    UserButton.prototype.openModalUser = function () {
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__user_modal_component__["a" /* UserModal */]);
-        modal.present();
-    };
-    UserButton = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'user-button',
-            template: "\n    <button type=\"button\" ion-button large block color=\"primary\" (click)=\"openModalUser()\" outline>Administrar usuarios</button>\n    "
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
-    ], UserButton);
-    return UserButton;
-}());
-
-//# sourceMappingURL=user.button.js.map
-
-/***/ }),
-
-/***/ 691:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StudentsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__qualification_component__ = __webpack_require__(470);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__classes_component__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__qualification_component__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__classes_component__ = __webpack_require__(470);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5361,7 +5161,7 @@ var StudentsComponent = (function () {
     };
     StudentsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'students-module',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/students/students.component.html"*/'\n<!--\n<ion-card>\n    <ion-card-content>\n      <img src="assets/img/img-icon.png" />\n    </ion-card-content>\n\n    <ion-item>\n      <button ion-button clear item-start>Like</button>\n      <button ion-button clear item-end>Comment</button>\n    </ion-item>\n</ion-card>\n-->\n<div *ngFor="let item of ButtonComponents">\n\n    <button (click)="SetNav(item)" type="button" ion-button block icon-left color="{{item.color}}">\n        <ion-icon name="{{item.icon}}"></ion-icon>\n    {{item.title}}\n    </button>\n    \n</div>'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/students/students.component.html"*/
+            selector: 'students-module',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/students/students.component.html"*/'\n<!--\n<ion-card>\n    <ion-card-content>\n      <img src="assets/img/img-icon.png" />\n    </ion-card-content>\n\n    <ion-item>\n      <button ion-button clear item-start>Like</button>\n      <button ion-button clear item-end>Comment</button>\n    </ion-item>\n</ion-card>\n-->\n<div *ngFor="let item of ButtonComponents">\n\n    <button (click)="SetNav(item)" type="button" class="button_round">\n        <ion-icon name="{{item.icon}}"></ion-icon>\n    {{item.title}}\n    </button>\n    \n</div>'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/students/students.component.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
@@ -5373,14 +5173,14 @@ var StudentsComponent = (function () {
 
 /***/ }),
 
-/***/ 692:
+/***/ 691:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TeachersComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__teachers_groupAdmin_component__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__teachers_groupAdmin_component__ = __webpack_require__(472);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5421,14 +5221,14 @@ var TeachersComponent = (function () {
 
 /***/ }),
 
-/***/ 693:
+/***/ 692:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StudentButtonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__studentCRM_component__ = __webpack_require__(478);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__studentCRM_component__ = __webpack_require__(477);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5453,7 +5253,7 @@ var StudentButtonComponent = (function () {
     StudentButtonComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'student-button',
-            template: "\n    <button type=\"button\" ion-button large block color=\"primary\" (click)=\"OpenStudents()\" outline>Administrar estudiantes</button>\n\n    "
+            template: "\n    <button type=\"button\" class=\"button_round\" (click)=\"OpenStudents()\" >Administrar estudiantes</button>\n\n    "
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
     ], StudentButtonComponent);
@@ -5464,7 +5264,7 @@ var StudentButtonComponent = (function () {
 
 /***/ }),
 
-/***/ 694:
+/***/ 693:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5479,14 +5279,14 @@ var Course = (function () {
 
 /***/ }),
 
-/***/ 695:
+/***/ 694:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CursosButtonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cursos_component__ = __webpack_require__(480);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cursos_component__ = __webpack_require__(479);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5512,7 +5312,7 @@ var CursosButtonComponent = (function () {
     CursosButtonComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'cursos-button',
-            template: "\n<button type=\"button\" ion-button large block color=\"primary\" (click)=\"openModalCursos()\" outline>Administrar cursos</button>\n  ",
+            template: "\n<button type=\"button\" class=\"button_round\" (click)=\"openModalCursos()\" >Administrar cursos</button>\n  ",
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
     ], CursosButtonComponent);
@@ -5520,6 +5320,44 @@ var CursosButtonComponent = (function () {
 }());
 
 //# sourceMappingURL=cursosbutton.js.map
+
+/***/ }),
+
+/***/ 697:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileTabsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__profile__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tutorRequest__ = __webpack_require__(163);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ProfileTabsComponent = (function () {
+    function ProfileTabsComponent() {
+        this.tab1 = __WEBPACK_IMPORTED_MODULE_1__profile__["a" /* ProfileComponent */];
+        this.tab2 = __WEBPACK_IMPORTED_MODULE_2__tutorRequest__["a" /* TutorRequestComponent */];
+    }
+    ProfileTabsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            template: "\n    <ion-tabs >\n      <ion-tab tabIcon=\"person\" tabTitle=\"Perfil\"  [root]=\"tab1\"></ion-tab>\n      <ion-tab  tabIcon=\"notifications-outline\"  [root]=\"tab2\"></ion-tab>\n    </ion-tabs>\n    "
+        }),
+        __metadata("design:paramtypes", [])
+    ], ProfileTabsComponent);
+    return ProfileTabsComponent;
+}());
+
+//# sourceMappingURL=profileTabs.component.js.map
 
 /***/ }),
 
@@ -5650,7 +5488,7 @@ var Tutor = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonAssitenceComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__frontview_assistence_component__ = __webpack_require__(483);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__frontview_assistence_component__ = __webpack_require__(482);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5675,7 +5513,7 @@ var ButtonAssitenceComponent = (function () {
     ButtonAssitenceComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'button-assitence',
-            template: "\n<button type=\"button\" ion-button large block color=\"primary\" (click)=\"openModalAssitences()\" outline>Administrar asistencias</button>\n  ",
+            template: "\n<button type=\"button\" class=\"button_round\" (click)=\"openModalAssitences()\" >Administrar asistencias</button>\n  ",
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavController */]])
     ], ButtonAssitenceComponent);
@@ -5692,8 +5530,8 @@ var ButtonAssitenceComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActivitiesButtonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activities_component__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activities_component__ = __webpack_require__(484);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5717,7 +5555,7 @@ var ActivitiesButtonComponent = (function () {
     ActivitiesButtonComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: "activities-button",
-            template: "\n    <button type=\"button\" ion-button outline block (click)=\"OpenNav()\" color=\"danger\"> Registro de actividad </button>\n    "
+            template: "\n    <button type=\"button\" class=\"button_round\" (click)=\"OpenNav()\" > Registro de actividad </button>\n    "
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular_navigation_nav_controller__["a" /* NavController */]])
     ], ActivitiesButtonComponent);
@@ -5738,7 +5576,7 @@ var ActivitiesButtonComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__activitiesRecorder_services_activities_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__activitiesRecorder_services_activities_service__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(13);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5979,7 +5817,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/home/home.html"*/'  <ion-content class="bgcontainer" padding>\n    <div id="container">\n    </div>\n<div  class="head">\n  <h1 >BIENVENIDOS</h1>\n</div>\n\n<div *ngFor="let item of items | async ">\n  <img   src="{{item.imageURL}}"/>\n  <ion-item class="bgcontainer">\n    <h2>\n      {{item.title}}\n    </h2>\n    <p style="text-align:justify" text-wrap>\n      {{item.textBody}}\n    </p>\n    <ion-row>\n       <ion-col>\n         <button ion-button icon-left color="dark" clear small>\n           <ion-icon name="md-calendar"></ion-icon>\n           <div>{{item.createdAt}}</div>\n         </button>\n       </ion-col>\n     </ion-row>\n    <button (click)="OpenModal(item.key)" ion-button color="green" small> Ver más</button>\n  </ion-item>\n</div>\n</ion-content>\n<ion-footer class="bgcontainer center bgverde">\n    <p class="textblack">Seguimos mejorando nuestra App.</p>\n</ion-footer>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/Lari/Projects/cfm-mobileapp/src/pages/home/home.html"*/'  <ion-content class="bgcontainer" padding>\n    <div id="container">\n    </div>\n<div  class="head">\n  <h1 >BIENVENIDOS</h1>\n</div>\n\n<div *ngFor="let item of items | async ">\n  <img   src="{{item.imageURL}}"/>\n  <ion-item class="bgcontainer">\n    <h2>\n      {{item.title}}\n    </h2>\n    <p style="text-align:justify" >\n      {{item.textBody}}\n    </p>\n    <ion-row>\n       <ion-col>\n         <button ion-button icon-left color="dark" clear small>\n           <ion-icon name="md-calendar"></ion-icon>\n           <div>{{item.createdAt}}</div>\n         </button>\n       </ion-col>\n     </ion-row>\n    <button (click)="OpenModal(item.key)" ion-button color="green" small> Ver más</button>\n  </ion-item>\n</div>\n</ion-content>\n<ion-footer class="bgcontainer center bgverde">\n    <p class="textblack">Seguimos mejorando nuestra App.</p>\n</ion-footer>\n'/*ion-inline-end:"/Users/Lari/Projects/cfm-mobileapp/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -6024,8 +5862,8 @@ var ModalContentPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PushService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_push__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_local_notifications__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_push__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_local_notifications__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6079,11 +5917,11 @@ var PushService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_components_users_user__ = __webpack_require__(647);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_components_users_user__ = __webpack_require__(646);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_auth_service__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_database__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__activitiesRecorder_services_activities_service__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__activitiesRecorder_services_activities_service__ = __webpack_require__(26);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6177,7 +6015,7 @@ var ModalRegister = (function () {
         this.formBuilder = formBuilder;
         this.action = params.get('action');
         this.registerForm = formBuilder.group({
-            name: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].pattern('[a-zA-Z]*')])],
+            name: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required])],
             lastName: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required])],
             lastName2: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required])],
             email: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required])],
@@ -6283,7 +6121,211 @@ var ModalRegister = (function () {
 
 //# sourceMappingURL=login.js.map
 
+/***/ }),
+
+/***/ 98:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StudentCRMService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__activitiesRecorder_services_activities_service__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var StudentCRMService = (function () {
+    function StudentCRMService(db, afauth, alrtCtl, actSrv) {
+        this.db = db;
+        this.afauth = afauth;
+        this.alrtCtl = alrtCtl;
+        this.actSrv = actSrv;
+    }
+    StudentCRMService.prototype.getStudents = function () {
+        return this.db.list("students", function (val) { return val.limitToFirst(50); }).valueChanges();
+    };
+    StudentCRMService.prototype.getCourses = function () {
+        return this.db.list('course').valueChanges();
+    };
+    StudentCRMService.prototype.searchByProperty = function (property, node) {
+        return this.db.list("students", function (val) { return val.orderByChild(node.trim())
+            .startAt(property.trim()); }).valueChanges();
+    };
+    StudentCRMService.prototype.searchByName = function (name) {
+        return this.db.list("students", function (val) { return val.orderByChild("name")
+            .startAt(name); }).valueChanges();
+    };
+    StudentCRMService.prototype.setImageUrl = function (imageURL, uid) {
+        this.db.object('students/' + uid.uid).update({
+            imageURL: imageURL
+        });
+        var alrt = this.alrtCtl.create({
+            title: 'Actualizaste una foto de estudiante.',
+            message: 'Recarga al estudiante para ver el cambio.',
+            buttons: ['OK']
+        });
+        alrt.present();
+        this.actSrv.recordActivity(this.afauth.auth.currentUser.uid, this.afauth.auth.currentUser.email, "editado a: " + uid + "con la imagen: " + imageURL, __WEBPACK_IMPORTED_MODULE_5_moment__().format("L"), __WEBPACK_IMPORTED_MODULE_5_moment__().format('LT'));
+    };
+    StudentCRMService.prototype.editStudent = function (uid, courses) {
+        var _this = this;
+        var confirm = this.alrtCtl.create({
+            title: 'Editar estudiante',
+            message: '¿En realidad quiere editar este estudiante?',
+            buttons: [
+                {
+                    text: 'No',
+                    handler: function () {
+                        console.log('Disagree clicked');
+                    }
+                },
+                {
+                    text: 'Si',
+                    handler: function () {
+                        _this.db.object('students/' + uid.uid).update({
+                            name: uid.name,
+                            lastName: uid.lastName,
+                            lastName2: uid.lastName2,
+                            imageURL: uid.imageURL,
+                            email: uid.email,
+                            enrollment: uid.enrollment,
+                            age: uid.age,
+                            course: uid.course,
+                            genre: uid.genre,
+                            phone: uid.phone,
+                            schedule: uid.schedule,
+                            classroom: uid.classroom,
+                            ocupation: uid.ocupation,
+                            address: uid.address,
+                            advertising: uid.advertising,
+                            medicalObservation: uid.medicalObservation,
+                            teacher: uid.teacher,
+                            type: uid.type,
+                            tutorName: uid.tutorName,
+                            tutorRelationship: uid.tutorRelationship,
+                            tutorAge: uid.tutorAge,
+                            tutorOcupation: uid.tutorOcupation,
+                            tutorPosition: uid.tutorPosition,
+                            tutorPhone: uid.tutorPhone,
+                            tutorEmail: uid.tutorEmail,
+                            tutorAddress: uid.tutorAddress,
+                            tutorRegDate: uid.tutorRegDate,
+                            tutorInitDate: uid.tutorInitDate,
+                            tutorFinalDate: uid.tutorFinalDate,
+                            cost: uid.cost,
+                            registration: uid.registration,
+                            pedagogicalSample: uid.pedagogicalSample,
+                            coments: uid.coments
+                        });
+                        for (var index = 0; index < courses.length; index++) {
+                            var element = courses[index];
+                            _this.db.list('students/' + uid.uid + '/courses/').push({
+                                name: element.name,
+                                schedule: element.schedule,
+                                teacher: element.teacher,
+                                classroom: element.classroom,
+                                id_course: element.id_course
+                            }).then(function (val) {
+                                _this.db.object('students/' + uid.uid + '/courses/' + val.key).update({
+                                    key: val.key
+                                });
+                                _this.actSrv.recordActivity(_this.afauth.auth.currentUser.uid, _this.afauth.auth.currentUser.email, "editado al estudiante: " + uid, __WEBPACK_IMPORTED_MODULE_5_moment__().format("L"), __WEBPACK_IMPORTED_MODULE_5_moment__().format('LT'));
+                            });
+                        }
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    StudentCRMService.prototype.listCourses = function () {
+        return this.db.list('course').valueChanges();
+    };
+    StudentCRMService.prototype.listStudentCourses = function (uid) {
+        return this.db.list('students/' + uid + "/courses").valueChanges();
+    };
+    StudentCRMService.prototype.eraseStudent = function (uid, key) {
+        var _this = this;
+        var confirm = this.alrtCtl.create({
+            title: 'Borrar estudiante',
+            message: '¿En realidad quiere borrar este estudiante?',
+            buttons: [
+                {
+                    text: 'No',
+                    handler: function () {
+                        console.log('Disagree clicked');
+                    }
+                },
+                {
+                    text: 'Si',
+                    handler: function () {
+                        _this.db.list("students").remove(uid);
+                        _this.db.object("users/" + uid).update({
+                            isStudent: false
+                        });
+                        _this.actSrv.recordActivity(_this.afauth.auth.currentUser.uid, _this.afauth.auth.currentUser.email, "eliminado al estudiante: " + uid, __WEBPACK_IMPORTED_MODULE_5_moment__().format("L"), __WEBPACK_IMPORTED_MODULE_5_moment__().format('LT'));
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    StudentCRMService.prototype.eraseStudentCourse = function (uid, key) {
+        var _this = this;
+        var confirm = this.alrtCtl.create({
+            title: 'Borrar curso',
+            message: '¿En realidad quiere borrar este curso?',
+            buttons: [
+                {
+                    text: 'No',
+                    handler: function () {
+                        console.log('Disagree clicked');
+                    }
+                },
+                {
+                    text: 'Si',
+                    handler: function () {
+                        _this.db.list("students/" + uid + "/courses/" + key).remove();
+                        _this.actSrv.recordActivity(_this.afauth.auth.currentUser.uid, _this.afauth.auth.currentUser.email, "eliminado el curso: " + key, __WEBPACK_IMPORTED_MODULE_5_moment__().format("L"), __WEBPACK_IMPORTED_MODULE_5_moment__().format('LT'));
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    StudentCRMService.prototype.listTeachers = function () {
+        return this.db.list('users', function (val) { return val.orderByChild('accessLevel')
+            .equalTo('teacher'); }).valueChanges();
+    };
+    StudentCRMService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */],
+            __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_4__activitiesRecorder_services_activities_service__["a" /* ActivitiesService */]])
+    ], StudentCRMService);
+    return StudentCRMService;
+}());
+
+//# sourceMappingURL=student.services.js.map
+
 /***/ })
 
-},[486]);
+},[485]);
 //# sourceMappingURL=main.js.map

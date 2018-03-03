@@ -16,6 +16,7 @@ export class dashboardPage implements OnInit {
       this.user = db.list('users', value => value.orderByChild('email').equalTo(user.email)).valueChanges();
     }
 
-
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 }
