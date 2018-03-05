@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { TeacherService } from './teachers.services';
 import { Observable } from 'rxjs/Observable';
-
+import { TeacherStudent } from './TeacherStudent';
 
 @Component({
     selector: 'GroupForm',
@@ -14,6 +14,7 @@ export class GroupFormComponent implements OnInit {
     groupForm:FormGroup; 
     students:Observable<any[]>;
     membersuid:any[] = [];
+    members:any[] = [];
 
     constructor(
         public formBuilder:FormBuilder,
@@ -41,11 +42,16 @@ export class GroupFormComponent implements OnInit {
         }
     }
 
-    getValueEachMember(uid){
+    getValueEachMember(uid,imageurl,name){
         let memberItem = (<HTMLInputElement>document.getElementById(uid));
+        let currentMember = new TeacherStudent();
+        currentMember.uid = uid;
+        currentMember.name = name;
+        currentMember.imageURL = imageurl;
 
         if(memberItem.checked){
             this.membersuid.push(uid)
+            this.members.push(currentMember);
         }else{
             this.deleteMembers(uid);
         }
@@ -60,6 +66,9 @@ export class GroupFormComponent implements OnInit {
         for (let index = 0; index < this.membersuid.length; index++) {
                 if (this.membersuid[index] == id ) {
                     this.membersuid.splice(index,1);
+                }
+                if (this.members[index].uid == id) {
+                    this.members.splice(index,1);
                 }
         }
     }
