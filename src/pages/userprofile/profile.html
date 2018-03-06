@@ -114,7 +114,18 @@
 
           </ng-template>
 <!-- -->
-<!-- -->
+<ion-item>
+  <ion-label>Fecha de nacimiento</ion-label>
+  <ion-icon name='calendar' item-start></ion-icon>
+  <ion-datetime displayFormat="YY MM DD" (ionChange)="editBirthDate()"  pickerFormat="YYYY MMMM DD" [(ngModel)]="myDate"></ion-datetime>
+</ion-item>
+<ion-item>
+  <ion-label>Edad</ion-label>
+  <ion-icon name='calendar' item-start></ion-icon>
+  <p item-end>{{item.ageText}}</p>
+</ion-item>
+<!--
+
           <ion-item>
             <ion-label>
               Edad
@@ -137,7 +148,7 @@
             </ion-item>
 
           </ng-template>
-<!-- -->
+-->
 <!-- -->
           <ion-item>
             <ion-label>
