@@ -29,17 +29,14 @@ app-profile{
   z-index: 1;
   width: 80%;
   height: 50%;
-  border-radius: 47%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 45%;
+  background-color: rgba(0,0,0, .05);
+ // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .custom-img{
-  height: 35vw;
-  width: 45vw;
-  border: 1px solid #fff;
-  border-radius: 60%;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
+  height: 35vmin;
+  width: 100%;
+  border-radius: 40%;
 }
 .notif{
   position: relative;

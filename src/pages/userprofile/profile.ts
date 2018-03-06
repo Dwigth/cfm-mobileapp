@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { NavController } from 'ionic-angular';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-profile',
   templateUrl: 'profile.html',
@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   users: Observable<any[]>;
   student: Observable<any[]>;
   tab1: any;
-
+  myDate;
   constructor(
     public autServ:AuthService,
     public db: AngularFireDatabase,
@@ -34,6 +34,8 @@ export class ProfileComponent implements OnInit {
 
     this.users = db.list('users', value => value.orderByChild('email').equalTo(user.email)).valueChanges();
     this.student = db.list('students/' + user.uid + '/courses/').valueChanges();
+    console.log(this.myDate);
+    
   }
 
   showAlert(message,title){
@@ -111,5 +113,15 @@ export class ProfileComponent implements OnInit {
   }
   ngOnInit() {
     //console.log( this.afAuth.auth.currentUser.email);
+  }
+  editBirthDate(){
+    console.log(this.myDate);
+    console.log(this.myDate.dayValues)
+    let ageText = moment(this.myDate).fromNow(true);
+    let age = Number(ageText.substr(0,2));
+    console.log(ageText);
+    console.log(age);
+    this.db.object('users/'+ this.afAuth.auth.currentUser.uid).update({age:age,ageText:ageText});
+    this.showAlert("Gracias","Se ha actualizado tu edad");
   }
 }
