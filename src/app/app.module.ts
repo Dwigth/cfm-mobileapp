@@ -92,6 +92,12 @@ import { ListAssitanceComponent } from '../pages/CRM/asistencia/components/listC
 import { ActivitiesComponent } from "../pages/activitiesRecorder/components/activities.component";
 import { ActivitiesButtonComponent } from "../pages/activitiesRecorder/components/activities.button";
 import { ActivitiesService } from "../pages/activitiesRecorder/services/activities.service";
+import { RecoveriesComponent } from "../pages/recoveries/recoveries";
+import { NotregisterComponent } from '../pages/recoveries/not-register.component';
+import { IncompletedataComponent } from '../pages/recoveries/incomplete-data.component';
+import { MainrecoveriesComponent } from '../pages/recoveries/main-recoveries.component';
+
+
 
 export const firebaseConfig = {
  apiKey: "AIzaSyDObZjIkysrMu1aT2AMFfaYaQD8E1hn12k",
@@ -167,6 +173,10 @@ export const firebaseConfig = {
     ListAssitanceComponent,
     ActivitiesComponent,
     ActivitiesButtonComponent,
+    RecoveriesComponent,
+    NotregisterComponent,
+    IncompletedataComponent,
+    MainrecoveriesComponent
   ],
   imports: [
     BrowserModule,
@@ -179,7 +189,7 @@ export const firebaseConfig = {
     FormsModule
   ],
   bootstrap: [IonicApp],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [
     MyApp,
     HomePage,
@@ -242,6 +252,10 @@ export const firebaseConfig = {
     ListAssitanceComponent,
     ActivitiesComponent,
     ActivitiesButtonComponent,
+    RecoveriesComponent,
+    NotregisterComponent,
+    IncompletedataComponent,
+    MainrecoveriesComponent
   ],
   providers: [
     StatusBar,
@@ -268,7 +282,7 @@ export const firebaseConfig = {
     InvitationService,
     AssitanceService,
     ActivitiesService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule {}

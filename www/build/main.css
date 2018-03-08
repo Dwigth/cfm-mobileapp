@@ -36465,7 +36465,8 @@ ion-navbar.toolbar {
   border: none;
 }
 
-.dark .item.current p, .dark .item.current h3 {
+.dark .item.current p,
+.dark .item.current h3 {
   opacity: .7;
   border: none;
 }
@@ -36483,7 +36484,9 @@ ion-navbar.toolbar {
 }
 
 /* CORRECCIONES EN IOS*/
-.toolbar-ios-dark .toolbar-title-ios, .toolbar-ios-dark .bar-button-clear-ios, .toolbar-ios-dark .bar-button-default-ios {
+.toolbar-ios-dark .toolbar-title-ios,
+.toolbar-ios-dark .bar-button-clear-ios,
+.toolbar-ios-dark .bar-button-default-ios {
   margin-top: 5%;
 }
 
@@ -36512,6 +36515,10 @@ ion-navbar.toolbar {
 
 /*FIN DE CAMBIOS EN ANDROID*/
 /*CAMBIOS GENERALES*/
+.scroll-content {
+  margin-top: 10%;
+}
+
 .bgcontainer {
   background-color: #f1f1f1;
 }
@@ -36539,10 +36546,6 @@ ion-navbar.toolbar {
   width: 50%;
   margin: auto;
   display: block;
-}
-
-#paddinBottom {
-  margin-top: 10%;
 }
 
 #paddinBottom2 {
@@ -36950,7 +36953,7 @@ input[type="submit"]:hover {
 }
 
 #container {
-  margin-top: 25%;
+  margin-top: 5%;
 }
 
 #cardcontent {

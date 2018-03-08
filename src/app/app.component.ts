@@ -26,6 +26,7 @@ import * as firebase from 'firebase/app';
 import { AuthService } from "../app/auth.service";
 import { ActivitiesService } from '../pages/activitiesRecorder/services/activities.service';
 import * as moment from 'moment';
+import { RecoveriesComponent } from '../pages/recoveries/recoveries';
 @Component({
   templateUrl: 'app.html'
 })
@@ -83,8 +84,8 @@ export class MyApp {
         { title: 'Avisos', component: AnnouncementComponent, icon: 'bulb' },
         { title: 'Quienes somos', component: AboutUsComponent, icon: 'contacts' },
         { title: 'Cursos', component: CoursesComponent, icon: 'md-albums' },
+        { title: 'Recuperaciones', component: RecoveriesComponent, icon: 'md-albums' },
         { title: 'Directorio', component: DirectoryComponent, icon: 'bookmarks' },
-        { title: 'Invitación', component: InvitationComponent, icon: 'mail' },
         { title: 'Acceder/Salir', component: LoginComponent, icon: 'log-in' }
       ];
 

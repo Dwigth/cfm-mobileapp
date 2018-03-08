@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -16,135 +14,160 @@
 // automatically applied to the <body> element in the app.
 $dark: black;
 .dark {
-  background-color:$dark !important;
-  color: #ffffff;
-  border: none;
-  .item {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: $dark !important;
+    color: #ffffff;
     border: none;
-    border-top: 1px solid;
-    border-bottom: 2px solid;
-    border-color:  darken( $dark, 10% );
-    //padding: 10px;
-    color: #F0F1F1;
-    max-height: none;
-
-    &:last-child {
-      border-bottom: 1px solid #333333;
-    }
-    &.current{ 
-      background-color:darken( $dark, 10% )   !important;
-       border-top: 1px solid #464646 !important;
-       border-bottom: 2px solid #333333 !important;
-       border: none;
-      p,h3{opacity: .7;
+    .item {
+        background-color: rgba(0, 0, 0, 0);
         border: none;
-      }
+        border-top: 1px solid;
+        border-bottom: 2px solid;
+        border-color: darken( $dark, 10%);
+        color: #F0F1F1;
+        max-height: none;
+        &:last-child {
+            border-bottom: 1px solid #333333;
+        }
+        &.current {
+            background-color: darken( $dark, 10%) !important;
+            border-top: 1px solid #464646 !important;
+            border-bottom: 2px solid #333333 !important;
+            border: none;
+            p,
+            h3 {
+                opacity: .7;
+                border: none;
             }
-  }
-  h2,
-  h3,
-  p,
-  a{
-    color: #F0F1F1;
-  }
+        }
+    }
+    h2,
+    h3,
+    p,
+    a {
+        color: #F0F1F1;
+    }
 }
+
 .dark-head {
-  text-decoration: none;
-  border: none;
+    text-decoration: none;
+    border: none;
 }
+
 
 /* CORRECCIONES EN IOS*/
-.toolbar-ios-dark .toolbar-title-ios, .toolbar-ios-dark .bar-button-clear-ios, .toolbar-ios-dark .bar-button-default-ios {
+
+.toolbar-ios-dark .toolbar-title-ios,
+.toolbar-ios-dark .bar-button-clear-ios,
+.toolbar-ios-dark .bar-button-default-ios {
     margin-top: 5%;
 }
+
 .toolbar-ios-dark .toolbar-background-ios {
     background: black;
 }
-.toolbar-ios {
-}
+
+.toolbar-ios {}
+
+
 /* FIN CORRECCIONES EN IOS*/
 
+
 /*CORRECCIONES EN ANDROID*/
+
 .toolbar-md {
     padding: 0px;
     min-height: 0px;
 }
+
 ion-navbar.toolbar {
     padding: 7px;
 }
+
 .toolbar-md-dark .toolbar-background-md {
     background: black;
 }
+
 .content-md {
     margin-top: 2%;
 }
+
+
 /*FIN DE CAMBIOS EN ANDROID*/
 
+
 /*CAMBIOS GENERALES*/
-.bgcontainer{
-  background-color: #f1f1f1;
+
+.scroll-content {
+    margin-top: 10%;
 }
+
+.bgcontainer {
+    background-color: #f1f1f1;
+}
+
 .button-ios-green {
     background-color: #95c11e;
 }
+
 .button-md-green {
     background-color: #95c11e;
 }
-.bgverde{
+
+.bgverde {
     background-color: #95c11e;
     height: 5%;
 }
-.textblack{
-  color: black;
-  margin-top: 1.8%;
+
+.textblack {
+    color: black;
+    margin-top: 1.8%;
 }
+
+
 /* FIN CAMBIOS GENERALES*/
 
-.navimg{
-  width: 50%;
-  margin: auto;
-  display: block;
+.navimg {
+    width: 50%;
+    margin: auto;
+    display: block;
 }
 
-#paddinBottom{
-  margin-top: 10%;
+#paddinBottom2 {
+    margin-top: 5%;
 }
 
-#paddinBottom2{
-  margin-top: 5%;
+.margintop {
+    margin-top: 18%;
 }
 
-.margintop{
-  margin-top: 18%;
+.spacebottom {
+    margin-bottom: 50px;
 }
 
-.spacebottom{
-  margin-bottom: 50px;
+.spacebottom2 {
+    margin-bottom: 120px;
 }
 
-.spacebottom2{
-  margin-bottom: 120px;
+a:link {
+    text-decoration: none;
 }
 
-a:link{
-  text-decoration:none;
-}
-#directorio{
-  margin-top: 8%;
+#directorio {
+    margin-top: 8%;
 }
 
-.center{
-  text-align: center;
-  display: block;
+.center {
+    text-align: center;
+    display: block;
 }
 
-.justify{
-  text-align: justify;
+.justify {
+    text-align: justify;
 }
+
 .custom-avatar {
-  width: 95%;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
+    width: 95%;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
